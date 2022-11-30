@@ -12,6 +12,7 @@ body {
     width: fit-content;
     background-color: white;
     border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2); 
 }
 
 /* Modification globale de la police */

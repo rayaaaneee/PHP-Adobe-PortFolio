@@ -1,0 +1,85 @@
+@media screen and (max-aspect-ratio : 3/2) and (max-width : 1024px) {
+    /* On flex le tout pour mettre ca en colonne */
+    #container{
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        align-items: center;
+        justify-content: center;
+        margin-top : 6vh;
+
+    }
+    
+    /* Changer disposition des boutons */
+    #buttons{
+        display: flex;
+        flex-direction: row;
+        column-gap: 10vw;
+        row-gap: 40px;
+        z-index: 5;
+        right: auto;
+        margin-left: 25px;
+    }
+
+    #cross{
+        margin-top: 0;
+    }
+
+    /* On redimensionne l'image du cv */
+    #imgcv img{
+        width:95vw;
+    }
+
+    /* On active le background color pour qu'on puisse voir les boutons correctement */
+    #download, #print{
+        background-color: rgba(221, 141, 141, 0.8);
+    }
+    
+    #infos{
+        background-color: rgba(240, 193, 193, 0.8);
+    }
+    /* Hover de la croix */
+    #cross{
+        background-color: rgba(209, 95, 95, 0.8);
+    }
+
+    #download:hover, #print:hover{
+        background-color: rgba(221, 141, 141);
+    }
+    
+    #infos:hover{
+        background-color: rgba(240, 193, 193);
+    }
+    /* Hover de la croix */
+    #cross:hover{
+        background-color: rgba(209, 95, 95);
+    }
+    
+    @media screen and (max-height : 1100px ){
+        /* On positionne les boutons correctement et on les redimensionne */
+        #buttons{
+            column-gap: 4vw;
+            margin-left: 40px;
+        }
+
+        #buttons>*, #download{
+            width: 50px;
+            height: 50px;
+        }
+
+        #imgbutton{
+            max-width: 25px;
+            max-height: 25px;
+        }
+
+        #cross p {
+            font-size: clamp(2rem, 2vw, 2rem);
+        }
+
+        /* On change la taille du texte */
+        #framecv-text p{
+            font-size: clamp(0.8rem, 2vw, 2rem);
+            padding-bottom: 40px;
+        }
+    }
+}

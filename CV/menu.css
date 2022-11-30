@@ -1,0 +1,60 @@
+/* On positionne les items de navigation sur le bord droit du site web, verticalement (grace au flex direction) */
+.menu{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 5.5%;
+    height: 100%;
+    align-items: flex-end;
+    z-index: 2;
+} 
+
+/* Le bas de chaque case survolée s'agrandit de 10px mais pas le reste */
+.menu li:hover{
+    border-left: 10px solid  #512E5F ;
+}
+
+.sites:hover{
+    color: #512E5F ;
+}
+
+/* Base du menu */
+.menu {
+    list-style-type : none;
+    display: flex;
+    margin-top : 0;
+    font-weight : bold;    
+    background-color: white;
+}
+
+/* On positionne les items de navigation sur le bord droit du site web, verticalement (grace au flex direction) */
+.menu{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 8%;
+    height: 100%;
+    left : 0;
+    top : 0;
+    align-items: flex-end;
+    z-index: 2;
+}
+
+/*Mise au propre*/
+.menu li{
+    width: 128%;
+    height: 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Inserer le logo à gauche du menu */
+.logo{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    bottom :30px;
+    left: 35px;
+}
+

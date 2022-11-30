@@ -1,0 +1,77 @@
+@media screen and (max-aspect-ratio : 3/2) and (max-width : 1024px) {
+    /* Disparition du gros texte du footer */
+    #footer1 p:first-child {
+        display: none;
+    }
+
+    /* Régler les iframes */
+    #frames iframe{
+        width: 80%;
+        height: 175;
+    }
+
+    #frames{
+        column-gap:0;
+    }
+
+    @media screen and (max-width : 700px) {
+        /* Changement padding avec le haut de page du titre */
+        .t1{
+            margin-top: 70px;
+        }
+        #content{
+            display:flex;
+            flex-direction: column;
+            row-gap: 20px;
+            height: fit-content;
+        }
+        .text{
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        #photopres{
+            max-width: 130px;
+            min-width: 110px;
+            margin-top : 0;
+            margin-bottom : 20px;
+            border: 5px solid rgb(231, 206, 178);
+        }
+
+        .text p {
+            font-size: clamp(15px, 2vw, 20px);
+        }
+
+        .title p{
+            font-size: clamp(30px, 2vw, 40px);
+        }
+
+        #frames{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #frames iframe{
+            width: 80%;
+            height: 175;
+        }
+
+        /* On redimensionne les elements du footer */ 
+        #footer1{ 
+            display: flex; 
+            flex-direction: column;   
+            justify-content: center;
+        } 
+        #footer1 p{ 
+            font-size: clamp(0.5rem, 2vw, 1rem); 
+            align-items :flex-start;  
+        } 
+    
+        .footerimgs{ 
+            justify-content: end;
+            width: 20px; 
+        } 
+    }
+}

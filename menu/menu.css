@@ -1,0 +1,68 @@
+/* Base du menu */
+.menu {
+    list-style-type : none;
+    display: flex;
+    margin-top : 0;
+    font-weight : bold;    
+    background-color: white;
+    justify-content : flex-end;
+    height: 67px;
+    align-items: center;
+    border-bottom: 6px solid rgb(0, 0, 0);
+}
+
+/* Disposition et personnification des items */
+.sites {
+    display : block;
+    min-width: 100px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    padding : 5px;
+}
+
+/* Ecart entre les endroits */
+.menu li {
+    display : inline;
+    padding-inline: 20px;
+}
+
+/* Le bas de chaque case survolée s'agrandit de 10px mais pas le reste */
+.menu li:hover{
+    translate: 0px 4px;
+    border-bottom: 7px solid rgb(239, 222, 144);
+}
+
+/* Colorier en jaune aussi le texte du menu */
+.sites:hover{
+    color:rgb(239, 222, 144);
+}
+
+/* Mise en place du menu sticky */
+header{
+    position : fixed;
+    top : 0;
+    width : 100vw;
+    z-index: 2;
+}
+
+/*  Ecart du debut de page avec le menu */
+body {
+    overflow-x : hidden;
+}
+
+/* Mettre droit l'image du menu */
+.logo {
+    position: absolute;
+    max-width: 60px;
+    top: 3%;
+    left: 1%;
+}
+
+.t1{
+    margin-top: 100px;
+}
+
+.mediamenu{
+    display: none;
+}

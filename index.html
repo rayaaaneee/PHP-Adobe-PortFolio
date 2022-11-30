@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="index/media/mediaframecv.css"> 
     <link rel="stylesheet" href="index/media/mediapage.css"> 
     <!-- SCRIPTS JS --> 
-    <script type="text/javascript" src="index/script.js"></script> 
-    <script type="text/javascript" src="menu.js"></script> 
-    <script type="text/javascript" src="removeLoader.js"></script> 
+    <script type="text/javascript" src="index/script.js" defer></script> 
+    <script type="text/javascript" src="menu.js" defer></script> 
+    <script type="text/javascript" src="removeLoader.js" defer></script> 
     <!-- FAVICON & FONTS --> 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
     <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
@@ -56,7 +56,7 @@
         <div class="title t1" id="firstmid"> 
             <p>Mes projets</p> 
         </div> 
-        <div id="horizontal-bar1"></div> 
+        <div class="horizontal-bars" id="horizontal-bar1"></div> 
         <article class="projects"> 
             <a href="index/projects/Data-Analysis.pbix" download class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                 <div class="content" onmouseover="growImg(1);" onmouseleave="shrinkImg(1);"> 
@@ -131,7 +131,7 @@
     </article> 
     <article id="cv"> 
         <div class="title t2" id="secondmid"><p>Mon CV</p></div> 
-        <div id="horizontal-bar2" ></div> 
+        <div class="horizontal-bars" id="horizontal-bar2" ></div> 
         <div id="container-cv" onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);"> 
             <div id="cv-img" onclick="openPage();"> 
                 <img src="index/files/CV_Rayane_Merlin.png" alt="cv" data-lightbox="CV_Rayane_Merlin.pdf" data-title="Voici mon C.V actuel, celui-ci est amené à être modifié mais restera à jour sur le site."> 

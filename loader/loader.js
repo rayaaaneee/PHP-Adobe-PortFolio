@@ -43,7 +43,6 @@ setInterval(loadPage, 130);
 
 function loadPage(){
     if(i < texts.length){
-        console.log(texts[i]);
         loadertext.innerHTML = texts[i];
         i++;
     }
@@ -115,7 +114,6 @@ function changeCursor(){
     interval = setInterval(function(){
         i++;
         index = i%6;
-        console.log(index);
         animateCursor(index);
         if(i!=0)
             if(index-1==-1)

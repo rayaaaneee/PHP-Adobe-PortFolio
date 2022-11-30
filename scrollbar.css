@@ -22,10 +22,8 @@ body::-webkit-scrollbar-thumb:hover {
 body {
     scrollbar-color: rgb(219, 151, 151) rgb(230, 230, 230);
     scrollbar-width: 10px;
-}
-
-body{
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 

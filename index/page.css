@@ -19,8 +19,7 @@
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
-    cursor: pointer; 
-/*     border: 1.5px black solid; */ 
+    cursor: pointer;
 } 
  
 /* Insertion de l'image lien ou téléchargement a coté du titre du projet */ 
@@ -65,25 +64,18 @@
 } 
  
 /* Barre verticale blanche */ 
-#horizontal-bar1{ 
+.horizontal-bars{ 
     width: 30%; 
     height: 10px; 
     background-color: #fff; 
     border-radius: 10px; 
     border: 2px solid rgb(0, 0, 0); 
-    transition: all 0.2s ease; 
+    transition: all 0.3s ease; 
 } 
- 
-/* Barre verticale blanche 2 */ 
-#horizontal-bar2{ 
-    width: 30%; 
-    height: 10px; 
-    background-color: #fff; 
-    border-radius: 10px; 
-    border: 2px solid rgb(0, 0, 0); 
-    transition: all 0.2s ease; 
+
+#horizontal-bar2 {
     margin-bottom: 50px; 
-} 
+}
  
 /* Personnalisation du titre de page*/ 
 .title{ 

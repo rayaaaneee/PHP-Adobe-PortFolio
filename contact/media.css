@@ -44,7 +44,7 @@
         }
 
         .form-style .long, input{
-            width: 70vw;
+            width: 100%;
         }
 
         .form-style{
@@ -61,7 +61,6 @@
         }
 
         .formulaire{
-            width: 95vw;
             padding: 0;
         }
         /* */

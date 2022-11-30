@@ -2,16 +2,14 @@
 const colorBar = (index) =>{
     //Agrandir la barre
     const barre = document.querySelector("#horizontal-bar"+index);
-    barre.style.transition = "all 0.3s";
-    barre.style.border = "2px solid rgb(239, 222, 144)"; 
+    barre.style.border = "2px solid rgba(212, 153, 101, 0.8)"; 
 }
 
 // Fonction inverse qui décolore la barre quand la souris quitte le container
 const uncolorBar = (index) => {
     //Réduire la barre
     const barre = document.querySelector("#horizontal-bar"+index);
-    barre.style.transition = "all 0.3s";
-    barre.style.border="2px solid rgb(0,0,0)";
+    barre.removeAttribute("style");
 }
 
 // Fonction qui prend en paramètre le numéro du projet et qui agrandit l'image reliée à celle ci

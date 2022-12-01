@@ -2,7 +2,7 @@
 const colorBar = (index) =>{
     //Agrandir la barre
     const barre = document.querySelector("#horizontal-bar"+index);
-    barre.style.border = "2px solid rgba(212, 153, 101, 0.8)"; 
+    barre.style.boxShadow = "0 0 15px rgba(212, 153, 101, 0.5)"; 
 }
 
 // Fonction inverse qui décolore la barre quand la souris quitte le container
@@ -15,17 +15,15 @@ const uncolorBar = (index) => {
 // Fonction qui prend en paramètre le numéro du projet et qui agrandit l'image reliée à celle ci
 const growImg = (index) => {
     //Agrandir l'image
-    const img = document.querySelector(".img"+index);
+    const img = document.querySelector("#img"+index);
     img.style.scale = "1.2";
-    img.style.transition = "all 0.2s";
 }
 
 // Fonction inverse qui réduit l'image quand la souris quitte le container
 const shrinkImg = (index) => {
     //Réduire l'image
-    const img = document.querySelector(".img"+index);
-    img.style.scale = "1";
-    img.style.transition = "all 0.2s";
+    const img = document.querySelector("#img"+index);
+    img.removeAttribute("style");
 }
 
 // Fonction qui affiche le cv en plein écran quand on clique sur l'img du cv

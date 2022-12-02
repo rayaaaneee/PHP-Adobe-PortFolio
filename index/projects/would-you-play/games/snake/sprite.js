@@ -10,12 +10,11 @@ class sprite{
         this.pacmanSprite = this.#initAndPush(this.pacmanSprite);
         this.redPacmanSprite = this.#initAndPush(this.redPacmanSprite);
         this.classicSprite = this.#initAndPush(this.classicSprite);
+        this.purpleClassicSprite = this.#initAndPush(this.purpleClassicSprite);
         this.googleSprite = this.#initAndPush(this.googleSprite);
         this.purpleGoogleSprite = this.#initAndPush(this.purpleGoogleSprite); 
         this.chromeSprite = this.#initAndPush(this.chromeSprite);
-        this.cartoonSprite = this.#initAndPush(this.cartoonSprite);
-
-        console.log(this.cartoonSprite);
+        this.purpleChromeSprite = this.#initAndPush(this.purpleChromeSprite);
         
         // On initialise les URLs, les types et on affecte toutes les images à chaque objet
         this.#initTypes();
@@ -60,10 +59,11 @@ class sprite{
         this.pacmanSprite.url = "pacman";
         this.redPacmanSprite.url = "red_pacman";
         this.classicSprite.url = "classic";
+        this.purpleClassicSprite.url = "purple_classic";
         this.googleSprite.url = "google";
         this.purpleGoogleSprite.url = "purple_google";
         this.chromeSprite.url = "chrome";
-        this.cartoonSprite.url = "cartoon";
+        this.purpleChromeSprite.url = "purple_chrome";
     }
 
     #initTypes () {
@@ -72,20 +72,23 @@ class sprite{
         this.pacmanSprite.corners = false;
         this.redPacmanSprite.corners = false;
         this.classicSprite.corners = true;
+        this.purpleClassicSprite.corners = true;
         this.googleSprite.corners = true;
         this.purpleGoogleSprite.corners = true;
+        this.purpleGoogleSprite.corners = true;
         this.chromeSprite.corners = true;
-        this.cartoonSprite.corners = true;
+        this.purpleChromeSprite.corners = true;
 
         // true : with rotation of tail // false : without rotation of tail
         this.pixelSprite.rotations = false;
         this.pacmanSprite.rotations = false;
         this.redPacmanSprite.rotations = false;
         this.classicSprite.rotations = true;
+        this.purpleClassicSprite.rotations = true;
         this.googleSprite.rotations = true;
         this.purpleGoogleSprite.rotations = true;
         this.chromeSprite.rotations = true;
-        this.cartoonSprite.rotations = true;
+        this.purpleChromeSprite.rotations = true;
     }
 
     #initAndPush (sprite) {

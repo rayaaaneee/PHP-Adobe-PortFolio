@@ -173,8 +173,12 @@ const loadingSnake = () => {
         themeSprite = allSprites.googleSprite;
     }  else if (theme == "chrome"){
         themeSprite = allSprites.chromeSprite;
-    } else if (theme == "purpleGoogle"){
+    } else if (theme == "purplegoogle"){
         themeSprite = allSprites.purpleGoogleSprite;
+    } else if (theme == "purplechrome"){
+        themeSprite = allSprites.purpleChromeSprite;
+    } else if (theme == "purpleclassic"){
+        themeSprite = allSprites.purpleClassicSprite;
     }
 
     // On récupère les valeurs des différents choix

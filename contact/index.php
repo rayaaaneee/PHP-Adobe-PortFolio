@@ -41,25 +41,26 @@
    <link sizes="180x180" href="../logos/favicon1.png" rel="icon" type="image/png">
    <title>Portfolio</title>
    <!-- FICHIERS PHP -->
-   <?php require_once 'connect.php'; ?>
+   <? require_once("../controllers/connect.php"); ?>
+   <? require_once("../models/contact.php"); ?>
 </head>
 <body> 
    <header>
       <div id="startbackground"></div>
       <div id="menu-container">
          <ul class="menu">
-            <a href="../index.html"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
-             <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href="../index.html"><p id="text1">ACCUEIL</p></a></li>
-             <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="../CV/index.html"><p id="text2">C.V</p></a></li>
-             <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="../perso/index.html"><p id="text3">PERSO</p></a></li>
+            <a href="../"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
+             <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href="../"><p id="text1">ACCUEIL</p></a></li>
+             <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="../CV/"><p id="text2">C.V</p></a></li>
+             <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="../perso/"><p id="text3">PERSO</p></a></li>
              <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href=""><p id="text4">CONTACT</p></a></li>
          </ul>
          <ul class="mediamenu">
-            <a href="../index.html"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
-            <a class="mediasites" id="receptionsite" href="../index.html"><img src="../logos/reception_logo.png"></a>
-            <a class="mediasites" id="cvsite" href="../CV/index.html"><img src="../logos/cv_logo.png"></a>
-            <a class="mediasites" id="personalsite" href="../perso/index.html"><img src="../logos/personnal_logo.png"></a>
-            <a class="mediasites" id="contactsite" href="../contact/index.php"><img src="../logos/contact_logo.png"></a>
+            <a href="../"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
+            <a class="mediasites" id="receptionsite" href="../"><img src="../logos/reception_logo.png"></a>
+            <a class="mediasites" id="cvsite" href="../CV/"><img src="../logos/cv_logo.png"></a>
+            <a class="mediasites" id="personalsite" href="../perso/"><img src="../logos/personnal_logo.png"></a>
+            <a class="mediasites" id="contactsite" href=""><img src="../logos/contact_logo.png"></a>
         </ul>
      </div>
    </header>
@@ -144,12 +145,7 @@
 
                   // BD
                   $db = getConnection();
-                  $sql = "INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)";
-                  $stmt = $db->prepare($sql);
-                  $stmt->bindParam(':name', $name);
-                  $stmt->bindParam(':email', $email);
-                  $stmt->bindParam(':message', $message);
-
+                  $stmt = getStatementContact($db, $name, $email, $message);
                   // Insertion
                   try{
                      $stmt->execute();

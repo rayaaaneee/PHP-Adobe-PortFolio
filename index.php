@@ -26,23 +26,26 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
     <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
     <title>Portfolio</title> 
+    <!-- FICHIERS PHP -->
+    <? require_once("controllers/connect.php"); ?>
+    <? require_once("models/projects.php"); ?>
 </head> 
 <header> 
     <div id="startbackground"></div> 
     <div id="menu-container"> 
         <ul class="menu"> 
-            <a href="index.html"><img src="logos/portfolio_logo.png" alt="logo" class="logo"></a> 
-            <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href="index.html"><p id="text1">ACCUEIL</p></a></li> 
-            <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="CV/index.html"><p id="text2">C.V</p></a></li> 
-            <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="perso/index.html"><p id="text3">PERSO</p></a></li> 
-            <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/index.php"><p id="text4">CONTACT</p></a></li> 
+            <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
+            <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href=""><p id="text1">ACCUEIL</p></a></li> 
+            <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="CV/"><p id="text2">C.V</p></a></li> 
+            <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="perso/"><p id="text3">PERSO</p></a></li> 
+            <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/"><p id="text4">CONTACT</p></a></li> 
         </ul> 
         <ul class="mediamenu"> 
-            <a href="index.html"><img src="logos/portfolio_logo.png" alt="logo" class="logo"></a> 
-            <a class="mediasites" id="receptionsite" href="index.html"><img src="logos/reception_logo.png"></a> 
-            <a class="mediasites" id="cvsite" href="CV/index.html"><img src="logos/cv_logo.png"></a> 
-            <a class="mediasites" id="personalsite" href="perso/index.html"><img src="logos/personnal_logo.png"></a> 
-            <a class="mediasites" id="contactsite" href="contact/index.php"><img src="logos/contact_logo.png"></a> 
+            <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
+            <a class="mediasites" id="receptionsite" href=""><img src="logos/reception_logo.png"></a> 
+            <a class="mediasites" id="cvsite" href="CV/"><img src="logos/cv_logo.png"></a> 
+            <a class="mediasites" id="personalsite" href="perso/"><img src="logos/personnal_logo.png"></a> 
+            <a class="mediasites" id="contactsite" href="contact/"><img src="logos/contact_logo.png"></a> 
         </ul> 
     </div> 
 </header> 
@@ -57,72 +60,30 @@
         </div> 
         <div class="horizontal-bars" id="horizontal-bar1"></div> 
         <article class="projects"> 
-            <a href="index/projects/Data-Analysis.pbix" download class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" onmouseover="growImg(1);" onmouseleave="shrinkImg(1);"> 
-                    <div class="to_download"> 
-                        <p>POWERBI</p> 
-                        <img src="index/icones/download.png" alt="download"> 
-                    </div> 
-                    <img src="index/project-logos/data-analysis.png" id="img1" class="workslogos"> 
-                </div> 
-            </a> 
-            <a href="index/projects/Graph-View.rar" download class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" onmouseover="growImg(2);" onmouseleave="shrinkImg(2);"> 
-                    <div class="to_download"> 
-                        <p>JAVA</p> 
-                        <img src="index/icones/download.png" alt="download"> 
-                    </div> 
-                    <img src="index/project-logos/graph.png" id="img2" class="workslogos"> 
-                </div> 
-            </a> 
-            <a href="" download class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" onmouseover="growImg(3);" onmouseleave="shrinkImg(3);"> 
-                    <div class="to_link"> 
-                        <p>WEB</p> 
-                        <img src="index/icones/link.png" alt="download"> 
-                    </div> 
-                    <img src="index/project-logos/billeterie.png" id="img3" class="workslogos"> 
-                </div> 
-            </a> 
-            <a href="" download class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" onmouseover="growImg(4);" onmouseleave="shrinkImg(4);"> 
-                    <div class="to_download"> 
-                        <p>C</p> 
-                        <img src="index/icones/download.png" alt="download"> 
-                    </div> 
-                    <img src="index/project-logos/annuaire.png" id="img4" class="workslogos"> 
-                </div> 
-            </a> 
-            <a href="index/projects/Création-BD.docx" download class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" onmouseover="growImg(5);" onmouseleave="shrinkImg(5);"> 
-                    <div class="to_download"> 
-                        <p>BD</p> 
-                        <img src="index/icones/download.png" alt="download"> 
-                    </div> 
-                    <img src="index/project-logos/BD.png" id="img5" class="workslogos"> 
-                </div> 
-            </a> 
-            <a href="index/projects/Projet-Poster.pdf" target="_blank"class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" onmouseover="growImg(6);" onmouseleave="shrinkImg(6);"> 
-                    <div class="to_link"> 
-                        <p>PHOTOSHOP</p> 
-                        <img src="index/icones/link.png" alt="download"> 
-                    </div> 
-                    <img src="index/project-logos/poster.png" id="img6" class="workslogos"> 
-                </div> 
-            </a> 
-            <a href="index/projects/would-you-play/" target="_blank"class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" onmouseover="growImg(7);" onmouseleave="shrinkImg(7);"> 
-                    <div class="to_link"> 
-                        <p>JAVASCRIPT</p> 
-                        <img src="index/icones/link.png" alt="download"> 
-                    </div> 
-                    <img src="index/project-logos/snake.png" id="img7" class="workslogos"> 
-                </div> 
-            </a> 
+            <?php 
+                const PATH_FILES = "index/projects/";
+                const PATH_IMAGES = "index/projectsimages/";
+                $db = getConnection();
+                $projects = getProjects($db);
+                $i=1;
+                foreach ($projects as $project) {
+                    ?>
+                    <a href="<?php echo PATH_FILES . $project['file'];?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+                        <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                            <div class="to_download"> 
+                                <p><?php echo $project['title'] ?></p> 
+                                <img src="index/icons/<?php echo getImageName($project['download'])?>"> 
+                            </div> 
+                            <img src="index/project-logos/<?php echo $project['icon'] ?>" id="img<?php echo $i ?>" class="workslogos"> 
+                        </div> 
+                    </a> 
+                    <?php
+                    $i++;
+                }
+            ?>
             <a href="" class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                 <div class="content" id="More" onmouseover="growImg(8);" onmouseleave="shrinkImg(8);"> 
-                    <img src="index/icones/plus.png" id="img8" class="workslogos"> 
+                    <img src="index/icons/plus.png" id="img8" class="workslogos"> 
                 </div> 
             </a> 
         </article> 
@@ -145,15 +106,15 @@
                             <p>x</p> 
                         </div> 
                         <div id="print" onclick="printPDF();"> 
-                            <img draggable="false" id="imgbutton"src="index/icones-frame-cv/print.png"> 
+                            <img draggable="false" id="imgbutton"src="index/icons-frame-cv/print.png"> 
                         </div> 
                         <a href="index/files/CV_Rayane_Merlin.pdf" download> 
                             <div id="download"> 
-                                <img draggable="false" id="imgbutton" src="index/icones-frame-cv/download.png" alt="dl"> 
+                                <img draggable="false" id="imgbutton" src="index/icons-frame-cv/download.png" alt="dl"> 
                             </div> 
                         </a> 
                         <div id="infos" onmouseover="showInformations();" onmouseleave="hideInformations();"> 
-                            <img draggable="false" id="imgbutton" src="index/icones-frame-cv/infos.png" alt="" id="imginfo"> 
+                            <img draggable="false" id="imgbutton" src="index/icons-frame-cv/infos.png" alt="" id="imginfo"> 
                         </div> 
                     </div> 
                     <div id="informations"> 
@@ -178,7 +139,7 @@
                 <div class="blackbar"></div> 
                 <div id="zoom"> 
                     <p>N'hésitez pas à cliquer sur l'image du C.V pour zoomer, cela vous permettra de le visionner dans sa qualité optimale sans avoir besoin de le télécharger.</p> 
-                    <img draggable="false" src="index/icones/zoom.png" alt="zoom"> 
+                    <img draggable="false" src="index/icons/zoom.png" alt="zoom"> 
                 </div> 
                 <p class="beforebutton">Vous pouvez télécharger mon CV actuel au format pdf en cliquant sur le bouton ci-dessous.</p> 
                 <a href="index/files/CV_Rayane_Merlin.pdf" download><button class="cv-button">Télécharger</button></a> 

@@ -36,7 +36,7 @@
             <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href="index.html"><p id="text1">ACCUEIL</p></a></li> 
             <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="CV/index.html"><p id="text2">C.V</p></a></li> 
             <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="perso/index.html"><p id="text3">PERSO</p></a></li> 
-            <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/index.html"><p id="text4">CONTACT</p></a></li> 
+            <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/index.php"><p id="text4">CONTACT</p></a></li> 
         </ul> 
         <ul class="mediamenu"> 
             <a href="index.html"><img src="logos/portfolio_logo.png" alt="logo" class="logo"></a> 
@@ -47,7 +47,7 @@
         </ul> 
     </div> 
 </header> 
-<body> 
+<body>
     <iframe id="loader" src="loader/index.html"></iframe> 
     <div id="background1"></div> 
     <div id="background2"></div> 
@@ -148,7 +148,7 @@
                         <div id="print" onclick="printPDF();"> 
                             <img draggable="false" id="imgbutton"src="index/icones-frame-cv/print.png"> 
                         </div> 
-                        <a href="index/files/CV_Rayane_Merlin.pdf"> 
+                        <a href="index/files/CV_Rayane_Merlin.pdf" download> 
                             <div id="download"> 
                                 <img draggable="false" id="imgbutton" src="index/icones-frame-cv/download.png" alt="dl"> 
                             </div> 
@@ -188,6 +188,12 @@
                 <div class="blackbar"></div> 
             </div> 
     </article> 
+    <article id="realisation">
+        <div class="title t3" id="firstmid"> 
+            <p>La réalisation :</p> 
+        </div> 
+        <div class="horizontal-bars" id="horizontal-bar3"></div> 
+    </article>
 </body> 
 <footer> 
     <div id="footer1"> 

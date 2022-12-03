@@ -137,3 +137,25 @@
   margin-bottom: 20px;
 }
 
+/* Lorsque l'utilisateur vient de répondre au formulaire, on lui affiche un message, voici le style de ce message*/
+#hasSend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.884);
+}
+
+#hasSend img{
+  width: 70px;
+}
+
+#hasSend p {
+  color : rgb(0, 0, 0);
+  font-size: 30px;
+  text-align: justify;
+}
+

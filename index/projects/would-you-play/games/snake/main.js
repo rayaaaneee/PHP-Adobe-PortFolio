@@ -392,10 +392,7 @@ const backToChoices = () => {
     WORLD.clearCanvas();
     if (paused)
         pauseGame();
-    if (displayingReplayButton) {
-        replayButton.removeAttribute("style");
-        displayingReplayButton = false;
-    }
+    replayButton.removeAttribute("style");
     clearInterval(intervalAdvance);
     WORLD.resetScore();
     removeEventListener("keydown", changeDirection);

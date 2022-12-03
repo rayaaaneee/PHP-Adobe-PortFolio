@@ -155,9 +155,7 @@ const goNextInstruction = () => {
             typeWriter(instructionsText, jsonInstructions[jsonArrayName][numberInstruction], 5, 40);
             numberInstruction++;
             //On active l'event listener sur le bouton entrée
-            setTimeout(() => {
-                document.addEventListener("keyup", enterPressed);   
-            },400);
+            document.addEventListener("keyup", enterPressed);   
         }, 500);
     } else {
         //On fait disparaitre les instructions et on lance le jeu choisi

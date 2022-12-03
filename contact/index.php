@@ -18,24 +18,33 @@
    <!-- SCRIPTS JS -->
    <script type="text/javascript" src="../menu.js" defer></script>
    <script type="text/javascript" src="../menu.js" defer></script>
-   <script type="text/javascript" src="../removeLoader.js" defer></script>
    <script type="text/javascript" src="../movebackground.js" defer></script>
+   <script type="text/javascript" src="contact.js" defer></script>
    <!-- FAVICON & FONTS -->
    <link rel="shortcut icon" type="image/jpg" href="favicons/favicon1.jpg" />
    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
    <link sizes="180x180" href="../logos/favicon1.png" rel="icon" type="image/png">
    <title>Portfolio</title>
+   <!-- FICHIERS PHP -->
+   <?php require_once 'connect.php'; ?>
 </head>
-<body>  
+<body> 
    <header>
-      <div id="startbackground"></div>
+      <?php
+         // Si l'utilisateur vient de repondre au formulaire, on recharge la page sans le loader
+         if(!(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message']))){
+            echo '<script type="text/javascript" src="../removeLoader.js" defer></script>';
+            echo '<iframe id="loader" src="../loader/index.html" allowfullscreen></iframe>';
+            echo '<div id="startbackground"></div>';
+         }
+      ?>
       <div id="menu-container">
          <ul class="menu">
             <a href="../index.html"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
              <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href="../index.html"><p id="text1">ACCUEIL</p></a></li>
              <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="../CV/index.html"><p id="text2">C.V</p></a></li>
              <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="../perso/index.html"><p id="text3">PERSO</p></a></li>
-             <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="../contact/index.php"><p id="text4">CONTACT</p></a></li>
+             <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href=""><p id="text4">CONTACT</p></a></li>
          </ul>
          <ul class="mediamenu">
             <a href="../index.html"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
@@ -46,7 +55,6 @@
         </ul>
      </div>
    </header>
-   <iframe id="loader" src="../loader/index.html" allowfullscreen></iframe>    
    <div id="background1" ></div>
    <div id="background2"></div>      
    <article id="form-container">
@@ -60,7 +68,7 @@
                </h3>
             </div>
             <div class="formulaire">
-                <form name="myForm" action="connect.php" onsubmit="return validateForm()" method="post">
+                <form name="myForm" action="index.php" method="post">
                    <table class="form-style">
                       <tr>
                          <td>
@@ -105,6 +113,45 @@
                    </table>
                 </form>
             </div>
+            <div id="hasSend">
+            <?php
+               if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])){
+                  // On affiche le message de confirmation
+                  echo '<img src="icones/checked.png" draggable="false">';
+                  echo "<p>Votre message a bien été envoyé !</p>";
+
+                  // On récupère les données du formulaire et on les stocke dans la base de données
+
+                  // Données formulaire
+                  $name = $_POST['name'];
+                  $email = $_POST['email'];
+                  $message = $_POST['message'];
+
+                  // BD
+                  $db = getConnection();
+                  $sql = "INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)";
+                  $stmt = $db->prepare($sql);
+                  $stmt->bindParam(':name', $name);
+                  $stmt->bindParam(':email', $email);
+                  $stmt->bindParam(':message', $message);
+
+                  // Insertion
+                  try{
+                     $stmt->execute();
+                  } catch (PDOException $e) {
+                     // Si erreur, on affiche le message d'erreur dans la console
+                     ?> 
+                     <script> 
+                        console.log("<?php echo $e->getMessage(); ?>");
+                        console.log("<?php echo $name; ?>"); 
+                        console.log("<?php echo $email; ?>"); 
+                        console.log("<?php echo $message; ?>"); 
+                     </script> 
+                     <?php
+                  }
+               }
+            ?>
+        </div>
         </main>  
       </article>
       <footer style="margin-top : 200px;">
@@ -119,12 +166,5 @@
             <a href="tel:+33768283277" id="footerphoneimg" target="_blank"><img class="footerimgs" src="../footer-logos/phone.png"></a>
         </div>
       </footer>
-      <?php 
-         if (isset($_POST['myForm'])) {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $message = $_POST['message'];
-         }
-      ?>
 </body>
 </html>

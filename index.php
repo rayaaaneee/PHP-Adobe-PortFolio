@@ -60,15 +60,13 @@
         </div> 
         <div class="horizontal-bars" id="horizontal-bar1"></div> 
         <article class="projects"> 
-            <?php 
-                const PATH_FILES = "index/projects/";
-                const PATH_IMAGES = "index/projectsimages/";
+            <?php
                 $db = getConnection();
                 $projects = getProjects($db);
                 $i=1;
                 foreach ($projects as $project) {
                     ?>
-                    <a href="<?php echo PATH_FILES . $project['file'];?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+                    <a href="<?php echo "index/projects/" . $project['file'];?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                         <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
                             <div class="to_download"> 
                                 <p><?php echo $project['title'] ?></p> 

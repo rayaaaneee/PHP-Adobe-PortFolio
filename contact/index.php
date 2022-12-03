@@ -1,3 +1,11 @@
+<?php 
+   // Variable qui définit si le formulaire a été envoyé
+   $wasSet = false;
+   if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])){
+      $wasSet = true;
+   }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>   
@@ -20,6 +28,13 @@
    <script type="text/javascript" src="../menu.js" defer></script>
    <script type="text/javascript" src="../movebackground.js" defer></script>
    <script type="text/javascript" src="contact.js" defer></script>
+   <?php
+      if(!$wasSet){
+         ?>
+         <script type="text/javascript" src="../removeLoader.js" defer></script>
+         <?php
+      }
+   ?>
    <!-- FAVICON & FONTS -->
    <link rel="shortcut icon" type="image/jpg" href="favicons/favicon1.jpg" />
    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -30,14 +45,7 @@
 </head>
 <body> 
    <header>
-      <?php
-         // Si l'utilisateur vient de repondre au formulaire, on recharge la page sans le loader
-         if(!(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message']))){
-            echo '<script type="text/javascript" src="../removeLoader.js" defer></script>';
-            echo '<iframe id="loader" src="../loader/index.html" allowfullscreen></iframe>';
-            echo '<div id="startbackground"></div>';
-         }
-      ?>
+      <div id="startbackground"></div>
       <div id="menu-container">
          <ul class="menu">
             <a href="../index.html"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
@@ -55,6 +63,17 @@
         </ul>
      </div>
    </header>
+   <iframe id="loader" src="../loader/index.html"></iframe> 
+   <?php 
+      if($wasSet){
+         ?>
+         <script>
+            document.getElementById("loader").remove();
+            document.getElementById("startbackground").remove();
+         </script>
+         <?php
+      }
+   ?>
    <div id="background1" ></div>
    <div id="background2"></div>      
    <article id="form-container">
@@ -115,11 +134,7 @@
             </div>
             <div id="hasSend">
             <?php
-               if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])){
-                  // On affiche le message de confirmation
-                  echo '<img src="icones/checked.png" draggable="false">';
-                  echo "<p>Votre message a bien été envoyé !</p>";
-
+               if($wasSet){
                   // On récupère les données du formulaire et on les stocke dans la base de données
 
                   // Données formulaire
@@ -138,16 +153,14 @@
                   // Insertion
                   try{
                      $stmt->execute();
+                     // On affiche le message de confirmation
+                     ?>
+                        <img src="icones/checked.png" draggable="false">
+                        <p>Votre message a bien été envoyé !</p>
+                     <?php
                   } catch (PDOException $e) {
                      // Si erreur, on affiche le message d'erreur dans la console
-                     ?> 
-                     <script> 
-                        console.log("<?php echo $e->getMessage(); ?>");
-                        console.log("<?php echo $name; ?>"); 
-                        console.log("<?php echo $email; ?>"); 
-                        console.log("<?php echo $message; ?>"); 
-                     </script> 
-                     <?php
+                     echo $e->getMessage();
                   }
                }
             ?>

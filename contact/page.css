@@ -86,7 +86,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: fit-content;
 }
 
 /* Définition case rose avec texte */
@@ -104,8 +104,6 @@
   background-color: rgb(226, 197, 197, 0.8);
   box-shadow: 0 0 30px rgba(0,0,0,0.1); 
   border-radius: 20px;
-  margin-top: 250px;
-  margin-bottom: 50px;
 }
 
 /* On définit les paramètres du titre*/
@@ -151,6 +149,7 @@
 
 #hasSend img{
   width: 70px;
+  height: 70px;
 }
 
 #hasSend p {
@@ -158,4 +157,11 @@
   font-size: 30px;
   text-align: justify;
 }
-
+/* Flex des principaux elements de la page */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10vh;
+}

@@ -70,9 +70,9 @@
                         <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
                             <div class="to_download"> 
                                 <p><?php echo $project['title'] ?></p> 
-                                <img src="index/icons/<?php echo getImageName($project['download'])?>"> 
+                                <img src="index/icons/<?php echo getImageName($project['download'])?>" draggable="false"> 
                             </div> 
-                            <img src="index/project-logos/<?php echo $project['icon'] ?>" id="img<?php echo $i ?>" class="workslogos"> 
+                            <img src="index/project-logos/<?php echo $project['icon'] ?>" id="img<?php echo $i ?>" class="workslogos" draggable="false"> 
                         </div> 
                     </a> 
                     <?php

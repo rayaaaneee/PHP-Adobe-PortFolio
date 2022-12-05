@@ -10,7 +10,7 @@ function unchange(index){
 
 function changeColor(index){
     var text = document.querySelector('#text'+index);
-    text.style.color="rgb(239, 222, 144)";
+    text.style.color="rgb(239, 195, 153)";
 }
 
 function unchangeColor(index){

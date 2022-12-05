@@ -26,8 +26,7 @@
    <!-- CSS DES MEDIA QUERIES -->
    <link rel="stylesheet" href="media.css">
    <!-- SCRIPTS JS -->
-   <script type="text/javascript" src="../menu.js" defer></script>
-   <script type="text/javascript" src="../menu.js" defer></script>
+   <script type="text/javascript" src="../menu/menu.js" defer></script>
    <script type="text/javascript" src="../movebackground.js" defer></script>
    <script type="text/javascript" src="contact.js" defer></script>
    <?php
@@ -43,8 +42,8 @@
    <link sizes="180x180" href="../logos/favicon1.png" rel="icon" type="image/png">
    <title>Portfolio</title>
    <!-- FICHIERS PHP -->
-   <? require_once("../controllers/connect.php"); ?>
-   <? require_once("../models/contact.php"); ?>
+   <? include_once("../controllers/connect.php"); ?>
+   <? include_once("../models/contact.php"); ?>
 </head>
 <body> 
    <header>

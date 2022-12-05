@@ -24,15 +24,15 @@ ini_set("display_errors", 1);
     <link rel="stylesheet" href="index/media/mediapage.css"> 
     <!-- SCRIPTS JS --> 
     <script type="text/javascript" src="index/script.js" defer></script> 
-    <script type="text/javascript" src="menu.js" defer></script> 
+    <script type="text/javascript" src="menu/menu.js" defer></script> 
     <script type="text/javascript" src="removeLoader.js" defer></script> 
     <!-- FAVICON & FONTS --> 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
     <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
     <title>Portfolio</title> 
     <!-- FICHIERS PHP -->
-    <? require_once("controllers/connect.php"); ?>
-    <? require_once("models/projects.php"); ?>
+    <? include_once("controllers/connect.php"); ?>
+    <? include_once("models/projects.php"); ?>
 </head> 
 <header> 
     <div id="startbackground"></div> 
@@ -68,26 +68,28 @@ ini_set("display_errors", 1);
                 $db = getConnection();
                 $projects = getProjects($db);
                 $i=1;
-                foreach ($projects as $project) {
-                    ?>
-                    <a href="<?php echo "index/projects/" . $project['file'];?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                        <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
-                            <div class="to_download"> 
-                                <p><?php echo $project['title'] ?></p> 
-                                <img src="index/icons/<?php echo getImageName($project['download'])?>" draggable="false"> 
+                for($j=1; $j<3; $j++){
+                    foreach ($projects as $project) {
+                        ?>
+                        <a href="<?php echo "index/projects/" . $project['file'];?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+                            <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                                <div class="to_download"> 
+                                    <p><?php echo $project['title'] ?></p> 
+                                    <img src="index/icons/<?php echo getImageName($project['download'])?>" draggable="false"> 
+                                </div> 
+                                <img src="index/project-logos/<?php echo $project['icon'] ?>" id="img<?php echo $i ?>" class="workslogos" draggable="false"> 
                             </div> 
-                            <img src="index/project-logos/<?php echo $project['icon'] ?>" id="img<?php echo $i ?>" class="workslogos" draggable="false"> 
-                        </div> 
-                    </a> 
-                    <?php
-                    $i++;
+                        </a> 
+                        <?php
+                        $i++;
+                    }
                 }
             ?>
-            <a href="" class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" id="More" onmouseover="growImg(8);" onmouseleave="shrinkImg(8);"> 
-                    <img src="index/icons/plus.png" id="img8" class="workslogos"> 
+            <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="appearOthersProjects();"> 
+                <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                    <img src="index/icons/plus.png" id="img<?php echo $i ?>" class="workslogos"> 
                 </div> 
-            </a> 
+            </div> 
         </article> 
         <h2 class="explicationtext">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 
     </article> 

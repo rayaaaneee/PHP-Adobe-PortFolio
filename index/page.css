@@ -9,7 +9,7 @@
 } 
  
 /* Design d'une case */ 
-.content{ 
+.content { 
     background-color: rgba(255, 255, 255, 0.801); 
     width : 250px; 
     height : 250px; 
@@ -21,6 +21,16 @@
     justify-content: center; 
     cursor: pointer;
 } 
+
+/* Style d'une case de base et lors de son chargement */
+.main-container{
+    transition: 0.5s;
+}
+
+.container-seemore-project{
+    transition: 0.5s;
+    transform : scale(1.05) rotate(1deg);
+}
  
 /* Insertion de l'image lien ou téléchargement a coté du titre du projet */ 
 .to_link, .to_download{ 
@@ -96,7 +106,7 @@
     font-size: xx-large; 
     text-align: center; 
     color : rgb(0, 0, 0); 
-    -webkit-text-stroke: 1px rgb(255, 255, 255); 
+    text-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 1px 0 #fff, -1px 0 0 #fff, -1px -1px 0 #fff, 0 -1px 0 #fff, 1px -1px 0 #fff;
     font-size:xx-large; 
 } 
  

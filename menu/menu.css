@@ -30,12 +30,12 @@
 /* Le bas de chaque case survolée s'agrandit de 10px mais pas le reste */
 .menu li:hover{
     translate: 0px 4px;
-    border-bottom: 7px solid rgb(239, 222, 144);
+    border-bottom: 7px solid rgb(239, 195, 153);
 }
 
 /* Colorier en jaune aussi le texte du menu */
 .sites:hover{
-    color:rgb(239, 222, 144);
+    color:rgb(239, 195, 153);
 }
 
 /* Mise en place du menu sticky */

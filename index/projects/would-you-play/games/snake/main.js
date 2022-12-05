@@ -302,6 +302,7 @@ const loadingSnake = () => {
     }
 
     let backgroundSelect = document.getElementById("select-background").value;
+    canvas.removeAttribute("style");
     if (backgroundSelect == "light_blue") {
         background = informations["background"][0][0];
         pausedBackground = informations["background"][0][1];
@@ -328,7 +329,6 @@ const loadingSnake = () => {
         background = informations["background"][7][0];
         pausedBackground = informations["background"][7][1];
     } else if (backgroundSelect == "transparent"){
-        canvas.style.border = "2.5px solid black";
         background = informations["background"][8][0];
         pausedBackground = informations["background"][8][1];
     }

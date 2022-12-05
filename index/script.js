@@ -71,7 +71,42 @@ const closeCard = (element) => {
 const printOthersProjects = () => {
 }
 
+// Fonction qui display none les projets ayant un index <=8 quand on clique sur le bouton "Voir plus"
+var projects = null;
+const disappearMoreThat7Projects = () => {
+    projects = document.querySelectorAll(".main-container");
+    projects.forEach((element, index)=>{
+        if(index > 6 && index != projects.length){
+            element.style.display = "none";
+        }
+    });
+}
+disappearMoreThat7Projects();
 
+// Quand on clique sur le bouton "Voir plus", on affiche les autres projets avec une animation
+var intervalAppearProject = null;
+const appearOthersProjects = () => {
+    document.getElementById("seemore").style.display="none";
+    intervalAppearProject = setInterval(() => {
+        // Lancer l'animation au bout de 200ms
+        appearProject();
+    }, 200);
+}
 
-// Fonction qui reinitialise le # de l'url apres rechargement (celui ci change quand on clique sur le cv)
-window.location.hash = "";
+// Fonction qui applique l'animation
+var indexProject = 7 ;
+const appearProject = () => {
+    if(indexProject === projects.length){
+        clearInterval(intervalAppearProject);
+    }
+    let project = projects[indexProject];
+    let content = project.querySelector(".content");
+    project.removeAttribute("style");
+    setTimeout(() => {
+        setTimeout(function(){
+            project.classList.remove("container-seemore-project");
+        }, 300);
+        project.classList.add("container-seemore-project");
+        indexProject++;
+    }, 75);
+}

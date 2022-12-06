@@ -31,7 +31,8 @@ ini_set("display_errors", 1);
     <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
     <title>Portfolio</title> 
     <!-- FICHIERS PHP -->
-    <?php require_once "models/m_project.php"; ?>
+    <?php require "models/m_connect.php"?>
+    <?php require "models/m_project.php"; ?>
 </head>
 <header> 
     <div id="startbackground"></div> 

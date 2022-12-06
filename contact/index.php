@@ -140,9 +140,9 @@
                   // On récupère les données du formulaire et on les stocke dans la base de données
 
                   // Données formulaire
-                  $name = $_POST['name'];
-                  $email = $_POST['email'];
-                  $message = $_POST['message'];
+                  $name = htmlspecialchars($_POST['name']);
+                  $email = htmlspecialchars($_POST['email']);
+                  $message = htmlspecialchars($_POST['message']);
 
                   // BD
                   $db = getConnection();

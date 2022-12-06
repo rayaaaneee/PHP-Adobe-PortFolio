@@ -68,26 +68,26 @@ ini_set("display_errors", 1);
                 $db = getConnection();
                 $projects = getProjects($db);
                 $i=1;
-                for($j=1; $j<3; $j++){
-                    foreach ($projects as $project) {
-                        ?>
-                        <a href="<?php echo "index/projects/" . $project['file'];?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                            <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
-                                <div class="to_download"> 
-                                    <p><?php echo $project['title'] ?></p> 
-                                    <img src="index/icons/<?php echo getImageName($project['download'])?>" draggable="false"> 
-                                </div> 
-                                <img src="index/project-logos/<?php echo $project['icon'] ?>" id="img<?php echo $i ?>" class="workslogos" draggable="false"> 
+                for($j=0; $j <= 2; $j++){
+                foreach ($projects as $project) {
+                    ?>
+                    <a href="<?php echo "index/projects/" . $project['file'];?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+                        <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                            <div class="to_download"> 
+                                <p><?php echo $project['title'] ?></p> 
+                                <img src="index/icons/<?php echo getImageName($project['download'])?>" draggable="false"> 
                             </div> 
-                        </a> 
-                        <?php
-                        $i++;
-                    }
+                            <img src="index/project-logos/<?php echo $project['icon'] ?>" id="img<?php echo $i ?>" class="workslogos" draggable="false"> 
+                        </div> 
+                    </a> 
+                    <?php
+                    $i++;
                 }
+            }
             ?>
-            <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="appearOthersProjects();"> 
+            <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                 <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
-                    <img src="index/icons/plus.png" id="img<?php echo $i ?>" class="workslogos"> 
+                    <img src="index/icons/more.png" id="img<?php echo $i ?>" class="workslogos"> 
                 </div> 
             </div> 
         </article> 

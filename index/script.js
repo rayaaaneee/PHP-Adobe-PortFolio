@@ -71,6 +71,39 @@ const closeCard = (element) => {
 const printOthersProjects = () => {
 }
 
+const disappearProject = () => {
+    if(indexProject === 8){
+        clearInterval(intervalAppearProject);
+        // Le bouton sert désormais à afficher les projets
+        setTimeout(() => {
+            seeMoreButton.removeAttribute("style");
+        }, 450);
+        seeMoreButton.removeEventListener("click", disappearOthersProjects);
+        seeMoreButton.addEventListener("click", appearOthersProjects);
+    }
+    let project = projects[indexProject-1];
+    setTimeout(() => {
+        project.classList.add("container-seemore-project");
+        setTimeout(function(){
+            project.classList.remove("container-seemore-project");
+            setTimeout(() => {
+                project.style.display = "none";
+            }, 70);
+        }, 300);
+        indexProject--;
+    }, 75);
+}
+
+// Quand on clique sur le bouton moins ca désaffiche les projets affichées
+const disappearOthersProjects = () => {
+    seeMoreButton.style.display = "none";
+    seeMoreButton.querySelector(".workslogos").src = "index/icons/more.png"
+    intervalAppearProject = setInterval(() => {
+        // Lancer l'animation au bout de 200ms
+        disappearProject();
+    }, 150);
+}
+
 // Fonction qui display none les projets ayant un index <=8 quand on clique sur le bouton "Voir plus"
 var projects = null;
 const disappearMoreThat7Projects = () => {
@@ -85,22 +118,30 @@ disappearMoreThat7Projects();
 
 // Quand on clique sur le bouton "Voir plus", on affiche les autres projets avec une animation
 var intervalAppearProject = null;
+var seeMoreButton = document.getElementById("seemore");
 const appearOthersProjects = () => {
-    document.getElementById("seemore").style.display="none";
+    seeMoreButton.style.display = "none";
+    seeMoreButton.querySelector(".workslogos").src = "index/icons/less.png"
     intervalAppearProject = setInterval(() => {
         // Lancer l'animation au bout de 200ms
         appearProject();
     }, 200);
 }
 
+
 // Fonction qui applique l'animation
 var indexProject = 7 ;
 const appearProject = () => {
-    if(indexProject === projects.length){
+    if(indexProject === projects.length-1){
         clearInterval(intervalAppearProject);
+        // Le bouton sert désormais à désafficher les projets
+        setTimeout(() => {
+            seeMoreButton.removeAttribute("style");
+        }, 250);
+        seeMoreButton.removeEventListener("click", appearOthersProjects);
+        seeMoreButton.addEventListener("click", disappearOthersProjects);
     }
     let project = projects[indexProject];
-    let content = project.querySelector(".content");
     project.removeAttribute("style");
     setTimeout(() => {
         setTimeout(function(){
@@ -110,3 +151,6 @@ const appearProject = () => {
         indexProject++;
     }, 75);
 }
+
+// On initialise la fonction 
+seeMoreButton.addEventListener("click", appearOthersProjects);

@@ -3,8 +3,8 @@
 function getStatementContact ($db, $name, $email, $message) {
     $sql = "INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':message', $message);
+    $stmt->bindParam(':name', htmlspecialchars($name));
+    $stmt->bindParam(':email', htmlspecialchars($email));
+    $stmt->bindParam(':message', htmlspecialchars($message));
     return $stmt;
 }

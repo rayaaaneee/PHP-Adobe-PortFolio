@@ -1,6 +1,5 @@
 <?php 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+                                                
 ?>
 <!DOCTYPE html> 
 <html lang="en"> 
@@ -71,7 +70,7 @@ ini_set("display_errors", 1);
                 for($j=0; $j <= 2; $j++){
                 foreach ($projects as $project) {
                     ?>
-                    <a href="<?php echo "index/projects/" . $project['file'];?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+                    <a href="<?php echo "index/projects/" . $project['file']; ?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                         <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
                             <div class="to_download"> 
                                 <p><?php echo $project['title'] ?></p> 

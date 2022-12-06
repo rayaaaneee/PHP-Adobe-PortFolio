@@ -2,9 +2,9 @@
     
 function getProjects($db) {
     $sql = "SELECT * FROM projects";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $projects = $stmt->fetchAll();
+    $query = $db->prepare($sql);
+    $query->execute();
+    $projects = $query->fetchAll();
     return $projects;
 }
 

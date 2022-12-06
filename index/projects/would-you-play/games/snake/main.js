@@ -144,7 +144,6 @@ var speed = null
 var nbrApples = null;
 var nbrPoisonedApples = null;
 var nbrWalls = null;
-var allSelects = document.querySelectorAll("choice-snake-select");
 
 // On déclare le theme et background
 var theme = null;
@@ -156,8 +155,8 @@ var allSprites = new sprite();
 var themeSprite = null;
 
 // On crée l'instance de la classe cookies
+let allSelects = document.querySelectorAll("choice-snake-select");
 const cookie = new cookies(allSelects);
-
 const loadingSnake = () => {
     // On initialise le theme et les sprites qui vont avec
     theme = document.getElementById("select-theme").value;

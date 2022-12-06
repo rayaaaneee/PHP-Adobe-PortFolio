@@ -10,7 +10,6 @@ const startGame = (index) => {
     startToPlay = true;
 
     //Définition des variables globales
-    let music = null;
     let id = null;
     let imageId = null;
     let volume = null;

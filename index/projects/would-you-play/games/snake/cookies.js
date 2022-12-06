@@ -1,37 +1,37 @@
 class cookies {
     constructor(allSelects) {
-        this.allSelects = allSelects;
-        this.allSelects.forEach((select) => {
-            select.addEventListener('change', (e) => {
-                this.setCookie(e.target.name, e.target.value, 365);
-            });
-        });
+        this.selects = allSelects;
+        this.#selectLastValue();
     }
 
-    setCookie(name, value, days) {
-        var expires = "";
-        if (days) {
-            var date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    setCookie(name, value) {
+        document.cookie = name;
     }
 
     getCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
             while (c.charAt(0) == ' ') c = c.substring(1, c.length);
             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
     }
 
-    deleteCookie(name) {
-        this.setCookie(name, "", -1);
+    #selectLastValue() {
+        this.selects.forEach(select => {
+            let value = this.getCookie(select.id);
+            if (value != null) {
+                select.value = value;
+            }
+        });
     }
 
-    hasExpired(name){}
+    validateChanges(newAllSelects){
+        let selects = newAllSelects;
+        selects.forEach((select) => {
+            this.setCookie(select.name, select.value);
+        });
+    }
 }

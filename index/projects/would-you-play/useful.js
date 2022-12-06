@@ -152,26 +152,11 @@ const idExists = (id) =>{
 
 // Fonction qui ouvre un fichier JSON et qui le retourne
 const openJSON = (url) => {
-    //methode fecth pour ouvrir un fichier JSON
-/*     if(window.fetch){
-        fetch(url).then(function(response){
-                console.log("response : "+response);
-                return response.json();
-            }).then(function(data){
-                console.log("data : "+data);
-                return data;
-            }).catch(function(error){
-                console.log(error);
-            });
-    } else {  */
-        //Methode XMLHttpRequest pour ouvrir un fichier JSON
-        let request = new XMLHttpRequest();
-        request.open("GET", url, false);
-        request.send(null);
-        return JSON.parse(request.responseText);
-/*      }  */
+    let request = new XMLHttpRequest();
+    request.open("GET", url, false);
+    request.send(null);
+    return JSON.parse(request.responseText);
 }
-
 
 //Fonction qui prend en parametre un element texte et qui le fait apparaitre lettre par lettre
 const typeWriter = (element, text, speed, size) =>{

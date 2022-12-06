@@ -42,7 +42,7 @@
    <link sizes="180x180" href="../logos/favicon1.png" rel="icon" type="image/png">
    <title>Portfolio</title>
    <!-- FICHIERS PHP -->
-   <?php require_once "connect.php"; ?>
+   <?php require_once "../models/m_contact.php"; ?>
 </head>
 <body> 
    <header>

@@ -67,7 +67,7 @@
                 $db = getConnection();
                 $projects = getProjects($db);
                 $i=1;
-                for($j=0; $j <= 2; $j++){
+                for($j=0; $j <2; $j++){
                 foreach ($projects as $project) {
                     ?>
                     <a href="<?php echo "index/projects/" . $project['file']; ?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
@@ -82,7 +82,7 @@
                     <?php
                     $i++;
                 }
-            }
+                }
             ?>
             <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                 <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 

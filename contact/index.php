@@ -164,7 +164,7 @@
         </div>
         </main>  
       </article>
-      <footer style="margin-top : 200px;">
+      <footer>
          <div id="footer1">
             <p>Ce site a été créé dans le but de présenter mes projets et mes compétences.</p>
             <p>2022, Copyright © - Rayane Merlin</p>

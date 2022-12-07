@@ -28,7 +28,7 @@
     <!-- FAVICON & FONTS --> 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
     <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
-    <title>Portfolio</title> 
+    <title>PortFolio</title> 
     <!-- FICHIERS PHP -->
     <?php require "models/m_connect.php"?>
     <?php require "models/m_project.php"; ?>

@@ -77,7 +77,7 @@ const disappearProject = () => {
         // Le bouton sert désormais à afficher les projets
         setTimeout(() => {
             seeMoreButton.removeAttribute("style");
-        }, 450);
+        }, 650);
         seeMoreButton.removeEventListener("click", disappearOthersProjects);
         seeMoreButton.addEventListener("click", appearOthersProjects);
     }

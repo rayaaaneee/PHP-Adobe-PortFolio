@@ -7,7 +7,7 @@ function getConnection(){
         $user = "root";
         //$pass = "root";
         $pass = "Opqdkjqo64$";
-        $port = "8889";
+        //$port = "8889";
         //$db = new PDO("mysql:host=$host;dbname=$dbname;port=$port", $user, $pass);
         $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

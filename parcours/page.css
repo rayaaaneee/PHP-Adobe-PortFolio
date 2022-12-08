@@ -1,18 +1,29 @@
 #parallax-projects{
     height: 100vh;
-    width: 100%;
+    width: 100vw;
+}
+
+#fordisplay{
+    height: 100vh;
+    width: 100vw;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 22.44vw 87.66vw;
+    grid-template-rows: 1fr;
+    justify-items: center;
     align-items: center;
 }
 
 #timeline {
-    height: 80vh;
-    width: 10px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
+    height: 90vh;
+    width: 15px;
+    background-color:rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
     position: fixed;
+    top: 5vh;
+    left:10.7vw;
+    z-index: 9998;
 }
 
 #projects{
@@ -23,5 +34,33 @@
 .project{
     width: 400px;
     height: 400px;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color:rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); */
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+}
+
+.project p {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#points {
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    row-gap: 370px;
+}
+ 
+.point{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 0 rgb(0, 0, 0);
+    /* A gauche gris a droite blanc */
+    background: linear-gradient(160deg, transparent 60%, rgba(0,0,0,1) 40%);
+    backdrop-filter: blur(5px);
 }

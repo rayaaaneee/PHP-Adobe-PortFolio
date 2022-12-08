@@ -86,7 +86,7 @@
             ?>
             <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                 <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
-                    <img src="index/icons/more.png" id="img<?php echo $i ?>" class="workslogos"> 
+                    <img src="index/icons/more.png" draggable="false" id="img<?php echo $i ?>" class="workslogos"> 
                 </div> 
             </div> 
         </article> 

@@ -1,8 +1,11 @@
 //Faire bouger les backgrounds horizontalement
 
+var background1 = document.getElementById("background1");
+var background2 = document.getElementById("background2");
+
 //Déclaration de la vitesse
-var speed1 = 0.5;
-var speed2 = 0.9;
+var speed1 = parseFloat(background1.getAttribute("speedtranslate"));
+var speed2 = parseFloat(background2.getAttribute("speedtranslate"));
 
 // Déclaration et initialisation de la position initiale
 var x1 = 0; 
@@ -16,10 +19,40 @@ const moveBackground = function () {
         x2 -= speed2;
 
         //On applique la nouvelle position
-        document.getElementById("background1").style.backgroundPosition = x1 + "px center";
-        document.getElementById("background2").style.backgroundPosition = x2 + "px center";
+        background1.style.backgroundPosition = x1 + "px center";
+        background2.style.backgroundPosition = x2 + "px center";
     }, 50);
 }
 
 // One lance l'animation en appelant la fonction moveBackground
 moveBackground();
+
+class Parallax {
+    constructor(element) {
+        this.element = element;
+        this.ratio = parseFloat(element.getAttribute('speedparallax'));
+        this.x = 0;
+        this.onScroll = this.onScroll.bind(this);
+        document.addEventListener('scroll', this.onScroll);
+    }
+
+    /** 
+    * @returns {Parallax[]} - Array of Parallax instances
+    */
+    static bind() {
+        return Array.from(document.querySelectorAll('[speedparallax]')).map((element) => {
+            return new Parallax(element);
+        }); 
+    }
+
+    /**
+     * @param {Event} event - Scroll event
+     */
+    onScroll() {
+        this.x = window.scrollY * this.ratio;
+        console.log(this.x);
+        this.element.style.transform = `translateY(${this.x}px)`;
+    }
+}
+
+Parallax.bind();

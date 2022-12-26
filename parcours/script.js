@@ -1,17 +1,17 @@
 var points = document.querySelectorAll(".point");
+var scrollValue = window.scrollY;
+var height = window.innerHeight;
 
 const onscroll = () => {
-    var scroll = window.scrollY;
-    var height = window.innerHeight;
-    var offset = 0.5;
-    
     points.forEach((point) => {
-        if (scroll > point.offsetTop - height * offset) {
-        point.display = "none";
+        // Si le point est au centre de l'écran
+        if (point.offsetTop >= height/10 || point.offsetTop <= 9*height/10) {
+            point.style.opacity = 1;      
         } else {
-        point.removeAttribute("style");
+            point.style.opacity = 0;
         }
     });
+    console.log(points[1].offsetTop);
 }
 
 document.addEventListener("scroll", onscroll);

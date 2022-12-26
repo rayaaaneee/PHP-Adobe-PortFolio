@@ -76,8 +76,8 @@
          <?php
       }
    ?>
-   <div id="background1" ></div>
-   <div id="background2"></div>      
+   <div id="background1" speedparallax="0.025" speedtranslate="0.9"></div> 
+   <div id="background2" speedparallax="-0.01" speedtranslate="0.5"></div>     
    <article id="form-container">
         <main>
             <div id="pres">

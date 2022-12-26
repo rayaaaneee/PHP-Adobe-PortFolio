@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="choicepage.css">
+    <link rel="stylesheet" href="sticksgame.css">
+    <script src="stick.js" defer></script>
+    <script src="managesticks.js" defer></script>
+    <script src="AI.js" defer></script>    
+    <script src="main.js" defer></script>
+    <title>Would you play ? - Sticks Game</title>
+</head>
+<body>
+    <header>
+        <div id="background"></div>
+    </header>
+    <div id="choose-sticks-container">
+        <div class="allinstructionssticks">
+            <h1 class="instruction">Do you prefer choose the number of sticks or who will start?</h1>
+            <select id="first-choose-select">
+                <option value="1" selected>Number of sticks</option>
+                <option value="2">Who will start</option>    
+            </select>
+            <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+        </div>
+        <div class="allinstructionssticks" style="display: none;">
+            <h1 class="instruction">Choose the number of sticks !</h1>
+            <input type="number" name="sticks" placeholder="30">
+            <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+        </div>
+        <div class="allinstructionssticks" style="display: none;">
+            <h1 class="instruction">Choose who whill start !</h1>
+            <select id="second-choose-select">
+                <option value="0" selected>Me</option>
+                <option value="1">Bot</option>    
+            </select>
+            <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+        </div>
+    </div>
+    <div id="sticks-game-container" style="display: none">
+        <div id="sticksremaining">
+            <p class="instruction">Sticks remaining :</p>
+            <p class="instruction"></p>
+        </div>
+        <div id="allsticks"></div>
+        <button id="gonextturn" onclick="goNextTurn();">OK</button>
+    </div>
+</body>
+</html>

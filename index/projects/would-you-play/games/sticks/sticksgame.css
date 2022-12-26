@@ -1,0 +1,73 @@
+/* Container qui fait la taille de la page */
+#sticks-game-container{
+    width: 97vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5vw;
+}
+
+/* Container qui contient les bâtons */
+#allsticks{
+    width: 70vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.2s ease;
+}
+
+/* Texte qui indique le nombre de bâtons restants */
+#sticksremaining{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1vw;
+    letter-spacing: 0.7vw;
+}
+
+#sticksremaining p{
+    padding : 0;
+    margin : 0;
+}
+
+/* CSS de chaque bâton */
+.stick{
+    z-index: 9999;
+    width: 5vw;
+    height: 10vw;
+    background-image: url("images/stick.png");
+    background-size: cover;
+    background-position: center;
+    transition: all 0.2s ease;
+}
+
+/* CSS des boutons des instructions */
+#gonextturn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vw;
+    height: fit-content;
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: rgb(128, 112, 206);
+    color: rgb(255, 255, 255);
+    font-size: 3vw;
+    cursor: pointer;
+    transition: 0.1s;
+    padding: 0.5vw;
+    box-shadow: 0 0 0.5em black;
+}
+
+.gonextturn:hover{
+    transition: 0.2s;
+    background-color: rgb(167, 155, 224);
+    color: white;
+    border: 3px white solid;
+}

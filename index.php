@@ -25,6 +25,7 @@
     <script type="text/javascript" src="index/script.js" defer></script> 
     <script type="text/javascript" src="menu/menu.js" defer></script> 
     <script type="text/javascript" src="removeLoader.js" defer></script> 
+    <script type="text/javascript" src="movebackground.js" defer></script>
     <!-- FAVICON & FONTS --> 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
     <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
@@ -54,9 +55,8 @@
 </header> 
 <body>
     <iframe id="loader" src="loader/index.html"></iframe> 
-    <div id="background1"></div> 
-    <div id="background2"></div> 
-    <script type="text/javascript" src="movebackground.js"></script> 
+    <div id="background1" speedparallax="0.025" speedtranslate="0.9"></div> 
+    <div id="background2" speedparallax="-0.01" speedtranslate="0.5"></div> 
     <article id="main"> 
         <div class="title t1" id="firstmid"> 
             <p>Mes projets</p> 

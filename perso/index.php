@@ -47,8 +47,8 @@
         </div>
     </header>
     <iframe id="loader" src="../loader/index.html" allowfullscreen></iframe>
-    <div id="background1" ></div>
-    <div id="background2"></div>
+    <div id="background1" speedparallax="0.025" speedtranslate="0.9"></div> 
+    <div id="background2" speedparallax="-0.01" speedtranslate="0.5"></div> 
     <div class="title t1">
         <p>Perso</p>
     </div> 

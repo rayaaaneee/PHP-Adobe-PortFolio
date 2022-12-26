@@ -4,7 +4,7 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    bottom : 0;
+    bottom : -35vh;
 }
 
 /* Créer les deux backgrounds jaune*/
@@ -13,12 +13,13 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    bottom : 0;
+    bottom : -40vh;
+    display: grid;
 }
 
 /* Position initiale des backgrounds */
 #background1, #background2{
-    background-position: 0px center;
+    background-position: center;
 }
 
 #background1v2, #background2v2{

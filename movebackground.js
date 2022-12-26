@@ -15,8 +15,8 @@ var x2 = 0;
 const moveBackground = function () {
     setInterval(() => {
         //On décremente la position par la vitese
-        x1 -= speed1;
-        x2 -= speed2;
+        x1 -= speed1 * parseFloat(background1.getAttribute("speedratio"));
+        x2 -= speed2 * parseFloat(background2.getAttribute("speedratio"));
 
         //On applique la nouvelle position
         background1.style.backgroundPosition = x1 + "px center";
@@ -50,8 +50,11 @@ class Parallax {
      */
     onScroll() {
         this.x = window.scrollY * this.ratio;
-        console.log(this.x);
+        this.element.setAttribute('speedratio', `${Math.abs(this.ratio)}`*`${window.scrollY}`/15);
         this.element.style.transform = `translateY(${this.x}px)`;
+        if (this.element.getAttribute('speedratio') <= 1) {
+            this.element.setAttribute('speedratio', 1);
+        }
     }
 }
 

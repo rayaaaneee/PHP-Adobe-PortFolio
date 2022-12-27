@@ -54,10 +54,11 @@
     </div> 
 </header> 
 <body>
+    <!-- LOADER & backgrounds-->
     <iframe id="loader" src="loader/index.html"></iframe> 
     <div id="background1" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div> 
-    <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div> 
-    <div id="background3" speedparallax="0.01" speedtranslate="0.6"></div>
+    <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
+    <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
     <article id="main"> 
         <div class="title t1" id="firstmid"> 
             <p>Mes projets</p> 

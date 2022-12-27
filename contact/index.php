@@ -65,6 +65,7 @@
         </ul>
      </div>
    </header>
+   <!-- Loader -->
    <iframe id="loader" src="../loader/index.html"></iframe> 
    <?php 
       if($wasSet){
@@ -76,8 +77,11 @@
          <?php
       }
    ?>
-   <div id="background1" speedparallax="0.025" speedtranslate="0.9"></div> 
-   <div id="background2" speedparallax="-0.01" speedtranslate="0.5"></div>     
+   <!-- backgrounds -->
+   <div id="background1" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div> 
+   <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
+   <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
+
    <article id="form-container">
         <main>
             <div id="pres">

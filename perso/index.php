@@ -46,9 +46,12 @@
             </ul>
         </div>
     </header>
+    <!-- LOADER & backgrounds -->
     <iframe id="loader" src="../loader/index.html" allowfullscreen></iframe>
-    <div id="background1" speedparallax="0.025" speedtranslate="0.9"></div> 
-    <div id="background2" speedparallax="-0.01" speedtranslate="0.5"></div> 
+    <div id="background1" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div> 
+    <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
+    <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
+
     <div class="title t1">
         <p>Perso</p>
     </div> 

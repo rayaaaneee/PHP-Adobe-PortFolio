@@ -53,22 +53,95 @@ const printPDF = () =>{
     pdf.print();
 }
 
-/* Fonction qui affiche les informatios actuelles du cv ("nom, taille, date de création, etc") quand 
+// Fonction qui ouvre le fichier dont le chemin est passé en paramètre et le retourne
+const openFile = (path) => {
+    var file = new File([path], "CV_Rayane_Merlin.pdf", {type: "pdf"});
+    return file;
+}
+/* Fonction qui affiche les informations actuelles du cv ("nom, taille, date de création, etc") quand 
 on hover bouton "Informations" */
+var informations = document.querySelector("#informations");
+var file = openFile("index/files/CV_Rayane_Merlin.pdf");
+var displaying = false;
 const showInformations = () =>{
+    if (displaying) {
+        hideInformations();
+    } else {
+        document.getElementById("buttons").style.zIndex = "1";
+
+        informations.style.display = "flex";
+        informations.style.opacity = "1";
+
+        let title = file.name;
+        //let length = file.size + " octets";
+        let length = "281.15 Ko";
+        let date = file.lastModifiedDate;
+        date = date.toString().split(" ");
+
+        /* On transforme le mois en chiffre pour que la date soit plus lisible */
+        switch(date[1]){
+            case "Jan":
+                date[1] = "01";
+                break;
+            case "Feb":
+                date[1] = "02";
+                break;
+            case "Mar":
+                date[1] = "03";
+                break;
+            case "Apr":
+                date[1] = "04";
+                break;
+            case "May":
+                date[1] = "05";
+                break;
+            case "Jun":
+                date[1] = "06";
+                break;
+            case "Jul":
+                date[1] = "07";
+                break;
+            case "Aug":
+                date[1] = "08";
+                break;
+            case "Sep":
+                date[1] = "09";
+                break;
+            case "Oct":
+                date[1] = "10";
+                break;
+            case "Nov":
+                date[1] = "11";
+                break;
+            case "Dec":
+                date[1] = "12";
+                break;
+        }
+
+        date = date[2] + "/" + date[1] + "/" + date[3];
+        date = "10/11/2022"
+        let type = file.type;
+
+        informations.querySelector("#title").querySelector("p:last-child").textContent = title;
+        informations.querySelector("#length").querySelector("p:last-child").textContent = length;
+        informations.querySelector("#date").querySelector("p:last-child").textContent = date;
+        informations.querySelector("#type").querySelector("p:last-child").textContent = type;
+        
+        displaying = true;
+    }
 }
 
 // Fonction qui enleve les informations actuelles du cv quand la souris quitte le bouton "Informations"
 const hideInformations = () => {
+    informations.removeAttribute("style");
+    document.getElementById("buttons").style.zIndex = "3";
+    displaying = false;
 }
 
 const openCard = (element) => {
 }
 
 const closeCard = (element) => {
-}
-
-const printOthersProjects = () => {
 }
 
 const disappearProject = () => {

@@ -56,7 +56,7 @@
 <body>
     <!-- LOADER & backgrounds-->
     <iframe id="loader" src="loader/index.html"></iframe> 
-    <div id="background1" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div> 
+    <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
     <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
     <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
     <article id="main"> 
@@ -69,7 +69,6 @@
                 $db = getConnection();
                 $projects = getProjects($db);
                 $i=1;
-                for($j=0; $j <2; $j++){
                 foreach ($projects as $project) {
                     ?>
                     <a href="<?php echo "index/projects/" . $project['file']; ?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
@@ -83,7 +82,6 @@
                     </a> 
                     <?php
                     $i++;
-                }
                 }
             ?>
             <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
@@ -118,15 +116,27 @@
                                 <img draggable="false" id="imgbutton" src="index/icons-frame-cv/download.png" alt="dl"> 
                             </div> 
                         </a> 
-                        <div id="infos" onmouseover="showInformations();" onmouseleave="hideInformations();"> 
+                        <div id="infos" onclick="showInformations();" onmouseout="hideInformations();"> 
                             <img draggable="false" id="imgbutton" src="index/icons-frame-cv/infos.png" alt="" id="imginfo"> 
                         </div> 
                     </div> 
                     <div id="informations"> 
-                        <p class="title"></p> 
-                        <p class="creator"></p> 
-                        <p class="length"></p> 
-                        <p class="date"></p> 
+                        <div id="title">
+                            <p>Fichier :</p>
+                            <p></p>
+                        </div>
+                        <div id="length">
+                            <p>Taille du fichier :</p>
+                            <p></p>
+                        </div>
+                        <div id="date">
+                            <p>Dernière modification :</p>
+                            <p></p>
+                        </div>
+                        <div id="type">
+                            <p>Type de fichier :</p>
+                            <p></p>
+                        </div>
                     </div> 
                 </div> 
                 <div id="container-cv-text-bar"> 

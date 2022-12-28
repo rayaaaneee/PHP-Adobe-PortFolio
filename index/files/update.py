@@ -51,9 +51,9 @@ with open("index/files/data.txt", "w") as f:
 
     type = name.split(".")[1]
     
-    f.write("FileName : "+ name+"\n")
+    f.write("File : "+ name+"\n")
     f.write("Last Modification : " + date+"\n")
-    f.write("Taille : "+ size + " Ko"+"\n");
+    f.write("Size : "+ size + " Ko"+"\n");
     f.write("Type : "+ type+"\n");
     
     f.close()

@@ -58,7 +58,7 @@
     <iframe id="loader" src="loader/index.html"></iframe> 
     <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
     <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
-    <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="-1"></div>
+    <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
     <article id="main"> 
         <div class="title t1" id="firstmid"> 
             <p>Mes projets</p> 
@@ -116,25 +116,21 @@
                                 <img draggable="false" id="imgbutton" src="index/icons-frame-cv/download.png" alt="dl"> 
                             </div> 
                         </a> 
-                        <div id="infos" onclick="showInformations();" onmouseout="hideInformations();"> 
+                        <div id="infos" onclick="showInformations();" onmouseleave="hideInformations();"> 
                             <img draggable="false" id="imgbutton" src="index/icons-frame-cv/infos.png" alt="" id="imginfo"> 
                         </div> 
                     </div> 
                     <div id="informations"> 
                         <div id="title">
-                            <p>Fichier :</p>
                             <p></p>
                         </div>
-                        <div id="length">
-                            <p>Taille du fichier :</p>
+                        <div id="size">
                             <p></p>
                         </div>
                         <div id="date">
-                            <p>Dernière modification :</p>
                             <p></p>
                         </div>
                         <div id="type">
-                            <p>Type de fichier :</p>
                             <p></p>
                         </div>
                     </div> 

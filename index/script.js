@@ -53,15 +53,43 @@ const printPDF = () =>{
     pdf.print();
 }
 
-// Fonction qui ouvre le fichier dont le chemin est passé en paramètre et le retourne
-const openFile = (path) => {
-    var file = new File([path], "CV_Rayane_Merlin.pdf", {type: "pdf"});
-    return file;
+// Fonction qui prend en parametre le titre, la taille, la date et le type et qui retourne tous ceux relatifs au CV 
+const getInformations = () => {
+    let result = null;
+
+    let path = "index/files/data.txt";
+
+    let fichierBrut = new XMLHttpRequest();
+    fichierBrut.open("GET", path, false);
+    fichierBrut.onreadystatechange = function (){
+        if(fichierBrut.readyState === 4){
+        if(fichierBrut.status === 200 || fichierBrut.status == 0){
+            result = fichierBrut.responseText;
+        }
+    }
+    }
+    fichierBrut.send(null);
+
+    // On récupère les informations du fichier
+    let lines = result.split("\n");
+    let titlefile = lines[0].split(":")[1];
+    let datefile = lines[1].split(":")[1];
+    let sizefile = lines[2].split(":")[1];
+    let typefile = lines[3].split(":")[1];
+
+    // Retirer tous les espaces
+    titlefile = titlefile.replaceAll(" ", '');
+    datefile = datefile.replaceAll(" ", '');
+    sizefile = sizefile.replace(" ", '');
+    sizefile = sizefile.split(" ")[0];
+    typefile = typefile.replaceAll(" ", '');
+
+    // On retourne les informations
+    return [titlefile, sizefile, datefile, typefile];
 }
 /* Fonction qui affiche les informations actuelles du cv ("nom, taille, date de création, etc") quand 
 on hover bouton "Informations" */
 var informations = document.querySelector("#informations");
-var file = openFile("index/files/CV_Rayane_Merlin.pdf");
 var displaying = false;
 const showInformations = () =>{
     if (displaying) {
@@ -72,60 +100,22 @@ const showInformations = () =>{
         informations.style.display = "flex";
         informations.style.opacity = "1";
 
-        let title = file.name;
-        //let length = file.size + " octets";
-        let length = "281.15 Ko";
-        let date = file.lastModifiedDate;
-        date = date.toString().split(" ");
+        let title = null;
+        let size = null;
+        let date = null;
+        let type = null;
 
-        /* On transforme le mois en chiffre pour que la date soit plus lisible */
-        switch(date[1]){
-            case "Jan":
-                date[1] = "01";
-                break;
-            case "Feb":
-                date[1] = "02";
-                break;
-            case "Mar":
-                date[1] = "03";
-                break;
-            case "Apr":
-                date[1] = "04";
-                break;
-            case "May":
-                date[1] = "05";
-                break;
-            case "Jun":
-                date[1] = "06";
-                break;
-            case "Jul":
-                date[1] = "07";
-                break;
-            case "Aug":
-                date[1] = "08";
-                break;
-            case "Sep":
-                date[1] = "09";
-                break;
-            case "Oct":
-                date[1] = "10";
-                break;
-            case "Nov":
-                date[1] = "11";
-                break;
-            case "Dec":
-                date[1] = "12";
-                break;
-        }
+        // On récupère les informations du fichier
+        let result = getInformations();
+        title = result[0];
+        size = result[1];
+        date = result[2];
+        type = result[3];
 
-        date = date[2] + "/" + date[1] + "/" + date[3];
-        date = "10/11/2022"
-        let type = file.type;
-
-        informations.querySelector("#title").querySelector("p:last-child").textContent = title;
-        informations.querySelector("#length").querySelector("p:last-child").textContent = length;
-        informations.querySelector("#date").querySelector("p:last-child").textContent = date;
-        informations.querySelector("#type").querySelector("p:last-child").textContent = type;
+        informations.querySelector("#title").querySelector("p").textContent = title;
+        informations.querySelector("#size").querySelector("p").textContent = "Taille : " + size + " Ko";
+        informations.querySelector("#date").querySelector("p").textContent = "Modification : " + date;
+        informations.querySelector("#type").querySelector("p").textContent = "Type : " + type;
         
         displaying = true;
     }

@@ -188,7 +188,10 @@ a{
     align-items: center;
     justify-content: center;
     row-gap: 0;
-    background-color: rgba(240, 193, 193, 0.8);
+    background: linear-gradient(to right, rgba(240, 193, 193, 0.8), rgba(232, 216, 216, 0.8));
+
+
+
     border-left: 2px solid rgba(234, 205, 205, 0.8);
     border-bottom: 2px solid rgba(234, 205, 205, 0.8);
     transition:0.2s;
@@ -199,12 +202,11 @@ a{
 #informations div{
     padding-left: 10%;
     padding-right: 10%;
-    font-size: 18px;
+    font-size: 22px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     column-gap: 5px;
     color: rgb(255, 255, 255);
-    text-shadow: 0.5px 0 0 black, 0.5px 0.5px 0 black, 0 0.5px 0 black, -0.5px 0.5px 0 black, -0.5px 0 0 black, -0.5px -0.5px 0 black, 0 -0.5px 0 black, 0.5px -0.5px 0 black;
+    text-shadow: 1px 0 0 black, 1px 1px 0 black, 0 1px 0 black, -1px 1px 0 black, -1px 0 0 black, -1px -1px 0 black, 0 -1px 0 black, 1px -1px 0 black;
 }

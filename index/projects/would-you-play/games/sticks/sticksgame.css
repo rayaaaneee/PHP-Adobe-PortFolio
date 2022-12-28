@@ -11,7 +11,7 @@
 
 /* Container qui contient les bâtons */
 #allsticks{
-    width: 70vw;
+    width: 80vw;
     height: fit-content;
     display: flex;
     flex-direction: row;
@@ -45,6 +45,7 @@
     background-size: cover;
     background-position: center;
     transition: all 0.2s ease;
+    cursor: default;
 }
 
 /* CSS des boutons des instructions */

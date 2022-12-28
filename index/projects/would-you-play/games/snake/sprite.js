@@ -1,7 +1,5 @@
 class sprite{
     constructor(){
-        // Attribut de useful qui permet de charger les images
-        this.openFiles = new useful();
         // Tableau qui contiendra tous les sprites
         this.array = new Array();
 
@@ -26,32 +24,32 @@ class sprite{
         this.array.forEach((element) => {
             if (element.url != undefined) {
                 if (element.corners) {
-                    element.cornerUpLeft = this.openFiles.openImage("theme/"+element.url+"_sprite/corner_up_left");
-                    element.cornerUpRight = this.openFiles.openImage("theme/"+element.url+"_sprite/corner_up_right");
-                    element.cornerDownLeft = this.openFiles.openImage("theme/"+element.url+"_sprite/corner_down_left");
-                    element.cornerDownRight = this.openFiles.openImage("theme/"+element.url+"_sprite/corner_down_right");
+                    element.cornerUpLeft = useful.openImage("theme/"+element.url+"_sprite/corner_up_left");
+                    element.cornerUpRight = useful.openImage("theme/"+element.url+"_sprite/corner_up_right");
+                    element.cornerDownLeft = useful.openImage("theme/"+element.url+"_sprite/corner_down_left");
+                    element.cornerDownRight = useful.openImage("theme/"+element.url+"_sprite/corner_down_right");
                 }
 
                 if(element.rotations) {
-                    element.tailUp = this.openFiles.openImage("theme/"+ element.url + "_sprite/tail_up");
-                    element.tailDown = this.openFiles.openImage("theme/"+ element.url + "_sprite/tail_down");
-                    element.tailLeft = this.openFiles.openImage("theme/"+ element.url + "_sprite/tail_left");
-                    element.tailRight = this.openFiles.openImage("theme/"+ element.url + "_sprite/tail_right");
-                    element.verticalBody = this.openFiles.openImage("theme/"+ element.url + "_sprite/vertical_body");
-                    element.horizontalBody = this.openFiles.openImage("theme/"+ element.url + "_sprite/horizontal_body");
+                    element.tailUp = useful.openImage("theme/"+ element.url + "_sprite/tail_up");
+                    element.tailDown = useful.openImage("theme/"+ element.url + "_sprite/tail_down");
+                    element.tailLeft = useful.openImage("theme/"+ element.url + "_sprite/tail_left");
+                    element.tailRight = useful.openImage("theme/"+ element.url + "_sprite/tail_right");
+                    element.verticalBody = useful.openImage("theme/"+ element.url + "_sprite/vertical_body");
+                    element.horizontalBody = useful.openImage("theme/"+ element.url + "_sprite/horizontal_body");
                 } else {
-                    element.tail = this.openFiles.openImage("theme/"+ element.url + "_sprite/tail");
-                    element.body = this.openFiles.openImage("theme/"+ element.url + "_sprite/body");
+                    element.tail = useful.openImage("theme/"+ element.url + "_sprite/tail");
+                    element.body = useful.openImage("theme/"+ element.url + "_sprite/body");
                 }
 
-                element.appleImage = this.openFiles.openImage("theme/"+element.url+"_sprite/apple");
-                element.poisonedAppleImage = this.openFiles.openImage("theme/"+element.url+"_sprite/poisoned_apple");
-                element.headUp = this.openFiles.openImage("theme/"+element.url+"_sprite/head_up");
-                element.headDown = this.openFiles.openImage("theme/"+element.url+"_sprite/head_down");
-                element.headLeft = this.openFiles.openImage("theme/"+element.url+"_sprite/head_left");
-                element.headRight = this.openFiles.openImage("theme/"+element.url+"_sprite/head_right");
+                element.appleImage = useful.openImage("theme/"+element.url+"_sprite/apple");
+                element.poisonedAppleImage = useful.openImage("theme/"+element.url+"_sprite/poisoned_apple");
+                element.headUp = useful.openImage("theme/"+element.url+"_sprite/head_up");
+                element.headDown = useful.openImage("theme/"+element.url+"_sprite/head_down");
+                element.headLeft = useful.openImage("theme/"+element.url+"_sprite/head_left");
+                element.headRight = useful.openImage("theme/"+element.url+"_sprite/head_right");
             } 
-            element.wallImage = this.openFiles.openImage("wall");
+            element.wallImage = useful.openImage("wall");
         });
     }
 

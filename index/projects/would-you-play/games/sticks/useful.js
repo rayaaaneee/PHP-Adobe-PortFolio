@@ -4,13 +4,13 @@ class useful{
     // Fonction qui prend en paramètre le nom du fichier image et qui retourne l'image
     static openImage(url){
         let img = new Image();
-        img.src = "games/snake/images/"+url+".png";
+        img.src = "images/"+url+".png";
         return img;
     }
 
     // Fonction qui prend en paramètre le nom du fichier audio et qui retourne l'audio
     static openSound (file, volume){
-        let audio = new Audio("games/snake/sounds/"+file+".mp3");
+        let audio = new Audio("sounds/"+file+".mp3");
         audio.volume = volume;
         return audio;
     }

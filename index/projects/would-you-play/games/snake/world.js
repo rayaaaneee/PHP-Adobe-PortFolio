@@ -1,7 +1,6 @@
 // Importer un fichier externe
 class world {
     constructor(canvas, nbGame,length, nbrApples, nbrPoisonApples, nbrWalls, sprite) {
-        this.openFiles = new useful();
 
         this.length = length;
         this.nbGame = nbGame;
@@ -32,8 +31,8 @@ class world {
         this.#appearHighScore();
 
         // On initialise les sons
-        this.eatSound = new useful().openSound("eat", 0.2);
-        this.eatPoisonSound = new useful().openSound("eat", 0.2);
+        this.eatSound = useful.openSound("eat", 0.2);
+        this.eatPoisonSound = useful.openSound("eat", 0.2);
     }
 
     // Fonction qui met à jour le plateau

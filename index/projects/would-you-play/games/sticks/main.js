@@ -3,13 +3,18 @@ var allinstructionsticks = document.querySelectorAll(".allinstructionssticks");
 var sticks = new managesticks();
 var gamecontainer = document.getElementById('sticks-game-container');
 var allsticks = gamecontainer.querySelector("#allsticks");
+var goNextSound = useful.openSound("ok", 0.05);
 
 /* Passer au tour suivant */
 const goNextTurn = () => {
+    goNextSound.play();
 }
 
 /* Fonction principale qui démarre le jeu */
+var isStarted = false;
 const startSticksGame = () => {
+    isStarted = true;
+
     // On affiche le container du jeu
     choosecontainer.style.display = "none";
     gamecontainer.removeAttribute("style");
@@ -26,6 +31,8 @@ var starting = null;
 var canStart = false;
 
 const appearSticksInstructions = () => {
+    goNextSound.play();
+
     //On cache toutes les instructions
     for(var i = 0; i < allinstructionsticks.length; i++)
         allinstructionsticks[i].style.display = "none";
@@ -71,3 +78,11 @@ const appearSticksInstructions = () => {
     allinstructionsticks[indexInstruction].removeAttribute("style");
     allinstructionsticks[indexInstruction-1].style.display = "none";
 }
+
+addEventListener("keydown", (event) => {
+    if(event.key == "Enter")
+        if(!isStarted)
+            appearSticksInstructions();
+        else
+            console.log("starting");
+});

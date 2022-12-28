@@ -122,11 +122,10 @@ var intervalAdvance = null;
 
 /* On déclare la mathode de la classe useful qui nous servira à ouvrir différents fichiers et on déclare tout ce qu'on 
 a à déclarer avec cette classe */
-const openFiles = new useful();
-const informations = openFiles.openJSON('games/snake/datas/levels.json');
-const restartSound = openFiles.openSound('restart', 0.05);
-const changeGameMode = openFiles.openSound('changeGameMode', 0.13);
-const backToChoicesSound = openFiles.openSound('woosh', 0.1);
+const informations = useful.openJSON('games/snake/datas/levels.json');
+const restartSound = useful.openSound('restart', 0.05);
+const changeGameMode = useful.openSound('changeGameMode', 0.13);
+const backToChoicesSound = useful.openSound('woosh', 0.1);
 
 //On récupère les élemenents HTML qu'on utilisera
 const canvas = document.getElementById("snake-canva");

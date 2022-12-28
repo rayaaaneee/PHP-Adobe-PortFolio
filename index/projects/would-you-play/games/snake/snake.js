@@ -10,9 +10,9 @@ class snake {
         // Permet d'éviter que le serpent ne change de direction plusieurs fois dans la même boucle
         this.canChangeDirection = true;
 
-        this.deathSound = new useful().openSound("endgame", 0.07);
+        this.deathSound = useful.openSound("endgame", 0.07);
         /* this.winSound = new useful().openSound("wingame", 0.1); */
-        this.winSound = new useful().openSound("espana", 1);
+        this.winSound = useful.openSound("espana", 1);
         this.isDead = false;
         this.winGame = false;
     }

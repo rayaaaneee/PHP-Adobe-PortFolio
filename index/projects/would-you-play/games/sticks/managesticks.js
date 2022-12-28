@@ -1,27 +1,33 @@
 class managesticks{
     
     constructor(nbsticks, starting){
+        // Initialisation des attributs
         this.tab = [];
         this.starting = starting;
         this.container = document.getElementById('game');
-        this.htmlstick = document.createElement('div');
-        this.htmlstick.classList.add('stick');
-        this.sticksRemaininghtml = document.getElementById('sticksremaining').querySelectorAll("p")[1];
         this.allstickshtml = document.getElementById('allsticks');
 
+        this.sticksRemaininghtml = document.getElementById('sticksremaining').querySelectorAll("p")[1];
         this.sticksRemaininghtml.innerHTML = nbsticks;
+
         this.htmlstick = document.createElement('div');
+        this.#initAttributes();
+
+        // IA
+        this.bot = new AI(this);
+        
+        // Sons
+        this.destroySound = useful.openSound("woosh", 0.05);
+
+        // Animations
+        this.addSticks(nbsticks);
+        this.#displaySticks();
+    }
+
+    #initAttributes(){
         this.htmlstick.classList.add('stick');
         this.htmlstick.setAttribute("draggable", "false");
         this.htmlstick.setAttribute("onclick", this.animationForEachStick);
-
-        this.bot = new AI(this);
-        
-        // Element tmp ne sert que dans un cas
-        this.tmp = null;
-
-        this.addSticks(nbsticks);
-        this.#displaySticks();
     }
 
     // Fonction qui ajoute des sticks
@@ -29,7 +35,6 @@ class managesticks{
         for (let i = 0; i < number; i++){
             this.tab.push(new stick());
         }
-        console.log(this.tab);
     }
 
     // Fonction qui supprime des sticks
@@ -42,32 +47,36 @@ class managesticks{
     #giveAnimation(){
         var allsticks = this.allstickshtml.querySelectorAll(".stick");
         allsticks.forEach((element) => {
+            element.style.cursor = "pointer";
             element.addEventListener("mouseover", () => {
-                element.style.transform = "scale(1.1) rotate(3deg)";
+                if(!this.tab[element.id].isDeleted())
+                    element.style.transform = "scale(1.1) rotate(3deg)";
             });
             element.addEventListener("mouseout", () => {
-                element.style.transform = "scale(1) rotate(0deg)";
+                if(!this.tab[element.id].isDeleted())
+                    element.style.transform = "scale(1) rotate(0deg)";
+            });
+            element.addEventListener("click", () => {
+                if(!this.tab[element.id].isDeleted()){
+                    element.style.opacity = 0;
+                    element.style.transform = "scale(0.5) rotate(0deg)";
+                    element.style.cursor = "default";
+                    console.log("stick no "+element.id+" deleted");
+                    this.destroySound.play();
+                    this.tab[element.id].delete();
+                    this.#updateSticksRemaining();
+                }
             });
         });  
     }
-    
-    animationForEachStick(event){
-        let tmp = event.target;
-        tmp.style.transform = "scale(0.4) rotate(-3deg)";
-        this.#updateSticksRemaining(1); 
-        setTimeout(() => {
-            this.tmp.style.opacity = "0";
-        }, 150);
-        tmp.removeEventListener("click", this.animationForEachStick);
-    }
 
-    #updateSticksRemaining(nbr){
-        let newNbr = parseInt(this.sticksRemaininghtml.innerHTML) - nbr;
-        this.sticksRemaininghtml.innerHTML = newNbr;
-    }
-
-    removeAllSticks(){
-        this.tab = [];
+    #updateSticksRemaining(){
+        let sticksRemaining = 0;
+        this.tab.forEach((element) => {
+            if(!element.isDeleted())
+                sticksRemaining++;
+        });
+        this.sticksRemaininghtml.innerHTML = sticksRemaining;
     }
 
     #displaySticks(){
@@ -80,10 +89,8 @@ class managesticks{
 
     #appearSticks(i, interval){
         if(i >= this.tab.length) {
-            if(i >= this.tab.length+1){
-                clearInterval(interval);
-                this.#giveAnimation();
-            }
+            clearInterval(interval);
+            this.#giveAnimation();
         } else {
             let newnode = this.htmlstick.cloneNode(true);
             this.allstickshtml.appendChild(newnode);

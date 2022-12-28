@@ -1,11 +1,16 @@
 class stick{
-    static lastNbr = 1;
+    static lastNbr = 0;
+
     constructor(){
         this.id = stick.lastNbr++;
+        this.deleted = false;
     }
 
-    destroy(){
-        this.id = "null";
-        stick.lastNbr--;
+    delete(){
+        this.deleted = true;
+    }
+
+    isDeleted(){
+        return this.deleted;
     }
 }

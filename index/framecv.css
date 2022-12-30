@@ -97,6 +97,7 @@
     row-gap: 30px;
     margin-top: 40px;
     margin-right: 40px;
+    z-index: 3;
 }
 
 /* Changer la taille des boutons */

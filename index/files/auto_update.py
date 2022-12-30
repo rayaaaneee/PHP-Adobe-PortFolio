@@ -28,7 +28,7 @@ if __name__ == "__main__":
                         format='%(asctime)s - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
     
-    filename = "index/files/CV_Rayane_Merlin.pdf"
+    filename = "index/files/CV"
     
     event_handler = FileSystemEventHandler()
 

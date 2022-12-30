@@ -1,13 +1,14 @@
 var choosecontainer = document.getElementById('choose-sticks-container');
 var allinstructionsticks = document.querySelectorAll(".allinstructionssticks");
-var sticks = new managesticks();
+var sticks = null;
 var gamecontainer = document.getElementById('sticks-game-container');
 var allsticks = gamecontainer.querySelector("#allsticks");
 var goNextSound = useful.openSound("ok", 0.05);
-
+var sticks = null;
 /* Passer au tour suivant */
-const goNextTurn = () => {
+const goNextTurn = (game) => {
     goNextSound.play();
+    this.sticks.bot.play();
 }
 
 /* Fonction principale qui démarre le jeu */
@@ -20,13 +21,13 @@ const startSticksGame = () => {
     gamecontainer.removeAttribute("style");
 
     // On crée l'instance de managesticks et on démarre le jeu
-    var sticks = new managesticks(nbSticks, starting);
+    sticks = new managesticks(nbSticks, starting);
 }
 
 /* On fait apperaitre les instructions dans l'ordre */
 var indexInstruction = 0; 
 var indexLimit = allinstructionsticks.length;
-var nbSticks = 30;
+var nbSticks = 0;
 var starting = null;
 var canStart = false;
 
@@ -47,11 +48,18 @@ const appearSticksInstructions = () => {
             break;
         case 1:
             // Si l'utilisateur n'a rien mit on met 30 par defaut
-            canStart = true;
             if(allinstructionsticks[1].querySelector("input").value == ""){
-                break;
+                nbSticks = 30;
+            } else {
+                nbSticks = parseInt(allinstructionsticks[1].querySelector("input").value);
+                if(nbSticks < 10 || nbSticks > 100){
+                    alert("Le nombre de batons doit etre compris entre 10 et 100");
+                    allinstructionsticks[1].querySelector("input").value = "";
+                    appearSticksInstructions();
+                    return;
+                }
             }
-            nbSticks = parseInt(allinstructionsticks[1].querySelector("input").value);
+            canStart = true;
             break;
         case 2:
             if(parseInt(allinstructionsticks[2].querySelector("select").value) == 1)
@@ -80,9 +88,17 @@ const appearSticksInstructions = () => {
 }
 
 addEventListener("keydown", (event) => {
-    if(event.key == "Enter")
+    if(event.key == "Enter"){
+        goNextSound.play();
         if(!isStarted)
             appearSticksInstructions();
         else
             console.log("starting");
+    }
+});
+
+document.querySelectorAll("select").forEach((select) => {
+    select.addEventListener("change", (event) => {
+        goNextSound.play();
+    });
 });

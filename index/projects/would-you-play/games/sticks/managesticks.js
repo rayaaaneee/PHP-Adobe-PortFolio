@@ -12,9 +12,6 @@ class managesticks{
 
         this.htmlstick = document.createElement('div');
         this.#initAttributes();
-
-        // IA
-        this.bot = new AI(this);
         
         // Sons
         this.destroySound = useful.openSound("woosh", 0.05);
@@ -22,6 +19,11 @@ class managesticks{
         // Animations
         this.addSticks(nbsticks);
         this.#displaySticks();
+
+        // IA
+        this.bot = new AI(this);
+
+        this.haveRemoved = null;
     }
 
     #initAttributes(){
@@ -39,8 +41,28 @@ class managesticks{
 
     // Fonction qui supprime des sticks
     removeSticks(nbrSticks){
-        for (let i = 0; i < nbrSticks; i++)
-            this.tab.pop();
+        var random = null;
+        let i = 0;
+        do {
+            random = Math.floor(Math.random() * this.tab.length);
+            setTimeout(() => {
+                if(!this.tab[random].isDeleted()){
+                    this.tab[random].delete();
+                    this.allstickshtml.querySelectorAll(".stick")[random].style.opacity = 0;
+                    this.allstickshtml.querySelectorAll(".stick")[random].style.transform = "scale(0.5) rotate(0deg)";
+                    this.allstickshtml.querySelectorAll(".stick")[random].style.cursor = "default";
+                    setTimeout(() => {
+                        this.allstickshtml.querySelectorAll(".stick")[random].style.opacity = 0;
+                    }, 400);
+                    this.destroySound.play();
+                    i++;
+                }
+                if(i == nbrSticks){
+                    this.bot.goNextTurnButton.disabled = false;
+                }
+                this.#updateSticksRemaining();
+            }, 200);
+        } while (this.tab[random].isDeleted());
     }
 
     // Pour chaque baton on lui donne une animation
@@ -57,14 +79,19 @@ class managesticks{
                     element.style.transform = "scale(1) rotate(0deg)";
             });
             element.addEventListener("click", () => {
-                if(!this.tab[element.id].isDeleted()){
+                console.log(this.bot.playing);
+                if(!this.tab[element.id].isDeleted() && !this.bot.playing && this.hasRemoved !== null){
+                    this.hasRemoved++;
+                    console.log(this.hasRemoved);
                     element.style.opacity = 0;
                     element.style.transform = "scale(0.5) rotate(0deg)";
                     element.style.cursor = "default";
-                    console.log("stick no "+element.id+" deleted");
                     this.destroySound.play();
                     this.tab[element.id].delete();
                     this.#updateSticksRemaining();
+                    if(this.hasRemoved == 3){
+                        this.hasRemoved = null;
+                    }
                 }
             });
         });  
@@ -109,5 +136,17 @@ class managesticks{
                 console.log("stick no "+element.id);
             });
         }
+    }
+
+    play(){
+        this.hasRemoved = 0;
+    }
+
+    getNumberOfSticks(){
+        let i = 0;
+        this.tab.forEach((element) => {
+            if(!element.isDeleted())
+                i++;
+        });
     }
 }

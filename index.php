@@ -84,7 +84,7 @@
                     $i++;
                 }
             ?>
-            <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+            <div id="seemore" <?php if($i <= 8) { ?> style="display : none" <?php } ?> onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                 <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
                     <img src="index/icons/more.png" draggable="false" id="img<?php echo $i ?>" class="workslogos"> 
                 </div> 
@@ -97,12 +97,12 @@
         <div class="horizontal-bars" id="horizontal-bar2" ></div> 
         <div id="container-cv" onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);"> 
             <div id="cv-img" onclick="openPage();"> 
-                <img src="index/files/CV_Rayane_Merlin.png" alt="cv" data-lightbox="CV_Rayane_Merlin.pdf" data-title="Voici mon C.V actuel, celui-ci est amené à être modifié mais restera à jour sur le site."> 
+                <img src="index/files/CV.png" alt="cv" data-lightbox="CV_Rayane_Merlin.png" data-title="Voici mon C.V actuel, celui-ci est amené à être modifié mais restera à jour sur le site."> 
             </div> 
             <div id="framecv"> 
                 <div id="container"> 
                     <div id="imgcv"> 
-                        <img draggable="false" src="index/files/CV_Rayane_Merlin.png" alt="photo"> 
+                        <img draggable="false" src="index/files/CV.png" alt="photo"> 
                     </div> 
                     <div id="buttons"> 
                         <div id="cross" onclick="closePage();"> 
@@ -111,7 +111,7 @@
                         <div id="print" onclick="printPDF();"> 
                             <img draggable="false" id="imgbutton"src="index/icons-frame-cv/print.png"> 
                         </div> 
-                        <a href="index/files/CV_Rayane_Merlin.pdf" download> 
+                        <a href="index/files/CV.pdf" download="CV_Rayane_Merlin.pdf"> 
                             <div id="download"> 
                                 <img draggable="false" id="imgbutton" src="index/icons-frame-cv/download.png" alt="dl"> 
                             </div> 
@@ -153,7 +153,7 @@
                     <img draggable="false" src="index/icons/zoom.png" alt="zoom"> 
                 </div> 
                 <p class="beforebutton">Vous pouvez télécharger mon CV actuel au format pdf en cliquant sur le bouton ci-dessous.</p> 
-                <a href="index/files/CV_Rayane_Merlin.pdf" download><button class="cv-button">Télécharger</button></a> 
+                <a href="index/files/CV.pdf" download="CV_Rayane_Merlin.pdf"><button class="cv-button">Télécharger</button></a> 
                 <p class="beforebutton">Vous pouvez également consulter mon CV en ligne dans la page "CV" visible sur le menu de navigation ou en cliquant sur le boutton ci-dessous.</p> 
                 <a href="CV/index.html"><button class="cv-button">Consulter le CV</button></a> 
                 <div class="blackbar"></div> 

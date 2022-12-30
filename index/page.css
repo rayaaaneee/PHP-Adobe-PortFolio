@@ -161,7 +161,7 @@
 /* Changer la taille de l'image et son curseur*/ 
 #cv-img img{ 
     width: 420px; 
-    border-radius: 3%; 
+    border-radius: 30px; 
     transition: 0.3s; 
     cursor: pointer; 
 } 

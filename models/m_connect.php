@@ -16,8 +16,8 @@ function getConnection(){
     }
 }
 
-// Version pour MAMP (site en local)
-/* function getConnection(){
+/* // Version pour MAMP (site en local)
+function getConnection(){
     try {
         $host = "localhost";
         $dbname = "portfolio";

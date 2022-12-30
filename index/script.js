@@ -49,7 +49,7 @@ const closePage = () => {
 
 // Fonction qui imprime envoie vers la page d'impression quand on clique sur le bouton Print
 const printPDF = () =>{
-    var pdf = window.open("index/files/CV_Rayane_Merlin.pdf", "_blank");
+    var pdf = window.open("index/files/CV.pdf", "_blank");
     pdf.print();
 }
 

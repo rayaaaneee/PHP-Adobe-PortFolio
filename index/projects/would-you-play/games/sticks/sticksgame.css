@@ -64,9 +64,25 @@
     transition: 0.1s;
     padding: 0.5vw;
     box-shadow: 0 0 0.5em black;
+    transition: all 0.2s ease;
 }
 
-.gonextturn:hover{
+#gonextturn:disabled{
+    background-color: rgb(125, 122, 141);
+    color: rgb(255, 255, 255);
+    border: 3px solid white;
+    cursor: default;
+}
+
+#gonextturn:disabled:hover{
+    background-color: rgb(125, 122, 141);
+    color: rgb(255, 255, 255);
+    border: 3px solid white;
+    cursor: default;
+}
+
+
+#gonextturn:hover{
     transition: 0.2s;
     background-color: rgb(167, 155, 224);
     color: white;

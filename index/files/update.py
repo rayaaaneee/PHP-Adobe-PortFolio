@@ -57,7 +57,7 @@ def write() :
         print("File modified")
         time.sleep(2)
         
-        name = "CV_Rayane_Merlin.pdf"
+        name = "CV"
 
         #Recuperer les informations du fichier
         date, size, type = getFileInformations(name);
@@ -75,6 +75,6 @@ def write() :
 if __name__ == "__main__":
     write()
 
-#Q : Comment executer ce programme automatiquement a chaque fois que le fichier CV_Rayane_Merlin.pdf est modifié ?
+#Q : Comment executer ce programme automatiquement a chaque fois que le fichier CV est modifié ?
 #R : Il faut utiliser le module watchdog qui permet de surveiller les fichiers et de declencher des actions en cas de modification
 #R : Il faut aussi utiliser le module subprocess qui permet d'executer des commandes dans le terminal

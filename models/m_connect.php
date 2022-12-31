@@ -1,6 +1,6 @@
 <?php
 
-// Version pour AWS (site en ligne)
+/* // Version pour AWS (site en ligne)
 function getConnection(){
     try {
         $host = "localhost";
@@ -14,9 +14,9 @@ function getConnection(){
         die('Erreur : ' . $e->getMessage());
         return null;
     }
-}
+} */
 
-/* // Version pour MAMP (site en local)
+// Version pour MAMP (site en local)
 function getConnection(){
     try {
         $host = "localhost";
@@ -31,4 +31,4 @@ function getConnection(){
         die('Erreur : ' . $e->getMessage());
         return null;
     }
-} */
+}

@@ -90,12 +90,13 @@ const getInformations = () => {
 /* Fonction qui affiche les informations actuelles du cv ("nom, taille, date de création, etc") quand 
 on hover bouton "Informations" */
 var informations = document.querySelector("#informations");
+var buttons = document.querySelector("#buttons");
 var displaying = false;
 const showInformations = () =>{
     if (displaying) {
         hideInformations();
     } else {
-        document.getElementById("buttons").style.zIndex = "1";
+        buttons.style.zIndex = "3";
 
         informations.style.display = "flex";
         informations.style.opacity = "1";
@@ -124,7 +125,7 @@ const showInformations = () =>{
 // Fonction qui enleve les informations actuelles du cv quand la souris quitte le bouton "Informations"
 const hideInformations = () => {
     informations.removeAttribute("style");
-    document.getElementById("buttons").style.zIndex = "3";
+    buttons.removeAttribute("style");
     displaying = false;
 }
 

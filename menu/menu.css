@@ -4,11 +4,12 @@
     display: flex;
     margin-top : 0;
     font-weight : bold;    
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9); 
+    backdrop-filter: blur(4px);
     justify-content : flex-end;
     height: 67px;
     align-items: center;
-    border-bottom: 6px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(0, 0, 0, 0.4);
 }
 
 /* Disposition et personnification des items */

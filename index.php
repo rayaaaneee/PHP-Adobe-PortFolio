@@ -84,11 +84,13 @@
                     $i++;
                 }
             ?>
-            <div id="seemore" <?php if($i <= 8) { ?> style="display : none" <?php } ?> onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
-                    <img src="index/icons/more.png" draggable="false" id="img<?php echo $i ?>" class="workslogos"> 
+            <?php if($i > 8) { ?>
+                <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+                    <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                        <img src="index/icons/more.png" draggable="false" id="img<?php echo $i ?>" class="workslogos"> 
+                    </div> 
                 </div> 
-            </div> 
+            <?php } ?>
         </article> 
         <h2 class="explicationtext">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 
     </article> 

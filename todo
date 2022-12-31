@@ -5,15 +5,16 @@ dé-hover la case  */ ✔
 
 /* 3) Loader de page basique pendant 2s pour cacher le chargement des backsgrounds (chaque page) */ ✔
 
-4) Responsive avec texte du menu qui devient des icones
+/* 4) Responsive avec texte du menu qui devient des icones */ ✔
 
-5) Ajout d un bouton "voir plus" sur les pages de projets pour voir les autres projets ✔
+/* 5) Ajout d un bouton "voir plus" sur les pages de projets pour voir les autres projets */ ✔
 
 /* 6) Personnaliser la scroll-bar */ ✔
 
 /* 7) Agrandir l'image quand on clique dessus */ ✔
 
-8) Chargement des musiques (durée a peu pres 5 s) avec une animation préfaite
+8) JQuery : attendre que l iframe soit chargée pour désactiver le loader de la partie "musique" de la page perso
+# https://www.journaldunet.fr/web-tech/developpement/1202625-comment-intercepter-l-evenement-ready-d-une-iframe-avec-jquery/#:~:text=Pour%20d%C3%A9tecter%20la%20fin%20du,d'une%20iframe%20%3F).&text=On%20peut%20%C3%A9galement%20utiliser%20une,body%20situ%C3%A9e%20dans%20l'iFrame.
 
 /* 9) Desactiver le scroll pendant le loader principal */ ✔
 
@@ -25,24 +26,24 @@ dé-hover la case  */ ✔
 
 /* 13) Pouvoir injecter un saut de ligne sur la derniere phrase du loader */ ✔
 
-14) Media queries pour telephones des pages
+/* 14) Media queries pour telephones des pages */ ✔
 
-15) Faire la partie PHP de la page contact (bouton Envoyer) ✔
+/* 15) Faire la partie PHP de la page contact (bouton Envoyer) ✔ */ ✔
 
-16) Faire apparaitre directement le loader, privilegier le chargement du loader
+/* 16) Faire apparaitre directement le loader, privilegier le chargement du loader */ ✔
 
 /* 17) Aller sur l accueil quand on clique sur le logo Portfolio */ ✔
 
 18) Comme sur youtube, faire apparaitre les descriptions des boutons lorsqu on les hover
 
-19) Doubler les backgrounds et les synchroniser pour empecher les trous
+/* 19) Doubler les backgrounds et les synchroniser pour empecher les trous */ ✔
 
 /* 20) Rajouter la case du projet JavaScript sur la page d accueil (logo snake) */ ✔
 
 21) Créer une page "A propos" pour expliquer les références (logo, loader), et le fonctionnement du site
 (Php -> Recevoir les messages, JavaScript, CSS, HTML -> Utilisation des iframes, etc...)
 
-22) Faire fonctionner le bouton "Fermer" & "Informations" sur la page CV agrandie ✔
+/* 22) Faire fonctionner le bouton "Fermer" & "Informations" sur la page CV agrandie */ ✔
 
 23) Faire une transition JavaScript en jouant avec l opacité pour faire apparaitre la page CV agrandie 
 + de même pour la fermeture et regler si on a ouvert le CV une fois l effet ne marche plus
@@ -57,4 +58,13 @@ dé-hover la case  */ ✔
 
 28) Sur tablette ou telephone, mettre le curseur du loader en evidence et en position fixe
 
-29) Insérer un icone lien / télécharger a coté de chaque titre de projet
+/* 29) Insérer un icone lien / télécharger a coté de chaque titre de projet */ ✔
+
+/* 30) Faire apparaitre le bouton "voir plus" seulement si il y a plus de 7 projets */ ✔
+
+32) Implémenter des cookies pour le mode nuit
+
+33) Faire le media queries de la page contact qui est bugué au niveau du formulaire
+
+34) Faire le media queries de la page CV
+

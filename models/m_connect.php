@@ -13,11 +13,11 @@ function getConnection(){
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
         return null;
-    }
-}
+    }                
+}                                                                                                                                                                    
 
-/* // Version pour MAMP (site en local)
-function getConnection(){
+// Version pour MAMP (site en local)
+/* function getConnection(){
     try {
         $host = "localhost";
         $dbname = "portfolio";
@@ -30,5 +30,5 @@ function getConnection(){
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
         return null;
-    }
-} */
+    }      
+} */                                                                        

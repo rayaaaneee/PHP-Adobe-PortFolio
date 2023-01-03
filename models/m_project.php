@@ -1,7 +1,7 @@
 <?php
     
 function getProjects($db) {
-    $sql = "SELECT * FROM projects";
+    $sql = "SELECT * FROM projects ORDER BY id DESC";
     $query = $db->prepare($sql);
     $query->execute();
     $projects = $query->fetchAll();

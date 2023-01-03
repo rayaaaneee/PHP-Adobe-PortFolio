@@ -3,12 +3,11 @@ var allinstructionsticks = document.querySelectorAll(".allinstructionssticks");
 var sticks = null;
 var gamecontainer = document.getElementById('sticks-game-container');
 var allsticks = gamecontainer.querySelector("#allsticks");
-var goNextSound = useful.openSound("ok", 0.05);
 var sticks = null;
 /* Passer au tour suivant */
 const goNextTurn = (game) => {
-    goNextSound.play();
-    this.sticks.bot.play();
+    managesticks.goNextSound.play();
+    sticks.bot.play();
 }
 
 /* Fonction principale qui démarre le jeu */
@@ -32,7 +31,7 @@ var starting = null;
 var canStart = false;
 
 const appearSticksInstructions = () => {
-    goNextSound.play();
+    managesticks.goNextSound.play();
 
     //On cache toutes les instructions
     for(var i = 0; i < allinstructionsticks.length; i++)
@@ -62,10 +61,12 @@ const appearSticksInstructions = () => {
             canStart = true;
             break;
         case 2:
-            if(parseInt(allinstructionsticks[2].querySelector("select").value) == 1)
+
+            if(allinstructionsticks[2].querySelector("select").value == "bot")
                 starting = true;
             else
                 starting = false;
+            console.log(starting);
             canStart = true;
             break;
         default:
@@ -89,16 +90,55 @@ const appearSticksInstructions = () => {
 
 addEventListener("keydown", (event) => {
     if(event.key == "Enter"){
-        goNextSound.play();
+        managesticks.goNextSound.play();
         if(!isStarted)
             appearSticksInstructions();
-        else
-            console.log("starting");
     }
 });
 
 document.querySelectorAll("select").forEach((select) => {
     select.addEventListener("change", (event) => {
-        goNextSound.play();
+        managesticks.goNextSound.play();
     });
 });
+
+var load = document.querySelectorAll("#bot p");
+var intervalLoad = null;
+// Fonction qui s'occupe de l'animation des points (bot)
+const animateLoadBot = (color) => {
+    var index = 3;
+    intervalLoad = setInterval(() => {
+        load[(index-1)%3].removeAttribute("style");
+        load[index%3].style.color = color;
+        index++;
+    },300);
+}
+animateLoadBot("white");
+
+// Fonction qui s'occupe de l'animation des points (joueur)
+var pointsPlayerLoad = document.querySelectorAll("#player p:not(#player p:first-child)");
+const animateLoadPlayer = () => {
+    var index = 4;
+    intervalLoad = setInterval(() => {
+        switch(index%4){
+            case 0:
+                pointsPlayerLoad[0].removeAttribute("style");
+                pointsPlayerLoad[1].style.opacity = "0";
+                pointsPlayerLoad[2].style.opacity = "0";
+                break;
+            case 1:
+                pointsPlayerLoad[1].removeAttribute("style");
+                break;
+            case 2:
+                pointsPlayerLoad[2].removeAttribute("style");
+                break;
+            case 3:
+                pointsPlayerLoad.forEach((point) => {
+                    point.style.opacity = "0";
+                });
+                break;
+        }
+        index++;
+    },300);
+}
+animateLoadPlayer();

@@ -1,5 +1,5 @@
 class managesticks{
-    
+    static goNextSound = useful.openSound("ok", 0.05);
     constructor(nbsticks, starting){
         // Initialisation des attributs
         this.tab = [];
@@ -43,26 +43,39 @@ class managesticks{
     removeSticks(nbrSticks){
         var random = null;
         let i = 0;
-        do {
+        let intervalDelete = setInterval(() => {
+            i++;
             random = Math.floor(Math.random() * this.tab.length);
-            setTimeout(() => {
-                if(!this.tab[random].isDeleted()){
-                    this.tab[random].delete();
-                    this.allstickshtml.querySelectorAll(".stick")[random].style.opacity = 0;
-                    this.allstickshtml.querySelectorAll(".stick")[random].style.transform = "scale(0.5) rotate(0deg)";
-                    this.allstickshtml.querySelectorAll(".stick")[random].style.cursor = "default";
-                    setTimeout(() => {
+            do {
+                setTimeout(() => {
+                    if(!this.tab[random].isDeleted()){
+                        this.tab[random].delete();
                         this.allstickshtml.querySelectorAll(".stick")[random].style.opacity = 0;
-                    }, 400);
-                    this.destroySound.play();
-                    i++;
-                }
-                if(i == nbrSticks){
-                    this.bot.goNextTurnButton.disabled = false;
-                }
-                this.#updateSticksRemaining();
-            }, 200);
-        } while (this.tab[random].isDeleted());
+                        this.allstickshtml.querySelectorAll(".stick")[random].style.transform = "scale(0.5) rotate(0deg)";
+                        this.allstickshtml.querySelectorAll(".stick")[random].style.cursor = "default";
+                        setTimeout(() => {
+                            this.allstickshtml.querySelectorAll(".stick")[random].style.opacity = 0;
+                        }, 400);
+                        this.destroySound.play();
+                    } else {
+                        random = Math.floor(Math.random() * this.tab.length);
+                    }
+                }, 200);
+                this.updateSticksRemaining();
+            } while(this.tab[random].isDeleted());
+
+            if(i == nbrSticks)
+                clearInterval(intervalDelete);
+        } , 400);
+
+        setTimeout(() => {
+            AI.absoluteContent.querySelector("#bot").removeAttribute("style");
+            AI.absoluteContent.querySelector("#player").style.display = "flex";
+            AI.goNextTurnButton.disabled = true;
+        }, 400);
+
+        // Une fois que le bot a joué on fait jouer directement le joueur
+        this.bot.play();
     }
 
     // Pour chaque baton on lui donne une animation
@@ -79,25 +92,26 @@ class managesticks{
                     element.style.transform = "scale(1) rotate(0deg)";
             });
             element.addEventListener("click", () => {
-                console.log(this.bot.playing);
                 if(!this.tab[element.id].isDeleted() && !this.bot.playing && this.hasRemoved !== null){
                     this.hasRemoved++;
-                    console.log(this.hasRemoved);
+                    AI.goNextTurnButton.disabled = false;
                     element.style.opacity = 0;
                     element.style.transform = "scale(0.5) rotate(0deg)";
                     element.style.cursor = "default";
                     this.destroySound.play();
                     this.tab[element.id].delete();
-                    this.#updateSticksRemaining();
+                    this.updateSticksRemaining();
                     if(this.hasRemoved == 3){
                         this.hasRemoved = null;
+                        this.bot.play();
+                        managesticks.goNextSound.play();
                     }
                 }
             });
         });  
     }
 
-    #updateSticksRemaining(){
+    updateSticksRemaining(){
         let sticksRemaining = 0;
         this.tab.forEach((element) => {
             if(!element.isDeleted())
@@ -140,6 +154,7 @@ class managesticks{
 
     play(){
         this.hasRemoved = 0;
+        AI.goNextTurnButton.disabled = true;
     }
 
     getNumberOfSticks(){
@@ -148,5 +163,6 @@ class managesticks{
             if(!element.isDeleted())
                 i++;
         });
+        return i;
     }
 }

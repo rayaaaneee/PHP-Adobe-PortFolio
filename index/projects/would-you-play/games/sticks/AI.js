@@ -1,4 +1,8 @@
 class AI {
+
+    static goNextTurnButton = document.getElementById("gonextturn");
+    static absoluteContent = document.querySelector("#iconplayerandtext");
+
     constructor(managesticks) {
         this.managesticks = managesticks;
         this.starting = managesticks.starting;
@@ -6,8 +10,6 @@ class AI {
         this.#initGame();
 
         this.playing = !this.starting;
-
-        this.goNextTurnButton = document.getElementById("gonextturn");
 
         this.play();
     }
@@ -26,35 +28,39 @@ class AI {
             let player = this.nbsticks % 4 == 1 ? 0 : 1;
             this.starting = player == 0 ? true : false;
         }
-        console.log(this.starting);
+
+        // Selon qui commence on affiche le bon texte
+        if (!this.managesticks.starting)
+            AI.absoluteContent.querySelector("#player").style.display = "flex";
+        else
+            AI.absoluteContent.querySelector("#bot").style.display = "flex";
+
+        this.managesticks.updateSticksRemaining();
     }
 
     play() {
         this.playing = !this.playing;
         if (this.playing) {
-            console.log("Bot turn");
-            this.goNextTurnButton.disabled = true;
+            AI.absoluteContent.querySelector("#bot").style.display = "flex";
+            AI.absoluteContent.querySelector("#player").removeAttribute("style");
+
+            AI.goNextTurnButton.disabled = true;
 
             let toRemove = null;
-            switch ((this.managesticks.tab.length - 1) % 4) {
+            switch ((this.managesticks.getNumberOfSticks()-1) % 4) {
+                default:
                 case 1:
                     toRemove = 1;
                     break;
-            
                 case 2:
                     toRemove = 2;
                     break;
-            
                 case 3:
                     toRemove = 3;
                     break;
-            
-                default:
-                    toRemove = 1;
             }
             this.managesticks.removeSticks(toRemove);
         } else {
-            console.log("Player turn");
             this.managesticks.play();
         }
     }

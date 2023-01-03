@@ -34,13 +34,27 @@
         <div class="allinstructionssticks" style="display: none;">
             <h1 class="instruction">Choose who whill start !</h1>
             <select id="second-choose-select">
-                <option value="0" selected>Me</option>
-                <option value="1">Bot</option>    
+                <option value="player" selected>Me</option>
+                <option value="bot">Bot</option>    
             </select>
             <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
         </div>
     </div>
     <div id="sticks-game-container" style="display: none">
+        <div id="iconplayerandtext">
+            <div id="bot" style="display:none;">
+                <img src="images/bot.png" draggable="false" id="playing">
+                <p id="bp1">.</p>
+                <p id="bp2">.</p>
+                <p id="bp3">.</p>
+            </div>
+            <div id="player" style="display:none;">
+                <p>A vous de jouer</p>
+                <p class="pointplayer">.</p>
+                <p class="pointplayer">.</p>
+                <p class="pointplayer">.</p>
+            </div>
+        </div>
         <div id="sticksremaining">
             <p class="instruction">Sticks remaining :</p>
             <p class="instruction"></p>

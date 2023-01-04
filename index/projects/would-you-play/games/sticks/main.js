@@ -15,6 +15,9 @@ const goNextTurn = (game) => {
 /* Fonction principale qui démarre le jeu */
 var isStarted = false;
 const startSticksGame = () => {
+    // On désactive le bouton principal
+    AI.goNextTurnButton.disabled = true;
+    document.getElementById('choose-sticks-container').style.display = "none";
     isStarted = true;
 
     // On affiche le container du jeu
@@ -102,7 +105,6 @@ const appearSticksInstructions = () => {
 
 addEventListener("keydown", (event) => {
     if(event.key == "Enter"){
-        managesticks.goNextSound.play();
         if(!isStarted)
             appearSticksInstructions();
         else

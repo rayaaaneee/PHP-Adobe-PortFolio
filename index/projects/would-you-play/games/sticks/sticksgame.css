@@ -1,5 +1,6 @@
 /* Container qui fait la taille de la page */
 #sticks-game-container{
+    transition: all 0.3s ease;
     width: 97vw;
     height: 95vh;
     display: flex;
@@ -23,6 +24,7 @@
 
 /* Texte qui indique le nombre de bâtons restants */
 #sticksremaining{
+    transition: all 0.5s ease;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -118,6 +120,10 @@
     border-radius: 10%;
 }
 
+#iconplayerandtext div{
+    transition: all 0.5s ease;
+}
+
 #iconplayerandtext #player p:first-child{
     color: rgb(209, 96, 96);
     text-shadow: 0 0 0.5em rgb(255, 255, 255);
@@ -138,4 +144,60 @@
 .pointplayer{
     color: rgb(209, 96, 96);
     font-size: 10vw;
+    transition: all 0.5s ease;
+}
+
+.bp{
+    transition: all 0.3s ease;
+}
+
+/* Texte de présentation en début de partie */
+#presentation, #gamestate{
+    position: absolute;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1vw;
+    top: 0;
+    left: 0;
+    transition : all 0.3s ease;
+}
+
+#presentation div:first-child, #gamestate div:first-child{
+    font-size: 10vw;
+    text-align: center;
+    margin-bottom: 2vw;
+    text-shadow: 0 0 0.5em rgb(0, 0, 0);
+}
+
+#presentation div:first-child{
+    color: rgb(99, 34, 44);
+}
+
+#gamestate div:first-child{
+    color: rgb(77, 55, 74);
+}
+
+#presentation div:last-child, #gamestate div:last-child{
+    font-size: 8vw;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 0.5em rgb(0, 0, 0);
+}
+
+#presentation div, #gamestate div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2vw;
+}
+
+#presentation p, #gamestate p{
+    padding : 0;
+    margin : 0;
 }

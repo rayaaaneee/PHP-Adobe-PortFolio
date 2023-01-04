@@ -2,7 +2,9 @@
     "instructionssticks" : [
         "Vous avez choisi le jeu des batons! Connaissez vous les regles de ce jeu?",
         "Dans ce jeu, chaque joueur doit enlever un, deux ou trois batons a chaque tour. Le joueur qui prend le dernier baton perd la partie.",
-        "Vous allez jouer contre un programme, tentez de le battre!",
+        "Vous allez jouer contre un robot, tentez de le battre!",
+        "Vous pouvez choisir soit le nombre de batons soit celui qui commence la partie, le robot choisira l'autre.",
+        "Vous pouvez appuyer sur entrée pour appuyer sur le bouton principal.",
         "Passez pour commencer!"
     ],
     "instructionssnake" : [

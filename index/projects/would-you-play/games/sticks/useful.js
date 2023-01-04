@@ -23,6 +23,7 @@ class useful{
         return JSON.parse(request.responseText);
     }
 
+    // Fonction qui affiche le texte de chargement correct en fonction du paramètre
     static printLoading(string){
         if(string == "bot"){
             AI.absoluteContent.querySelector("#player").removeAttribute("style");
@@ -35,7 +36,6 @@ class useful{
             AI.absoluteContent.querySelector("#player").style.display = "flex";
             AI.absoluteContent.style.top =  "-2vw";
             AI.absoluteContent.style.left =  "1vw";
-
             return;
         } else {
             console.error("printLoading() : wrong parameter");

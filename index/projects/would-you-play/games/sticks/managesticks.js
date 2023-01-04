@@ -1,9 +1,15 @@
 class managesticks{
+
     static goNextSound = useful.openSound("ok", 0.05);
+
     constructor(nbsticks, starting){
         // Initialisation des attributs
         this.tab = [];
         this.starting = starting;
+        this.hasRemoved = null;
+        this.nbTurns = 0;
+
+        // Attributs HTML
         this.container = document.getElementById('game');
         this.allstickshtml = document.getElementById('allsticks');
 
@@ -18,12 +24,9 @@ class managesticks{
 
         // Animations
         this.addSticks(nbsticks);
-        this.#displaySticks();
 
         // IA
         this.bot = new AI(this);
-
-        this.hasRemoved = null;
     }
 
     #initAttributes(){
@@ -70,9 +73,9 @@ class managesticks{
                     
                     // Une fois que le bot a joué on fait jouer directement le joueur
                     this.bot.play();
-                }, 400);
+                }, 1000);
             }
-        } , 300);
+        } , 500);
     }
 
     // Pour chaque baton on lui donne une animation
@@ -91,18 +94,24 @@ class managesticks{
             element.addEventListener("click", () => {
                 if(!this.tab[element.id].isDeleted() && this.bot.playing && this.hasRemoved != null){
                     this.hasRemoved++;
+                    this.bot.toRemove = this.hasRemoved;
+
                     AI.goNextTurnButton.disabled = false;
+
                     element.style.opacity = 0;
                     element.style.transform = "scale(0.5) rotate(0deg)";
                     element.style.cursor = "default";
+
                     this.destroySound.play();
                     this.tab[element.id].delete();
                     this.updateSticksRemaining();
+
                     if(this.hasRemoved == 3){
                         this.hasRemoved = null;
                         this.bot.play();
                         managesticks.goNextSound.play();
                     }
+                    
                     if (this.getNumberOfSticks() == 0){
                         setTimeout(() => { 
                             this.bot.stop();
@@ -112,7 +121,6 @@ class managesticks{
                 }
             });
         });  
-        this.bot.startGame();
     }
 
     updateSticksRemaining(){
@@ -124,7 +132,7 @@ class managesticks{
         this.sticksRemaininghtml.innerHTML = sticksRemaining;
     }
 
-    #displaySticks(){
+    displaySticks(){
         let index = 0;
         let intervalappear = setInterval(() => {
             this.#appearSticks(index, intervalappear);
@@ -137,6 +145,8 @@ class managesticks{
             if(i == this.tab.length+2){
                 clearInterval(interval);
                 this.#giveAnimation();
+                // Quand tout est correctement affiché on lance la partie
+                this.bot.play();
             }
         } else {
             let newnode = this.htmlstick.cloneNode(true);

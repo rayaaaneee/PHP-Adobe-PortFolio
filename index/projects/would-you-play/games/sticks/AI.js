@@ -74,7 +74,14 @@ class AI {
         let startingPlayerText = startingPlayerContainerText.querySelectorAll(".modify");
         let nbSticksText = nbSticksContainerText.querySelectorAll(".modify");
 
-        startingPlayerText[0].innerHTML = this.playing ? "Bot" : "Player";
+        if(this.playing){
+            startingPlayerText[0].innerHTML = "Bot";
+            startingPlayerContainerText.style.color = "rgb(81, 71, 75)";
+        } else {
+            startingPlayerText[0].innerHTML = "You";
+            startingPlayerContainerText.style.color = "rgb(77, 55, 74)";
+        }
+
         nbSticksText[0].innerHTML = this.nbsticks;
         
         this.#giveAnimationToPresentationText(content);
@@ -93,8 +100,8 @@ class AI {
 
                 this.managesticks.displaySticks()
                 document.getElementById("sticks-game-container").style.opacity = 1;
-            }, 300);
-        }, 1000);
+            }, 200);
+        }, 1400);
     }
 
     play() {
@@ -113,6 +120,11 @@ class AI {
                 gamestate.querySelector("#nbsticks").querySelectorAll(".modify")[0].innerHTML = !this.playing ? "Bot" : "You";
                 gamestate.querySelector("#nbsticks").querySelectorAll(".modify")[1].innerHTML = this.toRemove;
                 gamestate.querySelector("#nbsticks").querySelectorAll(".modify")[2].innerHTML = this.toRemove == 1 ? "stick" : "sticks";
+
+                if(this.playing)
+                    gamestate.querySelector("#turn").style.color = "rgb(81, 71, 75)"
+                else 
+                    gamestate.querySelector("#turn").style.color = "rgb(77, 55, 74)"
 
                 // Afficher le texte
                 gamestate.style.opacity = 1;

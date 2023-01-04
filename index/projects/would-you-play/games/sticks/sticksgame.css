@@ -178,10 +178,6 @@
     color: rgb(99, 34, 44);
 }
 
-#gamestate div:first-child{
-    color: rgb(77, 55, 74);
-}
-
 #presentation div:last-child, #gamestate div:last-child{
     font-size: 8vw;
     text-align: center;

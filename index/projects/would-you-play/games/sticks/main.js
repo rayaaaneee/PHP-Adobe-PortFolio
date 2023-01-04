@@ -6,8 +6,10 @@ var allsticks = gamecontainer.querySelector("#allsticks");
 var sticks = null;
 /* Passer au tour suivant */
 const goNextTurn = (game) => {
-    managesticks.goNextSound.play();
-    sticks.bot.play();
+    if(!AI.goNextTurnButton.disabled) {
+        managesticks.goNextSound.play();
+        sticks.bot.play();
+    }
 }
 
 /* Fonction principale qui démarre le jeu */
@@ -27,9 +29,12 @@ const startSticksGame = () => {
 var indexInstruction = 0; 
 var indexLimit = allinstructionsticks.length;
 var nbSticks = 0;
-var starting = null;
-var canStart = false;
 
+// Remettre à null
+var starting = null;
+
+var canStart = false;
+var reDisplay = false;
 const appearSticksInstructions = () => {
     managesticks.goNextSound.play();
 
@@ -46,27 +51,34 @@ const appearSticksInstructions = () => {
                 indexInstruction=2;
             break;
         case 1:
+            if(reDisplay){
+                reDisplay = false;
+                allinstructionsticks[1].style.display = "flex";
+                return;
+            }
+                
             // Si l'utilisateur n'a rien mit on met 30 par defaut
             if(allinstructionsticks[1].querySelector("input").value == ""){
                 nbSticks = 30;
+            // Sinon on regarde si il a mis un nombre entre 10 et 100
             } else {
                 nbSticks = parseInt(allinstructionsticks[1].querySelector("input").value);
                 if(nbSticks < 10 || nbSticks > 100){
                     alert("Le nombre de batons doit etre compris entre 10 et 100");
+                    indexInstruction = 1;
                     allinstructionsticks[1].querySelector("input").value = "";
-                    appearSticksInstructions();
-                    return;
+                    reDisplay = true;
+                    nbSticks = 30;
+                    return appearSticksInstructions();
                 }
             }
             canStart = true;
             break;
         case 2:
-
             if(allinstructionsticks[2].querySelector("select").value == "bot")
                 starting = true;
             else
                 starting = false;
-            console.log(starting);
             canStart = true;
             break;
         default:
@@ -93,6 +105,8 @@ addEventListener("keydown", (event) => {
         managesticks.goNextSound.play();
         if(!isStarted)
             appearSticksInstructions();
+        else
+            goNextTurn();
     }
 });
 
@@ -123,8 +137,6 @@ const animateLoadPlayer = () => {
         switch(index%4){
             case 0:
                 pointsPlayerLoad[0].removeAttribute("style");
-                pointsPlayerLoad[1].style.opacity = "0";
-                pointsPlayerLoad[2].style.opacity = "0";
                 break;
             case 1:
                 pointsPlayerLoad[1].removeAttribute("style");
@@ -139,6 +151,6 @@ const animateLoadPlayer = () => {
                 break;
         }
         index++;
-    },300);
+    },700);
 }
 animateLoadPlayer();

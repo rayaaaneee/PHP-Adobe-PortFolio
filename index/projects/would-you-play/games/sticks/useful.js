@@ -22,4 +22,24 @@ class useful{
         request.send(null);
         return JSON.parse(request.responseText);
     }
+
+    static printLoading(string){
+        if(string == "bot"){
+            AI.absoluteContent.querySelector("#player").removeAttribute("style");
+            AI.absoluteContent.querySelector("#bot").style.display = "flex";
+            AI.absoluteContent.style.top =  "-1vw";
+            AI.absoluteContent.style.left =  "1vw";
+            return;
+        } else if(string == "player"){
+            AI.absoluteContent.querySelector("#bot").removeAttribute("style");
+            AI.absoluteContent.querySelector("#player").style.display = "flex";
+            AI.absoluteContent.style.top =  "-2vw";
+            AI.absoluteContent.style.left =  "1vw";
+
+            return;
+        } else {
+            console.error("printLoading() : wrong parameter");
+            return;
+        }
+    }
 }

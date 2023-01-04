@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 /* Texte qui indique le nombre de bâtons restants */
@@ -93,8 +93,6 @@
 #iconplayerandtext{
     font-family: 'Adelia';
     position: absolute;
-    top: 2vw;
-    left: 2vw;
 }
 
 #iconplayerandtext #bot{

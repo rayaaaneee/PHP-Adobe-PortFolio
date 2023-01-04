@@ -23,7 +23,7 @@ class managesticks{
         // IA
         this.bot = new AI(this);
 
-        this.haveRemoved = null;
+        this.hasRemoved = null;
     }
 
     #initAttributes(){
@@ -42,40 +42,37 @@ class managesticks{
     // Fonction qui supprime des sticks
     removeSticks(nbrSticks){
         var random = null;
-        let i = 0;
-        let intervalDelete = setInterval(() => {
+        var i = 0;
+        this.intervalDelete = setInterval(() => {
             i++;
-            random = Math.floor(Math.random() * this.tab.length);
-            do {
-                setTimeout(() => {
-                    if(!this.tab[random].isDeleted()){
+            let stickDeleted = null;
+            setTimeout(() => {
+                do {
+                    random = Math.floor(Math.random() * this.tab.length);
+                    stickDeleted = this.tab[random].isDeleted();
+                    if(!stickDeleted){
                         this.tab[random].delete();
-                        this.allstickshtml.querySelectorAll(".stick")[random].style.opacity = 0;
-                        this.allstickshtml.querySelectorAll(".stick")[random].style.transform = "scale(0.5) rotate(0deg)";
+                        this.allstickshtml.querySelectorAll(".stick")[random].style.transform = "scale(0.5) rotate(3deg)";
                         this.allstickshtml.querySelectorAll(".stick")[random].style.cursor = "default";
                         setTimeout(() => {
                             this.allstickshtml.querySelectorAll(".stick")[random].style.opacity = 0;
-                        }, 400);
+                        }, 100);
                         this.destroySound.play();
-                    } else {
-                        random = Math.floor(Math.random() * this.tab.length);
+                        this.updateSticksRemaining();
                     }
-                }, 200);
-                this.updateSticksRemaining();
-            } while(this.tab[random].isDeleted());
-
-            if(i == nbrSticks)
-                clearInterval(intervalDelete);
-        } , 400);
-
-        setTimeout(() => {
-            AI.absoluteContent.querySelector("#bot").removeAttribute("style");
-            AI.absoluteContent.querySelector("#player").style.display = "flex";
-            AI.goNextTurnButton.disabled = true;
-        }, 400);
-
-        // Une fois que le bot a joué on fait jouer directement le joueur
-        this.bot.play();
+                } while(stickDeleted);
+            }, 400);
+            if(i == nbrSticks){
+                clearInterval(this.intervalDelete);
+                setTimeout(() => {
+                    useful.printLoading("player");
+                    AI.goNextTurnButton.disabled = true;
+                    
+                    // Une fois que le bot a joué on fait jouer directement le joueur
+                    this.bot.play();
+                }, 400);
+            }
+        } , 300);
     }
 
     // Pour chaque baton on lui donne une animation
@@ -92,7 +89,7 @@ class managesticks{
                     element.style.transform = "scale(1) rotate(0deg)";
             });
             element.addEventListener("click", () => {
-                if(!this.tab[element.id].isDeleted() && !this.bot.playing && this.hasRemoved !== null){
+                if(!this.tab[element.id].isDeleted() && this.bot.playing && this.hasRemoved != null){
                     this.hasRemoved++;
                     AI.goNextTurnButton.disabled = false;
                     element.style.opacity = 0;
@@ -106,9 +103,16 @@ class managesticks{
                         this.bot.play();
                         managesticks.goNextSound.play();
                     }
+                    if (this.getNumberOfSticks() == 0){
+                        setTimeout(() => { 
+                            this.bot.stop();
+                            document.getElementById('sticks-game-container').style.display = "none";
+                        }, 200);
+                    }
                 }
             });
         });  
+        this.bot.startGame();
     }
 
     updateSticksRemaining(){
@@ -125,13 +129,15 @@ class managesticks{
         let intervalappear = setInterval(() => {
             this.#appearSticks(index, intervalappear);
             index++;
-        }, 70);
+        }, 50);
     }
 
     #appearSticks(i, interval){
-        if(i >= this.tab.length) {
-            clearInterval(interval);
-            this.#giveAnimation();
+        if(i >= this.tab.length){
+            if(i == this.tab.length+2){
+                clearInterval(interval);
+                this.#giveAnimation();
+            }
         } else {
             let newnode = this.htmlstick.cloneNode(true);
             this.allstickshtml.appendChild(newnode);

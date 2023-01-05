@@ -2,7 +2,7 @@ class managesticks{
 
     static goNextSound = useful.openSound("ok", 0.05);
 
-    constructor(nbsticks, starting){
+    constructor(nbsticks, starting, gamemode){
         // Initialisation des attributs
         this.tab = [];
         this.starting = starting;
@@ -26,7 +26,7 @@ class managesticks{
         this.addSticks(nbsticks);
 
         // IA
-        this.bot = new AI(this);
+        this.bot = new AI(this, gamemode);
     }
 
     #initAttributes(){
@@ -84,11 +84,14 @@ class managesticks{
         allsticks.forEach((element) => {
             element.style.cursor = "pointer";
             element.addEventListener("mouseover", () => {
-                if(!this.tab[element.id].isDeleted())
+                if(!this.tab[element.id].isDeleted() && this.bot.playing)
                     element.style.transform = "scale(1.1) rotate(3deg)";
+                    element.style.cursor = "pointer";
+                if(!this.bot.playing)
+                    element.style.cursor = "default";
             });
             element.addEventListener("mouseout", () => {
-                if(!this.tab[element.id].isDeleted())
+                if(!this.tab[element.id].isDeleted() && this.bot.playing)
                     element.style.transform = "scale(1) rotate(0deg)";
             });
             element.addEventListener("click", () => {

@@ -175,7 +175,7 @@
 }
 
 #presentation div:first-child{
-    color: rgb(99, 34, 44);
+    color: rgb(145, 92, 100);
 }
 
 #presentation div:last-child, #gamestate div:last-child{
@@ -196,4 +196,8 @@
 #presentation p, #gamestate p{
     padding : 0;
     margin : 0;
+}
+
+#turn p:last-child{
+    color: white;
 }

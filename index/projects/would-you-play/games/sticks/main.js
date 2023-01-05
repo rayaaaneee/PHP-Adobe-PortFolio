@@ -4,6 +4,7 @@ var sticks = null;
 var gamecontainer = document.getElementById('sticks-game-container');
 var allsticks = gamecontainer.querySelector("#allsticks");
 var sticks = null;
+var AI_Mode = null;
 /* Passer au tour suivant */
 const goNextTurn = (game) => {
     if(!AI.goNextTurnButton.disabled) {
@@ -25,7 +26,7 @@ const startSticksGame = () => {
     gamecontainer.removeAttribute("style");
 
     // On crée l'instance de managesticks et on démarre le jeu
-    sticks = new managesticks(nbSticks, starting);
+    sticks = new managesticks(nbSticks, starting, AI_Mode);
 }
 
 /* On fait apperaitre les instructions dans l'ordre */
@@ -48,28 +49,40 @@ const appearSticksInstructions = () => {
     // On recupere les informations de chaque instruction
     switch(indexInstruction){
         case 0:
-            if(parseInt(allinstructionsticks[0].querySelector("select").value) == 1)
-                indexInstruction=1;
-            else
-                indexInstruction=2;
+            console.log("case0");
+            if(allinstructionsticks[0].querySelector("select").value == "hard")
+                AI_Mode = "hard";
+            else if (allinstructionsticks[0].querySelector("select").value == "easy")
+                AI_Mode = "easy";
+            else if (allinstructionsticks[0].querySelector("select").value == "medium")
+                AI_Mode = "medium";
+            indexInstruction++;
             break;
         case 1:
+            console.log("case1");
+            if(parseInt(allinstructionsticks[1].querySelector("select").value) == 1)
+                indexInstruction=2;
+            else
+                indexInstruction=3;
+            break;
+        case 2:
+            console.log("case2");
             if(reDisplay){
                 reDisplay = false;
-                allinstructionsticks[1].style.display = "flex";
+                allinstructionsticks[2].style.display = "flex";
                 return;
             }
                 
             // Si l'utilisateur n'a rien mit on met 30 par defaut
-            if(allinstructionsticks[1].querySelector("input").value == ""){
+            if(allinstructionsticks[2].querySelector("input").value == ""){
                 nbSticks = 30;
             // Sinon on regarde si il a mis un nombre entre 10 et 100
             } else {
-                nbSticks = parseInt(allinstructionsticks[1].querySelector("input").value);
+                nbSticks = parseInt(allinstructionsticks[2].querySelector("input").value);
                 if(nbSticks < 10 || nbSticks > 100){
                     alert("Le nombre de batons doit etre compris entre 10 et 100");
-                    indexInstruction = 1;
-                    allinstructionsticks[1].querySelector("input").value = "";
+                    indexInstruction = 2;
+                    allinstructionsticks[2].querySelector("input").value = "";
                     reDisplay = true;
                     nbSticks = 30;
                     return appearSticksInstructions();
@@ -77,8 +90,9 @@ const appearSticksInstructions = () => {
             }
             canStart = true;
             break;
-        case 2:
-            if(allinstructionsticks[2].querySelector("select").value == "bot")
+        case 3:
+            console.log("case3");
+            if(allinstructionsticks[3].querySelector("select").value == "bot")
                 starting = true;
             else
                 starting = false;

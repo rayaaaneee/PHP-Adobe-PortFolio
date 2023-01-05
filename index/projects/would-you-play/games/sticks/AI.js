@@ -3,12 +3,13 @@ class AI {
     static goNextTurnButton = document.getElementById("gonextturn");
     static absoluteContent = document.querySelector("#iconplayerandtext");
 
-    constructor(managesticks) {
+    constructor(managesticks, gamemode) {
 
         // Déclaration des attributs
         this.managesticks = managesticks;
         this.playing = this.managesticks.starting;
         this.toRemove = null;
+        this.gamemode = gamemode;
 
         // On initialise le jeu
         this.#initGame();
@@ -21,11 +22,17 @@ class AI {
         // Si il a choisi qui commence on choisit le nombre de batons
         if (choice == "start") {
             let player = this.playing == true ? "bot" : "player";
-            let newNbr = null;
-            do {
-                newNbr = parseInt(Math.floor(Math.random() * 100));
-            } while (newNbr % 4 == 0 || newNbr <= 10 || newNbr >= 50);
-            
+            if (this.gamemode =="easy"){
+                let newNbr = null;
+                do {
+                    newNbr = parseInt(Math.floor(Math.random() * 100));
+                } while (newNbr <= 10 || newNbr >= 50);
+            } else {
+                let newNbr = null;
+                do {
+                    newNbr = parseInt(Math.floor(Math.random() * 100));
+                } while (newNbr % 4 == 0 || newNbr <= 10 || newNbr >= 50);
+            }
             // Si c'est le bot qui commence on ajoute 1, 2 ou 3 batons
             if(player == "bot"){
                 // Nombre random entre 1 et 3
@@ -38,15 +45,22 @@ class AI {
             this.nbsticks = newNbr;
 
             this.managesticks.addSticks(this.nbsticks);
-
         // Si il a choisi le nombre de batons on choisit qui commence
         } else if (choice == "sticks") {
             this.nbsticks = this.managesticks.getNumberOfSticks();
-            let tmp = null;
-            if ((this.nbsticks-1)%4 != 0 ){
-                this.playing = true;
+            if (this.gamemode == "easy"){
+                let rand = Math.floor(Math.random() * 2);
+                if (rand == 0)
+                    this.playing = true;
+                else
+                    this.playing = false;
             } else {
-                this.playing = false;
+                let tmp = null;
+                if ((this.nbsticks-1)%4 != 0 ){
+                    this.playing = true;
+                } else {
+                    this.playing = false;
+                }
             }
         }
 
@@ -76,10 +90,10 @@ class AI {
 
         if(this.playing){
             startingPlayerText[0].innerHTML = "Bot";
-            startingPlayerContainerText.style.color = "rgb(81, 71, 75)";
+            startingPlayerText[0].style.color = "rgb(81, 71, 75)";
         } else {
             startingPlayerText[0].innerHTML = "You";
-            startingPlayerContainerText.style.color = "rgb(77, 55, 74)";
+            startingPlayerText[0].style.color = "rgb(77, 55, 74)";
         }
 
         nbSticksText[0].innerHTML = this.nbsticks;
@@ -151,20 +165,45 @@ class AI {
 
             AI.goNextTurnButton.disabled = true;
 
-            switch ((this.managesticks.getNumberOfSticks()-1) % 4) {
-                case 1:
-                    this.toRemove = 1;
-                    break;
-                case 2:
-                    this.toRemove = 2;
-                    break;
-                case 3:
-                    this.toRemove = 3;
-                    break;
-                default:
+            if(this.gamemode == "hard"){
+                switch ((this.managesticks.getNumberOfSticks()-1) % 4) {
+                    case 1:
+                        this.toRemove = 1;
+                        break;
+                    case 2:
+                        this.toRemove = 2;
+                        break;
+                    case 3:
+                        this.toRemove = 3;
+                        break;
+                    default:
+                        this.toRemove = Math.floor(Math.random() * 3) + 1;
+                        break;
+                }
+            } else if (this.gamemode == "medium") {
+                let rand = Math.floor(Math.random() * 2);
+                if(rand == 0){ 
+                    switch ((this.managesticks.getNumberOfSticks()-1) % 4) {
+                        case 1:
+                            this.toRemove = 1;
+                            break;
+                        case 2:
+                            this.toRemove = 2;
+                            break;
+                        case 3:
+                            this.toRemove = 3;
+                            break;
+                        default:
+                            this.toRemove = Math.floor(Math.random() * 3) + 1;
+                            break;
+                    }
+                } else {
                     this.toRemove = Math.floor(Math.random() * 3) + 1;
-                    break;
+                }
+            } else if (this.gamemode == "easy") {
+                this.toRemove = Math.floor(Math.random() * 3) + 1;
             }
+
             this.managesticks.removeSticks(this.toRemove);
         } else {
             this.managesticks.play();

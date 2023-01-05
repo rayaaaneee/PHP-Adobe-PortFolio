@@ -19,6 +19,15 @@
     </header>
     <div id="choose-sticks-container">
         <div class="allinstructionssticks">
+            <h1 class="instruction">Choose gamemode</h1>
+            <select id="pre-choose-select">
+                <option value="hard" selected>Hardcore</option>
+                <option value="medium">Medium</option>
+                <option value="easy">Easy</option>    
+            </select>
+            <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+        </div>
+        <div class="allinstructionssticks" style="display: none;">
             <h1 class="instruction">Do you prefer choose the number of sticks or who will start?</h1>
             <select id="first-choose-select">
                 <option value="1" selected>Number of sticks</option>
@@ -78,7 +87,7 @@
             <p class="modify"></p>
             <p>turn</p>
         </div>
-        <div id="nbsticks" class="whiteoutline">
+        <div id="nbsticks">
             <p class="modify" ></p>
             <p>took</p>
             <p class="modify"></p>

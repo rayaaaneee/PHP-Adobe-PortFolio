@@ -22,13 +22,12 @@ class AI {
         // Si il a choisi qui commence on choisit le nombre de batons
         if (choice == "start") {
             let player = this.playing == true ? "bot" : "player";
+            let newNbr = null;
             if (this.gamemode =="easy"){
-                let newNbr = null;
                 do {
                     newNbr = parseInt(Math.floor(Math.random() * 100));
                 } while (newNbr <= 10 || newNbr >= 50);
             } else {
-                let newNbr = null;
                 do {
                     newNbr = parseInt(Math.floor(Math.random() * 100));
                 } while (newNbr % 4 == 0 || newNbr <= 10 || newNbr >= 50);

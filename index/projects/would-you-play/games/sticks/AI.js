@@ -199,8 +199,10 @@ class AI {
                 } else {
                     this.toRemove = Math.floor(Math.random() * 3) + 1;
                 }
-            } else if (this.gamemode == "easy") {
-                this.toRemove = Math.floor(Math.random() * 3) + 1;
+            } else if (this.gamemode == "easy" || this.gamemode == "medium") {
+                do{
+                    this.toRemove = Math.floor(Math.random() * 3) + 1;
+                }while(this.managesticks.getNumberOfSticks() - this.toRemove <= 0 && this.getNumberOfSticks() > 1)
             }
 
             this.managesticks.removeSticks(this.toRemove);

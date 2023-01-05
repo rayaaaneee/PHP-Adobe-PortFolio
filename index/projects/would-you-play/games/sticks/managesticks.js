@@ -68,7 +68,9 @@ class managesticks{
             if(i == nbrSticks){
                 clearInterval(this.intervalDelete);
                 setTimeout(() => {
-                    useful.printLoading("player");
+                    setTimeout(() => {
+                        useful.printLoading("player");
+                    }, 300);
                     AI.goNextTurnButton.disabled = true;
                     
                     // Une fois que le bot a joué on fait jouer directement le joueur

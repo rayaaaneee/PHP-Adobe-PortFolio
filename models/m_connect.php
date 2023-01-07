@@ -1,7 +1,7 @@
 <?php
 
 // Version pour AWS (site en ligne)
-function getConnection(){
+/* function getConnection(){
     try {
         $host = "localhost";
         $dbname = "portfolio";
@@ -14,10 +14,10 @@ function getConnection(){
         die('Erreur : ' . $e->getMessage());
         return null;
     }                
-}                                                                                                                                                                     
+} */                                                                                                                                                                     
 
 // Version pour MAMP (site en local)
-/* function getConnection(){
+function getConnection(){
     try {
         $host = "localhost";
         $dbname = "portfolio";
@@ -31,4 +31,4 @@ function getConnection(){
         die('Erreur : ' . $e->getMessage());
         return null;
     }      
-} */                                                                         
+}                                                                          

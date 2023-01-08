@@ -49,35 +49,35 @@
                 <div class="point" id="p8"></div>
             </div>
             <div id="projects">
-                <div class="project" id="proj1" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
+                <div class="project" id="proj1" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj2" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
+                <div class="project" id="proj2" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj3" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
+                <div class="project" id="proj3" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj4" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
+                <div class="project" id="proj4" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj5" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
+                <div class="project" id="proj5" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj6" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
+                <div class="project" id="proj6" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj7" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
+                <div class="project" id="proj7" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj8" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
+                <div class="project" id="proj8" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>

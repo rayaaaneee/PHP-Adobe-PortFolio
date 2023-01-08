@@ -169,12 +169,11 @@ const modifyScale = (element, newscale) => {
 }
 
 var isSelect = false;
-var lastProjectid = null;
+var lastProjectId = null;
 const onclickProject = (project) => {
-    console.log("onclickProject");
     if (!isSelect) {
         lastProjectId = project.id;
-        console.log("firstcase : "+lastProjectId);
+
         isSelect = true;
 
         project.style.backgroundColor ="rgba(219, 207, 207, 0.7)";
@@ -189,6 +188,7 @@ const onclickProject = (project) => {
         if (lastProjectId == project.id) {
             disclickProject(project);
             isSelect = false;
+            lastProjectId = null;
         } else {
             disclickProject(document.querySelector("#"+lastProjectId));
             isSelect = false;
@@ -213,4 +213,13 @@ const colorButtonsAssociateToProject = (project) => {
     let nbPoint = project.id.replace("proj", "");
     let point = document.querySelector("#p"+nbPoint);
     colorPoint(point);
+}
+
+const uncolorButtonsAssociateToProject = (project) => {
+    if(!isSelect || project.id != lastProjectId){
+        console.log("oui")
+        let nbPoint = project.id.replace("proj", "");
+        let point = document.querySelector("#p"+nbPoint);
+        uncolorPoint(point);
+    }
 }

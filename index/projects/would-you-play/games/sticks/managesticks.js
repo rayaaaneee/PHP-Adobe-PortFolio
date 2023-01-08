@@ -118,9 +118,8 @@ class managesticks{
                     }
                     
                     if (this.getNumberOfSticks() == 0){
-                        setTimeout(() => { 
-                            this.bot.stop();
-                            document.getElementById('sticks-game-container').style.display = "none";
+                        setTimeout(() => {
+                            this.bot.stop(this.bot.playing);
                         }, 200);
                     }
                 }
@@ -159,7 +158,7 @@ class managesticks{
             newnode.id = i;
             newnode.style.transform = "scale(1.1) rotate(-3deg)";
         }
-        if(i > 1)
+        if(i > 1 && i < this.tab.length+2)
             this.allstickshtml.querySelectorAll(".stick")[i-2].removeAttribute("style");
     }
 

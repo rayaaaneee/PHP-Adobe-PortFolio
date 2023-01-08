@@ -49,7 +49,6 @@ const appearSticksInstructions = () => {
     // On recupere les informations de chaque instruction
     switch(indexInstruction){
         case 0:
-            console.log("case0");
             if(allinstructionsticks[0].querySelector("select").value == "hard")
                 AI_Mode = "hard";
             else if (allinstructionsticks[0].querySelector("select").value == "easy")
@@ -59,14 +58,12 @@ const appearSticksInstructions = () => {
             indexInstruction++;
             break;
         case 1:
-            console.log("case1");
             if(parseInt(allinstructionsticks[1].querySelector("select").value) == 1)
                 indexInstruction=2;
             else
                 indexInstruction=3;
             break;
         case 2:
-            console.log("case2");
             if(reDisplay){
                 reDisplay = false;
                 allinstructionsticks[2].style.display = "flex";
@@ -91,7 +88,6 @@ const appearSticksInstructions = () => {
             canStart = true;
             break;
         case 3:
-            console.log("case3");
             if(allinstructionsticks[3].querySelector("select").value == "bot")
                 starting = true;
             else

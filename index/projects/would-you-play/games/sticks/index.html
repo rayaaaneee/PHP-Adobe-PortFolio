@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="choicepage.css">
     <link rel="stylesheet" href="sticksgame.css">
     <script src="useful.js" defer></script>
+    <script src="AI.js" defer></script>    
     <script src="stick.js" defer></script>
     <script src="managesticks.js" defer></script>
-    <script src="AI.js" defer></script>    
     <script src="main.js" defer></script>
     <title>Would you play ? - Sticks Game</title>
 </head>
@@ -46,7 +46,7 @@
                 <option value="player" selected>Me</option>
                 <option value="bot">Bot</option>    
             </select>
-            <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">OK</button>
+            <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
         </div>
     </div>
     <div id="sticks-game-container" style="display: none">
@@ -58,7 +58,7 @@
                 <p id="bp3" class="bp">.</p>
             </div>
             <div id="player" style="display:none;">
-                <p>Waiting you play</p>
+                <p>Waiting</p>
                 <p class="pointplayer">.</p>
                 <p class="pointplayer">.</p>
                 <p class="pointplayer">.</p>

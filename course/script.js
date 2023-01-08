@@ -6,8 +6,9 @@ var bordersScreen = (height/20)*1;
 var initialX = new Array();
 var pointRotation = new Array();
 
+var margin = height/10;
 const isInSide = (pointMarginTop) => {
-    if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen*2)) {
+    if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen*1.5)) {
         return true;
     } else {
         return false;
@@ -21,18 +22,29 @@ const distanceMiddle = (pointMarginTop) => {
 
 const getNewScale = (distanceMid) => {
     let min = 1;
-    let max = 1.5;
+    let max = 2.2;
 
     let scale = (distanceMid/(height))*(max-min)-min;
     scale = scale * 1.5;
     return scale;
 }
 
+var bar = document.querySelector("#timeline");
+var bool = false;
+const moveBar = () => {
+    // Faire monter la barre
+    bar.style.transition = "transform 1s";
+    bar.style.transform = "translateY(0)";
+}
+
 const onscroll = () => {
+    if (window.scrollY > height/2 && !bool) {
+        moveBar();
+    }
     let pointMarginTop = null;
     points.forEach((point, index) => {
         let scrollValue = window.scrollY;
-        pointMarginTop = point.offsetTop - scrollValue;
+        pointMarginTop = point.offsetTop - scrollValue + margin;
         if(isInSide(pointMarginTop)) {
             point.style.opacity = 0;
         } else {
@@ -45,16 +57,23 @@ const onscroll = () => {
         pointRotation[index] = -pointMarginTop/3;
         point.style.transform = "rotate("+pointRotation[index]+"deg) scale("+getNewScale(distanceMid)+")";
     });
-    console.log();
 } 
 
 // Fonction qui permet de faire défiler les points
-const moveProjects = (time = 300) => {
-        let i = 0;
+const moveProjects = (time = 100) => {
+        let i = Math.floor(Math.random() * projects.length);
 
         let timeInterval = time;
 
+        let wasPassed = [];
+
         let intervalAnimation = setInterval(() => { 
+
+            while(wasPassed.includes(i)) {
+                i = Math.floor(Math.random() * projects.length);
+            }
+            
+            wasPassed.push(i);
 
             let project = projects[i];
 
@@ -116,20 +135,82 @@ var main = () => {
         pointRotation.push(160);
 
     moveProjects(1);
-    setInterval(moveProjects, 2000);
+    setInterval(moveProjects, 1000);
     document.addEventListener("scroll", onscroll);
 }
-
-
 var projects = document.querySelectorAll(".project");
 projects.forEach((project, index) => {
-    let nbr = Math.floor(Math.random() * 10);
-    nbr =  Math.floor(Math.random() * 2) == 0 ? -nbr : nbr;
-    nbr += 60;
-    let rand = Math.floor(Math.random() * 20);
+    let rand = Math.floor(Math.random() * 20)-10;
     initialX[index] = rand;
     project.style.transform = "translateX("+rand+"vw)";
     if(index == projects.length-1) {
         main();
     }
 });
+
+const colorPoint = (point) => {
+    point.style.background = "linear-gradient(160deg, transparent 60%, rgb(222, 162, 132) 40%)";
+    point.style.boxShadow = "0 0 10px 0 rgb(0, 0, 0)";
+    point.style.backdropFilter = "blur(10px)";
+}
+
+const uncolorPoint = (point) => {
+    point.style.removeProperty("background");
+    point.style.removeProperty("box-shadow");
+    point.style.removeProperty("backdrop-filter");
+}
+
+const modifyScale = (element, newscale) => {
+    tmp = element.style.transform;
+    scale = tmp.split("scale(")[1].split(")")[0];
+    scale = parseFloat(scale);
+    scale = scale + (newscale);
+    element.style.transform = tmp.split("scale(")[0]+"scale("+scale+")";
+}
+
+var isSelect = false;
+var lastProjectid = null;
+const onclickProject = (project) => {
+    console.log("onclickProject");
+    if (!isSelect) {
+        lastProjectId = project.id;
+        console.log("firstcase : "+lastProjectId);
+        isSelect = true;
+
+        project.style.backgroundColor ="rgba(219, 207, 207, 0.7)";
+        let nbPoint = project.id.replace("proj", "");
+        let point = document.querySelector("#p"+nbPoint);
+
+        colorPoint(point);
+
+        modifyScale(point, -0.1);
+        modifyScale(project, 0.2);
+    } else {
+        if (lastProjectId == project.id) {
+            disclickProject(project);
+            isSelect = false;
+        } else {
+            disclickProject(document.querySelector("#"+lastProjectId));
+            isSelect = false;
+            onclickProject(project);
+        }
+    }
+}
+
+const disclickProject = (project) => {
+    project.style.removeProperty("background-color");
+    
+    let nbPoint = project.id.replace("proj", "");
+    let point = document.querySelector("#p"+nbPoint);
+
+    uncolorPoint(point);
+
+    modifyScale(point, 0.1);
+    modifyScale(project, -0.1);
+}
+
+const colorButtonsAssociateToProject = (project) => {
+    let nbPoint = project.id.replace("proj", "");
+    let point = document.querySelector("#p"+nbPoint);
+    colorPoint(point);
+}

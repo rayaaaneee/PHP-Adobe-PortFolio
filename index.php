@@ -41,14 +41,14 @@ ini_set("display_errors", 1);
         <ul class="menu"> 
             <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
             <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href=""><p id="text1">ACCUEIL</p></a></li> 
-            <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="parcours/"><p id="text2">PARCOURS</p></a></li> 
-            <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="perso/"><p id="text3">PERSO</p></a></li> 
+            <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="course/"><p id="text2">PARCOURS</p></a></li> 
+            <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="course/"><p id="text3">PERSO</p></a></li> 
             <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/"><p id="text4">CONTACT</p></a></li> 
         </ul> 
         <ul class="mediamenu"> 
             <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
             <a class="mediasites" id="receptionsite" href=""><img src="logos/reception_logo.png"></a> 
-            <a class="mediasites" id="cvsite" href="parcours/"><img src="logos/cv_logo.png"></a> 
+            <a class="mediasites" id="coursesite" href="course/"><img src="logos/cv_logo.png"></a> 
             <a class="mediasites" id="personalsite" href="perso/"><img src="logos/personnal_logo.png"></a> 
             <a class="mediasites" id="contactsite" href="contact/"><img src="logos/contact_logo.png"></a> 
         </ul> 

@@ -32,7 +32,6 @@
         <!-- <div id="startbackground"></div> -->
     </header>
     <!-- <iframe id="loader" src="../loader/index.html" allowfullscreen></iframe> -->
-    <div id="top" style="display:none;height:0;width:0;position:absolute;top:0;"></div>
     <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
     <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
     <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
@@ -50,35 +49,35 @@
                 <div class="point" id="p8"></div>
             </div>
             <div id="projects">
-                <div class="project" id="proj1">
+                <div class="project" id="proj1" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj2">
+                <div class="project" id="proj2" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj3">
+                <div class="project" id="proj3" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj4">
+                <div class="project" id="proj4" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj5">
+                <div class="project" id="proj5" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj6">
+                <div class="project" id="proj6" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj7">
+                <div class="project" id="proj7" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
-                <div class="project" id="proj8">
+                <div class="project" id="proj8" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)">
                     <h1>Ceci est un projet</h1>
                     <p>Ceci est une description</p>
                 </div>
@@ -87,7 +86,7 @@
     </article>
 <!--     <footer>
         <div id="footer1">
-            <p>Ce site a été créé dans le but de présenter mes projets et mes compétences.</p>
+            <p>Ce site a été créé dans le but de présover mes projets et mes compétences.</p>
             <p>2022, Copyright © - Rayane Merlin</p>
         </div>
         <div id="footer2">

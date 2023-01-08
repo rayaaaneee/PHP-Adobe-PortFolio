@@ -11,6 +11,8 @@
     grid-template-rows: 1fr;
     justify-items: center;
     align-items: center;
+    position: absolute;
+    top: 10vh;
 }
 
 #timeline {
@@ -24,13 +26,20 @@
     top: 5vh;
     left:10.7vw;
     z-index: 9998;
+    transform: translateY(100vh);
 }
 
 #projects{
-    height: 100vh;
     width: fit-content;
     align-self: center;
-    margin-right: 30vw;
+    margin-right: 35vw;
+    margin-left: 50vw;
+    margin-top: 93vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
 }
 
 .project{
@@ -43,10 +52,14 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(4px);
     margin-bottom: 100px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .project:hover{
+    transition: 0.3s;
     backdrop-filter: blur(7px);
+    background-color:rgba(245, 239, 239, 0.7);
 }
 
 .project p {
@@ -59,7 +72,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 470px;
-    margin-top: 900px;
+    margin-top: 117vh;
 }
  
 .point{
@@ -69,7 +82,8 @@
     box-shadow: 0 0 5px 0 rgb(0, 0, 0);
     background: linear-gradient(160deg, transparent 60%, rgba(0,0,0,1) 40%);
     backdrop-filter: blur(5px);
-    transition: 0.3s;
+    transition: box-shadow 0.3s, backdrop-filter 0.3s;
+    cursor: pointer;
 }
 
 .point:hover{
@@ -77,22 +91,6 @@
     box-shadow: 0 0 10px 0 rgb(0, 0, 0);
     background: linear-gradient(160deg, transparent 60%, rgb(222, 162, 132) 40%);
     backdrop-filter: blur(10px);
-}
-
-#projects{
-    margin-top: 93vh;
-    margin-left: 50vw;
-    position: absolute;
-    top: 0;
-}
-
-#top{
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    margin-top: 10px;
-    margin-left: 10px;
-    background-color: aqua;
 }
 
 html{

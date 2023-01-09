@@ -23,6 +23,7 @@ class ManageSticks{
         this.hasRemoved = null;
         this.nbTurns = 0;
         this.winner = null;
+        this.canAdd = true;
 
         // Attributs HTML
         this.container = document.getElementById('game');
@@ -31,28 +32,32 @@ class ManageSticks{
         this.sticksRemaininghtml = document.getElementById('sticksremaining').querySelectorAll("p")[1];
 
         this.htmlstick = document.createElement('div');
-        this.#initAttributes();
-
-
-        // Animations
-        this.addSticks(ManageSticks.initialNbSticks);
-
+        
         // IA
         this.bot = new AI(this, gamemode);
+        
+        
+        // Animations
+        this.addSticks(ManageSticks.initialNbSticks);
+        
+        this.#initAttributes();
     }
 
     #initAttributes(){
         this.htmlstick.classList.add('stick');
         this.htmlstick.setAttribute("draggable", "false");
         this.htmlstick.setAttribute("onclick", this.animationForEachStick);
-        this.sticksRemaininghtml.innerHTML = nbsticks;
+        this.sticksRemaininghtml.innerHTML = ManageSticks.initialNbSticks;
     }
 
     // Fonction qui ajoute des sticks
     addSticks(number){
-        for (let i = 0; i < number; i++){
-            this.tab.push(new stick());
+        if(this.canAdd){
+            for (let i = 0; i < number; i++){
+                this.tab.push(new stick());
+            }
         }
+        this.canAdd = false;
     }
 
     // Fonction qui supprime des sticks
@@ -65,7 +70,6 @@ class ManageSticks{
             setTimeout(() => {
                 do {
                     random = Math.floor(Math.random() * ManageSticks.initialNbSticks);
-                    console.log(random);
                     stickDeleted = this.tab[random].isDeleted();
                     if(!stickDeleted){
                         this.tab[random].delete();
@@ -232,20 +236,22 @@ class ManageSticks{
 
     #resetAttributes(){
         //Supprimer tous les enfants de allstickshtml
-        while (this.allstickshtml.firstChild) {
-            this.allstickshtml.removeChild(this.allstickshtml.firstChild);
-        }
+        this.deleteAllHtmlSticks();
         
         // Initialisation des attributs
         this.#initAttributes();
         this.tab = [];
         this.addSticks(ManageSticks.initialNbSticks);
-        console.log(this.tab);
 
         this.hasRemoved = null;
         this.nbTurns = 0;
         this.winner = null;
-
-        this.sticksRemaininghtml.innerHTML = ManageSticks.initialNbSticks;
+        this.canAdd = true;
+    }
+    
+    deleteAllHtmlSticks(){
+        while (this.allstickshtml.firstChild) {
+            this.allstickshtml.removeChild(this.allstickshtml.firstChild);
+        }
     }
 }

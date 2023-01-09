@@ -4,7 +4,7 @@ class AI {
 
         // Déclaration des attributs
         this.managesticks = managesticks;
-        this.playing = ManageSticks.starting;
+        this.playing = ManageSticks.initialStarting;
         this.toRemove = null;
         this.gamemode = gamemode;
 
@@ -13,11 +13,11 @@ class AI {
     }
 
     #initGame() {
-        // On regarde le choix du joueur
-        let choice = this.playing == null ? "sticks" : "start";
-
         // Si il a choisi qui commence on choisit le nombre de batons
         if (ManageSticks.nbGames == 1){
+            // On regarde le choix du joueur
+            let choice = this.playing == null ? "sticks" : "start";
+            console.log(choice);
             if (choice == "start") {
                 let player = this.playing == true ? "bot" : "player";
                 let newNbr = null;
@@ -39,13 +39,10 @@ class AI {
                     } while (toAdd == 0);
                     newNbr +=  toAdd;
                 }
-
+                console.log(newNbr);
                 ManageSticks.initialNbSticks = newNbr;
-                this.managesticks.addSticks(ManageSticks.initialNbSticks);
             // Si il a choisi le nombre de batons on choisit qui commence
             } else if (choice == "sticks") {
-                ManageSticks.nbsticks = this.managesticks.getNumberOfSticks();
-
                 // Si le niveau est medium ou easy
                 if (this.gamemode == "easy" || this.gamemode == "medium"){
                     let rand = Math.floor(Math.random() * 2);
@@ -59,7 +56,7 @@ class AI {
                             else if (rand == 1)
                                 this.playing = false;
                         } else {
-                            if ((ManageSticks.nbsticks-1)%4 != 0 ){
+                            if ((ManageSticks.initialNbSticks-1)%4 != 0 ){
                                 this.playing = true;
                             } else {
                                 this.playing = false;
@@ -74,18 +71,18 @@ class AI {
                     }
                 // Si le niveau est hard
                 } else {
-                    if ((ManageSticks.nbsticks-1)%4 != 0 ){
+                    if ((ManageSticks.initialNbSticks-1)%4 != 0 ){
                         this.playing = true;
                     } else {
                         this.playing = false;
                     }
                 }
             }
+            this.managesticks.addSticks(ManageSticks.initialNbSticks);
             ManageSticks.initialStarting = this.playing;
         } else {
             this.playing = ManageSticks.initialStarting;
         }
-
         this.managesticks.updateSticksRemaining();
         this.startGame();
     }
@@ -139,12 +136,12 @@ class AI {
                     this.managesticks.displaySticks();
                 }, 200);
             }, 1400);
-        }, 200);
+        }, 100);
     }
 
     play() {
         this.managesticks.nbTurns++;
-        
+
         if(this.managesticks.nbTurns > 1){
             // On cache le texte
             document.getElementById("sticks-game-container").style.opacity = 0;
@@ -229,17 +226,16 @@ class AI {
             } else if (this.gamemode == "easy") {
                 // Sinon on prend au hasard
                 this.toRemove = Math.floor(Math.random() * 3)+1;
-                this.toWin();
             }
-            
-            // Si il reste un seul baton toRemove vaut nécéssairement 1
-            if (this.managesticks.getNumberOfSticks() == 1) this.toRemove = 1;
+
+            if(this.managesticks.getNumberOfSticks() == 1){
+                this.toRemove = 1;
+            }
 
             this.managesticks.removeSticks(this.toRemove);  
         } else {
             this.managesticks.play();
         }
-
         this.playing = !this.playing;
     }
 
@@ -251,8 +247,8 @@ class AI {
     }
 
     toWin(){
-        // Si il reste moins de 3 batons on ne prend pas au hasard
-        if(this.managesticks.getNumberOfSticks <= 4){
+        // Si il reste 4 batons ou moins on ne prend pas au hasard
+        if(this.managesticks.getNumberOfSticks() <= 4){
             switch (this.managesticks.getNumberOfSticks()) {
                 case 1:
                     this.toRemove = 1;
@@ -316,6 +312,5 @@ class AI {
         this.playing = ManageSticks.initialStarting;
         this.toRemove = null;
         this.#initGame();
-        this.#autoRemoveSticks();
     }
 }        

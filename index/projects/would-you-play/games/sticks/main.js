@@ -17,7 +17,6 @@ var isStarted = false;
 const startSticksGame = () => {
     // On désactive le bouton principal
     ManageSticks.goNextTurnButton.disabled = true;
-    document.getElementById('choose-sticks-container').style.display = "none";
     isStarted = true;
 
     // On affiche le container du jeu
@@ -34,7 +33,7 @@ const startSticksGame = () => {
 /* On fait apperaitre les instructions dans l'ordre */
 var indexInstruction = 0; 
 var indexLimit = allinstructionsticks.length;
-var nbSticks = 0;
+var nbSticks = null;
 
 // Remettre à null
 var starting = null;
@@ -78,7 +77,7 @@ const appearSticksInstructions = () => {
             // Sinon on regarde si il a mis un nombre entre 10 et 100
             } else {
                 nbSticks = parseInt(allinstructionsticks[2].querySelector("input").value);
-                if(nbSticks < 10 || nbSticks > 50){
+                if(nbSticks < 3 || nbSticks > 50){
                     alert("Le nombre de batons doit etre compris entre 10 et 50");
                     indexInstruction = 2;
                     allinstructionsticks[2].querySelector("input").value = "";
@@ -197,4 +196,21 @@ const restartSticksGame = () => {
 
 // Fonction qui s'occupe du retour aux paramètres
 const goToSettingsSticksGame = () => {
+    // On remet les instructions correctement
+    ManageSticks.winnerContent.style.opacity = 0;
+    setTimeout(() => {
+        ManageSticks.winnerContent.style.display = "none";
+
+        // Modifications nécéssaires pour revenir au début
+        allinstructionsticks[2].querySelector("input").value = "";
+        allinstructionsticks[3].querySelector("select").selectedIndex = 0;
+        this.sticks.deleteAllHtmlSticks();
+        indexInstruction = 0;
+        canStart = false;
+        ManageSticks.gamecontainer.style.display = "none";
+        choosecontainer.style.display = "block";
+
+        // On réaffiche les instructions
+        allinstructionsticks[0].style.display = "flex";
+    }, 300);
 }

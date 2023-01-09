@@ -36,7 +36,7 @@
     <div id="background2" speedparallax="-0.03" speedtranslate="0.5" speedratio="1"></div>
     <div id="background3" speedparallax="-0.05" speedtranslate="0.3" speedratio="1"></div>
     <article id="parallax-projects">
-        <div id="timeline"></div>
+        <div id="timeline" style="transform:translateY(100vh);"></div>
         <div id="fordisplay">
             <div id="points">
                 <div class="point" id="p1"></div>

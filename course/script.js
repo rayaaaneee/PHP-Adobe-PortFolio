@@ -15,10 +15,18 @@ const initHeight = () => {
 initHeight();
 
 const isInSide = (pointMarginTop) => {
-    if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen*1.5)) {
-        return true;
+    if(barCentered) {
+        if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen*1.5)) {
+            return true;
+        } else {
+            return false;
+        }
     } else {
-        return false;
+        if(pointMarginTop <= bordersScreen) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
@@ -37,12 +45,19 @@ const getNewScale = (distanceMid) => {
 }
 
 var bar = document.querySelector("#timeline");
+var barCentered = false;
 const onscroll = () => {
     if (window.scrollY < height) {
+        barCentered = false;
         let translateValue = (height - (window.scrollY)*1.7);
-        if(translateValue < 0) translateValue = 0;
+        if(translateValue < 0) {
+            translateValue = 0;
+            barCentered = true;
+        }
         bar.style.transform = "translateY("+translateValue+"px)";
-    } else bar.removeAttribute("style");
+    } else { 
+        bar.removeAttribute("style");
+    }
     let pointMarginTop = null;
     points.forEach((point, index) => {
         let scrollValue = window.scrollY;

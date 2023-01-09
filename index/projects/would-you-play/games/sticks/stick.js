@@ -13,4 +13,8 @@ class stick{
     isDeleted(){
         return this.deleted;
     }
+
+    static reset(){
+        stick.lastNbr = 0;
+    }
 }

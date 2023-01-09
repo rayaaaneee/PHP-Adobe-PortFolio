@@ -26,16 +26,16 @@ class useful{
     // Fonction qui affiche le texte de chargement correct en fonction du paramètre
     static printLoading(string){
         if(string == "bot"){
-            AI.absoluteContent.querySelector("#player").removeAttribute("style");
-            AI.absoluteContent.querySelector("#bot").style.display = "flex";
-            AI.absoluteContent.style.top =  "-1vw";
-            AI.absoluteContent.style.left =  "1vw";
+            ManageSticks.absoluteContent.querySelector("#player").removeAttribute("style");
+            ManageSticks.absoluteContent.querySelector("#bot").style.display = "flex";
+            ManageSticks.absoluteContent.style.top =  "-1vw";
+            ManageSticks.absoluteContent.style.left =  "1vw";
             return;
         } else if(string == "player"){
-            AI.absoluteContent.querySelector("#bot").removeAttribute("style");
-            AI.absoluteContent.querySelector("#player").style.display = "flex";
-            AI.absoluteContent.style.top =  "-2vw";
-            AI.absoluteContent.style.left =  "1vw";
+            ManageSticks.absoluteContent.querySelector("#bot").removeAttribute("style");
+            ManageSticks.absoluteContent.querySelector("#player").style.display = "flex";
+            ManageSticks.absoluteContent.style.top =  "-2vw";
+            ManageSticks.absoluteContent.style.left =  "1vw";
             return;
         } else {
             console.error("printLoading() : wrong parameter");

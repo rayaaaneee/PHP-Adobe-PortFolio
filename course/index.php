@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="media.css">
     <!-- SCRIPTS JS -->
     <script type="text/javascript" src="../menu/menu.js" defer></script>
-   <!--  <script type="text/javascript" src="../removeLoader.js" defer></script> -->
-    <!-- <script type="text/javascript" src="../movebackground.js" defer></script> -->
+    <script type="text/javascript" src="../removeLoader.js" defer></script>
+    <script type="text/javascript" src="../movebackground.js" defer></script>
     <script type="text/javascript" src="script.js" defer></script>
     <!-- FAVICON & FONTS-->
     <link rel="shortcut icon" type="image/jpg" href="favicons/favicon1.jpg" />
@@ -29,9 +29,9 @@
 
 <body>
     <header>
-        <!-- <div id="startbackground"></div> -->
+        <div id="startbackground"></div>
     </header>
-    <!-- <iframe id="loader" src="../loader/index.html" allowfullscreen></iframe> -->
+    <iframe id="loader" src="../loader/index.html" allowfullscreen></iframe>
     <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
     <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
     <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>

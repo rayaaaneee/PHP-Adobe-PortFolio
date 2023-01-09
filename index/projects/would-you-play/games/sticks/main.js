@@ -1,14 +1,13 @@
 var choosecontainer = document.getElementById('choose-sticks-container');
 var allinstructionsticks = document.querySelectorAll(".allinstructionssticks");
 var sticks = null;
-var gamecontainer = document.getElementById('sticks-game-container');
-var allsticks = gamecontainer.querySelector("#allsticks");
+var allsticks = ManageSticks.gamecontainer.querySelector("#allsticks");
 var sticks = null;
 var AI_Mode = null;
 /* Passer au tour suivant */
 const goNextTurn = (game) => {
-    if(!AI.goNextTurnButton.disabled) {
-        managesticks.goNextSound.play();
+    if(!ManageSticks.goNextTurnButton.disabled) {
+        ManageSticks.goNextSound.play();
         sticks.bot.play();
     }
 }
@@ -17,16 +16,19 @@ const goNextTurn = (game) => {
 var isStarted = false;
 const startSticksGame = () => {
     // On désactive le bouton principal
-    AI.goNextTurnButton.disabled = true;
+    ManageSticks.goNextTurnButton.disabled = true;
     document.getElementById('choose-sticks-container').style.display = "none";
     isStarted = true;
 
     // On affiche le container du jeu
     choosecontainer.style.display = "none";
-    gamecontainer.removeAttribute("style");
+    ManageSticks.gamecontainer.removeAttribute("style");
 
-    // On crée l'instance de managesticks et on démarre le jeu
-    sticks = new managesticks(nbSticks, starting, AI_Mode);
+    // On crée l'instance de ManageSticks et on démarre le jeu
+    sticks = new ManageSticks(nbSticks, starting, AI_Mode);
+
+    // On appelle la méthode resize pour que les confettis s'adapte à la taille de l'écran
+    window.onresize = confetti.resize;
 }
 
 /* On fait apperaitre les instructions dans l'ordre */
@@ -40,7 +42,7 @@ var starting = null;
 var canStart = false;
 var reDisplay = false;
 const appearSticksInstructions = () => {
-    managesticks.goNextSound.play();
+    ManageSticks.goNextSound.play();
 
     //On cache toutes les instructions
     for(var i = 0; i < allinstructionsticks.length; i++)
@@ -76,12 +78,11 @@ const appearSticksInstructions = () => {
             // Sinon on regarde si il a mis un nombre entre 10 et 100
             } else {
                 nbSticks = parseInt(allinstructionsticks[2].querySelector("input").value);
-                if(nbSticks < 10 || nbSticks > 100){
-                    alert("Le nombre de batons doit etre compris entre 10 et 100");
+                if(nbSticks < 10 || nbSticks > 50){
+                    alert("Le nombre de batons doit etre compris entre 10 et 50");
                     indexInstruction = 2;
                     allinstructionsticks[2].querySelector("input").value = "";
                     reDisplay = true;
-                    nbSticks = 30;
                     return appearSticksInstructions();
                 }
             }
@@ -124,7 +125,7 @@ addEventListener("keydown", (event) => {
 
 document.querySelectorAll("select").forEach((select) => {
     select.addEventListener("change", (event) => {
-        managesticks.goNextSound.play();
+        ManageSticks.goNextSound.play();
     });
 });
 
@@ -166,3 +167,34 @@ const animateLoadPlayer = () => {
     },700);
 }
 animateLoadPlayer();
+
+let boolScaleImgWin = false;
+const animateImgWin = () => {
+    let winnerImg = ManageSticks.winnerContent.querySelector("img");
+    let rotate = parseInt(winnerImg.style.getPropertyValue("transform").split(" ")[0].split("(")[1].split(")")[0].replace("deg", ""));
+    let scale = parseFloat(winnerImg.style.getPropertyValue("transform").split(" ")[1].split("(")[1].split(")")[0]);
+
+    switch (boolScaleImgWin) {
+        case false :
+            rotate += 7
+            scale += 0.1;
+            winnerImg.style.transform = "rotate("+rotate+"deg) scale("+scale+")";
+            break;
+        case true : 
+            rotate -= 7;
+            scale -= 0.1;
+            winnerImg.style.transform = "rotate("+rotate+"deg) scale("+scale+")";
+            break;
+    }
+    boolScaleImgWin = !boolScaleImgWin;
+}
+setInterval(animateImgWin, 2000);
+
+// Fonction qui s'occupe du restart
+const restartSticksGame = () => {
+    this.sticks.resetGame();
+}
+
+// Fonction qui s'occupe du retour aux paramètres
+const goToSettingsSticksGame = () => {
+}

@@ -24,9 +24,9 @@
     border-radius: 20px;
     position: fixed;
     top: 5vh;
+    bottom: 5vh;
     left:10.7vw;
-    z-index: 9998;
-    transform: translateY(100vh);
+    z-index: 3;
 }
 
 #projects{
@@ -73,6 +73,7 @@
     flex-direction: column;
     row-gap: 470px;
     margin-top: 117vh;
+    z-index: 4;
 }
  
 .point{

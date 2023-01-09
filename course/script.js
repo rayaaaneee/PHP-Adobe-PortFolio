@@ -37,17 +37,12 @@ const getNewScale = (distanceMid) => {
 }
 
 var bar = document.querySelector("#timeline");
-var bool = false;
-const moveBar = () => {
-    // Faire monter la barre
-    bar.style.transition = "transform 1s";
-    bar.style.transform = "translateY(0)";
-}
-
 const onscroll = () => {
-    if (window.scrollY > height/2 && !bool) {
-        moveBar();
-    }
+    if (window.scrollY < height) {
+        let translateValue = (height - (window.scrollY)*1.7);
+        if(translateValue < 0) translateValue = 0;
+        bar.style.transform = "translateY("+translateValue+"px)";
+    } else bar.removeAttribute("style");
     let pointMarginTop = null;
     points.forEach((point, index) => {
         let scrollValue = window.scrollY;

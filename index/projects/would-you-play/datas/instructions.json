@@ -9,7 +9,7 @@
     ],
     "instructionssnake" : [
         "Vous avez choisi le snake! Connaissez vous les regles de ce jeu?",
-        "Dans ce jeu, le serpent a une vitesse fixe, le but est de recuperer les pommes qui apparaissement aleatoirement sur le terrain.",
+        "Dans ce jeu, le serpent a une vitesse fixe, le but est de recuperer les pommes qui apparaissent aleatoirement sur le terrain.",
         "A chaque pomme mangee, le serpent grandit. Si le serpent touche un mur ou son corps, la partie est perdue.",
         "Chaque pomme mangée vous rapporte aussi un point, tentez d'en gagner le plus possible!",
         "Vous pouvez choisir parmi la taille de la grille, la vitesse du serpent, le nombre de pommes, pommes empoisonnees et le nombre de murs.",

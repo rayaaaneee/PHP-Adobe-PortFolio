@@ -9,8 +9,8 @@ var pointRotation = new Array();
 
 const initHeight = () => {
     height = window.innerHeight;
-    bordersScreen = (height/20)*1;
-    margin = height/10;
+    bordersScreen = (height/20);
+    margin = (height/100)*10;
 }
 initHeight();
 
@@ -21,12 +21,24 @@ const isInSide = (pointMarginTop) => {
         } else {
             return false;
         }
+    // Si 
     } else {
         if(pointMarginTop <= bordersScreen) {
+            return true;
+        }
+    }
+}
+
+var coef = 1.02;
+const isInFivePercentSide = (pointMarginTop) => {
+    if(barCentered) {
+        if(pointMarginTop <= (bordersScreen + (coef*bordersScreen)) || pointMarginTop >= (height-((bordersScreen)-(bordersScreen * coef)))) {
             return true;
         } else {
             return false;
         }
+    } else {
+        return false;
     }
 }
 
@@ -47,6 +59,7 @@ const getNewScale = (distanceMid) => {
 var bar = document.querySelector("#timeline");
 var barCentered = false;
 const onscroll = () => {
+    // Mouvement de la barre
     if (window.scrollY < height) {
         barCentered = false;
         let translateValue = (height - (window.scrollY)*1.7);
@@ -58,10 +71,16 @@ const onscroll = () => {
     } else { 
         bar.removeAttribute("style");
     }
+
+    // Modifications des points
     let pointMarginTop = null;
     points.forEach((point, index) => {
+
         let scrollValue = window.scrollY;
         pointMarginTop = point.offsetTop - scrollValue + margin;
+        
+        if(index == 2) if(isInFivePercentSide(pointMarginTop)) console.log("in");
+
         if(isInSide(pointMarginTop)) {
             point.style.opacity = 0;
         } else {

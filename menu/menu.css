@@ -67,3 +67,41 @@ body {
 .mediamenu{
     display: none;
 }
+
+/* Disposition de l'icone darkmode */
+
+.theme-form {
+    width: 70px;
+    height:70px;
+    margin: 0 2.5vw 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mode-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dark-mode-button {
+    background-image: url(../logos/dark-mode.png);
+    width: 40px;
+    height: 40px;
+}
+
+.light-mode-button {
+    background-image: url(../logos/light-mode-yellow.png);
+    width: 45px;
+    height: 45px;
+}
+
+.mode-button:hover{
+    background-color: none;
+}
+

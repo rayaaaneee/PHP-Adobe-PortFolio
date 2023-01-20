@@ -29,7 +29,7 @@
 
 <body>
     <header>
-        <div id="startbackground"></div>
+        <div id="top" style="position:absolute;top:0;left:0;width:0;height:0;"></div>
     </header>
     <iframe id="loader" src="../loader/index.html" allowfullscreen style="z-index: 5;"></iframe>
     <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 

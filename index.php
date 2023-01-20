@@ -1,6 +1,6 @@
-<?php 
+<?php
 error_reporting(E_ALL);
-ini_set("display_errors", 1);                                          
+ini_set("display_errors", 1); 
 ?>
 <!DOCTYPE html> 
 <html lang="en"> 
@@ -32,8 +32,10 @@ ini_set("display_errors", 1);
     <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
     <title>PortFolio</title> 
     <!-- FICHIERS PHP -->
-    <?php require "models/m_connect.php"?>
-    <?php require "models/m_project.php"; ?>
+    <?php require_once "models/m_connect.php"?>
+    <?php require_once "models/m_project.php"; ?>
+    <?php require_once "controllers/DarkMode.php";?>
+    <?php $theme = new DarkMode(); ?>
 </head>
 <header> 
     <div id="startbackground"></div> 
@@ -44,6 +46,9 @@ ini_set("display_errors", 1);
             <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="course/"><p id="text2">PARCOURS</p></a></li> 
             <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="course/"><p id="text3">PERSO</p></a></li> 
             <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/"><p id="text4">CONTACT</p></a></li> 
+            <form action="./" method="post" class="theme-form">
+                <button type="submit" name="dark-mode"class="<?= $theme->getButtonClass()?> mode-button"></button>
+            </form>
         </ul> 
         <ul class="mediamenu"> 
             <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 

@@ -8,6 +8,11 @@ ini_set("display_errors", 1);
     <meta charset="UTF-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- FICHIERS PHP -->
+    <?php require_once "models/m_connect.php"?>
+    <?php require_once "models/m_project.php"; ?>
+    <?php require_once "controllers/DarkMode.php";
+    $theme = new DarkMode(); ?>
     <!-- CSS DE BASE --> 
     <link rel="stylesheet" href="index/general.css"> 
     <link rel="stylesheet" href="menu/menu.css"> 
@@ -25,20 +30,19 @@ ini_set("display_errors", 1);
     <!-- SCRIPTS JS --> 
     <script type="text/javascript" src="index/script.js" defer></script> 
     <script type="text/javascript" src="menu/menu.js" defer></script> 
+    <?php if (!$changedMode) { ?>}
     <script type="text/javascript" src="removeLoader.js" defer></script> 
     <script type="text/javascript" src="movebackground.js" defer></script>
+    <?php } ?>
     <!-- FAVICON & FONTS --> 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
     <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
     <title>PortFolio</title> 
-    <!-- FICHIERS PHP -->
-    <?php require_once "models/m_connect.php"?>
-    <?php require_once "models/m_project.php"; ?>
-    <?php require_once "controllers/DarkMode.php";?>
-    <?php $theme = new DarkMode(); ?>
 </head>
 <header> 
+    <?php if (!$changedMode) { ?>
     <div id="startbackground"></div> 
+    <?php } ?>
     <div id="menu-container"> 
         <ul class="menu"> 
             <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
@@ -61,7 +65,9 @@ ini_set("display_errors", 1);
 </header> 
 <body>
     <!-- LOADER & backgrounds-->
+    <?php if (!$changedMode) { ?>
     <iframe id="loader" src="loader/index.html"></iframe> 
+    <?php } ?>
     <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
     <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
     <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>

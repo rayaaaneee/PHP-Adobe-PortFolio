@@ -48,3 +48,8 @@ class DarkMode {
             return $this->isDarkTheme;
         }   
 }
+
+$changedMode = false;
+if(isset($_POST['dark-mode'])) {
+    $changedMode = true;
+}

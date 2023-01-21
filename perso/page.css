@@ -80,5 +80,8 @@
     /* Centrer */
     margin: 0 auto;
     align-self: center;
-    
 } 
+
+#horizontal-bar1{
+    margin-bottom: 3vw;
+}

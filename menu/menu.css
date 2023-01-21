@@ -71,9 +71,9 @@ body {
 /* Disposition de l'icone darkmode */
 
 .theme-form {
-    width: 70px;
+    width: 5%;
     height:70px;
-    margin: 0 2.5vw 0 0;
+    margin-right: 3.2vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,6 +87,7 @@ body {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    transition: 0.3s;
 }
 
 .dark-mode-button {
@@ -95,13 +96,24 @@ body {
     height: 40px;
 }
 
+.dark-mode-button:hover {
+    background-image: url(../logos/yellow-dark-mode.png);
+}
+
 .light-mode-button {
-    background-image: url(../logos/light-mode-yellow.png);
+    background-image: url(../logos/light-mode-white.png);
     width: 45px;
     height: 45px;
+}
+
+.light-mode-button:hover {
+    background-image: url(../logos/light-mode-yellow.png);
 }
 
 .mode-button:hover{
     background-color: none;
 }
 
+.menu .sites > p {
+    color: black;
+}

@@ -1,4 +1,6 @@
 <?php 
+   session_start();
+   // Affichage des erreurs PHP
    error_reporting(E_ALL);
    ini_set("display_errors", 1);
    // Variable qui définit si le formulaire a été envoyé
@@ -10,10 +12,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>   
+   <head>   
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- FICHIERS PHP -->
+   <?php require_once "../models/m_connect.php"; ?>
+   <?php require_once "../models/m_contact.php"; ?>
+   <?php require_once "../controllers/DarkMode.php"; 
+   $theme = new DarkMode(); ?>
    <!-- CSS DE BASE -->
    <link rel="stylesheet" href="general.css">
    <link rel="stylesheet" href="../menu/menu.css">
@@ -30,7 +37,7 @@
    <script type="text/javascript" src="../movebackground.js" defer></script>
    <script type="text/javascript" src="contact.js" defer></script>
    <?php
-      if(!$wasSet){
+      if(!$wasSet && !$changedMode){
          ?>
          <script type="text/javascript" src="../removeLoader.js" defer></script>
          <?php
@@ -41,13 +48,12 @@
    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
    <link sizes="180x180" href="../logos/favicon1.png" rel="icon" type="image/png">
    <title>PortFolio</title>
-   <!-- FICHIERS PHP -->
-   <?php require_once "../models/m_connect.php"; ?>
-   <?php require_once "../models/m_contact.php"; ?>
 </head>
 <body> 
    <header>
-      <div id="startbackground"></div>
+      <?php if (!$changedMode) { ?>
+         <div id="startbackground"></div> 
+      <?php } ?>
       <div id="menu-container">
          <ul class="menu">
             <a href="../"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
@@ -55,6 +61,9 @@
              <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="../course/"><p id="text2">PARCOURS</p></a></li>
              <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="../perso/"><p id="text3">PERSO</p></a></li>
              <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href=""><p id="text4">CONTACT</p></a></li>
+             <form action="./" method="post" class="theme-form">
+                <button type="submit" name="dark-mode" class="<?= $theme->getButtonClass()?> mode-button"></button>
+             </form>
          </ul>
          <ul class="mediamenu">
             <a href="../"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
@@ -66,7 +75,9 @@
      </div>
    </header>
    <!-- Loader -->
-   <iframe id="loader" src="../loader/index.html"></iframe> 
+   <?php if (!$changedMode) { ?>
+        <iframe id="loader" src="../loader/index.html"></iframe> 
+    <?php } ?>
    <?php 
       if($wasSet){
          ?>

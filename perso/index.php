@@ -1,6 +1,9 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php require_once "../controllers/DarkMode.php";
+    $theme = new DarkMode(); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +20,9 @@
     <link rel="stylesheet" href="media.css">
     <!-- SCRIPTS JS -->
     <script type="text/javascript" src="../menu/menu.js" defer></script>
-    <script type="text/javascript" src="../removeLoader.js" defer></script>
+    <?php if (!$changedMode) { ?>
+        <script type="text/javascript" src="../removeLoader.js" defer></script> 
+    <?php } ?>
     <script type="text/javascript" src="../movebackground.js" defer></script>
     <script type="text/javascript" src="bar.js" defer></script>
     <!-- FAVICON & FONTS-->
@@ -29,7 +34,9 @@
 
 <body>
     <header>
-        <div id="startbackground"></div>
+        <?php if (!$changedMode) { ?>
+            <div id="startbackground"></div> 
+        <?php } ?>
         <div id="menu-container">
             <ul class="menu">
                 <a href="../"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
@@ -37,6 +44,9 @@
                 <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="../course/"><p id="text2">PARCOURS</p></a></li>
                 <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="../perso/"><p id="text3">PERSO</p></a></li>
                 <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="../contact/"><p id="text4">CONTACT</p></a></li>
+                <form action="./" method="post" class="theme-form">
+                    <button type="submit" name="dark-mode"class="<?= $theme->getButtonClass()?> mode-button"></button>
+                </form>
             </ul>
             <ul class="mediamenu">
                 <a href="../index.php"><img src="../logos/portfolio_logo.png" alt="logo" class="logo"></a>
@@ -48,7 +58,9 @@
         </div>
     </header>
     <!-- LOADER & backgrounds -->
-    <iframe id="loader" src="../loader/index.html" allowfullscreen></iframe>
+    <?php if (!$changedMode) { ?>
+        <iframe id="loader" src="../loader/index.html"></iframe> 
+    <?php } ?>
     <div id="background1" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div> 
     <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
     <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>

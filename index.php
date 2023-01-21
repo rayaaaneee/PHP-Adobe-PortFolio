@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set("display_errors", 1); 
 ?>
@@ -24,34 +25,35 @@ ini_set("display_errors", 1);
     <link rel="stylesheet" href="index/framecv.css"> 
     <link rel="stylesheet" href="index/CV-fullscreen.css"> 
     <link rel="stylesheet" href="footer.css"> 
+    <link rel="stylesheet" href="menu/dark-menu.css"> 
     <!-- CSS DES MEDIA QUERIES --> 
     <link rel="stylesheet" href="index/media/mediaframecv.css"> 
     <link rel="stylesheet" href="index/media/mediapage.css"> 
     <!-- SCRIPTS JS --> 
     <script type="text/javascript" src="index/script.js" defer></script> 
     <script type="text/javascript" src="menu/menu.js" defer></script> 
-    <?php if (!$changedMode) { ?>}
-    <script type="text/javascript" src="removeLoader.js" defer></script> 
     <script type="text/javascript" src="movebackground.js" defer></script>
+    <?php if (!$changedMode) { ?>
+        <script type="text/javascript" src="removeLoader.js" defer></script> 
     <?php } ?>
     <!-- FAVICON & FONTS --> 
+    <link sizes="180x180" href="logos/<?= $theme->getFavicon() ?>.png" rel="icon" type="image/png"> 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
-    <link sizes="180x180" href="logos/favicon1.png" rel="icon" type="image/png"> 
     <title>PortFolio</title> 
 </head>
 <header> 
     <?php if (!$changedMode) { ?>
-    <div id="startbackground"></div> 
+        <div id="startbackground"></div> 
     <?php } ?>
     <div id="menu-container"> 
-        <ul class="menu"> 
-            <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
+        <ul class="menu <?= $theme->getClass("menu") ?>"> 
+            <a href=""><img src="logos/<?= $theme->getLogoFilename(); ?>.png" class="logo"></a> 
             <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href=""><p id="text1">ACCUEIL</p></a></li> 
             <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="course/"><p id="text2">PARCOURS</p></a></li> 
-            <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="course/"><p id="text3">PERSO</p></a></li> 
+            <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="perso/"><p id="text3">PERSO</p></a></li> 
             <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/"><p id="text4">CONTACT</p></a></li> 
             <form action="./" method="post" class="theme-form">
-                <button type="submit" name="dark-mode"class="<?= $theme->getButtonClass()?> mode-button"></button>
+                <button type="submit" name="dark-mode" class="<?= $theme->getButtonClass()?> mode-button"></button>
             </form>
         </ul> 
         <ul class="mediamenu"> 
@@ -66,7 +68,7 @@ ini_set("display_errors", 1);
 <body>
     <!-- LOADER & backgrounds-->
     <?php if (!$changedMode) { ?>
-    <iframe id="loader" src="loader/index.html"></iframe> 
+        <iframe id="loader" src="loader/index.html"></iframe> 
     <?php } ?>
     <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
     <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>

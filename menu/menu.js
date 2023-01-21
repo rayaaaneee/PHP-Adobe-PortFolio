@@ -15,7 +15,7 @@ function changeColor(index){
 
 function unchangeColor(index){
     var text = document.querySelector('#text'+index);
-    text.style.color="black";
+    text.removeAttribute("style");
 }
 
 function changeDisplay(index){

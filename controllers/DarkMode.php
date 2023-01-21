@@ -2,51 +2,88 @@
 
 class DarkMode {
 
-        private $isDarkTheme;
+        private $isLightTheme;
     
         public function __construct() {
-            session_start();
-            $this->darkmode();
+            $this->setMode();
         }
     
-        public function darkmode() {
+        public function setMode() {
             $tmp = null;
             if (isset($_POST['dark-mode'])) {
-                if ($_SESSION['dark-mode'] == 'on') {
-                    $_SESSION['dark-mode'] = 'off';
-                    $tmp = true;
-                } else {
-                    $_SESSION['dark-mode'] = 'on';
-                    $tmp = false;
-                }
+                $_SESSION['dark-mode'] = !($_SESSION['dark-mode']);
             } else {
-                $_SESSION['dark-mode'] = 'off';
-                $tmp = false;
+                if (!isset($_SESSION['dark-mode'])) {
+                    $_SESSION['dark-mode'] = false;
+                }
             }
-            $this->isDarkTheme = $tmp;
+            $this->isLightTheme = (bool) $_SESSION['dark-mode'];
         }
         
         public function getButtonClass() {
             $result = null;
-            if ($this->isDarkTheme) {
-                $result =  'dark-mode';
-            } else {
+            if ($this->isLightTheme) {
                 $result = 'light-mode';
+            } else {
+                $result =  'dark-mode';
             }
             return $result . '-button';
         }
         
-        public function getBodyClass($classname) {
+        public function getClass($classname) {
             $result = null;
-            if ($this->isDarkTheme) {
-                $result =  '-dark';
+            if ($this->isLightTheme) {
+                $result =  $classname . '-dark';
+            } else {
+                $result = null;
             }
-            return $classname . $result;
+            return $result;
         }
 
-        public function isDarkTheme() {
-            return $this->isDarkTheme;
+        public function isLightTheme() {
+            return $this->isLightTheme;
         }   
+
+        public function getTextColor(){
+            $color = null;
+            switch ($this->isLightTheme) {
+                case 'true':
+                    $color = "black";   
+                    break;
+                case 'false':
+                    $color = "white"; 
+                    break;
+            }
+            return $color;
+        }
+
+        public function getColor(){
+            $color = null;
+            switch ($this->isLightTheme) {
+                case 'true':
+                    $color = "white"; 
+                    break;
+                case 'false':
+                    $color = "black"; 
+                    break;
+            }
+        }
+
+        public function getLogoFilename(){
+            $filename = "portfolio_logo";
+            if ($this->isLightTheme == "false") {
+                $filename = "dark_" . $filename;
+            }
+            return $filename;
+        }
+
+        public function getFavicon(){
+            $filename = "favicon1";
+            if ($this->isLightTheme == "false") {
+                $filename = "white-" . $filename;
+            }
+            return $filename;
+        }
 }
 
 $changedMode = false;

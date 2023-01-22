@@ -49,7 +49,7 @@ ini_set("display_errors", 1);
 <body class="<?= $theme->getClass("body") ?>">
     <header> 
         <?php if (!$changedMode) { ?>
-            <div id="startbackground"></div> 
+            <div id="startbackground" class="<?= $theme->getClass("startbackground"); ?>"></div> 
         <?php } ?>
         <div id="menu-container"> 
             <ul class="menu <?= $theme->getClass("menu") ?>"> 
@@ -73,7 +73,7 @@ ini_set("display_errors", 1);
     </header> 
     <!-- LOADER & backgrounds-->
     <?php if (!$changedMode) { ?>
-        <iframe id="loader" src="loader/index.html"></iframe> 
+        <iframe id="loader" src="loader/"></iframe> 
     <?php } ?>
     <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
     <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
@@ -164,7 +164,6 @@ ini_set("display_errors", 1);
                     </div> 
                     <div class="framecv-bar"></div> 
                 </div> 
- 
                 <div id="background"></div> 
             </div> 
             <div id="cv-text"> 

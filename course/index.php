@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="../background.css">
     <link rel="stylesheet" href="../scrollbar.css">
     <link rel="stylesheet" href="../footer.css">
+    <!-- CSS DARK MODE -->
+    <link rel="stylesheet" href="../menu/dark-menu.css"> 
+    <link rel="stylesheet" href="../dark-scrollbar.css">
+    <link rel="stylesheet" href="../dark-footer.css">
+    <link rel="stylesheet" href="../dark-background.css">
+    <link rel="stylesheet" href="dark-page.css">
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="media.css">
     <!-- SCRIPTS JS -->
@@ -21,21 +27,25 @@
     <script type="text/javascript" src="../removeLoader.js" defer></script>
     <script type="text/javascript" src="../movebackground.js" defer></script>
     <script type="text/javascript" src="script.js" defer></script>
+    <!-- FICHIERS PHP -->
+    <?php require_once "../controllers/DarkMode.php"; 
+    $theme = new DarkMode(); ?>
     <!-- FAVICON & FONTS-->
     <link rel="shortcut icon" type="image/jpg" href="favicons/favicon1.jpg" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link sizes="180x180" href="../logos/favicon1.png" rel="icon" type="image/png">
+    <link sizes="180x180" href="../logos/<?= $theme->getFavicon() ?>.png" rel="icon" type="image/png">
     <title>Portfolio</title>
 </head>
 
-<body>
+<body class="<?= $theme->getClass("body"); ?>">
     <header>
         <div id="top" style="position:absolute;top:0;left:0;width:0;height:0;"></div>
     </header>
-    <iframe id="loader" src="../loader/index.html" allowfullscreen style="z-index: 5;"></iframe>
-    <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
-    <div id="background2" speedparallax="-0.03" speedtranslate="0.5" speedratio="1"></div>
-    <div id="background3" speedparallax="-0.05" speedtranslate="0.3" speedratio="1"></div>
+    <div id="startbackground" class="<?= $theme->getClass("startbackground"); ?>"></div>
+    <iframe id="loader" src="../loader/" allowfullscreen style="z-index: 5;"></iframe>
+    <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
+    <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.5" speedratio="1"></div>
+    <div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.3" speedratio="1"></div>
     <article id="parallax-projects">
         <div id="timeline" style="transform:translateY(100vh);"></div>
         <div id="fordisplay">

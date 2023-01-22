@@ -1,3 +1,7 @@
+.startbackground-dark {
+    background-color: rgb(0, 0, 0) !important;
+}
+
 .background3-dark {
     background-image: url(backgrounds/background3-black.png) !important;
 }

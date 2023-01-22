@@ -35,6 +35,7 @@
    <link rel="stylesheet" href="../dark-scrollbar.css">
    <link rel="stylesheet" href="../dark-footer.css">
    <link rel="stylesheet" href="../dark-background.css">
+   <link rel="stylesheet" href="dark-page.css">
    <!-- CSS DES MEDIA QUERIES -->
    <link rel="stylesheet" href="media.css">
    <!-- SCRIPTS JS -->
@@ -51,13 +52,13 @@
    <!-- FAVICON & FONTS -->
    <link rel="shortcut icon" type="image/jpg" href="favicons/favicon1.jpg" />
    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-   <link sizes="180x180" href="../logos/favicon1.png" rel="icon" type="image/png">
+   <link sizes="180x180" href="../logos/<?= $theme->getFavicon() ?>.png" rel="icon" type="image/png">
    <title>PortFolio</title>
 </head>
 <body class="<?= $theme->getClass("body") ?>"> 
    <header>
       <?php if (!$changedMode) { ?>
-         <div id="startbackground"></div> 
+         <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div> 
       <?php } ?>
       <div id="menu-container"> 
             <ul class="menu <?= $theme->getClass("menu") ?>"> 
@@ -81,7 +82,7 @@
    </header>
    <!-- Loader -->
    <?php if (!$changedMode) { ?>
-        <iframe id="loader" src="../loader/index.html"></iframe> 
+        <iframe id="loader" src="../loader/"></iframe> 
     <?php } ?>
    <?php 
       if($wasSet){
@@ -94,13 +95,13 @@
       }
    ?>
    <!-- backgrounds -->
-   <div id="background1" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div> 
-   <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
-   <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
+   <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div> 
+   <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
+   <div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
 
    <article id="form-container">
         <main>
-            <div id="pres">
+            <div id="pres" class="<?= $theme->getClass("pres") ?>">
                <img draggable="false" src="icones/contact.png" id="imgcontact">
                <h3 class="present">Pour tout contact, vous pouvez aussi passer par cette page.<br>
                     Pour cela, c'est très simple : <br> Rentrez le nom / pseudonyme sous lequel vous enverrez le message<br>
@@ -108,7 +109,7 @@
                     Rentrez simplement votre message !
                </h3>
             </div>
-            <div class="formulaire">
+            <div class="formulaire <?= $theme->getClass("formulaire") ?>">
                 <form name="myForm" action="index.php" method="post">
                    <table class="form-style">
                       <tr>
@@ -146,7 +147,7 @@
                       </tr>
                       <tr>
                          <td></td>
-                         <td>
+                         <td class="input-container <?= $theme->getClass("input-container"); ?>">
                             <input type="submit" value="Envoyer">      
                             <input type="reset" value="Réinitialiser"> 
                          </td>

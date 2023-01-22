@@ -1,3 +1,8 @@
+<?php
+session_start();
+error_reporting(E_ALL);
+ini_set("display_errors", 1); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,19 +10,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS DE BASE -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dark-style.css">
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="media.css">
     <!-- SCRIPTS JAVASCRIPT -->
     <script src="loader.js" defer></script>
-    <title>Loader</title>
+    <!-- FICHIERS PHP -->
+    <?php require_once "../controllers/DarkMode.php";
+    $theme = new DarkMode(); ?>
 </head>
-<body>
-    <div id="startbackground"></div>
-    <div id="container" onmouseover="changeCursor();" onmouseout="unchangeCursor();">
+<body class="<?= $theme->getClass("body"); ?>">
+    <div id="background" class="<?= $theme->getClass("background"); ?>"></div>
+    <div id="container" class="<?= $theme->getClass("container"); ?>" onmouseover="changeCursor();" onmouseout="unchangeCursor();">
         <div id="left">
-            <div id="title">
-                <img draggable="false" src="../logos/portfolio_logo.png" alt="PortFolio">
+            <div id="title" class="<?= $theme->getClass("title"); ?>">
+                <img draggable="false" src="../logos/<?= $theme->getLogoFilename(); ?>.png" alt="PortFolio">
                 <h1>Adobe Portfolio</h1>
             </div>
             <div id="loader">
@@ -57,6 +65,5 @@
         <div class="point p4"></div>
         <div class="point p5"></div>
     </div>
-    <div id="background"></div>
 </body>
 </html>

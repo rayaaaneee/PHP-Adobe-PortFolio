@@ -31,7 +31,7 @@ class DarkMode {
         }
         
         public function getClass($classname) {
-            $result = null;
+            $result = "";
             if ($this->isLightTheme) {
                 $result =  $classname . '-dark';
             }
@@ -41,6 +41,19 @@ class DarkMode {
         public function isLightTheme() {
             return $this->isLightTheme;
         }   
+
+        public function getTheme() {
+            $theme = null;
+            switch (!$this->isLightTheme) {
+                case true:
+                    $theme = "light"; 
+                    break;
+                case false:
+                    $theme = "dark"; 
+                    break;
+            }
+            return $theme;
+        }
 
         public function getTextColor(){
             $color = null;

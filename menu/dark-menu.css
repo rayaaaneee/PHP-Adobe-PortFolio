@@ -3,6 +3,10 @@
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
+.menu-dark li:hover{
+    border-bottom: 7px solid rgb(255, 255, 255) !important;
+}
+
 .menu-dark .sites > p {
     color: white;
 }

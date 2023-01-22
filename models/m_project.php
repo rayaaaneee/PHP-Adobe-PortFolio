@@ -18,9 +18,9 @@ function DownloadOrLink($bool){
 
 function getImageName($bool){
     if($bool){
-        echo "download.png";
+        echo "download";
     } else {
-        echo "link.png";
+        echo "link";
     }
     return;
 }

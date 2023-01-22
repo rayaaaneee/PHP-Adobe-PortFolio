@@ -1,0 +1,34 @@
+.body-dark * {
+    color: white !important;
+}
+
+.body-dark {
+    background-color : rgb(46 45 45);
+}
+
+.horizontal-bars-dark {
+    background-color: #000000 !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.explication-text-dark {
+    text-shadow:  0 0 #000, 1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000, -1px 0 0 #000, -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000;
+}
+
+.content-dark, .container-cv-dark {
+    background-color: rgb(0 0 0 / 80%) !important;
+    box-shadow : 0 0 20px rgba(255, 255, 255, 0.2) !important;
+}
+
+.blackbar-dark {
+    background-color: rgba(255, 255, 255);
+    border: 2px solid rgba(255, 255, 255);
+}
+
+.cv-button-dark {
+    background-color: rgb(40 40 40 / 80%);
+}
+
+.cv-button-dark:hover {
+    background-color: rgba(71, 71, 71, 0.8);
+}

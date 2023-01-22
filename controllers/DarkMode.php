@@ -34,8 +34,6 @@ class DarkMode {
             $result = null;
             if ($this->isLightTheme) {
                 $result =  $classname . '-dark';
-            } else {
-                $result = null;
             }
             return $result;
         }
@@ -83,6 +81,14 @@ class DarkMode {
                 $filename = "white-" . $filename;
             }
             return $filename;
+        }
+
+        public function getImagePath($name){
+            $path = $name;
+            if ($this->isLightTheme == "false") {
+                $path .= "-white";
+            }
+            return $path;
         }
 }
 

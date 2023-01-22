@@ -26,6 +26,9 @@ ini_set("display_errors", 1);
     <link rel="stylesheet" href="index/CV-fullscreen.css"> 
     <link rel="stylesheet" href="footer.css"> 
     <link rel="stylesheet" href="menu/dark-menu.css"> 
+    <link rel="stylesheet" href="index/dark-page.css">
+    <link rel="stylesheet" href="dark-scrollbar.css">
+    <link rel="stylesheet" href="dark-background.css">
     <!-- CSS DES MEDIA QUERIES --> 
     <link rel="stylesheet" href="index/media/mediaframecv.css"> 
     <link rel="stylesheet" href="index/media/mediapage.css"> 
@@ -41,43 +44,43 @@ ini_set("display_errors", 1);
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
     <title>PortFolio</title> 
 </head>
-<header> 
-    <?php if (!$changedMode) { ?>
-        <div id="startbackground"></div> 
-    <?php } ?>
-    <div id="menu-container"> 
-        <ul class="menu <?= $theme->getClass("menu") ?>"> 
-            <a href=""><img src="logos/<?= $theme->getLogoFilename(); ?>.png" class="logo"></a> 
-            <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href=""><p id="text1">ACCUEIL</p></a></li> 
-            <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="course/"><p id="text2">PARCOURS</p></a></li> 
-            <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="perso/"><p id="text3">PERSO</p></a></li> 
-            <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/"><p id="text4">CONTACT</p></a></li> 
-            <form action="./" method="post" class="theme-form">
-                <button type="submit" name="dark-mode" class="<?= $theme->getButtonClass()?> mode-button"></button>
-            </form>
-        </ul> 
-        <ul class="mediamenu"> 
-            <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
-            <a class="mediasites" id="receptionsite" href=""><img src="logos/reception_logo.png"></a> 
-            <a class="mediasites" id="coursesite" href="course/"><img src="logos/cv_logo.png"></a> 
-            <a class="mediasites" id="personalsite" href="perso/"><img src="logos/personnal_logo.png"></a> 
-            <a class="mediasites" id="contactsite" href="contact/"><img src="logos/contact_logo.png"></a> 
-        </ul> 
-    </div> 
-</header> 
-<body>
+<body class="<?= $theme->getClass("body") ?>">
+    <header> 
+        <?php if (!$changedMode) { ?>
+            <div id="startbackground"></div> 
+        <?php } ?>
+        <div id="menu-container"> 
+            <ul class="menu <?= $theme->getClass("menu") ?>"> 
+                <a href=""><img src="logos/<?= $theme->getLogoFilename(); ?>.png" class="logo"></a> 
+                <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href=""><p id="text1">ACCUEIL</p></a></li> 
+                <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="course/"><p id="text2">PARCOURS</p></a></li> 
+                <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="perso/"><p id="text3">PERSO</p></a></li> 
+                <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/"><p id="text4">CONTACT</p></a></li> 
+                <form action="./" method="post" class="theme-form">
+                    <button type="submit" name="dark-mode" class="<?= $theme->getButtonClass()?> mode-button"></button>
+                </form>
+            </ul> 
+            <ul class="mediamenu"> 
+                <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
+                <a class="mediasites" id="receptionsite" href=""><img src="logos/reception_logo.png"></a> 
+                <a class="mediasites" id="coursesite" href="course/"><img src="logos/cv_logo.png"></a> 
+                <a class="mediasites" id="personalsite" href="perso/"><img src="logos/personnal_logo.png"></a> 
+                <a class="mediasites" id="contactsite" href="contact/"><img src="logos/contact_logo.png"></a> 
+            </ul> 
+        </div> 
+    </header> 
     <!-- LOADER & backgrounds-->
     <?php if (!$changedMode) { ?>
         <iframe id="loader" src="loader/index.html"></iframe> 
     <?php } ?>
-    <div id="background1" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
-    <div id="background2" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
-    <div id="background3" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
+    <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div> 
+    <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
+    <div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
     <article id="main"> 
         <div class="title t1" id="firstmid"> 
             <p>Mes projets</p> 
         </div> 
-        <div class="horizontal-bars" id="horizontal-bar1"></div> 
+        <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar1"></div> 
         <article class="projects"> 
             <?php
                 $db = getConnection();
@@ -85,13 +88,13 @@ ini_set("display_errors", 1);
                 $i=1;
                 foreach ($projects as $project) {
                     ?>
-                    <a href="<?php echo "index/projects/" . $project['file']; ?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                        <div class="content" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                    <a href="index/projects/<?php echo $project['file']; ?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+                        <div class="content <?= $theme->getClass("content") ?>" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
                             <div class="to_download"> 
                                 <p><?php echo $project['title'] ?></p> 
-                                <img src="index/icons/<?php echo getImageName($project['download'])?>" draggable="false"> 
+                                <img src="index/icons/<?= $theme->getImagePath(getImageName($project['download']))?>.png" draggable="false"> 
                             </div> 
-                            <img src="index/project-logos/<?php echo $project['icon'] ?>" id="img<?php echo $i ?>" class="workslogos" draggable="false"> 
+                            <img src="index/project-logos/<?= $theme->getImagePath($project['icon']) ?>.png" id="img<?php echo $i ?>" class="workslogos" draggable="false"> 
                         </div> 
                     </a> 
                     <?php
@@ -106,12 +109,12 @@ ini_set("display_errors", 1);
                 </div> 
             <?php } ?>
         </article> 
-        <h2 class="explicationtext">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 
+        <h2 class="explicationtext <?= $theme->getClass("explication-text") ?>">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 
     </article> 
     <article id="cv"> 
         <div class="title t2" id="secondmid"><p>Mon CV</p></div> 
-        <div class="horizontal-bars" id="horizontal-bar2" ></div> 
-        <div id="container-cv" onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);"> 
+        <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar2" ></div> 
+        <div id="container-cv" class="<?= $theme->getClass("container-cv") ?>"onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);"> 
             <div id="cv-img" onclick="openPage();"> 
                 <img src="index/files/CV.png" alt="cv" data-lightbox="CV_Rayane_Merlin.png" data-title="Voici mon C.V actuel, celui-ci est amené à être modifié mais restera à jour sur le site."> 
             </div> 
@@ -163,35 +166,35 @@ ini_set("display_errors", 1);
                 <div id="background"></div> 
             </div> 
             <div id="cv-text"> 
-                <div class="blackbar"></div> 
+                <div class="blackbar <?= $theme->getClass("blackbar") ?>"></div> 
                 <div id="zoom"> 
                     <p>N'hésitez pas à cliquer sur l'image du C.V pour zoomer, cela vous permettra de le visionner dans sa qualité optimale sans avoir besoin de le télécharger.</p> 
-                    <img draggable="false" src="index/icons/zoom.png" alt="zoom"> 
+                    <img draggable="false" src="index/icons/<?= $theme->getImagePath("zoom"); ?>.png" alt="zoom"> 
                 </div> 
                 <p class="beforebutton">Vous pouvez télécharger mon CV actuel au format pdf en cliquant sur le bouton ci-dessous.</p> 
-                <a href="index/files/CV.pdf" download="CV_Rayane_Merlin.pdf"><button class="cv-button">Télécharger</button></a> 
+                <a href="index/files/CV.pdf" download="CV_Rayane_Merlin.pdf"><button class="cv-button <?= $theme->getClass("cv-button") ?>">Télécharger</button></a> 
                 <p class="beforebutton">Vous pouvez également consulter mon CV en ligne dans la page "CV" visible sur le menu de navigation ou en cliquant sur le boutton ci-dessous.</p> 
-                <a href="CV/"><button class="cv-button">Consulter le CV</button></a> 
-                <div class="blackbar"></div> 
+                <a href="CV/"><button class="cv-button <?= $theme->getClass("cv-button") ?>">Consulter le CV</button></a> 
+                <div class="blackbar <?= $theme->getClass("blackbar") ?>"></div> 
             </div> 
     </article> 
     <article id="realisation">
         <div class="title t3" id="firstmid"> 
             <p>La réalisation :</p> 
         </div> 
-        <div class="horizontal-bars" id="horizontal-bar3"></div> 
+        <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar3"></div> 
     </article>
+    <footer class="<?= $theme->getClass("horizontal-bars") ?>"> 
+        <div id="footer1"> 
+            <p>Ce site a été créé dans le but de présenter mes projets et mes compétences.</p> 
+            <p>2022, Copyright © - Rayane Merlin</p> 
+        </div> 
+        <div id="footer2"> 
+            <a href="https://github.com/rayaaaneee" id="footergithubimg" target="_blank"><img class="footerimgs" src="footer-logos/<?= $theme->getImagePath("github"); ?>.png"></a> 
+            <a href="https://www.linkedin.com/in/rayanemerlin/"id="footerlinkedinimg" target="_blank"><img class="footerimgs" src="footer-logos/<?= $theme->getImagePath("linkedin"); ?>.png"></a> 
+            <a href="mailto:rayane.merlin8@gmail.com" id="footermailimg" target="_blank"><img class="footerimgs" src="footer-logos/<?= $theme->getImagePath("mail"); ?>.png"></a> 
+            <a href="tel:+33768283277" id="footerphoneimg" target="_blank"><img class="footerimgs" src="footer-logos/<?= $theme->getImagePath("phone"); ?>.png"></a> 
+        </div> 
+    </footer> 
 </body> 
-<footer> 
-    <div id="footer1"> 
-        <p>Ce site a été créé dans le but de présenter mes projets et mes compétences.</p> 
-        <p>2022, Copyright © - Rayane Merlin</p> 
-    </div> 
-    <div id="footer2"> 
-        <a href="https://github.com/rayaaaneee" id="footergithubimg" target="_blank"><img class="footerimgs" src="footer-logos/github.png"></a> 
-        <a href="https://www.linkedin.com/in/rayanemerlin/"id="footerlinkedinimg" target="_blank"><img class="footerimgs" src="footer-logos/linkedin.png"></a> 
-        <a href="mailto:rayane.merlin8@gmail.com" id="footermailimg" target="_blank"><img class="footerimgs" src="footer-logos/mail.png"></a> 
-        <a href="tel:+33768283277" id="footerphoneimg" target="_blank"><img class="footerimgs" src="footer-logos/phone.png"></a> 
-    </div> 
-</footer> 
 </html>

@@ -25,10 +25,12 @@ ini_set("display_errors", 1);
     <link rel="stylesheet" href="index/framecv.css"> 
     <link rel="stylesheet" href="index/CV-fullscreen.css"> 
     <link rel="stylesheet" href="footer.css"> 
+    <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="menu/dark-menu.css"> 
-    <link rel="stylesheet" href="index/dark-page.css">
     <link rel="stylesheet" href="dark-scrollbar.css">
+    <link rel="stylesheet" href="dark-footer.css">
     <link rel="stylesheet" href="dark-background.css">
+    <link rel="stylesheet" href="index/dark-page.css">
     <!-- CSS DES MEDIA QUERIES --> 
     <link rel="stylesheet" href="index/media/mediaframecv.css"> 
     <link rel="stylesheet" href="index/media/mediapage.css"> 
@@ -184,7 +186,7 @@ ini_set("display_errors", 1);
         </div> 
         <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar3"></div> 
     </article>
-    <footer class="<?= $theme->getClass("horizontal-bars") ?>"> 
+    <footer class="<?= $theme->getClass("footer") ?>"> 
         <div id="footer1"> 
             <p>Ce site a été créé dans le but de présenter mes projets et mes compétences.</p> 
             <p>2022, Copyright © - Rayane Merlin</p> 

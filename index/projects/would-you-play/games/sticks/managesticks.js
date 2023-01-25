@@ -240,13 +240,13 @@ class ManageSticks{
         
         // Initialisation des attributs
         this.#initAttributes();
-        this.tab = [];
+        this.tab = new Array();
+        this.canAdd = true;
         this.addSticks(ManageSticks.initialNbSticks);
 
         this.hasRemoved = null;
         this.nbTurns = 0;
         this.winner = null;
-        this.canAdd = true;
     }
     
     deleteAllHtmlSticks(){

@@ -69,6 +69,7 @@ class ManageSticks{
             let stickDeleted = null;
             setTimeout(() => {
                 do {
+                    if(this.getNumberOfSticks() == 0) return clearInterval(intervalDelete);
                     random = Math.floor(Math.random() * ManageSticks.initialNbSticks);
                     stickDeleted = this.tab[random].isDeleted();
                     if(!stickDeleted){

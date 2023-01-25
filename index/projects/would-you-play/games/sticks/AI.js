@@ -17,7 +17,6 @@ class AI {
         if (ManageSticks.nbGames == 1){
             // On regarde le choix du joueur
             let choice = this.playing == null ? "sticks" : "start";
-            console.log(choice);
             if (choice == "start") {
                 let player = this.playing == true ? "bot" : "player";
                 let newNbr = null;
@@ -39,7 +38,6 @@ class AI {
                     } while (toAdd == 0);
                     newNbr +=  toAdd;
                 }
-                console.log(newNbr);
                 ManageSticks.initialNbSticks = newNbr;
             // Si il a choisi le nombre de batons on choisit qui commence
             } else if (choice == "sticks") {
@@ -280,6 +278,7 @@ class AI {
                 break;
             case false:
                 winner = "You";
+                ManageSticks.winnerContent.querySelector("img").src = "images/player.png";
                 textContent.style.color = "rgb(77, 55, 74)";
                 break;
         }

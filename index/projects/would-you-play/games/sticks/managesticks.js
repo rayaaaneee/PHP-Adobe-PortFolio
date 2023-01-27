@@ -11,12 +11,14 @@ class ManageSticks{
     static initialNbSticks = null;
     static initialStarting = null;
     static nbGames = 0;
+    static isInGame = false;
 
     constructor(nbsticks, starting, gamemode){
         // On incrémente le nombre de games
         ManageSticks.nbGames++;
         ManageSticks.initialNbSticks = nbsticks;
         ManageSticks.initialStarting = starting;
+        ManageSticks.isInGame = true;
 
         // Initialisation des attributs
         this.tab = [];
@@ -221,6 +223,7 @@ class ManageSticks{
     resetGame(){
         // On met les attributs à la valeur nécéssaire
         ManageSticks.nbGames++;
+        ManageSticks.isInGame = true;
         stick.reset();
         this.#resetAttributes();
 

@@ -24,7 +24,7 @@ ini_set("display_errors", 1);
     <link rel="stylesheet" href="scrollbar.css"> 
     <link rel="stylesheet" href="index/framecv.css"> 
     <link rel="stylesheet" href="index/CV-fullscreen.css"> 
-    <link rel="stylesheet" href="footer.css"> 
+    <link rel="stylesheet" href="footer/footer.css"> 
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="menu/dark-menu.css"> 
     <link rel="stylesheet" href="dark-scrollbar.css">
@@ -50,26 +50,8 @@ ini_set("display_errors", 1);
     <header> 
         <?php if (!$changedMode) { ?>
             <div id="startbackground" class="<?= $theme->getClass("startbackground"); ?>"></div> 
-        <?php } ?>
-        <div id="menu-container"> 
-            <ul class="menu <?= $theme->getClass("menu") ?>"> 
-                <a href=""><img src="logos/<?= $theme->getLogoFilename(); ?>.png" class="logo"></a> 
-                <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href=""><p id="text1">ACCUEIL</p></a></li> 
-                <li onmouseover="change(2);" onmouseleave="unchange(2);"><a class="sites s2" href="course/"><p id="text2">PARCOURS</p></a></li> 
-                <li onmouseover="change(3);" onmouseleave="unchange(3);"><a class="sites s3" href="perso/"><p id="text3">PERSO</p></a></li> 
-                <li onmouseover="change(4);" onmouseleave="unchange(4);"><a class="sites s4" href="contact/"><p id="text4">CONTACT</p></a></li> 
-                <form action="./" method="post" class="theme-form">
-                    <button type="submit" name="dark-mode" class="<?= $theme->getButtonClass()?> mode-button"></button>
-                </form>
-            </ul> 
-            <ul class="mediamenu"> 
-                <a href=""><img src="logos/portfolio_logo.png" class="logo"></a> 
-                <a class="mediasites" id="receptionsite" href=""><img src="logos/reception_logo.png"></a> 
-                <a class="mediasites" id="coursesite" href="course/"><img src="logos/cv_logo.png"></a> 
-                <a class="mediasites" id="personalsite" href="perso/"><img src="logos/personnal_logo.png"></a> 
-                <a class="mediasites" id="contactsite" href="contact/"><img src="logos/contact_logo.png"></a> 
-            </ul> 
-        </div> 
+        <?php } 
+        require_once "./menu/menu.php"?>
     </header> 
     <!-- LOADER & backgrounds-->
     <?php if (!$changedMode) { ?>
@@ -185,17 +167,6 @@ ini_set("display_errors", 1);
         </div> 
         <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar3"></div> 
     </article>
-    <footer class="<?= $theme->getClass("footer") ?>"> 
-        <div id="footer1"> 
-            <p>Ce site a été créé dans le but de présenter mes projets et mes compétences.</p> 
-            <p>2022, Copyright © - Rayane Merlin</p> 
-        </div> 
-        <div id="footer2"> 
-            <a href="https://github.com/rayaaaneee" id="footergithubimg" target="_blank"><img class="footerimgs" src="footer-logos/<?= $theme->getImagePath("github"); ?>.png"></a> 
-            <a href="https://www.linkedin.com/in/rayanemerlin/"id="footerlinkedinimg" target="_blank"><img class="footerimgs" src="footer-logos/<?= $theme->getImagePath("linkedin"); ?>.png"></a> 
-            <a href="mailto:rayane.merlin8@gmail.com" id="footermailimg" target="_blank"><img class="footerimgs" src="footer-logos/<?= $theme->getImagePath("mail"); ?>.png"></a> 
-            <a href="tel:+33768283277" id="footerphoneimg" target="_blank"><img class="footerimgs" src="footer-logos/<?= $theme->getImagePath("phone"); ?>.png"></a> 
-        </div> 
-    </footer> 
+    <?php require_once "./footer/footer.php" ;?>
 </body> 
 </html>

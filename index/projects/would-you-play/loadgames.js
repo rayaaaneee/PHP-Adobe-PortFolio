@@ -24,7 +24,7 @@ const startGame = (index) => {
             id="borderstick";
             imageId = "stick-image";
             volume = 0.01;
-            backgroundColor = "rgb(242, 246, 248)";
+            backgroundColor = "rgb(235 230 238)";
             break;
         case 1:
             loadersound = "loadersnake"
@@ -195,8 +195,8 @@ const appearSnakeGame = () =>{
 
 //Fonction qui fait apparaitre le jeu des batons à l'écran
 const appearSticksGame = () => {
+    sticksGameLaunched = true;
     oststicks = repeatSound("sticksost", 0.01);
-    console.log("appearSticksGame");
     document.getElementById("background").style.backgroundImage = "url(backgrounds/sticks.jpg)";
     document.getElementById("background").style.filter = "blur(2px)";
     document.getElementById("background").style.backgroundSize = "cover";
@@ -204,6 +204,9 @@ const appearSticksGame = () => {
 
     // Appaaitre le jeu
     document.getElementById("all-sticks-game-container").style.display = "block";
+    setTimeout(() => {
+        document.getElementById("all-sticks-game-container").style.opacity = 1;
+    }, 200);
 }
 
 /* Fonction qui demandera a l'utilisateur s'il est sur de vouloir quitter le jeu lorsqu'il clique sur le

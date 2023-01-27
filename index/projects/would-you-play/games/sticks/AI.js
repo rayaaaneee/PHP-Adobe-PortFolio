@@ -264,7 +264,7 @@ class AI {
     }
 
     stop(){
-
+        ManageSticks.isInGame = false;
         document.getElementById('sticks-game-container').style.opacity = 0;
 
         let winner = null;

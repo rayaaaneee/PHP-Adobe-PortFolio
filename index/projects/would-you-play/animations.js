@@ -278,11 +278,19 @@ const goBackFromGames = (index) => {
 
     /*Si la page des choix s'est affichée, on la fait disparaitre et si la page du jeu s'est affichée,
     on la fait disparaitre */
-    document.getElementById("all-sticks-game-container").removeAttribute("style");
-    document.getElementById("choice-container-snake").removeAttribute("style");
-    document.getElementById("snake-page").removeAttribute("style");
-    document.getElementById("go-to-choices").removeAttribute("style");
-    WORLD.clearCanvas();
+    console.log("sticksGameLaunched : " +sticksGameLaunched);
+    if (sticksGameLaunched){
+        document.querySelector("#all-sticks-game-container").style.display = "none";
+        goToSettingsSticksGame();
+        document.querySelector(".allinstructionssticks").style.display = "none";
+        sticksGameLaunched = false;
+    } else {
+        document.getElementById("all-sticks-game-container").removeAttribute("style");
+        document.getElementById("choice-container-snake").removeAttribute("style");
+        document.getElementById("snake-page").removeAttribute("style");
+        document.getElementById("go-to-choices").removeAttribute("style");
+        WORLD.clearCanvas();
+    }
 }
 
 //Fonctions qui centrent les blocs et qui les décentrent si on les appelle

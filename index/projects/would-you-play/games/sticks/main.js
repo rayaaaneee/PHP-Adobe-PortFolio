@@ -15,6 +15,7 @@ const goNextTurn = (game) => {
 /* Fonction principale qui démarre le jeu */
 var isStarted = false;
 const startSticksGame = () => {
+    ManageSticks.isInGame = true;
     // On désactive le bouton principal
     ManageSticks.goNextTurnButton.disabled = true;
     isStarted = true;
@@ -41,7 +42,6 @@ var starting = null;
 var canStart = false;
 var reDisplay = false;
 const appearSticksInstructions = () => {
-    console.log("indexInstruction : " + indexInstruction);
     ManageSticks.goNextSound.play();
 
     //On cache toutes les instructions
@@ -115,12 +115,17 @@ const appearSticksInstructions = () => {
     allinstructionsticks[indexInstruction-1].style.display = "none";
 }
 
+var sticksGameLaunched = false;
 addEventListener("keydown", (event) => {
-    if(event.key == "Enter"){
-        if(!isStarted)
+    if(event.key == "Enter" && sticksGameLaunched){
+        console.log("enter");
+        if(!isStarted) {
             appearSticksInstructions();
-        else
+            console.log("appearSticksInstructions");
+        } else if (isStarted && ManageSticks.isInGame) {
+            console.log("go next turn");
             goNextTurn();
+        }
     }
 });
 
@@ -194,6 +199,7 @@ setInterval(animateImgWin, 2000);
 // Fonction qui s'occupe du restart
 const restartSticksGame = () => {
     ManageSticks.goNextSound.play();
+    ManageSticks.isInGame = true;
     this.sticks.resetGame();
 }
 
@@ -202,6 +208,7 @@ const goToSettingsSticksGame = () => {
     canStart = false;
     isStarted = false;
     ManageSticks.goNextSound.play();
+    ManageSticks.isInGame = false;
 
     // Modifications nécéssaires pour revenir au début
     allinstructionsticks[2].querySelector("input").value = "";

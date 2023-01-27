@@ -216,5 +216,5 @@ const appearProject = () => {
     }, 75);
 }
 
-// On initialise la fonction 
-seeMoreButton.addEventListener("click", appearOthersProjects);
+// On initialise la fonction
+if(seeMoreButton != null) seeMoreButton.addEventListener("click", appearOthersProjects);

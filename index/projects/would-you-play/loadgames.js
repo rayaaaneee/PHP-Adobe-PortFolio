@@ -63,8 +63,8 @@ const startGame = (index) => {
     //Modifie la couleur du background selon le jeu choisi
     switch(index){
         case 0:
-            document.getElementById("loader-mainv2").style.border = "10px solid rgb(120, 147, 220)";
-            document.getElementById("loader-inner").style.backgroundColor = "rgb(120, 147, 220)";
+            document.getElementById("loader-mainv2").style.border = "10px solid rgb(167, 155, 224)";
+            document.getElementById("loader-inner").style.backgroundColor = "rgb(167, 155, 224)";
             break;
         case 1:
             document.getElementById("loader-mainv2").style.border = "10px solid rgb(120, 170, 127)";
@@ -196,6 +196,14 @@ const appearSnakeGame = () =>{
 //Fonction qui fait apparaitre le jeu des batons à l'écran
 const appearSticksGame = () => {
     oststicks = repeatSound("sticksost", 0.01);
+    console.log("appearSticksGame");
+    document.getElementById("background").style.backgroundImage = "url(backgrounds/sticks.jpg)";
+    document.getElementById("background").style.filter = "blur(2px)";
+    document.getElementById("background").style.backgroundSize = "cover";
+    document.getElementById("background").style.removeProperty("background-color");
+
+    // Appaaitre le jeu
+    document.getElementById("all-sticks-game-container").style.display = "block";
 }
 
 /* Fonction qui demandera a l'utilisateur s'il est sur de vouloir quitter le jeu lorsqu'il clique sur le

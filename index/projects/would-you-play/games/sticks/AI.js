@@ -88,9 +88,9 @@ class AI {
     startGame() {
         // Selon qui commence on affiche le bon texte
         if (this.playing) {
-            useful.printLoading("bot");
+            usefulClassSticks.printLoading("bot");
         } else {
-            useful.printLoading("player");
+            usefulClassSticks.printLoading("player");
         }
 
         // On lance le jeu
@@ -181,7 +181,7 @@ class AI {
 
     #autoRemoveSticks(){
         if (this.playing) {
-            useful.printLoading("bot");
+            usefulClassSticks.printLoading("bot");
 
             ManageSticks.goNextTurnButton.disabled = true;
 
@@ -274,11 +274,11 @@ class AI {
             case true:
                 winner = "Bot";
                 textContent.style.color = "rgb(81, 71, 75)";
-                ManageSticks.winnerContent.querySelector("img").src = "images/bot.png";
+                ManageSticks.winnerContent.querySelector("img").src = "games/sticks/images/bot.png";
                 break;
             case false:
                 winner = "You";
-                ManageSticks.winnerContent.querySelector("img").src = "images/player.png";
+                ManageSticks.winnerContent.querySelector("img").src = "games/sticks/images/player.png";
                 textContent.style.color = "rgb(77, 55, 74)";
                 break;
         }

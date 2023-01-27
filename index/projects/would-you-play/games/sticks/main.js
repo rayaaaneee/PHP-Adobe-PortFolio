@@ -74,12 +74,12 @@ const appearSticksInstructions = () => {
                 
             // Si l'utilisateur n'a rien mit on met 30 par defaut
             if(allinstructionsticks[2].querySelector("input").value == ""){
-                nbSticks = 30;
+                nbSticks = 20;
             // Sinon on regarde si il a mis un nombre entre 10 et 50
             } else {
                 nbSticks = parseInt(allinstructionsticks[2].querySelector("input").value);
-                if(nbSticks < 3 || nbSticks > 50){
-                    alert("Le nombre de batons doit etre compris entre 10 et 50");
+                if(nbSticks < 12 || nbSticks > 50){
+                    alert("Le nombre de batons doit etre compris entre 12 et 50");
                     indexInstruction = 2;
                     allinstructionsticks[2].querySelector("input").value = "";
                     reDisplay = true;

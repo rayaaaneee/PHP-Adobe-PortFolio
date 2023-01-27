@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="games/snake/snakegame.css">
     <link rel="stylesheet" href="games/snake/choicepage.css">
     <!-- CSS STICKS -->
+    <link rel="stylesheet" href="games/sticks/choicepage.css">
+    <link rel="stylesheet" href="games/sticks/sticksgame.css">
     <!-- DECLARATION DES SCRIPTS DU MENU -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js%22%3E" defer></script>
     <script src="useful.js" defer></script>
@@ -28,11 +30,19 @@
     <script src="games/snake/IA.js" defer></script>
     <script src="games/snake/cookies.js" defer></script>
     <script src="games/snake/main.js" defer></script>
+    <!-- DECLARATION DES SCRIPTS DU STICKS GAME -->
+    <script src="games/sticks/confetti.js" defer></script>
+    <script src="games/sticks/usefulClassSticks.js" defer></script>
+    <script src="games/sticks/AI.js" defer></script>    
+    <script src="games/sticks/stick.js" defer></script>
+    <script src="games/sticks/managesticks.js" defer></script>
+    <script src="games/sticks/main.js" defer></script>
     <!-- FAVICON-->
     <link rel="icon" type="image/x-icon" href="icons/favicon.png" />
     <title>Would you play ?</title>
 </head>
 <body>
+    <!-- ACCUEIL ET MENU -->
     <header>
         <div id="background"></div>
         <h1 id="title">Would you play?</h1>
@@ -204,8 +214,99 @@
             <button id="snake-restart-button" onclick="restartGame();">Restart</button>
         </div>
     </div>
+    <!-- HTML Du jeu des batons -->
+    <div id="all-sticks-game-container">
+        <div id="choose-sticks-container">
+            <div class="allinstructionssticks">
+                <h1 class="instruction">Choose gamemode</h1>
+                <select class="sticks-select" id="pre-choose-select">
+                    <option value="hard" selected>Hardcore</option>
+                    <option value="medium">Medium</option>
+                    <option value="easy">Easy</option>    
+                </select>
+                <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+            </div>
+            <div class="allinstructionssticks" style="display: none;">
+                <h1 class="instruction">Do you prefer choose the number of sticks or who will start?</h1>
+                <select class="sticks-select" id="first-choose-select">
+                    <option value="1" selected>Number of sticks</option>
+                    <option value="2">Who will start</option>    
+                </select>
+                <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+            </div>
+            <div class="allinstructionssticks" style="display: none;">
+                <h1 class="instruction">Choose the number of sticks !</h1>
+                <input type="number" name="sticks" placeholder="30">
+                <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+            </div>
+            <div class="allinstructionssticks" style="display: none;">
+                <h1 class="instruction">Choose who whill start !</h1>
+                <select class="sticks-select" id="second-choose-select">
+                    <option value="player" selected>Me</option>
+                    <option value="bot">Bot</option>    
+                </select>
+                <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+            </div>
+        </div>
+        <div id="sticks-game-container" style="display: none">
+            <div id="iconplayerandtext">
+                <div id="bot" style="display:none;">
+                    <img src="games/sticks/images/bot.png" draggable="false" id="playing">
+                    <p id="bp1" class="bp">.</p>
+                    <p id="bp2" class="bp">.</p>
+                    <p id="bp3" class="bp">.</p>
+                </div>
+                <div id="player" style="display:none;">
+                    <p>Waiting</p>
+                    <p class="pointplayer">.</p>
+                    <p class="pointplayer">.</p>
+                    <p class="pointplayer">.</p>
+                </div>
+            </div>
+            <div id="sticksremaining">
+                <p class="instruction">Sticks remaining :</p>
+                <p class="instruction"></p>
+            </div>
+            <div id="allsticks"></div>
+            <button id="gonextturn" onclick="goNextTurn();">OK</button>
+        </div>
+        <div id="presentation">
+            <div id="startingplayer">
+                <p class="modify"></p>
+                <p>will start !</p>
+            </div>
+            <div id="nbsticks">
+                <p>There are<p>
+                <p class="modify"><p>
+                <p>sticks<p>
+            </div>
+        </div>
+        <div id="gamestate">
+            <div id="turn">
+                <p class="modify"></p>
+                <p>turn</p>
+            </div>
+            <div id="nbsticks">
+                <p class="modify" ></p>
+                <p>took</p>
+                <p class="modify"></p>
+                <p class="modify">sticks</p>
+            </div>
+        </div>
+        <div id="printwinner" style="display:none;">
+            <canvas id="confetti-canvas" style="z-index:2;position:absolute;top:0;left:0;"></canvas>
+            <div id="contentwinner">
+                <img id="winnerimg" src="" draggable="false" style="transform:rotate(-10deg) scale(1.1);">
+                <div id="textwinner">
+                    <p class="modify"></p>
+                    <p>won !</p>
+                </div>
+                <button id="restart" onclick="restartSticksGame();">Restart</button>
+                <button id="settings" onclick="goToSettingsSticksGame()">Settings</button>
+            </div>
+        </div>
+    </div>
     <footer>
-
     </footer> 
 </body>
 </html>

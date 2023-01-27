@@ -1,13 +1,13 @@
 class ManageSticks{
 
-    static goNextSound = useful.openSound("ok", 0.05);
+    static goNextSound = usefulClassSticks.openSound("ok", 0.05);
     static goNextTurnButton = document.getElementById("gonextturn");
     static absoluteContent = document.querySelector("#iconplayerandtext");
     static winnerContent = document.querySelector("#printwinner");
     static confetti = new confetti();
     static gamestate = document.getElementById("gamestate");
     static gamecontainer = document.getElementById('sticks-game-container');
-    static destroySound = useful.openSound("woosh", 0.05);
+    static destroySound = usefulClassSticks.openSound("woosh", 0.05);
     static initialNbSticks = null;
     static initialStarting = null;
     static nbGames = 0;
@@ -88,7 +88,7 @@ class ManageSticks{
                 clearInterval(intervalDelete);
                 setTimeout(() => {
                     setTimeout(() => {
-                        useful.printLoading("player");
+                        usefulClassSticks.printLoading("player");
                     }, 300);
                     ManageSticks.goNextTurnButton.disabled = true;
                     

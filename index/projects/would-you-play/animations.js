@@ -278,6 +278,7 @@ const goBackFromGames = (index) => {
 
     /*Si la page des choix s'est affichée, on la fait disparaitre et si la page du jeu s'est affichée,
     on la fait disparaitre */
+    document.getElementById("all-sticks-game-container").removeAttribute("style");
     document.getElementById("choice-container-snake").removeAttribute("style");
     document.getElementById("snake-page").removeAttribute("style");
     document.getElementById("go-to-choices").removeAttribute("style");

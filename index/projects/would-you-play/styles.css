@@ -193,7 +193,7 @@ body{
 }
 
 #gobacksticks{
-    background-image: url("icons/arrowblue.png");
+    background-image: url("icons/arrowviolet.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 120px;
@@ -408,4 +408,11 @@ body{
 
 .answerv2{
     display: none;
+}
+
+/* De base on display none le conteneur du stick */
+#all-sticks-game-container{
+    display: none;
+    position: absolute;
+    top: 0;
 }

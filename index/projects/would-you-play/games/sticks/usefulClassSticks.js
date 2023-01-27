@@ -1,16 +1,16 @@
-class useful{
+class usefulClassSticks{
     constructor(){}
 
     // Fonction qui prend en paramètre le nom du fichier image et qui retourne l'image
     static openImage(url){
         let img = new Image();
-        img.src = "images/"+url+".png";
+        img.src = "games/sticks/images/"+url+".png";
         return img;
     }
 
     // Fonction qui prend en paramètre le nom du fichier audio et qui retourne l'audio
     static openSound (file, volume){
-        let audio = new Audio("sounds/"+file+".mp3");
+        let audio = new Audio("games/sticks/sounds/"+file+".mp3");
         audio.volume = volume;
         return audio;
     }
@@ -28,13 +28,13 @@ class useful{
         if(string == "bot"){
             ManageSticks.absoluteContent.querySelector("#player").removeAttribute("style");
             ManageSticks.absoluteContent.querySelector("#bot").style.display = "flex";
-            ManageSticks.absoluteContent.style.top =  "-1vw";
+            ManageSticks.absoluteContent.style.bottom =  "-3vw";
             ManageSticks.absoluteContent.style.left =  "1vw";
             return;
         } else if(string == "player"){
             ManageSticks.absoluteContent.querySelector("#bot").removeAttribute("style");
             ManageSticks.absoluteContent.querySelector("#player").style.display = "flex";
-            ManageSticks.absoluteContent.style.top =  "-2vw";
+            ManageSticks.absoluteContent.style.bottom =  "-4vw";
             ManageSticks.absoluteContent.style.left =  "1vw";
             return;
         } else {

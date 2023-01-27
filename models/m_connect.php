@@ -13,7 +13,7 @@ function getConnection(){
         die('Erreur : ' . $e->getMessage());
         return null;
     }                
-}                                                                                                                                                                   
+}                                                                                                                                                                     
 
 // Version pour MAMP (site en local)
 /* function getConnection(){
@@ -30,4 +30,4 @@ function getConnection(){
         die('Erreur : ' . $e->getMessage());
         return null;
     }      
-} */                                                                  
+} */                                                                    

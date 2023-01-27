@@ -86,12 +86,14 @@ const appearSticksInstructions = () => {
                 }
             }
             canStart = true;
+            console.log("setCanStartOn");
             break;
         case 3:
             if(allinstructionsticks[3].querySelector("select").value == "bot")
                 starting = true;
             else
                 starting = false;
+            console.log("setCanStartOn");
             canStart = true;
             break;
         default:
@@ -99,6 +101,7 @@ const appearSticksInstructions = () => {
     }
 
     // Si la limite d'index est atteinte, on arrete
+    console.log("canStart: "+canStart);
     if(canStart){
         // On remet les instructions correctement
         for(var i = 0; i < allinstructionsticks.length; i++)
@@ -191,11 +194,15 @@ setInterval(animateImgWin, 2000);
 
 // Fonction qui s'occupe du restart
 const restartSticksGame = () => {
+    ManageSticks.goNextSound.play();
     this.sticks.resetGame();
 }
 
 // Fonction qui s'occupe du retour aux paramètres
 const goToSettingsSticksGame = () => {
+    canStart = false;
+    console.log("setCanStartOff");
+    ManageSticks.goNextSound.play();
     // On remet les instructions correctement
     ManageSticks.winnerContent.style.opacity = 0;
     setTimeout(() => {
@@ -206,7 +213,6 @@ const goToSettingsSticksGame = () => {
         allinstructionsticks[3].querySelector("select").selectedIndex = 0;
         this.sticks.deleteAllHtmlSticks();
         indexInstruction = 0;
-        canStart = false;
         ManageSticks.gamecontainer.style.display = "none";
         choosecontainer.style.display = "block";
 

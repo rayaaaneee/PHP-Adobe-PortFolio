@@ -41,6 +41,7 @@ var starting = null;
 var canStart = false;
 var reDisplay = false;
 const appearSticksInstructions = () => {
+    console.log("indexInstruction : " + indexInstruction);
     ManageSticks.goNextSound.play();
 
     //On cache toutes les instructions
@@ -74,7 +75,7 @@ const appearSticksInstructions = () => {
             // Si l'utilisateur n'a rien mit on met 30 par defaut
             if(allinstructionsticks[2].querySelector("input").value == ""){
                 nbSticks = 30;
-            // Sinon on regarde si il a mis un nombre entre 10 et 100
+            // Sinon on regarde si il a mis un nombre entre 10 et 50
             } else {
                 nbSticks = parseInt(allinstructionsticks[2].querySelector("input").value);
                 if(nbSticks < 3 || nbSticks > 50){
@@ -86,14 +87,12 @@ const appearSticksInstructions = () => {
                 }
             }
             canStart = true;
-            console.log("setCanStartOn");
-            break;
+       break;
         case 3:
             if(allinstructionsticks[3].querySelector("select").value == "bot")
                 starting = true;
             else
                 starting = false;
-            console.log("setCanStartOn");
             canStart = true;
             break;
         default:
@@ -101,7 +100,7 @@ const appearSticksInstructions = () => {
     }
 
     // Si la limite d'index est atteinte, on arrete
-    console.log("canStart: "+canStart);
+    
     if(canStart){
         // On remet les instructions correctement
         for(var i = 0; i < allinstructionsticks.length; i++)
@@ -201,18 +200,20 @@ const restartSticksGame = () => {
 // Fonction qui s'occupe du retour aux paramètres
 const goToSettingsSticksGame = () => {
     canStart = false;
-    console.log("setCanStartOff");
+    isStarted = false;
     ManageSticks.goNextSound.play();
+
+    // Modifications nécéssaires pour revenir au début
+    allinstructionsticks[2].querySelector("input").value = "";
+    allinstructionsticks[3].querySelector("select").selectedIndex = 0;
+    this.sticks.deleteAllHtmlSticks();
+    indexInstruction = 0;
+
     // On remet les instructions correctement
     ManageSticks.winnerContent.style.opacity = 0;
+
     setTimeout(() => {
         ManageSticks.winnerContent.style.display = "none";
-
-        // Modifications nécéssaires pour revenir au début
-        allinstructionsticks[2].querySelector("input").value = "";
-        allinstructionsticks[3].querySelector("select").selectedIndex = 0;
-        this.sticks.deleteAllHtmlSticks();
-        indexInstruction = 0;
         ManageSticks.gamecontainer.style.display = "none";
         choosecontainer.style.display = "block";
 

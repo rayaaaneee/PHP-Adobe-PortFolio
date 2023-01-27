@@ -32,3 +32,7 @@
 .cv-button-dark:hover {
     background-color: rgba(71, 71, 71, 0.8);
 }
+
+.more-dark {
+    background-color: rgb(29 29 29 / 80%) !important;
+}

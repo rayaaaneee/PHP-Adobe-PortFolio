@@ -173,7 +173,7 @@ var projects = null;
 const disappearMoreThat7Projects = () => {
     projects = document.querySelectorAll(".main-container");
     projects.forEach((element, index)=>{
-        if(index > 6 && index != projects.length){
+        if(index > 6 && index != projects.length && projects.length > 8){
             element.style.display = "none";
         }
     });

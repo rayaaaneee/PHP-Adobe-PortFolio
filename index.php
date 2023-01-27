@@ -103,9 +103,9 @@ ini_set("display_errors", 1);
                     $i++;
                 }
             ?>
-            <?php if($i > 8) { ?>
+            <?php if($i > 9) { ?>
                 <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                    <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                    <div class="content <?= $theme->getClass("more");?>" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
                         <img src="index/icons/more.png" draggable="false" id="img<?php echo $i ?>" class="workslogos"> 
                     </div> 
                 </div> 

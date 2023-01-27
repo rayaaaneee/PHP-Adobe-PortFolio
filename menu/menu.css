@@ -56,8 +56,18 @@ body {
 .logo {
     position: absolute;
     max-width: 60px;
-    top: 3%;
+    top: 0.5%;
     left: 1%;
+    width: 65px;
+    height: 65px;
+    background-image: url(../logos/portfolio_logo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logo-dark {
+    background-image: url(../logos/dark_portfolio_logo.png);
 }
 
 .t1{

@@ -76,7 +76,7 @@
         } 
  
         .content p { 
-            font-size: clamp(0.8rem, 2vw, 2rem); 
+            font-size: clamp(0.8rem, 1vw, 1rem); 
         } 
  
         .content img:not(.to_link img, .to_download img){ 

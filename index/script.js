@@ -317,6 +317,7 @@ const closeProjectPage = () => {
     projectPage.style.removeProperty("overflow-y");
     projectPage.querySelector(".download-or-redirect").removeAttribute("href");
     projectPage.querySelector(".download-or-redirect").removeAttribute("target");
+    projectPage.querySelector(".download-or-redirect").removeAttribute("download");
 
     document.body.removeAttribute("style");
 

@@ -221,23 +221,48 @@ if(seeMoreButton != null) seeMoreButton.addEventListener("click", appearOthersPr
 
 // Function qui permet d'ouvrir la page
 const projectPage = document.querySelector(".project-page-container");
+const projectContainer = document.querySelector(".projects");
+var intervalAnimationProjectViewing = null;
+var lastElement = null;
 const openProjectPage = (element, i) => {
-    element.style.position = "absolute";
-    element.style.zIndex = "10";
-    element.style.transform = "scale(1.15)";
 
+    lastElement = element.cloneNode(true);
+
+    lastElement.removeAttribute("onclick");
+    lastElement.classList.add("actual-project-viewing");
+    
+    projectPage.appendChild(lastElement);
     projectPage.style.display = "block";
     projectPage.querySelector(".index-project").textContent = i;
 
     document.body.style.overflowY = "hidden";
+
+    animateProjectViewing();
+    intervalAnimationProjectViewing = setInterval(animateProjectViewing, 3000);
 }
 
 // Fonction qui permet de fermer la page
 
 const closeProjectPage = () => {
     projectPage.removeAttribute("style");
-    let indexProject = projectPage.querySelector(".index-project").textContent;
-    document.querySelector(".content"+indexProject).parentNode.removeAttribute("style");
+    lastElement.remove();
 
     document.body.removeAttribute("style");
+
+    clearInterval(intervalAnimationProjectViewing);
+}
+
+var growing = false;
+const animateProjectViewing = () => {
+    switch(growing){
+        case true:
+            console.log(true);
+            lastElement.style.transform = "scale(0.9)";
+            break;
+        case false:
+            console.log(false);
+            lastElement.style.removeProperty("transform");
+            break;
+    }
+    growing = !growing;
 }

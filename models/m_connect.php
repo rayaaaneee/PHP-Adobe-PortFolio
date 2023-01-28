@@ -22,7 +22,7 @@ function getConnection(){
         $dbname = "portfolio";
         $user = "root";
         $pass = "root";
-        $port = "3306";
+        $port = "8889";
         $db = new PDO("mysql:host=$host;dbname=$dbname;port=$port", $user, $pass);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $db;

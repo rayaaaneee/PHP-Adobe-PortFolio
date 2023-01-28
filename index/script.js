@@ -26,6 +26,27 @@ const shrinkImg = (index) => {
     img.removeAttribute("style");
 }
 
+// Fonction qui change le tag d'un noeud donné 
+const replaceTag = (element, typeNode) => {
+    var that = element;
+
+    var a = document.createElement(typeNode);
+    a.setAttribute('id',that.getAttribute('id'));
+    a.setAttribute('class',that.getAttribute('class'));
+    a.setAttribute('onclick',that.getAttribute('onclick'));
+    a.setAttribute('onmouseover',that.getAttribute('onmouseover'));
+    a.setAttribute('onmouseout',that.getAttribute('onmouseout'));
+    a.setAttribute('onmouseleave',that.getAttribute('onmouseleave'));
+    
+
+  // move all elements in the other container.
+  while(that.firstChild) {
+      a.appendChild(that.firstChild);
+  }
+
+  return a;
+}
+
 // Fonction qui affiche le cv en plein écran quand on clique sur l'img du cv
 var isVisible = false;
 var container = null;
@@ -229,7 +250,10 @@ const openProjectPage = (element, i) => {
     lastElement = element.cloneNode(true);
 
     lastElement.removeAttribute("onclick");
+    // / Changer le type de lastElement en "div"
+    lastElement = replaceTag(lastElement, "a");
     lastElement.classList.add("actual-project-viewing");
+    
     
     projectPage.appendChild(lastElement);
     projectPage.style.display = "block";
@@ -260,7 +284,7 @@ const animateProjectViewing = () => {
     switch(growing){
         case true:
             console.log(true);
-            lastElement.style.transform = "scale(0.9)";
+            lastElement.style.transform = "translate(-50%,-50%) scale(0.9)";
             break;
         case false:
             console.log(false);

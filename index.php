@@ -73,7 +73,7 @@ ini_set("display_errors", 1);
                 $i=1;
                 foreach ($projects as $project) {
                     ?>
-                    <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this, <?= $i ;?>);"> 
+                    <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);"> 
                         <div class="content content<?= $i; ?> <?= $theme->getClass("content") ?>" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);"> 
                             <div class="to_download"> 
                                 <p><?= $project['title'] ?></p> 
@@ -107,13 +107,23 @@ ini_set("display_errors", 1);
                 </div> 
             <?php } ?>
         </article> 
-        <div class="project-page-container">  
-            <p class="index-project hidden"></p>            
+        <div class="project-page-container">
+            <div class="project-page">
+                <div class="project-page-content">
+                    <div class="project-desc">
+                        <p class="project-desc-text title-page-project">Description :</p>
+                        <p class="project-desc-value page-content"></p>
+                    </div>
+                    <div class="project-use-desc">
+                        <p class="project-use-desc-text title-page-project">Utilisation :</p>
+                        <p class="project-use-desc-value page-content"></p>
+                    </div>
+                </div>          
             <div class="quit-project-button" onclick="closeProjectPage();"><p>X<p></div> 
             <div class="project-background"></div>
         </div>
-        <h2 class="explicationtext <?= $theme->getClass("explication-text") ?>">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 
     </article> 
+    <h2 class="explicationtext <?= $theme->getClass("explication-text") ?>">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 
     <article id="cv"> 
         <div class="title t2" id="secondmid"><p>Mon CV</p></div> 
         <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar2" ></div> 

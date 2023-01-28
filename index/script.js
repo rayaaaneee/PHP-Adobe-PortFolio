@@ -255,7 +255,7 @@ const projectPage = document.querySelector(".project-page-container");
 const projectContainer = document.querySelector(".projects");
 var intervalAnimationProjectViewing = null;
 var lastElement = null;
-const openProjectPage = (element, i) => {
+const openProjectPage = (element) => {
 
     lastElement = element.cloneNode(true);
 
@@ -263,15 +263,19 @@ const openProjectPage = (element, i) => {
     // / Changer le type de lastElement en "div"
     lastElement = replaceTag(lastElement, "a");
     let href = element.querySelector(".project-href").textContent;
-    console.log(element.querySelector(".project-href"));
     lastElement.setAttribute("href", href);
     DownloadOrLink(lastElement);
+    lastElement.querySelector(".to_download > img").remove();
     lastElement.classList.add("actual-project-viewing");
     
     
     projectPage.appendChild(lastElement);
     projectPage.style.display = "block";
-    projectPage.querySelector(".index-project").textContent = i;
+
+    // On met les textes à leur place
+    /* projectPage.querySelector(".project-title").textContent = element.querySelector(".project-title").textContent; */
+    projectPage.querySelector(".project-desc-value").textContent = element.querySelector(".project-desc").textContent;
+    projectPage.querySelector(".project-use-desc-value").textContent = element.querySelector(".project-use-desc").textContent;
 
     document.body.style.overflowY = "hidden";
 

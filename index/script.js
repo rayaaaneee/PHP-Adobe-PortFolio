@@ -237,8 +237,11 @@ const openProjectPage = (element, i) => {
 
     document.body.style.overflowY = "hidden";
 
-    animateProjectViewing();
-    intervalAnimationProjectViewing = setInterval(animateProjectViewing, 3000);
+    // On lance l'animation au bout de 1s
+    setTimeout(() => {
+        animateProjectViewing();
+        intervalAnimationProjectViewing = setInterval(animateProjectViewing, 3000);
+    }, 200);
 }
 
 // Fonction qui permet de fermer la page
@@ -252,7 +255,7 @@ const closeProjectPage = () => {
     clearInterval(intervalAnimationProjectViewing);
 }
 
-var growing = false;
+var growing = true;
 const animateProjectViewing = () => {
     switch(growing){
         case true:

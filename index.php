@@ -105,9 +105,9 @@ ini_set("display_errors", 1);
                 </div> 
             <?php } ?>
         </article> 
-        <div class="project-page-container" onclick="closeProjectPage();">  
+        <div class="project-page-container">  
             <p class="index-project hidden"></p>            
-            <div class="quit-project-button"><p>X<p></div> 
+            <div class="quit-project-button" onclick="closeProjectPage();"><p>X<p></div> 
             <div class="project-background"></div>
         </div>
         <h2 class="explicationtext <?= $theme->getClass("explication-text") ?>">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 

@@ -1,0 +1,39 @@
+.project-background {
+    width: 100vw;
+    height: 100Vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.project-page-container {
+    display: none;
+}
+
+.quit-project-button {
+    position: absolute;
+    right: 2vw;
+    top: 2vw;
+    display: flex;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgba(221, 141, 141, 0.8);
+    border-radius: 50%;
+    font-size: 37px;
+    cursor: pointer;
+    transition: 0.2s;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+    font-weight: bold;
+}
+
+.quit-project-button:hover {
+    border: 1px solid transparent;
+    background-color: rgba(209, 95, 95,0.8);
+    transition: 0.2s;
+}

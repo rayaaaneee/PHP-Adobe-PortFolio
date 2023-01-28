@@ -218,3 +218,26 @@ const appearProject = () => {
 
 // On initialise la fonction
 if(seeMoreButton != null) seeMoreButton.addEventListener("click", appearOthersProjects);
+
+// Function qui permet d'ouvrir la page
+const projectPage = document.querySelector(".project-page-container");
+const openProjectPage = (element, i) => {
+    element.style.position = "absolute";
+    element.style.zIndex = "10";
+    element.style.transform = "scale(1.15)";
+
+    projectPage.style.display = "block";
+    projectPage.querySelector(".index-project").textContent = i;
+
+    document.body.style.overflowY = "hidden";
+}
+
+// Fonction qui permet de fermer la page
+
+const closeProjectPage = () => {
+    projectPage.removeAttribute("style");
+    let indexProject = projectPage.querySelector(".index-project").textContent;
+    document.querySelector(".content"+indexProject).parentNode.removeAttribute("style");
+
+    document.body.removeAttribute("style");
+}

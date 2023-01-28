@@ -31,6 +31,7 @@ ini_set("display_errors", 1);
     <link rel="stylesheet" href="dark-footer.css">
     <link rel="stylesheet" href="dark-background.css">
     <link rel="stylesheet" href="index/dark-page.css">
+    <link rel="stylesheet" href="index/project-page.css">
     <!-- CSS DES MEDIA QUERIES --> 
     <link rel="stylesheet" href="index/media/mediaframecv.css"> 
     <link rel="stylesheet" href="index/media/mediapage.css"> 
@@ -72,15 +73,26 @@ ini_set("display_errors", 1);
                 $i=1;
                 foreach ($projects as $project) {
                     ?>
-                    <a href="index/projects/<?php echo $project['file']; ?>" <?php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                        <div class="content <?= $theme->getClass("content") ?>" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                    <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this, <?= $i ;?>);"> 
+                        <div class="content content<?= $i; ?> <?= $theme->getClass("content") ?>" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);"> 
                             <div class="to_download"> 
-                                <p><?php echo $project['title'] ?></p> 
+                                <p><?= $project['title'] ?></p> 
                                 <img src="index/icons/<?= $theme->getImagePath(getImageName($project['download']))?>.png" draggable="false"> 
                             </div> 
-                            <img src="index/project-logos/<?= $theme->getImagePath($project['icon']) ?>.png" id="img<?php echo $i ?>" class="workslogos" draggable="false"> 
+                            <img src="index/project-logos/<?= $theme->getImagePath($project['icon']) ?>.png" id="img<?= $i ?>" class="workslogos" draggable="false"> 
                         </div> 
-                    </a> 
+                        <p class="project-desc hidden"><?= $project['project_desc']?></p>
+                        <p class="project-use-desc hidden"><?= $project['use_desc']?></p>
+                    </div> 
+<!--                     <a href="index/projects/<php echo $project['file']; ?>" <php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
+                        <div class="content <= $theme->getClass("content") ?>" onmouseover="growImg(<php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
+                            <div class="to_download"> ?
+                                <p><php echo $project['title'] ?></p> 
+                                <img src="index/icons/<= $theme->getImagePath(getImageName($project['download']))?>.png" draggable="false"> 
+                            </div> 
+                            <img src="index/project-logos/<= $theme->getImagePath($project['icon']) ?>.png" id="img<php echo $i ?>" class="workslogos" draggable="false"> 
+                        </div> 
+                    </a>  -->
                     <?php
                     $i++;
                 }
@@ -92,6 +104,11 @@ ini_set("display_errors", 1);
                     </div> 
                 </div> 
             <?php } ?>
+            <div class="project-page-container" onclick="closeProjectPage();">  
+                <p class="index-project hidden"></p>            
+                <div class="quit-project-button"><p>X<p></div> 
+                <div class="project-background"></div>
+            </div>
         </article> 
         <h2 class="explicationtext <?= $theme->getClass("explication-text") ?>">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 
     </article> 

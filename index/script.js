@@ -266,9 +266,21 @@ const openProjectPage = (element) => {
     lastElement.querySelector(".content").removeAttribute("onmouseout");
     // / Changer le type de lastElement en "div"
     lastElement = replaceTag(lastElement, "a");
-    projectPage.style.overflowY = "auto";
     let href = element.querySelector(".project-href").textContent;
     lastElement.setAttribute("href", href);
+    
+    projectPage.style.overflowY = "auto";
+    projectPage.querySelector(".download-or-redirect").setAttribute("href", href);
+    switch(parseInt(element.querySelector(".project-is-download").textContent)) {
+        case 0:
+            projectPage.querySelector(".download-or-redirect").setAttribute("target", "_blank");
+            projectPage.querySelector(".download-or-redirect").textContent = "Consulter";
+            break;
+        case 1:
+            projectPage.querySelector(".download-or-redirect").setAttribute("download", "");
+            projectPage.querySelector(".download-or-redirect").textContent = "Télécharger";
+            break;
+    }
     DownloadOrLink(lastElement);
     lastElement.querySelector(".to_download > img").remove();
     lastElement.classList.add("actual-project-viewing");
@@ -303,6 +315,8 @@ const closeProjectPage = () => {
     projectPage.removeAttribute("style");
     lastElement.remove();
     projectPage.style.removeProperty("overflow-y");
+    projectPage.querySelector(".download-or-redirect").removeAttribute("href");
+    projectPage.querySelector(".download-or-redirect").removeAttribute("target");
 
     document.body.removeAttribute("style");
 

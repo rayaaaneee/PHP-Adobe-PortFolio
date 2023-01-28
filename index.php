@@ -118,6 +118,7 @@ ini_set("display_errors", 1);
                         <p class="project-use-desc-text title-page-project">Utilisation :</p>
                         <p class="project-use-desc-value page-content"></p>
                     </div>
+                    <a class="download-or-redirect title-page-project">Télécharger</a>
                 </div>          
             <div class="quit-project-button" onclick="closeProjectPage();"><p>X<p></div> 
         </div>

@@ -260,8 +260,13 @@ const openProjectPage = (element) => {
     lastElement = element.cloneNode(true);
 
     lastElement.removeAttribute("onclick");
+    lastElement.removeAttribute("onmouseover");
+    lastElement.removeAttribute("onmouseout");
+    lastElement.querySelector(".content").removeAttribute("onmouseover");
+    lastElement.querySelector(".content").removeAttribute("onmouseout");
     // / Changer le type de lastElement en "div"
     lastElement = replaceTag(lastElement, "a");
+    projectPage.style.overflowY = "auto";
     let href = element.querySelector(".project-href").textContent;
     lastElement.setAttribute("href", href);
     DownloadOrLink(lastElement);
@@ -273,9 +278,15 @@ const openProjectPage = (element) => {
     projectPage.style.display = "block";
 
     // On met les textes à leur place
-    /* projectPage.querySelector(".project-title").textContent = element.querySelector(".project-title").textContent; */
     projectPage.querySelector(".project-desc-value").textContent = element.querySelector(".project-desc").textContent;
-    projectPage.querySelector(".project-use-desc-value").textContent = element.querySelector(".project-use-desc").textContent;
+
+    // Si le projet a une notice d'utilisation, on l'affiche, sinon on la cache
+    if( element.querySelector(".project-use-desc").textContent == "" ) {
+        projectPage.querySelector(".project-use-desc-value").parentElement.style.display = "none";
+    } else {
+        projectPage.querySelector(".project-use-desc-value").parentElement.style.removeProperty("display");
+        projectPage.querySelector(".project-use-desc-value").textContent = element.querySelector(".project-use-desc").textContent;
+    }
 
     document.body.style.overflowY = "hidden";
 
@@ -291,6 +302,7 @@ const openProjectPage = (element) => {
 const closeProjectPage = () => {
     projectPage.removeAttribute("style");
     lastElement.remove();
+    projectPage.style.removeProperty("overflow-y");
 
     document.body.removeAttribute("style");
 

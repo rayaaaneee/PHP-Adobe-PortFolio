@@ -120,7 +120,6 @@ ini_set("display_errors", 1);
                     </div>
                 </div>          
             <div class="quit-project-button" onclick="closeProjectPage();"><p>X<p></div> 
-            <div class="project-background"></div>
         </div>
     </article> 
     <h2 class="explicationtext <?= $theme->getClass("explication-text") ?>">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2> 

@@ -16,6 +16,22 @@ function DownloadOrLink($bool){
     }
 }
 
+function isDownload($bool){
+    if($bool){
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+function isLink ($bool){
+    if($bool){
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
 function getImageName($bool){
     if($bool){
         echo "download";

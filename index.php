@@ -83,6 +83,8 @@ ini_set("display_errors", 1);
                         </div> 
                         <p class="project-desc hidden"><?= $project['project_desc']?></p>
                         <p class="project-use-desc hidden"><?= $project['use_desc']?></p>
+                        <p class="project-is-download hidden"><?= isDownload($project['download']) ;?></p>
+                        <p class="project-href hidden"><?= "/index/projects/" .  $project['file']; ?></p>
                     </div> 
 <!--                     <a href="index/projects/<php echo $project['file']; ?>" <php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
                         <div class="content <= $theme->getClass("content") ?>" onmouseover="growImg(<php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 

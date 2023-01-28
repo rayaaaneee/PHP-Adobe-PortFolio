@@ -5,6 +5,16 @@ const colorBar = (index) =>{
     barre.style.boxShadow = "0 0 15px rgba(212, 153, 101, 0.5)"; 
 }
 
+const DownloadOrLink = (element) => {
+    let bool = false;
+    element.querySelector(".project-is-download").innerHTML == "1" ? bool = true : bool = false;
+    if(bool){
+        element.setAttribute("download", "");
+    } else {
+        element.target = "_blank";
+    }
+}
+
 // Fonction inverse qui décolore la barre quand la souris quitte le container
 const uncolorBar = (index) => {
     //Réduire la barre
@@ -252,6 +262,10 @@ const openProjectPage = (element, i) => {
     lastElement.removeAttribute("onclick");
     // / Changer le type de lastElement en "div"
     lastElement = replaceTag(lastElement, "a");
+    let href = element.querySelector(".project-href").textContent;
+    console.log(element.querySelector(".project-href"));
+    lastElement.setAttribute("href", href);
+    DownloadOrLink(lastElement);
     lastElement.classList.add("actual-project-viewing");
     
     
@@ -283,11 +297,9 @@ var growing = true;
 const animateProjectViewing = () => {
     switch(growing){
         case true:
-            console.log(true);
             lastElement.style.transform = "translate(-50%,-50%) scale(0.9)";
             break;
         case false:
-            console.log(false);
             lastElement.style.removeProperty("transform");
             break;
     }

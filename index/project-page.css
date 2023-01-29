@@ -1,5 +1,6 @@
 .project-page-container {
     background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(3px);
     left: 0;
     top: 0;
     min-height: 100%;

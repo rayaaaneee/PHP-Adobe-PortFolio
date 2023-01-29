@@ -143,5 +143,12 @@
         .mediamenu > form:last-child{
             margin-right: 0;
         }
+
+        .mediamenu {
+            column-gap: 10px;
+            width: 100%;
+            justify-content: space-evenly;
+            padding-inline-start: 0;
+        }
     }
 }

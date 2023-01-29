@@ -110,12 +110,22 @@ ini_set("display_errors", 1);
         <div class="project-page-container">
             <div class="project-page">
                 <div class="project-page-content">
-                    <div class="project-desc">
-                        <p class="project-desc-text title-page-project">Description :</p>
+                    <div class="title-project-container">
+                        <img class="link-or-download" src="index/icons/link-icon.png" draggable="false">
+                        <p class="title-project">DOUBLE PDD</p>
+                    </div>
+                    <div class="project-desc text-project-container">
+                        <div class="project-desc-text title-page-project">
+                            <img src="index/icons/desc-icon-pink.png" draggable="false">
+                            <p>Description :</p>
+                        </div>
                         <p class="project-desc-value page-content"></p>
                     </div>
-                    <div class="project-use-desc">
-                        <p class="project-use-desc-text title-page-project">Utilisation :</p>
+                    <div class="project-use-desc text-project-container">
+                        <div class="project-use-desc-text title-page-project">
+                            <img src="index/icons/use-desc-icon-pink.png" draggable="false">
+                            <p>Utilisation :</p>
+                        </div>
                         <p class="project-use-desc-value page-content"></p>
                     </div>
                     <a class="download-or-redirect title-page-project">Télécharger</a>

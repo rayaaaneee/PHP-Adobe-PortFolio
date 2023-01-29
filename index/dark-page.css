@@ -1,4 +1,4 @@
-.body-dark *:not(.title-page-project) {
+.body-dark *:not(.text-project-container *, .text-project-container) {
     color: white !important;
 }
 

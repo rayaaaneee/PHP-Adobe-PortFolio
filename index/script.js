@@ -1,3 +1,8 @@
+// Fonction qui retourne le nom d'un fichier à partir d'un path
+const baseName = (path) => {
+    return path.split('/').reverse()[0];
+}
+
 // Fonction qui colorie la barre quand on passe la souris sur le container
 const colorBar = (index) =>{
     //Agrandir la barre
@@ -253,36 +258,59 @@ if(seeMoreButton != null) seeMoreButton.addEventListener("click", appearOthersPr
 // Function qui permet d'ouvrir la page
 const projectPage = document.querySelector(".project-page-container");
 const projectContainer = document.querySelector(".projects");
+const downloadOrVisitBtn = document.querySelector(".download-or-redirect");
+const titleProject = document.querySelector(".title-project");
+const img = document.querySelector(".project-page-container > img");
+const imgLinkOrDownload = document.querySelector(".link-or-download");
+
 var intervalAnimationProjectViewing = null;
 var lastElement = null;
 const openProjectPage = (element) => {
 
     lastElement = element.cloneNode(true);
-
+    
     lastElement.removeAttribute("onclick");
     lastElement.removeAttribute("onmouseover");
     lastElement.removeAttribute("onmouseout");
     lastElement.querySelector(".content").removeAttribute("onmouseover");
     lastElement.querySelector(".content").removeAttribute("onmouseout");
+
     // / Changer le type de lastElement en "div"
     lastElement = replaceTag(lastElement, "a");
     let href = element.querySelector(".project-href").textContent;
     lastElement.setAttribute("href", href);
     
+    titleProject.textContent = lastElement.querySelector(".to_download > p").textContent;
+    lastElement.querySelector(".to_download").remove();
+
     projectPage.style.overflowY = "auto";
     projectPage.querySelector(".download-or-redirect").setAttribute("href", href);
+    let textMessage = null;
     switch(parseInt(element.querySelector(".project-is-download").textContent)) {
         case 0:
-            projectPage.querySelector(".download-or-redirect").setAttribute("target", "_blank");
-            projectPage.querySelector(".download-or-redirect").textContent = "Consulter";
+            downloadOrVisitBtn.setAttribute("target", "_blank");
+
+            imgLinkOrDownload.src = "index/icons/white-link.png";
+
+            console.log(titleProject.cloneNode(true).textContent);
+            let title = titleProject.textContent;
+
+            if (href.includes(".pdf") || href.includes(".PDF")) title = baseName(href);
+
+            textMessage = "Consulter " + title;
+            downloadOrVisitBtn.textContent = textMessage;
             break;
         case 1:
-            projectPage.querySelector(".download-or-redirect").setAttribute("download", "");
-            projectPage.querySelector(".download-or-redirect").textContent = "Télécharger";
+            downloadOrVisitBtn.setAttribute("download", "");
+
+            imgLinkOrDownload.src = "index/icons/white-download.png";
+            
+            textMessage = "Télécharger (" + baseName(href) + ")";
+
+            downloadOrVisitBtn.textContent = textMessage;
             break;
     }
     DownloadOrLink(lastElement);
-    lastElement.querySelector(".to_download > img").remove();
     lastElement.classList.add("actual-project-viewing");
     
     
@@ -315,9 +343,9 @@ const closeProjectPage = () => {
     projectPage.removeAttribute("style");
     lastElement.remove();
     projectPage.style.removeProperty("overflow-y");
-    projectPage.querySelector(".download-or-redirect").removeAttribute("href");
-    projectPage.querySelector(".download-or-redirect").removeAttribute("target");
-    projectPage.querySelector(".download-or-redirect").removeAttribute("download");
+    downloadOrVisitBtn.removeAttribute("href");
+    downloadOrVisitBtn.removeAttribute("target");
+    downloadOrVisitBtn.removeAttribute("download");
 
     document.body.removeAttribute("style");
 

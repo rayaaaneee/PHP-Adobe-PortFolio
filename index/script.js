@@ -296,6 +296,12 @@ const openProjectPage = (element) => {
     let textMessage = null;
     switch(parseInt(element.querySelector(".project-is-download").textContent)) {
         case 0:
+            // Si c'est un lien, on change le texte du bouton, on change l'icone et on display "none" la taille du fichier
+            projectPage.querySelector(".project-size-container").style.display = "none";
+
+            // Si c'est un lien, on met un margn-bottom de 3px au lieu de 0
+            downloadOrVisitBtn.style.marginBottom = "4vw";
+
             downloadOrVisitBtn.setAttribute("target", "_blank");
 
             imgLinkOrDownload.src = "index/icons/white-link.png";
@@ -310,6 +316,8 @@ const openProjectPage = (element) => {
             break;
         case 1:
             downloadOrVisitBtn.setAttribute("download", "");
+
+            projectPage.querySelector(".project-size-value").textContent = element.querySelector(".project-size").textContent;
 
             imgLinkOrDownload.src = "index/icons/white-download.png";
             
@@ -348,12 +356,18 @@ const openProjectPage = (element) => {
 // Fonction qui permet de fermer la page
 
 const closeProjectPage = () => {
+
     projectPage.removeAttribute("style");
-    lastElement.remove();
     projectPage.style.removeProperty("overflow-y");
+    projectPage.querySelector(".project-size-container").style.removeProperty("display");
+    projectPage.querySelector(".project-size-value").textContent = "";
+
     downloadOrVisitBtn.removeAttribute("href");
     downloadOrVisitBtn.removeAttribute("target");
     downloadOrVisitBtn.removeAttribute("download");
+    downloadOrVisitBtn.style.removeProperty("margin-bottom");
+    
+    lastElement.remove();
 
     document.body.removeAttribute("style");
 

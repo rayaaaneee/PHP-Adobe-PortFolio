@@ -1,8 +1,3 @@
-<?php
-session_start();
-error_reporting(E_ALL);
-ini_set("display_errors", 1); 
-?>
 <!DOCTYPE html> 
 <html lang="en"> 
 <head> 
@@ -10,10 +5,7 @@ ini_set("display_errors", 1);
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <!-- FICHIERS PHP -->
-    <?php require_once "models/m_connect.php"?>
-    <?php require_once "models/m_project.php"; ?>
-    <?php require_once "controllers/DarkMode.php";
-    $theme = new DarkMode(); ?>
+    <?php require_once "controllers/c_index.php"; ?>
     <!-- CSS DE BASE --> 
     <link rel="stylesheet" href="index/general.css"> 
     <link rel="stylesheet" href="menu/menu.css"> 
@@ -86,16 +78,10 @@ ini_set("display_errors", 1);
                         <p class="project-use-desc hidden"><?= $project['use_desc']?></p>
                         <p class="project-is-download hidden"><?= isDownload($project['download']) ;?></p>
                         <p class="project-href hidden"><?= "/index/projects/" .  $project['file']; ?></p>
+                        <?php if (isDownload($project['download'])) { ?>
+                            <p class="project-size hidden"><?= getFileSizeMo("index/projects/" . $project['file']); ?></p>
+                        <?php } ?>
                     </div> 
-<!--                     <a href="index/projects/<php echo $project['file']; ?>" <php echo DownloadOrLink($project['download']); ?> class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);"> 
-                        <div class="content <= $theme->getClass("content") ?>" onmouseover="growImg(<php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);"> 
-                            <div class="to_download"> ?
-                                <p><php echo $project['title'] ?></p> 
-                                <img src="index/icons/<= $theme->getImagePath(getImageName($project['download']))?>.png" draggable="false"> 
-                            </div> 
-                            <img src="index/project-logos/<= $theme->getImagePath($project['icon']) ?>.png" id="img<php echo $i ?>" class="workslogos" draggable="false"> 
-                        </div> 
-                    </a>  -->
                     <?php
                     $i++;
                 }
@@ -113,7 +99,7 @@ ini_set("display_errors", 1);
                 <div class="project-page-content">
                     <div class="title-project-container">
                         <img class="link-or-download" src="index/icons/link-icon.png" draggable="false">
-                        <p class="title-project">DOUBLE PDD</p>
+                        <p class="title-project"></p>
                     </div>
                     <div class="project-desc text-project-container">
                         <div class="project-desc-text title-page-project">
@@ -129,7 +115,13 @@ ini_set("display_errors", 1);
                         </div>
                         <p class="project-use-desc-value page-content"></p>
                     </div>
-                    <a class="download-or-redirect title-page-project">Télécharger</a>
+                    <a class="download-or-redirect title-page-project"></a>
+                    <div class="project-size-container text-project-container">
+                        <img src="index/icons/white-memory-icon.png" draggable="false">
+                        <p class="page-content">Taille :</p>
+                        <p class="project-size-value page-content"></p>
+                        <p class="page-content">Mo</p>
+                    </div>
                     <div class="background-project-page"></div>
                 </div>          
             <div class="quit-project-button" onclick="closeProjectPage();"><p>X<p></div> 

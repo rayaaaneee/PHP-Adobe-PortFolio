@@ -28,7 +28,7 @@
    <link rel="stylesheet" href="page.css">
    <link rel="stylesheet" href="../background.css">
    <link rel="stylesheet" href="../scrollbar.css">
-   <link rel="stylesheet" href="../footer/css">
+   <link rel="stylesheet" href="../footer/footer.css">
    <link rel="stylesheet" href="../loaderframe.css">
    <!-- CSS DARK THEME -->
    <link rel="stylesheet" href="../menu/dark-menu.css"> 

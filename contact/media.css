@@ -11,10 +11,6 @@
     /* On enleve le texte peu important pour gagner de la place */ 
     #footer1 p:first-child{ 
         display: none; 
-    } 
-
-    #hasSend{
-        margin-bottom : 5vh;
     }
 
     @media screen and (max-width : 700px ){ 

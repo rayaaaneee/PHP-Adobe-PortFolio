@@ -136,7 +136,6 @@
   font-size: 40px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.884);
-  margin-bottom : 8vh;
 }
 
 #hasSend img{
@@ -161,4 +160,9 @@ main {
 
 .input-container > input {
   cursor: pointer;
+}
+
+/* On met un ecart entre le footer et le reste */
+footer {
+  margin-top: 7vh;
 }

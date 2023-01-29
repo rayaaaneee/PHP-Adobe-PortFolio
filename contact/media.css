@@ -8,26 +8,8 @@
         row-gap: 3vh;
     }
 
-    /* On enleve le texte peu important pour gagner de la place */ 
-    #footer1 p:first-child{ 
-        display: none; 
-    }
-
     @media screen and (max-width : 700px ){ 
-        /* On redimensionne le footer */ 
-        #footer1{ 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-        } 
-        #footer1 p{ 
-            font-size: clamp(0.5rem, 2vw, 1rem); 
-        } 
- 
-        .footerimgs{ 
-            width: 20px; 
-        } 
-
+        
         /* */
         .present{
             text-align: center;
@@ -48,20 +30,19 @@
         }
 
         .form-style{
-            width: 95vw;
-            padding-left: 10px;
-            padding-right: 10px;
+            width: 97vw;
+            padding-left: 23px;
+            padding-right: 23px;
             padding-top: 20px;
             padding-bottom: 20px;
         }
 
-        .formulaire form table{
-            display: flex;
-            flex-direction: column;
-        }
-
         .formulaire{
             padding: 0;
+        }
+
+        .formulaire > form {
+            width: fit-content;
         }
         /* */
         #pres{
@@ -91,6 +72,17 @@
 
         #hasSend p {
             font-size: clamp(1.3rem, 4vw, 2rem);
+        }
+
+        @media screen and (max-width : 500px) {
+            #hasSend img{
+                width: 40px;
+                height: 40px;
+            }
+
+            #hasSend p {
+                font-size: 4vw;
+            }
         }
     }
 }

@@ -134,4 +134,14 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+    @media screen and (max-width: 425px) {
+        .mediamenu > a:first-child{
+            display: none;
+        }
+
+        .mediamenu > form:last-child{
+            margin-right: 0;
+        }
+    }
 }

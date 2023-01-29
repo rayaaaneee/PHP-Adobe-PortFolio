@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../loaderframe.css">
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="../menu/menu.css">
-    <link rel="stylesheet" href="../menu/mediamenu.css">
     <link rel="stylesheet" href="page.css">
     <link rel="stylesheet" href="../background.css">
     <link rel="stylesheet" href="../scrollbar.css">
@@ -24,6 +23,8 @@
     <link rel="stylesheet" href="dark-page.css">
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="../menu/mediamenu.css">
+    <link rel="stylesheet" href="../footer/media-footer.css">
     <!-- SCRIPTS JS -->
     <script type="text/javascript" src="../menu/menu.js" defer></script>
     <?php if (!$changedMode) { ?>

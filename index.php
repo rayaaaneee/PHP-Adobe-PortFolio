@@ -9,7 +9,6 @@
     <!-- CSS DE BASE --> 
     <link rel="stylesheet" href="index/general.css"> 
     <link rel="stylesheet" href="menu/menu.css"> 
-    <link rel="stylesheet" href="menu/mediamenu.css"> 
     <link rel="stylesheet" href="index/page.css"> 
     <link rel="stylesheet" href="background.css"> 
     <link rel="stylesheet" href="loaderframe.css"> 
@@ -28,6 +27,8 @@
     <link rel="stylesheet" href="index/media/mediaframecv.css"> 
     <link rel="stylesheet" href="index/media/mediapage.css"> 
     <link rel="stylesheet" href="index/media/mediaprojectpage.css">
+    <link rel="stylesheet" href="menu/mediamenu.css"> 
+    <link rel="stylesheet" href="footer/media-footer.css">
     <!-- SCRIPTS JS --> 
     <script type="text/javascript" src="index/script.js" defer></script> 
     <script type="text/javascript" src="menu/menu.js" defer></script> 
@@ -118,7 +119,7 @@
                     <a class="download-or-redirect title-page-project"></a>
                     <div class="project-size-container text-project-container">
                         <img src="index/icons/white-memory-icon.png" draggable="false">
-                        <p class="page-content">Taille :</p>
+                        <p class="page-content">Taille du fichier :</p>
                         <p class="project-size-value page-content"></p>
                         <p class="page-content">Mo</p>
                     </div>

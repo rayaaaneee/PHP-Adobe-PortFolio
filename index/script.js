@@ -275,13 +275,16 @@ const openProjectPage = (element) => {
     lastElement.querySelector(".content").removeAttribute("onmouseover");
     lastElement.querySelector(".content").removeAttribute("onmouseout");
 
-    // / Changer le type de lastElement en "div"
+    // / Changer le type de lastElement en "a"
     lastElement = replaceTag(lastElement, "a");
+
     let href = element.querySelector(".project-href").textContent;
     lastElement.setAttribute("href", href);
     
     titleProject.textContent = lastElement.querySelector(".to_download > p").textContent;
     lastElement.querySelector(".to_download").remove();
+
+    lastElement.querySelector(".content").id = "content-project-container";
 
     // Si la page n'est pas en mode dark, le logo doit être blanc
     if(!document.body.classList.contains("body-dark")) {

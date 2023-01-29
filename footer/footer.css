@@ -18,6 +18,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    column-gap: 1.5vw;
     align-items: center;
     margin-right: 40px;
 }

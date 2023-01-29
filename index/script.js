@@ -368,7 +368,7 @@ const animateProjectViewing = () => {
             lastElement.style.transform = "translate(-50%,-50%) scale(0.9)";
             break;
         case false:
-            lastElement.querySelector("img").style.transform = "scale(0.8)";
+            lastElement.querySelector("img").style.transform = "scale(0.85)";
             lastElement.style.removeProperty("transform");
             break;
     }

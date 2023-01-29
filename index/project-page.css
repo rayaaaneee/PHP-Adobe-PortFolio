@@ -52,7 +52,7 @@
 }
 
 .actual-project-viewing {
-    position: fixed;
+    position: absolute;
     z-index: 13;
     width: fit-content;
     height: fit-content;
@@ -63,15 +63,16 @@
 }
 
 #content-project-container {
-    width: 15vw;
-    height: 15vw;
-    border-radius: 5vw;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 4vw;
     background-color: rgba(235, 208, 208, 0.6) !important;
 }
 
 .actual-project-viewing > .content > img {
-    width: 80%;
-    height: 80%;
+    width: 75%;
+    height: 75%;
+    transition: all 3s ease-in-out;
 }
 
 .actual-project-viewing > .content:hover {

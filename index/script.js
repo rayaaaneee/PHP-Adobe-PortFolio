@@ -364,9 +364,11 @@ var growing = true;
 const animateProjectViewing = () => {
     switch(growing){
         case true:
+            lastElement.querySelector("img").style.transform = "scale(1)";
             lastElement.style.transform = "translate(-50%,-50%) scale(0.9)";
             break;
         case false:
+            lastElement.querySelector("img").style.transform = "scale(0.8)";
             lastElement.style.removeProperty("transform");
             break;
     }

@@ -6,6 +6,7 @@ footer {
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
     display : grid;
     width: 100vw;
+    height: fit-content;
     grid-template-columns: 7fr 2fr;
 }
 
@@ -21,8 +22,47 @@ footer {
     margin-right: 40px;
 }
 
-.footerimgs{
+#footergithubimg, #footerlinkedinimg, #footermailimg, #footerphoneimg {
+    width: 2.5vw;
+    height: 2.5vw;
     max-width: 40px;
+    max-height: 40px;
     padding: 8px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
   
+
+.footer-github-img {
+    background-image: url(footer-logos/github.png);
+}
+
+.footer-linkedin-img {
+    background-image: url(footer-logos/linkedin.png);
+}
+
+.footer-mail-img {
+    background-image: url(footer-logos/mail.png);
+}
+
+.footer-phone-img {
+    background-image: url(footer-logos/phone.png);
+}
+
+.footer-github-img-dark {
+    background-image: url(footer-logos/github-white.png);
+}
+
+.footer-linkedin-img-dark {
+    background-image: url(footer-logos/linkedin-white.png);
+}
+
+.footer-mail-img-dark {
+    background-image: url(footer-logos/mail-white.png);
+}
+
+.footer-phone-img-dark {
+    background-image: url(footer-logos/phone-white.png);
+}
+

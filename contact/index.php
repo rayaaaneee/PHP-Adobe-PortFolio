@@ -1,15 +1,3 @@
-<?php 
-   session_start();
-   // Affichage des erreurs PHP
-   error_reporting(E_ALL);
-   ini_set("display_errors", 1);
-   // Variable qui définit si le formulaire a été envoyé
-   $wasSet = false;
-   if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])){
-      $wasSet = true;
-   }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
    <head>   
@@ -19,6 +7,7 @@
    <!-- FICHIERS PHP -->
    <?php require_once "../models/m_connect.php"; ?>
    <?php require_once "../models/m_contact.php"; ?>
+   <?php require_once "../controllers/c_contact.php"; ?>
    <?php require_once "../controllers/DarkMode.php"; 
    $theme = new DarkMode(); ?>
    <!-- CSS DE BASE -->
@@ -137,34 +126,12 @@
                    </table>
                 </form>
             </div>
+            <?php if($SucceedSend) { ?>
             <div id="hasSend">
-            <?php
-               if($wasSet){
-                  // On récupère les données du formulaire et on les stocke dans la base de données
-
-                  // Données formulaire
-                  $name = htmlspecialchars($_POST['name']);
-                  $email = htmlspecialchars($_POST['email']);
-                  $message = htmlspecialchars($_POST['message']);
-
-                  // BD
-                  $db = getConnection();
-                  $stmt = getStatementContact($db, $name, $email, $message);
-                  // Insertion
-                  try{
-                     $stmt->execute();
-                     // On affiche le message de confirmation
-                     ?>
-                        <img src="icones/checked.png" draggable="false">
-                        <p>Votre message a bien été envoyé !</p>
-                     <?php
-                  } catch (PDOException $e) {
-                     // Si erreur, on affiche le message d'erreur dans la console
-                     echo $e->getMessage();
-                  }
-               }
-            ?>
-        </div>
+               <img src="icones/checked.png" draggable="false">
+               <p>Votre message a bien été envoyé !</p>
+            </div>
+            <?php } ?>
         </main>  
       </article>
       <?php require_once "../footer/footer.php" ;?>

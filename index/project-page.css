@@ -47,7 +47,7 @@
     width: fit-content;
     height: fit-content;
     transition: all 3.5s;
-    top: 80%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%,-50%);
 }

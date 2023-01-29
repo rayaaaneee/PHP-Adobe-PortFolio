@@ -81,7 +81,9 @@
  
         .content img:not(.to_link img, .to_download img){ 
             max-width: 100px; 
+            max-height: 100px;
             min-width: 30px; 
+            min-height: 30px;
         } 
 
         .to_link, .to_download{

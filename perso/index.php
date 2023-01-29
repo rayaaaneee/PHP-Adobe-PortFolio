@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="page.css">
     <link rel="stylesheet" href="../background.css">
     <link rel="stylesheet" href="../scrollbar.css">
-    <link rel="stylesheet" href="../footer.css">
+    <link rel="stylesheet" href="../footer/footer.css">
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="../menu/dark-menu.css"> 
     <link rel="stylesheet" href="../dark-scrollbar.css">

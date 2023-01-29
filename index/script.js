@@ -283,6 +283,11 @@ const openProjectPage = (element) => {
     titleProject.textContent = lastElement.querySelector(".to_download > p").textContent;
     lastElement.querySelector(".to_download").remove();
 
+    // Si la page n'est pas en mode dark, le logo doit être blanc
+    if(!document.body.classList.contains("body-dark")) {
+        lastElement.querySelector(".workslogos").src = lastElement.querySelector(".workslogos").src.replace(".png", "-white.png");
+    }
+
     projectPage.style.overflowY = "auto";
     projectPage.querySelector(".download-or-redirect").setAttribute("href", href);
     let textMessage = null;

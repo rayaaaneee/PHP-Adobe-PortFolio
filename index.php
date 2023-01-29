@@ -35,6 +35,7 @@ ini_set("display_errors", 1);
     <!-- CSS DES MEDIA QUERIES --> 
     <link rel="stylesheet" href="index/media/mediaframecv.css"> 
     <link rel="stylesheet" href="index/media/mediapage.css"> 
+    <link rel="stylesheet" href="index/media/mediaprojectpage.css">
     <!-- SCRIPTS JS --> 
     <script type="text/javascript" src="index/script.js" defer></script> 
     <script type="text/javascript" src="menu/menu.js" defer></script> 

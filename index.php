@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="background.css"> 
     <link rel="stylesheet" href="loaderframe.css"> 
     <link rel="stylesheet" href="scrollbar.css"> 
-    <link rel="stylesheet" href="index/framecv.css"> 
+    <link rel="stylesheet" href="index/frame-cv.css"> 
     <link rel="stylesheet" href="index/CV-fullscreen.css"> 
     <link rel="stylesheet" href="footer/footer.css"> 
     <!-- CSS DARK MODE -->
@@ -24,11 +24,12 @@
     <link rel="stylesheet" href="index/dark-page.css">
     <link rel="stylesheet" href="index/project-page.css">
     <!-- CSS DES MEDIA QUERIES --> 
-    <link rel="stylesheet" href="index/media/mediaframecv.css"> 
-    <link rel="stylesheet" href="index/media/mediapage.css"> 
-    <link rel="stylesheet" href="index/media/mediaprojectpage.css">
+    <link rel="stylesheet" href="index/media/media-frame-cv.css"> 
+    <link rel="stylesheet" href="index/media/media-page.css"> 
+    <link rel="stylesheet" href="index/media/media-project-page.css">
     <link rel="stylesheet" href="menu/mediamenu.css"> 
     <link rel="stylesheet" href="footer/media-footer.css">
+    <link rel="stylesheet" href="index/media/media-project-page.css">
     <!-- SCRIPTS JS --> 
     <script type="text/javascript" src="index/script.js" defer></script> 
     <script type="text/javascript" src="menu/menu.js" defer></script> 

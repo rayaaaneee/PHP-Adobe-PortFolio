@@ -155,5 +155,35 @@
             row-gap: 0;
         }
 
+        .horizontal-bars {
+            width: 37%;
+        }
+
+        @media screen and (max-width:427px) {
+            .content{
+                width: 140px;
+                height: 140px;
+            }
+
+            .content p {
+                font-size: clamp(0.8rem, 1vw, 1rem);
+            }
+
+            
+            .to_link, .to_download {
+                column-gap: 4px;
+            }
+
+            .quit-project-button {
+                width: 12vw;
+                height: 12vw;
+                font-size: 6vw;
+            }
+
+            .horizontal-bars {
+                width: 60%;
+                height: 10px;
+            }
+        }
     }
 }

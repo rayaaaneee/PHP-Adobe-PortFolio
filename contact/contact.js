@@ -1,5 +1,5 @@
-function validateForm()                                    
-{ 
+const validateForm = () => {                                    
+
     var name = document.forms["myForm"]["name"];               
     var email = document.forms["myForm"]["email"];    
     var message = document.forms["myForm"]["message"];   
@@ -46,4 +46,25 @@ function validateForm()
     }
    
     return true; 
+}
+
+const nbCharsLeftContainer = document.querySelector('.nb-chars-left');
+const getNbCharsLeft = (element) => {
+    let nbCharsLeft = 300 - element.value.length;
+    nbCharsLeftContainer.querySelector('.to-modify').innerHTML = nbCharsLeft;
+}
+
+const appearCharsLeft = () => {
+    nbCharsLeftContainer.style.opacity = 1;
+}
+
+const disappearCharsLeft = () => {
+    nbCharsLeftContainer.style.removeProperty('opacity');
+}
+
+const initNbCharsLeft = () => {
+    // On change le texte quand l'opacity du conteneur est à 0
+    setTimeout(() => {
+        nbCharsLeftContainer.querySelector('.to-modify').innerHTML = 300;
+    }, 400);
 }

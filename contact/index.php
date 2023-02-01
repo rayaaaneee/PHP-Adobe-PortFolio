@@ -123,12 +123,12 @@
                      <td>
                         <textarea name="message" class="long field-textarea" required placeholder="Voici mon message.." maxlength="300" oninput="getNbCharsLeft(this);" onfocus="appearCharsLeft();" onblur="disappearCharsLeft();"></textarea>
                         <div class="nb-chars-left">
-                           <p class="to-modify">300</p>
+                           <p class="to-modify">nb chars</p>
                            <p class="nb-chars-left-text">caractères restants</p>
                            <div class="spinner">
-                              <div class="bounce1"></div>
-                              <div class="bounce2"></div>
-                              <div class="bounce3"></div>
+                              <div class="bounce1 bounce"></div>
+                              <div class="bounce2 bounce"></div>
+                              <div class="bounce3 bounce"></div>
                            </div>
                         </div>
                         <span class="error" id="errormsg"></span>

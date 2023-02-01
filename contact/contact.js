@@ -48,10 +48,36 @@ const validateForm = () => {
     return true; 
 }
 
+
 const nbCharsLeftContainer = document.querySelector('.nb-chars-left');
+const isDarkTheme = document.body.classList.contains('body-dark');
+
+const textarea = document.querySelector('.field-textarea');
+nbCharsLeftContainer.querySelector('.to-modify').innerHTML = textarea.getAttribute("maxlength");
+
 const getNbCharsLeft = (element) => {
-    let nbCharsLeft = 300 - element.value.length;
+    // On recupère le nombre de caractères max et on le soustrait au nombre de caractères actuel
+    let nbCharsLeft = parseInt(element.getAttribute("maxlength")) - element.value.length;
     nbCharsLeftContainer.querySelector('.to-modify').innerHTML = nbCharsLeft;
+
+    if (nbCharsLeft == 0) {
+        nbCharsLeftContainer.querySelector('.to-modify').style.display = 'none';
+        nbCharsLeftContainer.querySelector('.nb-chars-left-text').innerHTML = "Aucun caractère restant";
+        nbCharsLeftContainer.querySelector('.spinner').style.display = 'none';
+        nbCharsLeftContainer.querySelector('.nb-chars-left-text').style.marginLeft = '1vw';
+    } else if (nbCharsLeft == 1) {
+        nbCharsLeftContainer.querySelector('.to-modify').style.removeProperty('display');
+        nbCharsLeftContainer.querySelector('.nb-chars-left-text').innerHTML = "caractère restant";
+        nbCharsLeftContainer.querySelector('.spinner').style.removeProperty('display');
+        nbCharsLeftContainer.querySelector('.nb-chars-left-text').style.removeProperty('margin-left');
+    } else {
+        nbCharsLeftContainer.querySelector('.to-modify').style.removeProperty('display');
+        nbCharsLeftContainer.querySelector('.nb-chars-left-text').innerHTML = "caractères restants";
+        nbCharsLeftContainer.querySelector('.spinner').style.removeProperty('display');
+        nbCharsLeftContainer.querySelector('.nb-chars-left-text').style.removeProperty('margin-left');
+    }
+
+    changeColorNbCharsLeft();
 }
 
 const appearCharsLeft = () => {
@@ -67,4 +93,19 @@ const initNbCharsLeft = () => {
     setTimeout(() => {
         nbCharsLeftContainer.querySelector('.to-modify').innerHTML = 300;
     }, 400);
+}
+
+const changeColorNbCharsLeft = () => {
+    // Plus le nombre de caractères restants est faible, plus la couleur est rouge
+    let color = null;
+    if (isDarkTheme) {
+        color = Math.round(0 + (nbCharsLeftContainer.querySelector('.to-modify').innerHTML * 255 / 300));
+    } else {
+        color = Math.round(255 - (nbCharsLeftContainer.querySelector('.to-modify').innerHTML * 255 / 300));
+    }
+    nbCharsLeftContainer.querySelector('.to-modify').style.color = `rgb(${color}, 0, 0)`;
+    nbCharsLeftContainer.querySelector('.nb-chars-left-text').style.color = `rgb(${color}, 0, 0)`;
+    nbCharsLeftContainer.querySelectorAll('.spinner > div').forEach((element) => {
+        element.style.backgroundColor = `rgb(${color}, 0, 0)`;
+    });
 }

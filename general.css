@@ -31,17 +31,30 @@ a:active { color: initial }       /*Liens actifs */
 /* Couleur de la selection */
 html {
     --selection-color: white;
-    --selection-background-color: #c0d6ec;
+    --selection-background-color: #e5c1a4;
+
+    --selection-color-dark: rgb(141, 152, 251);
+    --selection-background-color-dark: #ffffff;
 }
 
-body::-moz-selection {
+body *::-moz-selection {
   color: var(--selection-color);
   background-color: var(--selection-background-color);
 }
 
-body::selection {
+body *::selection {
   color: var(--selection-color);
   background-color: var(--selection-background-color);
+}
+
+.body-dark *::-moz-selection {
+  color: var(--selection-color-dark);
+  background-color: var(--selection-background-color-dark);
+}
+
+.body-dark *::selection {
+  color: var(--selection-color-dark);
+  background-color: var(--selection-background-color-dark);
 }
 
 

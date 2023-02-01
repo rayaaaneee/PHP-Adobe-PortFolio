@@ -8,7 +8,7 @@
     <!-- FICHIERS PHP -->
     <?php require_once "controllers/c_index.php"; ?>
     <!-- CSS DE BASE -->
-    <link rel="stylesheet" href="index/general.css">
+    <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="menu/menu.css">
     <link rel="stylesheet" href="index/page.css">
     <link rel="stylesheet" href="background.css">

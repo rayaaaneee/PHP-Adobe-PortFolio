@@ -90,7 +90,7 @@
             </div>
          <?php } ?>
          <div class="formulaire <?= $theme->getClass("formulaire") ?>">
-            <form name="myForm" action="index.php" method="post">
+            <form name="myForm" action="./" method="post">
                <table class="form-style">
                   <tr>
                      <td>

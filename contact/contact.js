@@ -53,39 +53,56 @@ const nbCharsLeftContainer = document.querySelector('.nb-chars-left');
 const isDarkTheme = document.body.classList.contains('body-dark');
 
 const textarea = document.querySelector('.field-textarea');
-nbCharsLeftContainer.querySelector('.to-modify').innerHTML = textarea.getAttribute("maxlength");
+const maxlength = textarea.getAttribute("maxlength");
+nbCharsLeftContainer.querySelector('.to-modify').innerHTML = maxlength;
 
+var oldNbCharsLeft = null;
+var nbCharsLeft = null;
 const getNbCharsLeft = (element) => {
     // On recupère le nombre de caractères max et on le soustrait au nombre de caractères actuel
-    let nbCharsLeft = parseInt(element.getAttribute("maxlength")) - element.value.length;
+    nbCharsLeft = parseInt(maxlength) - element.value.length;
     nbCharsLeftContainer.querySelector('.to-modify').innerHTML = nbCharsLeft;
 
     if (nbCharsLeft == 0) {
-        nbCharsLeftContainer.querySelector('.to-modify').style.display = 'none';
         nbCharsLeftContainer.querySelector('.nb-chars-left-text').innerHTML = "Aucun caractère restant";
+
+        animateScaleCharsLeft();
+
+        nbCharsLeftContainer.querySelector('.to-modify').style.display = 'none';
         nbCharsLeftContainer.querySelector('.spinner').style.display = 'none';
         nbCharsLeftContainer.querySelector('.nb-chars-left-text').style.marginLeft = '1vw';
     } else if (nbCharsLeft == 1) {
-        nbCharsLeftContainer.querySelector('.to-modify').style.removeProperty('display');
         nbCharsLeftContainer.querySelector('.nb-chars-left-text').innerHTML = "caractère restant";
+
+        nbCharsLeftContainer.querySelector('.to-modify').style.removeProperty('display');
         nbCharsLeftContainer.querySelector('.spinner').style.removeProperty('display');
         nbCharsLeftContainer.querySelector('.nb-chars-left-text').style.removeProperty('margin-left');
     } else {
-        nbCharsLeftContainer.querySelector('.to-modify').style.removeProperty('display');
         nbCharsLeftContainer.querySelector('.nb-chars-left-text').innerHTML = "caractères restants";
+
+        nbCharsLeftContainer.querySelector('.to-modify').style.removeProperty('display');
         nbCharsLeftContainer.querySelector('.spinner').style.removeProperty('display');
         nbCharsLeftContainer.querySelector('.nb-chars-left-text').style.removeProperty('margin-left');
     }
 
     changeColorNbCharsLeft();
+
+    oldNbCharsLeft = nbCharsLeft;
 }
 
 const appearCharsLeft = () => {
     nbCharsLeftContainer.style.opacity = 1;
+
 }
 
 const disappearCharsLeft = () => {
     nbCharsLeftContainer.style.removeProperty('opacity');
+
+    if (nbCharsLeft == 0) {
+        addEventListener('keydown', animateScaleCharsLeft);
+    } else {
+        removeEventListener('keydown', animateScaleCharsLeft);
+    }
 }
 
 const initNbCharsLeft = () => {
@@ -103,9 +120,21 @@ const changeColorNbCharsLeft = () => {
     } else {
         color = Math.round(255 - (nbCharsLeftContainer.querySelector('.to-modify').innerHTML * 255 / 300));
     }
+
     nbCharsLeftContainer.querySelector('.to-modify').style.color = `rgb(${color}, 0, 0)`;
     nbCharsLeftContainer.querySelector('.nb-chars-left-text').style.color = `rgb(${color}, 0, 0)`;
     nbCharsLeftContainer.querySelectorAll('.spinner > div').forEach((element) => {
         element.style.backgroundColor = `rgb(${color}, 0, 0)`;
     });
+}
+
+const animateScale = (element) => {
+    element.style.transform = 'scale(1.05) translateX(0.3vw)';
+    setTimeout(() => {
+        element.style.removeProperty('transform');
+    }, 100);
+}
+
+const animateScaleCharsLeft = () => {
+    animateScale(nbCharsLeftContainer);
 }

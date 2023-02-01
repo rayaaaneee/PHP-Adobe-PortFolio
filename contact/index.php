@@ -12,7 +12,7 @@
    <?php require_once "../controllers/DarkMode.php";
    $theme = new DarkMode(); ?>
    <!-- CSS DE BASE -->
-   <link rel="stylesheet" href="general.css">
+   <link rel="stylesheet" href="../general.css">
    <link rel="stylesheet" href="../menu/menu.css">
    <link rel="stylesheet" href="page.css">
    <link rel="stylesheet" href="../background.css">

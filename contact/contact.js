@@ -1,51 +1,46 @@
-const validateForm = () => {                                    
+const validateForm = () => {
 
-    var name = document.forms["myForm"]["name"];               
-    var email = document.forms["myForm"]["email"];    
-    var message = document.forms["myForm"]["message"];   
-   
-    if (name.value == "")                                  
-    { 
-        document.getElementById('errorname').innerHTML="Veuillez entrez un nom valide";  
-        name.focus(); 
-        return false; 
-    }else{
-        document.getElementById('errorname').innerHTML="";  
+    var name = document.forms["myForm"]["name"];
+    var email = document.forms["myForm"]["email"];
+    var message = document.forms["myForm"]["message"];
+
+    if (name.value == "") {
+        document.getElementById('errorname').innerHTML = "Veuillez entrez un nom valide";
+        name.focus();
+        return false;
+    } else {
+        document.getElementById('errorname').innerHTML = "";
     }
-       
-    if (email.value == "")                                   
-    { 
-        document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide"; 
-        email.focus(); 
-        return false; 
-    }else{
-        document.getElementById('erroremail').innerHTML="";  
+
+    if (email.value == "") {
+        document.getElementById('erroremail').innerHTML = "Veuillez entrez une adresse mail valide";
+        email.focus();
+        return false;
+    } else {
+        document.getElementById('erroremail').innerHTML = "";
     }
-   
-    if (email.value.indexOf("@", 0) < 0)                 
-    { 
-        document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide"; 
-        email.focus(); 
-        return false; 
-    } 
-   
-    if (email.value.indexOf(".", 0) < 0)                 
-    { 
-        document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide"; 
-        email.focus(); 
-        return false; 
-    } 
-   
-    if (message.value == "")                           
-    {
-        document.getElementById('errormsg').innerHTML="Veuillez entrez un message valide"; 
-        message.focus(); 
-        return false; 
-    }else{
-        document.getElementById('errormsg').innerHTML="";  
+
+    if (email.value.indexOf("@", 0) < 0) {
+        document.getElementById('erroremail').innerHTML = "Veuillez entrez une adresse mail valide";
+        email.focus();
+        return false;
     }
-   
-    return true; 
+
+    if (email.value.indexOf(".", 0) < 0) {
+        document.getElementById('erroremail').innerHTML = "Veuillez entrez une adresse mail valide";
+        email.focus();
+        return false;
+    }
+
+    if (message.value == "") {
+        document.getElementById('errormsg').innerHTML = "Veuillez entrez un message valide";
+        message.focus();
+        return false;
+    } else {
+        document.getElementById('errormsg').innerHTML = "";
+    }
+
+    return true;
 }
 
 
@@ -63,9 +58,12 @@ const getNbCharsLeft = (element) => {
     nbCharsLeft = parseInt(maxlength) - element.value.length;
     nbCharsLeftContainer.querySelector('.to-modify').innerHTML = nbCharsLeft;
 
+    animateScaleCharsLeftText();
+
     if (nbCharsLeft == 0) {
         nbCharsLeftContainer.querySelector('.nb-chars-left-text').innerHTML = "Aucun caractère restant";
 
+        console.log("nbCharsLeft == 0");
         animateScaleCharsLeft();
 
         nbCharsLeftContainer.querySelector('.to-modify').style.display = 'none';
@@ -93,16 +91,12 @@ const getNbCharsLeft = (element) => {
 const appearCharsLeft = () => {
     nbCharsLeftContainer.style.opacity = 1;
 
+    animateScaleCharsLeftText();
 }
 
 const disappearCharsLeft = () => {
     nbCharsLeftContainer.style.removeProperty('opacity');
 
-    if (nbCharsLeft == 0) {
-        addEventListener('keydown', animateScaleCharsLeft);
-    } else {
-        removeEventListener('keydown', animateScaleCharsLeft);
-    }
 }
 
 const initNbCharsLeft = () => {
@@ -135,6 +129,14 @@ const animateScale = (element) => {
     }, 100);
 }
 
-const animateScaleCharsLeft = () => {
+const animateScaleCharsLeft = (event = null) => {
     animateScale(nbCharsLeftContainer);
+}
+
+const animateScaleCharsLeftText = (event = null) => {
+    if (nbCharsLeft == 0) {
+        addEventListener('keydown', animateScaleCharsLeft);
+    } else if (nbCharsLeft == 1 && oldNbCharsLeft == 0) {
+        removeEventListener('keydown', animateScaleCharsLeft);
+    }
 }

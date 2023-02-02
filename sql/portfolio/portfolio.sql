@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : ven. 27 jan. 2023 à 00:28
--- Version du serveur : 10.2.38-MariaDB
--- Version de PHP : 7.2.34
+-- Host: localhost:8889
+-- Generation Time: Feb 02, 2023 at 08:35 AM
+-- Server version: 5.7.24
+-- PHP Version: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,26 +18,49 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `portfolio`
+-- Database: `portfolio`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `contacts`
+-- Table structure for table `contacts`
 --
 
 CREATE TABLE `contacts` (
   `name` text NOT NULL,
   `email` text NOT NULL,
   `message` text NOT NULL,
-  `date` date NOT NULL
+  `date` date NOT NULL,
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`name`, `email`, `message`, `date`, `time`) VALUES
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'okay okay', '2023-01-29', '09:53:11'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'le crack', '2023-01-29', '10:58:24'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'okay okay \r\n', '2023-01-29', '11:58:00'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'okay', '2023-01-29', '12:00:10'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'kaka', '2023-01-29', '12:00:00'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'zert', '2023-01-31', '17:29:48'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'zert', '2023-01-31', '17:30:50'),
+('rayane', '*aerFTGFDZERTGFC@gmail.com', 'sdrt', '2023-01-31', '17:32:05'),
+('rayane', '*aerFTGFDZERTGFC@gmail.com', 'sdrt', '2023-01-31', '17:33:27'),
+('rayane', '*aerFTGFDZERTGFC@gmail.com', 'sdrt', '2023-01-31', '17:40:51'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'le crack', '2023-01-31', '17:41:02'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'le crack', '2023-01-31', '17:47:25'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'le crack', '2023-01-31', '17:48:24'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'le crack é ù ççç', '2023-01-31', '18:33:42'),
+('rayane_mrln', 'okayokay@gmail.com', 'hehehe a ààà çççç ùùù éééé', '2023-01-31', '18:35:23'),
+('rayane_mrln', 'rayane.merlin8@gmail.com', 'ertyu', '2023-02-01', '11:04:03');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `projects`
+-- Table structure for table `projects`
 --
 
 CREATE TABLE `projects` (
@@ -46,13 +69,13 @@ CREATE TABLE `projects` (
   `icon` text NOT NULL,
   `file` text NOT NULL,
   `img_website` int(11) DEFAULT NULL,
-  `project_desc` text DEFAULT NULL,
-  `use_desc` text DEFAULT NULL,
+  `project_desc` text,
+  `use_desc` text,
   `id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `projects`
+-- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`title`, `download`, `icon`, `file`, `img_website`, `project_desc`, `use_desc`, `id`) VALUES
@@ -63,15 +86,16 @@ INSERT INTO `projects` (`title`, `download`, `icon`, `file`, `img_website`, `pro
 ('Poster : Hack', 0, 'poster', 'Project-Poster.pdf', NULL, 'Ce projet était un projet scolaire de groupe de communication sur un sujet de notre choix en lien avec l\'informatique.\r\nJ\'ai travaillée sur la réalisation du design global du poster avec Photoshop et Illustrator (pour les formes), j\'ai donc trouvé interessant de l\'afficher dans les projets', NULL, NULL),
 ('Would You Play', 0, 'snake', 'would-you-play/', NULL, 'Would you play est un projet personnel que j\'ai fait basé sur le HTML et le Javascript. Ce site (monopage) vous permet de jouer à différents jeux.', 'Séléctionner le jeu voulu (le Sticks game est encore en développement, seul le snake marche pour l\'instant). \r\nChargez le jeu puis choisissez d\'ignorer les instructions ou non. Le jeu apparait ensuite. Vous avez une page des préférences du jeu vous permettant de personnaliser votre mode de jeu, ces paramètres sont stockés avec des cookies permettant de les garder en mémoire (pendant une journée) et des les garder même avec un rechargement de page.\r\nAttention : Il arrive rarement que les instructions ne s\'affichent pas après avoir appuyé sur play ce qui bloque la page. Il suffit normalement de recharger la page pour règler cette erreur.', NULL),
 ('Tree Viewer', 1, 'tree', 'tree-viewer.rar', NULL, 'Tree Viewer est un projet visant à créer un ABR (Arbre binaire de recherche) et pouvoir le visualiser principalement, et d\'autres fonctionnalités.', 'Lancer le fichier exe de l\'application et suivez les instructions !', NULL),
-('GIT Cheat Sheet', 0, 'git', 'Git-Cheat-Sheet.pdf', NULL, 'Cet aide mémoire était un projet scolaire de groupe. Dans celui-ci , vous y verrez les commandes git les plus importantes ainsi que leur explication.', NULL, NULL);
+('GIT Cheat Sheet', 0, 'git', 'Git-Cheat-Sheet.pdf', NULL, 'Cet aide mémoire était un projet scolaire de groupe. Dans celui-ci , vous y verrez les commandes git les plus importantes ainsi que leur explication.', NULL, NULL),
+('HTML CV', 0, 'cv-html', 'cv-html/', NULL, 'Ce projet scolaire personnel a été fait en cours de Web au premier semestre du BUT1, basé uniquement sur le HTML et CSS. Les informations contenues dans celui-ci ne sont pas à jour.\r\nLe but principal de ce projet était de pouvoir travailler sur le positionnement css ainsi que les animations CSS.', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `SAE`
+-- Table structure for table `sae`
 --
 
-CREATE TABLE `SAE` (
+CREATE TABLE `sae` (
   `UE` text NOT NULL,
   `TITRE` text NOT NULL,
   `DESCRIPTION` text NOT NULL,

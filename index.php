@@ -73,7 +73,7 @@
                 <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);">
                     <div class="content content<?= $i; ?> <?= $theme->getClass("content") ?>" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
                         <div class="to_download">
-                            <p><?= $project['title'] ?></p>
+                            <p><?= ($project['title']) ?></p>
                             <img src="index/icons/<?= $theme->getImagePath(getImageName($project['download'])) ?>.png" draggable="false">
                         </div>
                         <img src="index/project-logos/<?= $theme->getImagePath($project['icon']) ?>.png" id="img<?= $i ?>" class="workslogos" draggable="false">
@@ -198,8 +198,6 @@
                 </div>
                 <p class="beforebutton">Vous pouvez télécharger mon CV actuel au format pdf en cliquant sur le bouton ci-dessous.</p>
                 <a href="index/files/CV.pdf" download="CV_Rayane_Merlin.pdf"><button class="cv-button <?= $theme->getClass("cv-button") ?>">Télécharger</button></a>
-                <p class="beforebutton">Vous pouvez également consulter mon CV en ligne dans la page "CV" visible sur le menu de navigation ou en cliquant sur le boutton ci-dessous.</p>
-                <a href="CV/"><button class="cv-button <?= $theme->getClass("cv-button") ?>">Consulter le CV</button></a>
                 <div class="blackbar <?= $theme->getClass("blackbar") ?>"></div>
             </div>
     </article>

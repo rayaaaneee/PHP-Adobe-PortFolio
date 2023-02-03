@@ -65,26 +65,75 @@ const replaceTag = (element, typeNode) => {
 // Fonction qui affiche le cv en plein écran quand on clique sur l'img du cv
 var isVisible = false;
 var container = null;
-const CVContainer = document.querySelector("#framecv");
-const openPage = () =>{
-    CVContainer.style.opacity = "1";
+const CVContainer = document.querySelector("#framecv-visible");
+const backgroundFrameCV = CVContainer.querySelector("#background");
+const openPage = () => {
     isVisible = true;
-    CVContainer.id = "framecv-visible";
+
     document.body.removeAttribute("style");
     document.body.style.overflowY = "hidden";
+
+    CVContainer.style.display = "block";
+
+    // Faire apparaitre le contenu 
+    setTimeout(function() {
+        backgroundFrameCV.style.opacity = "1";
+        animateOpeningCVFrameContent();
+        // Faire apparaitre les boutons
+        setTimeout(function() {
+            animateOpeningCVFrameButtons();
+        }, animFrameCVDuration);
+    }, animFrameCVDuration);
 }
 
 // Fonction qui refait disparaitre le cv quand on clique sur la croix
 const closePage = () => {
-    CVContainer.id = "framecv";
-
-    CVContainer.style.removeProperty("opacity");
-
+    
+    
     isVisible = false;
-/*     container.style.overflowY = "hidden";
-    document.body.style.overflowY = "scroll"; */
-    document.body.removeAttribute("style");
-    document.body.style.overflowY = "scroll";
+    
+    
+    // Faire disparaitre le contenu
+    animateClosingCVFrameContent();
+    // Faire disparaitre les boutons
+    setTimeout(function() {
+        backgroundFrameCV.style.removeProperty("opacity");
+        animateClosingCVFrameButtons();
+    }, animFrameCVDuration);
+    
+    setTimeout(() => {
+        document.body.removeAttribute("style");
+        document.body.style.overflowY = "scroll";
+        CVContainer.style.removeProperty("display");
+    }, animFrameCVDuration*2);
+}
+
+// Fonctions qui animent l'ouverture du cv
+const contentToMove = CVContainer.querySelectorAll("#container > *:not(#buttons, #informations), #container-cv-text-bar");
+var animFrameCVDuration = window.getComputedStyle(contentToMove[0]).getPropertyValue("--anim-duration-frame-cv"); 
+animFrameCVDuration = animFrameCVDuration.replace(/[^0-9]/g, '');
+animFrameCVDuration = parseInt(animFrameCVDuration);
+var buttons = CVContainer.querySelector("#buttons");
+
+const animateOpeningCVFrameContent = () => {
+    contentToMove.forEach(element => {
+        element.style.transform = "translateX(0)";
+    });
+}
+
+const animateOpeningCVFrameButtons = () => {
+    buttons.style.transform = "translateX(0)";
+};
+
+// Fonctions qui animent la fermeture du cv
+const animateClosingCVFrameContent = () => {
+    contentToMove.forEach(element => {
+        element.style.removeProperty("transform");
+    });
+}
+
+const animateClosingCVFrameButtons = () => {
+    buttons.style.removeProperty("transform");
 }
 
 // Fonction qui imprime envoie vers la page d'impression quand on clique sur le bouton Print
@@ -435,7 +484,7 @@ const animateOpeningProjectViewing = () => {
 const setTransformationsAnimation = () => {
     projectPage.querySelector(".content").style.transform = "translateY(120vw)";
     elementsToMove.forEach(element => {
-        element.style.transition = "all 0.5s ease";
+        element.style.transition = "transform "+ animDuration +"ms ease";
         element.style.transform = "translateY(120vw)";
     });
 }

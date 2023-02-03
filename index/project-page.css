@@ -27,7 +27,7 @@ html {
     left: 0;
     z-index: -1;
     opacity: 0;
-    transition: opacity var(--background-opacity-duration);
+    transition: opacity var(--background-opacity-duration) ease;
 }
 
 .project-page-container::-webkit-scrollbar {

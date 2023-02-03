@@ -8,6 +8,8 @@
     z-index: -1;
     top: 0;
     left: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
 }
 
 /* Définir la taille du CV  */
@@ -86,8 +88,6 @@
     font-family: 'Roboto', sans-serif;	
     font-weight: bold;
     overflow-y: scroll;
-    opacity: 0;
-    transition: 0.5s;
 }
 
 /* Mettre un display flex sur les boutons */
@@ -108,11 +108,6 @@
     width: 35px;
 }
 
-/* Display none de base */
-#framecv {
-    display: none;
-}
-
 /* Disposition de la page quand on clique sur le CV */
 #framecv-visible {
     display:block;
@@ -122,6 +117,8 @@
     z-index: 5;
     top: 0;
     left: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
 }
 
 #framecv-visible::-webkit-scrollbar {
@@ -211,4 +208,20 @@ a{
     column-gap: 5px;
     color: rgb(255, 255, 255);
     text-shadow: 1px 0 0 black, 1px 1px 0 black, 0 1px 0 black, -1px 1px 0 black, -1px 0 0 black, -1px -1px 0 black, 0 -1px 0 black, 1px -1px 0 black;
+}
+
+/* Pour l'animation d'ouverture et de fermeture*/
+
+html {
+    --anim-duration-frame-cv : 150ms;
+}
+
+#container > *:not(#buttons, #informations), #container-cv-text-bar {
+    transition: transform var(--anim-duration-frame-cv) ease;
+    transform: translateX(-110vw);
+}
+
+#buttons {
+    transition: transform var(--anim-duration-frame-cv) ease-in-out;
+    transform: translateX(15vw);
 }

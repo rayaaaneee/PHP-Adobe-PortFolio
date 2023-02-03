@@ -144,7 +144,7 @@
             <div id="cv-img" onclick="openPage();">
                 <img src="index/files/CV.png" alt="cv" data-lightbox="CV_Rayane_Merlin.png" data-title="Voici mon C.V actuel, celui-ci est amené à être modifié mais restera à jour sur le site.">
             </div>
-            <div id="framecv">
+            <div id="framecv-visible">
                 <div id="container">
                     <div id="imgcv">
                         <img draggable="false" src="index/files/CV.png" alt="photo">

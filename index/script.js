@@ -214,14 +214,8 @@ const showInformations = () =>{
 // Fonction qui enleve les informations actuelles du cv quand la souris quitte le bouton "Informations"
 const hideInformations = () => {
     informations.removeAttribute("style");
-    buttons.removeAttribute("style");
+    buttons.style.removeProperty("z-index");
     displaying = false;
-}
-
-const openCard = (element) => {
-}
-
-const closeCard = (element) => {
 }
 
 const disappearProject = () => {

@@ -310,11 +310,12 @@ const titleProject = document.querySelector(".title-project");
 const img = document.querySelector(".project-page-container > img");
 const imgLinkOrDownload = document.querySelector(".link-or-download");
 const backgroundProjectPage = projectPage.querySelector(".background-project-page");
+const quitProjectButton = document.querySelector(".quit-project-button");
 
 // Recuperer variable CSS 
-var animDuration = getComputedStyle(document.documentElement).getPropertyValue('--anim-duration');
-animDuration = animDuration.replace(/[^0-9]/g, '');
-animDuration = parseInt(animDuration);
+var animDurationProjects = getComputedStyle(document.documentElement).getPropertyValue('--anim-duration');
+animDurationProjects = animDurationProjects.replace(/[^0-9]/g, '');
+animDurationProjects = parseInt(animDurationProjects);
 
 
 var intervalAnimationProjectViewing = null;
@@ -401,19 +402,25 @@ const openProjectPage = (element) => {
     projectPage.appendChild(lastElement);
     projectPage.style.display = "block";
     // Animation d'ouverture
-    animateOpeningProjectViewing();
+    animateOpeningProjectViewingContent();
+    setTimeout(function() {
+    animateOpeningProjectViewingButton();
+    }, animDurationProjects/1.5);
 
     // On lance l'animation au bout de 1s
     setTimeout(() => {
         animateProjectViewing();
         intervalAnimationProjectViewing = setInterval(animateProjectViewing, 3000);
-    }, animDuration);
+    }, animDurationProjects);
 }
 
 // Fonction qui permet de fermer la page
 
 const closeProjectPage = () => {
-    animateClosingProjectViewing();
+    animateClosingProjectViewingButton();
+    setTimeout(function() {
+        animateClosingProjectViewingContent();
+    }, animDurationProjects/1.5);
 
     setTimeout(() => {
         
@@ -432,7 +439,7 @@ const closeProjectPage = () => {
         document.body.style.removeProperty("overflow-y");
     
         clearInterval(intervalAnimationProjectViewing);
-    }, animDuration);
+    }, animDurationProjects + animDurationProjects/1.5);
 }
 
 var growing = true;
@@ -453,32 +460,40 @@ const animateProjectViewing = () => {
 var elementsToMove = document.querySelectorAll(".project-page-content > *:not(.background-project-page)");
 
 // Fonction qui permet d'animer la fermeture du projet
-const animateClosingProjectViewing = () => {
+
+const animateClosingProjectViewingButton = () => {
+    quitProjectButton.style.removeProperty("transform");
+}
+
+const animateClosingProjectViewingContent = () => {
     backgroundProjectPage.style.removeProperty("opacity");
     setTransformationsAnimation();
     setTimeout(() => {
         elementsToMove.forEach(element => {
             element.removeAttribute("style");
         });
-        projectPage.querySelector(".content").style.removeProperty("transform");
-    }, animDuration);
+    }, animDurationProjects);
 }
 
-const animateOpeningProjectViewing = () => {
-    backgroundProjectPage.style.opacity = "1";
+const animateOpeningProjectViewingButton = () => {
+    quitProjectButton.style.transform = "translateY(0)";
+}
+
+const animateOpeningProjectViewingContent = () => {
     setTransformationsAnimation();
     setTimeout(() => {
+        backgroundProjectPage.style.opacity = "1";
         elementsToMove.forEach(element => {
             element.style.removeProperty("transform");
         });
         projectPage.querySelector(".content").style.removeProperty("transform");
-    }, animDuration);
+    }, animDurationProjects/5);
 }
 
 const setTransformationsAnimation = () => {
     projectPage.querySelector(".content").style.transform = "translateY(120vh)";
     elementsToMove.forEach(element => {
-        element.style.transition = "transform "+ animDuration +"ms ease";
+        element.style.transition = "transform "+ animDurationProjects +"ms ease";
         element.style.transform = "translateY(120vh)";
     });
 }

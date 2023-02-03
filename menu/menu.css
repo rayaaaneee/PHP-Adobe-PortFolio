@@ -10,6 +10,7 @@
     height: 67px;
     align-items: center;
     border-bottom: 2px solid rgb(0, 0, 0, 0.4);
+    letter-spacing: 0.4px;
 }
 
 /* Disposition et personnification des items */
@@ -67,7 +68,7 @@ body {
 }
 
 .logo-dark {
-    background-image: url(menu-logos/dark_portfolio_logo.png);
+    background-image: url(menu-logos/dark-theme/dark_portfolio_logo.png);
 }
 
 .t1{

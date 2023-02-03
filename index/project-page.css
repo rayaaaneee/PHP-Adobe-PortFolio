@@ -51,6 +51,7 @@ html {
     align-items: center;
     z-index: 11;
     font-weight: bold;
+    transform: translateY(-20vh);
 }
 
 .quit-project-button:hover {

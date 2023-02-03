@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="loaderframe.css">
     <link rel="stylesheet" href="scrollbar.css">
     <link rel="stylesheet" href="index/frame-cv.css">
-    <link rel="stylesheet" href="index/CV-fullscreen.css">
     <link rel="stylesheet" href="footer/footer.css">
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="menu/dark-menu.css">

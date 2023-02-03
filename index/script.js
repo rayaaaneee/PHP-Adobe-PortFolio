@@ -404,7 +404,7 @@ const openProjectPage = (element) => {
     // Animation d'ouverture
     animateOpeningProjectViewingContent();
     setTimeout(function() {
-    animateOpeningProjectViewingButton();
+        animateOpeningProjectViewingButton();
     }, animDurationProjects/1.5);
 
     // On lance l'animation au bout de 1s
@@ -420,26 +420,27 @@ const closeProjectPage = () => {
     animateClosingProjectViewingButton();
     setTimeout(function() {
         animateClosingProjectViewingContent();
+        backgroundProjectPage.style.removeProperty("opacity");
+        setTimeout(() => {
+            
+            projectPage.removeAttribute("style");
+            projectPage.style.removeProperty("overflow-y");
+            projectPage.querySelector(".project-size-container").style.removeProperty("display");
+            projectPage.querySelector(".project-size-value").textContent = "";
+        
+            downloadOrVisitBtn.removeAttribute("href");
+            downloadOrVisitBtn.removeAttribute("target");
+            downloadOrVisitBtn.removeAttribute("download");
+            downloadOrVisitBtn.style.removeProperty("margin-bottom");
+            
+            lastElement.remove();
+        
+            document.body.style.removeProperty("overflow-y");
+        
+            clearInterval(intervalAnimationProjectViewing);
+        }, animDurationProjects);
     }, animDurationProjects/1.5);
 
-    setTimeout(() => {
-        
-        projectPage.removeAttribute("style");
-        projectPage.style.removeProperty("overflow-y");
-        projectPage.querySelector(".project-size-container").style.removeProperty("display");
-        projectPage.querySelector(".project-size-value").textContent = "";
-    
-        downloadOrVisitBtn.removeAttribute("href");
-        downloadOrVisitBtn.removeAttribute("target");
-        downloadOrVisitBtn.removeAttribute("download");
-        downloadOrVisitBtn.style.removeProperty("margin-bottom");
-        
-        lastElement.remove();
-    
-        document.body.style.removeProperty("overflow-y");
-    
-        clearInterval(intervalAnimationProjectViewing);
-    }, animDurationProjects + animDurationProjects/1.5);
 }
 
 var growing = true;
@@ -466,7 +467,6 @@ const animateClosingProjectViewingButton = () => {
 }
 
 const animateClosingProjectViewingContent = () => {
-    backgroundProjectPage.style.removeProperty("opacity");
     setTransformationsAnimation();
     setTimeout(() => {
         elementsToMove.forEach(element => {

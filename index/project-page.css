@@ -1,3 +1,8 @@
+html {
+    --anim-duration: 250ms;
+    --background-opacity-duration: 400ms;
+}
+
 .project-page-container {
     left: 0;
     top: 0;
@@ -9,6 +14,7 @@
     width: 100vw;
     position: fixed;
     height: 100vh;
+    transition: opacity var(--anim-duration) ease;
 }
 
 .background-project-page {
@@ -20,6 +26,8 @@
     top: 0;
     left: 0;
     z-index: -1;
+    opacity: 0;
+    transition: opacity var(--background-opacity-duration);
 }
 
 .project-page-container::-webkit-scrollbar {

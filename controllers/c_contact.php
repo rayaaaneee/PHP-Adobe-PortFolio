@@ -5,6 +5,9 @@ session_start();
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 // Variable qui définit si le formulaire a été envoyé
+
+require_once('presenters/contactPresenter.php');
+
 $wasSet = false;
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
    $wasSet = true;

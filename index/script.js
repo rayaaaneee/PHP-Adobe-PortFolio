@@ -65,20 +65,24 @@ const replaceTag = (element, typeNode) => {
 // Fonction qui affiche le cv en plein écran quand on clique sur l'img du cv
 var isVisible = false;
 var container = null;
+const CVContainer = document.querySelector("#framecv");
 const openPage = () =>{
+    CVContainer.style.opacity = "1";
     isVisible = true;
-    container = document.querySelector("#framecv");
-    container.id = "framecv-visible";
+    CVContainer.id = "framecv-visible";
     document.body.removeAttribute("style");
     document.body.style.overflowY = "hidden";
 }
 
 // Fonction qui refait disparaitre le cv quand on clique sur la croix
 const closePage = () => {
+    CVContainer.id = "framecv";
+
+    CVContainer.style.removeProperty("opacity");
+
     isVisible = false;
 /*     container.style.overflowY = "hidden";
     document.body.style.overflowY = "scroll"; */
-    container.id = "framecv";
     document.body.removeAttribute("style");
     document.body.style.overflowY = "scroll";
 }
@@ -262,6 +266,13 @@ const downloadOrVisitBtn = document.querySelector(".download-or-redirect");
 const titleProject = document.querySelector(".title-project");
 const img = document.querySelector(".project-page-container > img");
 const imgLinkOrDownload = document.querySelector(".link-or-download");
+const backgroundProjectPage = projectPage.querySelector(".background-project-page");
+
+// Recuperer variable CSS 
+var animDuration = getComputedStyle(document.documentElement).getPropertyValue('--anim-duration');
+animDuration = animDuration.replace(/[^0-9]/g, '');
+animDuration = parseInt(animDuration);
+
 
 var intervalAnimationProjectViewing = null;
 var lastElement = null;
@@ -306,7 +317,6 @@ const openProjectPage = (element) => {
 
             imgLinkOrDownload.src = "index/icons/white-link.png";
 
-            console.log(titleProject.cloneNode(true).textContent);
             let title = titleProject.textContent;
 
             if (href.includes(".pdf") || href.includes(".PDF")) title = baseName(href);
@@ -314,6 +324,7 @@ const openProjectPage = (element) => {
             textMessage = "Consulter " + title;
             downloadOrVisitBtn.textContent = textMessage;
             break;
+
         case 1:
             downloadOrVisitBtn.setAttribute("download", "");
 
@@ -330,12 +341,10 @@ const openProjectPage = (element) => {
     lastElement.classList.add("actual-project-viewing");
     
     
-    projectPage.appendChild(lastElement);
-    projectPage.style.display = "block";
-
+    
     // On met les textes à leur place
     projectPage.querySelector(".project-desc-value").textContent = element.querySelector(".project-desc").textContent;
-
+    
     // Si le projet a une notice d'utilisation, on l'affiche, sinon on la cache
     if( element.querySelector(".project-use-desc").textContent == "" ) {
         projectPage.querySelector(".project-use-desc-value").parentElement.style.display = "none";
@@ -343,35 +352,44 @@ const openProjectPage = (element) => {
         projectPage.querySelector(".project-use-desc-value").parentElement.style.removeProperty("display");
         projectPage.querySelector(".project-use-desc-value").textContent = element.querySelector(".project-use-desc").textContent;
     }
-
+    
     document.body.style.overflowY = "hidden";
+    
+    projectPage.appendChild(lastElement);
+    projectPage.style.display = "block";
+    // Animation d'ouverture
+    animateOpeningProjectViewing();
 
     // On lance l'animation au bout de 1s
     setTimeout(() => {
         animateProjectViewing();
         intervalAnimationProjectViewing = setInterval(animateProjectViewing, 3000);
-    }, 200);
+    }, animDuration);
 }
 
 // Fonction qui permet de fermer la page
 
 const closeProjectPage = () => {
+    animateClosingProjectViewing();
 
-    projectPage.removeAttribute("style");
-    projectPage.style.removeProperty("overflow-y");
-    projectPage.querySelector(".project-size-container").style.removeProperty("display");
-    projectPage.querySelector(".project-size-value").textContent = "";
-
-    downloadOrVisitBtn.removeAttribute("href");
-    downloadOrVisitBtn.removeAttribute("target");
-    downloadOrVisitBtn.removeAttribute("download");
-    downloadOrVisitBtn.style.removeProperty("margin-bottom");
+    setTimeout(() => {
+        
+        projectPage.removeAttribute("style");
+        projectPage.style.removeProperty("overflow-y");
+        projectPage.querySelector(".project-size-container").style.removeProperty("display");
+        projectPage.querySelector(".project-size-value").textContent = "";
     
-    lastElement.remove();
-
-    document.body.removeAttribute("style");
-
-    clearInterval(intervalAnimationProjectViewing);
+        downloadOrVisitBtn.removeAttribute("href");
+        downloadOrVisitBtn.removeAttribute("target");
+        downloadOrVisitBtn.removeAttribute("download");
+        downloadOrVisitBtn.style.removeProperty("margin-bottom");
+        
+        lastElement.remove();
+    
+        document.body.style.removeProperty("overflow-y");
+    
+        clearInterval(intervalAnimationProjectViewing);
+    }, animDuration);
 }
 
 var growing = true;
@@ -387,4 +405,37 @@ const animateProjectViewing = () => {
             break;
     }
     growing = !growing;
+}
+
+var elementsToMove = document.querySelectorAll(".project-page-content > *:not(.background-project-page)");
+
+// Fonction qui permet d'animer la fermeture du projet
+const animateClosingProjectViewing = () => {
+    backgroundProjectPage.style.removeProperty("opacity");
+    setTransformationsAnimation();
+    setTimeout(() => {
+        elementsToMove.forEach(element => {
+            element.removeAttribute("style");
+        });
+        projectPage.querySelector(".content").style.removeProperty("transform");
+    }, animDuration);
+}
+
+const animateOpeningProjectViewing = () => {
+    backgroundProjectPage.style.opacity = "1";
+    setTransformationsAnimation();
+    setTimeout(() => {
+        elementsToMove.forEach(element => {
+            element.style.removeProperty("transform");
+        });
+        projectPage.querySelector(".content").style.removeProperty("transform");
+    }, animDuration);
+}
+
+const setTransformationsAnimation = () => {
+    projectPage.querySelector(".content").style.transform = "translateY(120vw)";
+    elementsToMove.forEach(element => {
+        element.style.transition = "all 0.5s ease";
+        element.style.transform = "translateY(120vw)";
+    });
 }

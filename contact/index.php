@@ -83,12 +83,7 @@
                Rentrez simplement votre message !
             </h3>
          </div>
-         <?php if ($SucceedSend) { ?>
-            <div id="hasSend">
-               <img src="icones/checked.png" draggable="false">
-               <p>Votre message a bien été envoyé !</p>
-            </div>
-         <?php } ?>
+         <?= displayMessageSent($SucceedSend); ?>
          <div class="formulaire <?= $theme->getClass("formulaire") ?>">
             <form name="myForm" action="./" method="post">
                <table class="form-style">

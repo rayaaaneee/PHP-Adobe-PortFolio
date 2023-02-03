@@ -86,6 +86,8 @@
     font-family: 'Roboto', sans-serif;	
     font-weight: bold;
     overflow-y: scroll;
+    opacity: 0;
+    transition: 0.5s;
 }
 
 /* Mettre un display flex sur les boutons */

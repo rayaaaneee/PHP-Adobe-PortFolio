@@ -82,7 +82,7 @@ const openPage = () => {
         // Faire apparaitre les boutons
         setTimeout(function() {
             animateOpeningCVFrameButtons();
-        }, animFrameCVDuration);
+        }, animFrameCVDuration/2);
     }, animFrameCVDuration);
 }
 
@@ -99,7 +99,7 @@ const closePage = () => {
     setTimeout(function() {
         backgroundFrameCV.style.removeProperty("opacity");
         animateClosingCVFrameButtons();
-    }, animFrameCVDuration);
+    }, animFrameCVDuration/2);
     
     setTimeout(() => {
         document.body.removeAttribute("style");
@@ -476,9 +476,9 @@ const animateOpeningProjectViewing = () => {
 }
 
 const setTransformationsAnimation = () => {
-    projectPage.querySelector(".content").style.transform = "translateY(120vw)";
+    projectPage.querySelector(".content").style.transform = "translateY(120vh)";
     elementsToMove.forEach(element => {
         element.style.transition = "transform "+ animDuration +"ms ease";
-        element.style.transform = "translateY(120vw)";
+        element.style.transform = "translateY(120vh)";
     });
 }

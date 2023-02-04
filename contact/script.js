@@ -90,13 +90,10 @@ const getNbCharsLeft = (element) => {
 
 const appearCharsLeft = () => {
     nbCharsLeftContainer.style.opacity = 1;
-
-    animateScaleCharsLeftText();
 }
 
 const disappearCharsLeft = () => {
     nbCharsLeftContainer.style.removeProperty('opacity');
-
 }
 
 const initNbCharsLeft = () => {

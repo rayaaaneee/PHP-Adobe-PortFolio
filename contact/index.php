@@ -32,7 +32,7 @@
    <!-- SCRIPTS JS -->
    <script type="text/javascript" src="../menu/menu.js" defer></script>
    <script type="text/javascript" src="../movebackground.js" defer></script>
-   <script type="text/javascript" src="contact.js" defer></script>
+   <script type="text/javascript" src="script.js" defer></script>
    <?php
    if (!$wasSet && !$changedMode) {
    ?>

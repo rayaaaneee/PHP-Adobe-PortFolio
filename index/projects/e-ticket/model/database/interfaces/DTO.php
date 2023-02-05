@@ -93,5 +93,4 @@ abstract class DTO
 
         return $this->_sendQuery($sql, $values);
     }
-
 }

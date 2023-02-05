@@ -81,7 +81,7 @@ abstract class DAO
 
     public function getTableLastId(string $table, string $id_field_name): int
     {
-        $sql = 'SELECT MAX('. $id_field_name .') FROM ' . $table;
+        $sql = 'SELECT MAX(' . $id_field_name . ') FROM ' . $table;
         $id = $this->queryRow($sql, []);
         if ($id[0] == null) {
             return 0;
@@ -90,4 +90,20 @@ abstract class DAO
         }
     }
 
+    public function sendTextQuery(string $sql): array
+    {
+        $result = [];
+        try {
+            $pdos = Connection::getInstance()->getBdd()->query($sql);
+            $pdos->closeCursor();
+            $result = $pdos->fetchAll();
+            return $result;
+        } catch (PDOException $e) {
+            $this->_error = 'query';
+            return [];
+        } catch (NoDatabaseException $e) {
+            $this->_error = 'database';
+            return [];
+        }
+    }
 }

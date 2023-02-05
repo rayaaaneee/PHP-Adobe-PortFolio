@@ -754,3 +754,19 @@ div.ticket-pricing {
 .reply-like-form p{
     color: #ece1e1;
 }
+
+.no-comment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1vw;
+    margin-top: 5vw;
+    color: #afafaf;
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
+iframe {
+    border-radius: 10px;
+}

@@ -4,10 +4,15 @@ session_start();
 // Affichage des erreurs PHP
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-// Variable qui définit si le formulaire a été envoyé
+
+require_once "../models/m_connect.php";
+require_once "../models/m_contact.php";
+require_once "../controllers/DarkMode.php";
+$theme = new DarkMode();
 
 require_once('presenters/contactPresenter.php');
 
+// Variable qui définit si le formulaire a été envoyé
 $wasSet = false;
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
    $wasSet = true;

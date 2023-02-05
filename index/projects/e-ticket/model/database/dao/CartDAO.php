@@ -18,7 +18,7 @@ class CartDAO extends DAO implements IObjectDAO
      * @param int $id User id
      * @return ?Cart Cart object of the user
      */
-    public function getById(int $id) : ?Cart
+    public function getById(int $id): ?Cart
     {
         $sql = "SELECT * FROM cart WHERE ID_USER = ?";
         $result = $this->queryAll($sql, array($id));

@@ -1,8 +1,8 @@
 <?php
 
-class CommentDAO extends DAO implements IObjectDAO
+class AnswerDAO extends DAO implements IObjectDAO
 {
-    private string $baseQuery = "SELECT * FROM comment";
+    private string $baseQuery = "SELECT * FROM answer";
 
     public function getById(int $id): array
     {
@@ -11,9 +11,9 @@ class CommentDAO extends DAO implements IObjectDAO
         return $comment;
     }
 
-    public function getByEventId(int $id): array
+    public function getByCommentId(int $id): array
     {
-        $query = $this->baseQuery . " WHERE ID_EVENT = :id";
+        $query = $this->baseQuery . " WHERE ID_COMMENT = :id";
         $comments = $this->queryAll($query, [':id' => $id]);
         return $comments;
     }

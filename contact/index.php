@@ -1,3 +1,4 @@
+<?php require_once "../controllers/c_contact.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +6,6 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- FICHIERS PHP -->
-   <?php require_once "../models/m_connect.php"; ?>
-   <?php require_once "../models/m_contact.php"; ?>
-   <?php require_once "../controllers/c_contact.php"; ?>
-   <?php require_once "../controllers/DarkMode.php";
-   $theme = new DarkMode(); ?>
    <!-- CSS DE BASE -->
    <link rel="stylesheet" href="../general.css">
    <link rel="stylesheet" href="../menu/menu.css">
@@ -22,7 +17,7 @@
    <!-- CSS DARK THEME -->
    <link rel="stylesheet" href="../menu/dark-menu.css">
    <link rel="stylesheet" href="../dark-scrollbar.css">
-   <link rel="stylesheet" href="../dark-footer.css">
+   <link rel="stylesheet" href="../footer/dark-footer.css">
    <link rel="stylesheet" href="../dark-background.css">
    <link rel="stylesheet" href="dark-page.css">
    <!-- CSS DES MEDIA QUERIES -->

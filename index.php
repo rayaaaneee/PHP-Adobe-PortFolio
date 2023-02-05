@@ -19,7 +19,7 @@
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="menu/dark-menu.css">
     <link rel="stylesheet" href="dark-scrollbar.css">
-    <link rel="stylesheet" href="dark-footer.css">
+    <link rel="stylesheet" href="footer/dark-footer.css">
     <link rel="stylesheet" href="dark-background.css">
     <link rel="stylesheet" href="index/dark-page.css">
     <link rel="stylesheet" href="index/project-page.css">

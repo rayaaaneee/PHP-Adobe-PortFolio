@@ -1,6 +1,6 @@
 <?php
 
-class CommentDTO extends DTO
+class AnswerDTO extends DTO
 {
     public $id;
     public $content;
@@ -11,9 +11,10 @@ class CommentDTO extends DTO
     public function add($object)
     {
         $fields = [
+            "ID_ANSWER",
             "ID_COMMENT",
-            "ID_EVENT",
             "ID_USER",
+            "ID_EVENT",
             "CONTENT",
             "DATE",
             "TIME",
@@ -23,8 +24,9 @@ class CommentDTO extends DTO
 
         $values = [
             $object->getId(),
-            $object->getEventId(),
+            $object->getCommentId(),
             $object->getAuthorId(),
+            $object->getEventId(),
             $object->getContent(),
             $object->getDate()->format("Y-m-d"),
             $object->getDate()->format("H:i:s"),
@@ -32,13 +34,13 @@ class CommentDTO extends DTO
             $object->getNbDislikes()
         ];
 
-        $this->insertQuery("comment", $fields, $values);
+        $this->insertQuery("answer", $fields, $values);
     }
 
     public function update($object)
     {
         $this->_sendQuery(
-            "UPDATE COMMENT SET CONTENT = ?, DATE = ?, ID_USER = ?, ID_POST = ? WHERE ID_COMMENT = ?",
+            "UPDATE ANSWER SET CONTENT = ?, DATE = ?, ID_USER = ?, ID_POST = ? WHERE ID_COMMENT = ?",
             [
                 $object->getContent(),
                 $object->getDate()->format("Y-m-d"),
@@ -53,16 +55,6 @@ class CommentDTO extends DTO
 
     public function delete($object)
     {
-        $this->deleteQuery("COMMENT", "ID_COMMENT", $object->getId());
-    }
-
-    public function like($idComment)
-    {
-        $this->_sendQuery("UPDATE COMMENT SET NUMBER_LIKES = NUMBER_LIKES+1 WHERE ID_COMMENT = ?", [$idComment]);
-    }
-
-    public function dislike($idComment)
-    {
-        $this->_sendQuery("UPDATE COMMENT SET NUMBER_DISLIKES = NUMBER_DISLIKES+1 WHERE ID_COMMENT = ?", [$idComment]);
+        $this->deleteQuery("answer", "ID_ANSWER", $object->getId());
     }
 }

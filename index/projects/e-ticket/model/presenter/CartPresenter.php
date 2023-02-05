@@ -42,7 +42,7 @@ class CartPresenter extends Presenter
 
             $quantity = $infos['quantity'];
 
-            if($i > 0) $display["items"] .= '<div class="cart-bar"></div>';
+            if ($i > 0) $display["items"] .= '<div class="cart-bar"></div>';
             $display['items'] .= '<div class="cart-item">';
             $display['items'] .= '<a href="./?page=event&event=' . $event->getIdEvent() . '">';
             $display['items'] .= '<img src="' . $event->getEventInfo()->getPicture()->getPicturePath() . '" alt="" draggable="false">';
@@ -126,12 +126,13 @@ class CartPresenter extends Presenter
         return $display;
     }
 
-    private function getNewFormatDate($event){
+    private function getNewFormatDate($event)
+    {
         $tmp = substr($event->getEventInfo()->getEventDate(), 0, -6);
         $tab = explode(" ", $tmp);
         $hour = $tab[1] . "h";
         $date = explode("-", $tab[0]);
-        switch ($date[1]){
+        switch ($date[1]) {
             case "01":
                 $date[1] = "janvier";
                 break;
@@ -156,7 +157,7 @@ class CartPresenter extends Presenter
             case "08":
                 $date[1] = "août";
                 break;
-            case "09": 
+            case "09":
                 $date[1] = "septembre";
                 break;
             case "10":
@@ -172,9 +173,9 @@ class CartPresenter extends Presenter
         return $date[2] . " " . $date[1] . " " . $date[0] . " à " . $hour;
     }
 
-    private function echoSelected($i, $quantity){
-        if($i == $quantity) return ['selected',true];
-        else return ['',false];
+    private function echoSelected($i, $quantity)
+    {
+        if ($i == $quantity) return ['selected', true];
+        else return ['', false];
     }
-
 }

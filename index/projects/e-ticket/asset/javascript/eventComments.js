@@ -240,7 +240,7 @@ const disappearTextArea = (element) => {
 }
 
 var lastIndex = null;
-const showTextArea = (element) => {
+const showTextArea = (element, idComment) => {
     if (element.parentNode.parentNode.querySelector('.answer-container') != null){
         element.parentNode.parentNode.querySelector('.answer-container').style.removeProperty('opacity');
         element.querySelector('p:last-child').style.removeProperty('transform');
@@ -251,6 +251,7 @@ const showTextArea = (element) => {
         let form = formTextAreaContainer.cloneNode(true);
         initForm(form);
 
+
         setTimeout(function() {
             form.style.opacity = "1";
         }, 20);
@@ -258,6 +259,18 @@ const showTextArea = (element) => {
         answersContainer = element.parentNode.parentNode.querySelector('.comment-answers-visible');
 
         answersContainer.parentNode.insertBefore(form, answersContainer);
+
+        inputCommentId = document.createElement('input');
+        inputCommentId.setAttribute('type', 'hidden');
+        inputCommentId.setAttribute('name', 'commentId');
+        inputCommentId.setAttribute('value', idComment);
+
+        inputSendReply = document.createElement('input');
+        inputSendReply.setAttribute('type', 'hidden');
+        inputSendReply.setAttribute('name', 'sendReply');
+
+        form.appendChild(inputCommentId);
+        form.appendChild(inputSendReply);
     }
 }
 

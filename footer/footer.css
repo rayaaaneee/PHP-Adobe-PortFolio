@@ -6,13 +6,50 @@ footer {
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
     display : grid;
     width: 100vw;
-    height: fit-content;
+    height: 10vh;
     min-height: fit-content;
     grid-template-columns: 7fr 2fr;
 }
 
 #footer1 {
-    margin-left: 25px;
+    margin: 0;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.5vw;
+    align-items: center;
+    justify-content: start;
+}
+
+#footer1 > .point-footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+#footer1 > .point-footer-container > .point-footer {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+#footer1 > .redirect-about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 21px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: underline;
+    letter-spacing: 2px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 #footer2{

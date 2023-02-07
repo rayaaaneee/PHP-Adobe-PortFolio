@@ -721,13 +721,13 @@ div.ticket-pricing {
     align-items: center;
     width: 5vw;
     position: absolute;
-    margin-left: 73vw;
-    transform: translateY(-1.7vw);
+    margin-left: 57vw;
+    transform: translateY(-1vw);
 }
 
 .reply-like-form {
-    width: 2.6vw;
-    height: 1.8vw;
+    width: 5vw;
+    height: 3.5vw;
 }
 
 .reply-like-form img{

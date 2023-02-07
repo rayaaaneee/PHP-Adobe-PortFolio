@@ -25,7 +25,13 @@
     <link rel="stylesheet" href="media-page.css">
     <!-- JS -->
     <script src="../menu/menu.js" defer></script>
+    <script type="text/javascript" src="movebackground.js" defer></script>
+    <?php if (!$changedMode) { ?>
+        <script type="text/javascript" src="removeLoader.js" defer></script>
+    <?php } ?>
     <script src="script.js" defer></script>
+    <link sizes="180x180" href="logos/<?= $theme->getFavicon() ?>.png" rel="icon" type="image/png">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>À propos</title>
 </head>
 <?php require_once "../menu/menu.php"; ?>

@@ -2,17 +2,17 @@
 
 class CommentPresenter extends Presenter
 {
-    private $commentdao;
-    private $userdao;
-    private $eventId;
-    private $answerdao;
+    private CommentDAO $commentdao;
+    private UserDAO $userdao;
+    private AnswerDAO $answerdao;
+    private int $eventId;
 
     public function __construct($eventId)
     {
         $this->commentdao = new CommentDAO();
         $this->userdao = new UserDAO();
-        $this->eventId = $eventId;
         $this->answerdao = new AnswerDAO();
+        $this->eventId = $eventId;
     }
 
     public function checkProcess(): void
@@ -100,7 +100,8 @@ class CommentPresenter extends Presenter
                 $display['comment'] .= '</div>';
                 $display['comment'] .= '<div class="comment-answers-visible" style="display:none">';
 
-                $this->formatDisplayAnswers($answers, $display, $nbComment);
+                $displayAnswers = $this->formatDisplayAnswers($answers, $nbComment);
+                $display['comment'] .= $displayAnswers;
 
                 $display['comment'] .= '</div>';
                 $display['comment'] .= '</div>';
@@ -114,34 +115,39 @@ class CommentPresenter extends Presenter
         return $display;
     }
 
-    public function formatDisplayAnswers($answers, $display, $nbComment): array
+    public function formatDisplayAnswers($answers, $nbComment): string
     {
+        $display = "";
         $nbAnswer = 0;
         foreach ($answers as $answer) {
 
-            $display['comment'] .= '<div class="reply">';
-            $display['comment'] .= '<a href="?page=profile&user=' . $answer['ID_USER'] . '" class="reply-author comment-author">';
-            $display['comment'] .= '<img src="https://i.pravatar.cc/150?img=1" alt="avatar">';
-            $display['comment'] .= '<p>' . $this->userdao->getUserById($answer["ID_USER"])->getFirstName() . '</p>';
-            $display['comment'] .= '</a>';
-            $display['comment'] .= '<div class="reply-content-date comment-content-date">';
-            $display['comment'] .= '<p class="reply-date">Le 01/01/2021 à 00:00</p>';
-            $display['comment'] .= '<p class="reply-content">Cest ton gars coco jojo</p>';
-            $display['comment'] .= '<p class="reply-read-more" id="rrm' . $nbAnswer . '" onclick="showAllReply(this, ' . $nbComment . ')">Voir plus</p>';
-            $display['comment'] .= '</div>';
-            $display['comment'] .= '<div class="like-reply-container">';
-            $display['comment'] .= '<form action="./?page=event&event=' . $this->eventId . '" method="post" class="reply-like-form like-form">';
-            $display['comment'] .= '<input type="hidden" value="like">';
-            $display['comment'] .= '<p>' . $answer['NUMBER_LIKES'] . '</p>';
-            $display['comment'] .= '<button type="submit"><img src="' . PATH_IMAGES . '"useful/likeblack.png" alt="like" class="reply-like-btn-img"></button>';
-            $display['comment'] .= '<form action="./?page=event&event=' . $this->eventId . '" method="post" class="reply-like-form like-form">';
-            $display['comment'] .= '</form>';
-            $display['comment'] .= '<input type="hidden" value="dislike">';
-            $display['comment'] .= '<p>' . $answer['NUMBER_DISLIKES'] . '</p>';
-            $display['comment'] .= '<button type="submit"><img src="' . PATH_IMAGES . '"useful/likered.png" alt="dislike" class="reply-like-btn-img"></button>';
-            $display['comment'] .= '</form>';
-            $display['comment'] .= '</div>';
-            $display['comment'] .= '</div>';
+            $display .= '<div class="reply">';
+            $display .= '<a href="?page=profile&user=' . $answer['ID_USER'] . '" class="reply-author comment-author">';
+            $display .= '<img src=' . $this->userdao->getUserById($answer["ID_USER"])->getProfilePicturePath() . ' alt="avatar">';
+            $display .= '<p>' . $this->userdao->getUserById($answer["ID_USER"])->getFirstName() . '</p>';
+            $display .= '</a>';
+            $display .= '<div class="reply-content-date comment-content-date">';
+            $display .= '<p class="reply-date">Le 01/01/2021 à 00:00</p>';
+            $display .= '<p class="reply-content">' . $answer["CONTENT"] . '</p>';
+            $display .= '<p class="reply-read-more" id="rrm' . $nbAnswer . '" onclick="showAllReply(this, ' . $nbComment . ')">Voir plus</p>';
+            $display .= '</div>';
+            $display .= '<div class="like-reply-container">';
+            $display .= '<form action="./?page=event&event=' . $this->eventId . '" method="post" class="reply-like-form like-form">';
+            $display .= '<input type="hidden" value="like">';
+            $display .= '<p>' . $answer['NUMBER_LIKES'] . '</p>';
+            $display .= '<button type="submit">';
+            $display .= '<img src="' . PATH_IMAGES . 'useful/likeblack.png" alt="like" class="reply-like-btn-img">';
+            $display .= '</button>';
+            $display .= '</form>';
+            $display .= '<form action="./?page=event&event=' . $this->eventId . '" method="post" class="reply-like-form like-form">';
+            $display .= '<input type="hidden" value="dislike">';
+            $display .= '<p>' . $answer['NUMBER_DISLIKES'] . '</p>';
+            $display .= '<button type="submit">';
+            $display .= '<img src="' . PATH_IMAGES . 'useful/likered.png" alt="dislike" class="reply-like-btn-img">';
+            $display .= '</button>';
+            $display .= '</form>';
+            $display .= '</div>';
+            $display .= '</div>';
             $nbAnswer++;
         }
         return $display;

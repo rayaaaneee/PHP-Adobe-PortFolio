@@ -16,18 +16,19 @@
     <link rel="stylesheet" href="../loaderframe.css">
     <link rel="stylesheet" href="../scrollbar.css">
     <!-- CSS DARK MODE -->
+    <link rel="stylesheet" href="dark-page.css">
     <link rel="stylesheet" href="../menu/dark-menu.css">
     <link rel="stylesheet" href="../footer/dark-footer.css">
     <link rel="stylesheet" href="../dark-background.css">
     <link rel="stylesheet" href="../dark-scrollbar.css">
     <!-- CSS DES MEDIA QUERIES -->
-    <link rel="stylesheet" href="../menu/media-menu.css">
+    <link rel="stylesheet" href="../menu/mediamenu.css">
     <link rel="stylesheet" href="media-page.css">
     <!-- JS -->
     <script src="../menu/menu.js" defer></script>
-    <script type="text/javascript" src="movebackground.js" defer></script>
+    <script type="text/javascript" src="../movebackground.js" defer></script>
     <?php if (!$changedMode) { ?>
-        <script type="text/javascript" src="removeLoader.js" defer></script>
+        <script type="text/javascript" src="../removeLoader.js" defer></script>
     <?php } ?>
     <script src="script.js" defer></script>
     <link sizes="180x180" href="logos/<?= $theme->getFavicon() ?>.png" rel="icon" type="image/png">
@@ -55,18 +56,34 @@
     <div class="main-container">
         <div class="content">
             <div class="privacy">
-                <div class="title-container">
-                    <h1 class="title">• Politique de confidentialité</h1>
-                    <img src="icones/privacy.png" alt="" />
+                <div class="title-container title-container-first-child">
+                    <h1 class="title title1">• Politique de confidentialité</h1>
+                    <div class="bar"></div>
+                    <img src="<?= $theme->getImagePath("icones/privacy"); ?>.png" alt="privacy" />
                 </div>
-                <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, a nemo? Odit in alias beatae tempore, iste vitae neque quae ratione at ducimus, nobis quia architecto. Nulla laudantium inventore doloremque a, alias quia dolorum dolores explicabo. Natus quam quod deserunt atque voluptates dolores vitae vel eos, facilis molestiae eveniet consequuntur recusandae ipsum tempore debitis adipisci? Quis temporibus voluptatem maxime laboriosam sed nam, vitae aperiam perferendis minima iusto eius repellendus tempore omnis quisquam. Tempora facilis perspiciatis possimus quidem eius quia, dolore quo consequatur non labore nihil excepturi eveniet obcaecati qui cumque. Deleniti deserunt tenetur autem unde alias. Expedita quod reprehenderit assumenda?</p>
+                <p class="text-content">Your privacy is important to me. It is Adobe PortFolio's policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, https://rayanemerlin.com, and other sites we own and operate. </br>This policy is effective as of 7 February 2023 and was last updated on 7 February 2023.</p>
+                <h2 class="subtitle">- Me contacter</h2>
+                <p class="text-content">For any questions or concerns regarding your privacy, you may contact us using the following details:</br>https://rayanemerlin.com/contact</p>
+                <h2 class="subtitle">- Informations collectées</h2>
+                <p class="text-content">
+                    Information we collect includes both information you knowingly and actively provide us when using or participating in any of our services and promotions, and any information automatically sent by your devices in the course of accessing our products and services.
+                </p>
+                <h2 class="subtitle">- Log Data</h2>
+                <p class="text-content">
+                    When you visit our website, our servers may automatically log the standard data provided by your web browser. It may include your device’s Internet Protocol (IP) address, your browser type and version, the pages you visit, the time and date of your visit, the time spent on each page, other details about your visit, and technical details that occur in conjunction with any errors you may encounter. </br> Please be aware that while this information may not be personally identifying by itself, it may be possible to combine it with other data to personally identify individual persons.
+                </p>
+                <h2 class="subtitle">- Personal Information</h2>
+                <p class="text-content">We may ask for personal information which may include one or more of the following: </br>• Name</br>• Email</p>
+                <h2 class="subtitle">- Use of Cookies</h2>
+                <p class="text-content">We use “cookies” to collect information about you and your activity across our site. A cookie is a small piece of data that our website stores on your computer, and accesses each time you visit, so we can understand how you use our site. This helps us serve you content based on preferences you have specified.</p>
             </div>
             <div class="contact">
                 <div class="title-container">
-                    <h1 class="title">• À propos</h1>
-                    <img src="icones/about_yellow.png" alt="" />
+                    <h1 class="title title2">• À propos</h1>
+                    <div class="bar"></div>
+                    <img src="<?= $theme->getImagePath("icones/about"); ?>.png" alt="about_icon" />
                 </div>
-                <p class="text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, laboriosam! Placeat, cumque illo! Quisquam voluptate quasi enim rerum obcaecati laboriosam neque illo provident! Dicta accusantium veritatis laudantium minima in atque at voluptates reiciendis qui hic cupiditate veniam repellat, vero quod molestias officia illo nulla nostrum dolor consectetur similique illum accusamus optio. Fugiat vitae delectus, cumque perferendis maxime voluptate voluptatibus pariatur doloribus officiis ducimus, dolores tenetur. Incidunt dicta recusandae quae itaque cupiditate, corporis, soluta ratione fugiat voluptatem, repudiandae dolores. Porro recusandae nihil beatae tempora vel, ad molestias expedita ratione soluta praesentium eos exercitationem sit quia iste dolor non quibusdam, asperiores libero?</p>
+                <p class="text-content">Ce site a été entièrement codé par mes soins dans le but de présenter mon parcours, mes projets et mes compétences.</p>
             </div>
         </div>
 </body>

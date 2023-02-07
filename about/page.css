@@ -11,6 +11,7 @@ body {
 }
 
 .content {
+    margin-top: 12vh;
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.801);
@@ -29,7 +30,8 @@ body {
 }
 
 .text-content {
-    margin: 1.5vw 2.5vw;
+    margin: 1.5vw 4vw 1.5vw 8vw;
+    text-align: justify;
 }
 
 .title-container {
@@ -39,7 +41,7 @@ body {
     justify-content: space-between;
 }
 
-.title-container:first-child {
+.title-container-first-child {
     margin-top: 2vw;
 }
 
@@ -52,4 +54,17 @@ body {
     width: 3.5vw;
     height: 3.5vw;
     margin-right: 2vw;
+}
+
+.subtitle {
+    margin-left: 6vw;
+    color : rgb(223, 207, 127);
+}
+
+.bar {
+    width: 30%;
+    height: 0.4vw;
+    border-radius: 10px;
+    background-color: rgb(223, 207, 127);
+    margin-top: 1vw;
 }

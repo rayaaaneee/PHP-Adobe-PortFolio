@@ -1,0 +1,222 @@
+.title-page {
+    text-align: center;
+}
+
+.subtitle-page {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.main-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 98vh;
+    display: flex;
+    flex-direction: row;
+    column-gap: 6vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container > .container-index-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+    border-radius: 10px;
+    background-color: rgba(240, 248, 255, 0.2);
+    box-shadow: 0 0 70px #000000;
+    backdrop-filter: blur(10px);
+    padding: 4vw;
+}
+
+.logo-site {
+    width: 7vw;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.form-main-page {
+    margin: 0;
+    margin-top: 30px;
+    height: fit-content;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+}
+
+.form-main-page input {
+    height: 30px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 0 15px;
+    font-size: 1em;
+    font-weight: 300;
+    outline: none;
+    border : none;
+}
+
+.form-main-page button[type="submit"] {
+    margin-top: 15px;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-main-page button[type="submit"]:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.choose-word-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    margin-top: 30px;
+}
+
+.first-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.title-recents-events {
+    height: fit-content;
+    text-align: center;
+    margin: 0.5em 0;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-recents-events > .logo-recent-events {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.title-recents-events > h2 {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.main-container-recent-events {
+    width: fit-content;
+    height: 65vh;
+    overflow-y: auto;
+}
+
+.main-container-recent-events::-webkit-scrollbar {
+    display: none;
+}
+
+.main-container-start-game {
+    width: min-content;
+    height: fit-content;
+}
+
+.all-informations-games {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+    margin-top: 30px;
+}
+
+.game, .no-game-container {
+    width: 98%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.no-game-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.surlign-text {
+    color: #1e1e1e;
+    font-weight: bold;
+}
+
+.game * {
+    margin: 0;
+    padding: 0;
+}
+
+.game p, .no-game-container p, .container-index-page label {
+    text-shadow: 0 0 10px #000000;
+    text-align: center;
+}
+
+.separator-bar, .game, .no-game-container {
+    box-shadow: 0 0 70px #000000;
+}
+
+.game img {
+    width: 5vw;
+    height: fit-content;
+    display: block;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5px;
+}
+
+.text-container-players, .text-container-winner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4px;
+}
+
+.separator-bar {
+    width: 30%;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 3px 0;
+}

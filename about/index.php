@@ -61,21 +61,19 @@
                     <div class="bar"></div>
                     <img src="<?= $theme->getImagePath("icones/privacy"); ?>.png" alt="privacy" />
                 </div>
-                <p class="text-content">Your privacy is important to me. It is Adobe PortFolio's policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, https://rayanemerlin.com, and other sites we own and operate. </br>This policy is effective as of 7 February 2023 and was last updated on 7 February 2023.</p>
+                <p class="text-content">Votre vie privée est importante pour moi. La politique d'Adobe PortFolio est de respecter votre vie privée et de se conformer à toutes les lois et réglementations applicables concernant les informations personnelles que nous pouvons collecter à votre sujet, y compris sur mon site Web, https://rayanemerlin.com.</br>Cette politique est en vigueur depuis le 7 février 2023 et a été mise à jour pour la dernière fois le 7 février 2023.</p>
                 <h2 class="subtitle">- Me contacter</h2>
-                <p class="text-content">For any questions or concerns regarding your privacy, you may contact us using the following details:</br>https://rayanemerlin.com/contact</p>
+                <p class="text-content">Pour toute question ou préoccupation concernant votre vie privée, vous pouvez nous contacter en utilisant les coordonnées suivantes :</br>https://rayanemerlin.com/contact</p>
                 <h2 class="subtitle">- Informations collectées</h2>
-                <p class="text-content">
-                    Information we collect includes both information you knowingly and actively provide us when using or participating in any of our services and promotions, and any information automatically sent by your devices in the course of accessing our products and services.
+                <p class="text-content">Les informations que nous collectons incluent à la fois les informations que vous nous fournissez sciemment et activement lorsque vous utilisez ou participez à l'un de nos services et promotions, et toute information envoyée automatiquement par vos appareils lors de l'accès à nos produits et services.
                 </p>
                 <h2 class="subtitle">- Log Data</h2>
-                <p class="text-content">
-                    When you visit our website, our servers may automatically log the standard data provided by your web browser. It may include your device’s Internet Protocol (IP) address, your browser type and version, the pages you visit, the time and date of your visit, the time spent on each page, other details about your visit, and technical details that occur in conjunction with any errors you may encounter. </br> Please be aware that while this information may not be personally identifying by itself, it may be possible to combine it with other data to personally identify individual persons.
+                <p class="text-content">Lorsque vous visitez notre site Web, nos serveurs peuvent enregistrer automatiquement les données standard fournies par votre navigateur Web. Il peut inclure l'adresse IP (Internet Protocol) de votre appareil, le type et la version de votre navigateur, les pages que vous visitez, l'heure et la date de votre visite, le temps passé sur chaque page, d'autres détails sur votre visite et des détails techniques qui se produisent dans conjonction avec les erreurs que vous pourriez rencontrer. </br> Veuillez noter que même si ces informations peuvent ne pas être personnellement identifiables en elles-mêmes, il peut être possible de les combiner avec d'autres données pour identifier personnellement des personnes individuelles.
                 </p>
                 <h2 class="subtitle">- Personal Information</h2>
-                <p class="text-content">We may ask for personal information which may include one or more of the following: </br>• Name</br>• Email</p>
-                <h2 class="subtitle">- Use of Cookies</h2>
-                <p class="text-content">We use “cookies” to collect information about you and your activity across our site. A cookie is a small piece of data that our website stores on your computer, and accesses each time you visit, so we can understand how you use our site. This helps us serve you content based on preferences you have specified.</p>
+                <p class="text-content">Il pourrait vous être demandées des informations personnelles qui peuvent inclure un ou plusieurs des éléments suivants :</br>• Nom</br>• Email</p>
+                <h2 class="subtitle">- Utilisation des cookies</h2>
+                <p class="text-content">Nous utilisons des « cookies » pour collecter des informations sur vous et votre activité sur notre site. Un cookie est un petit élément de données que notre site Web stocke sur votre ordinateur et auquel il accède à chaque fois que vous visitez, afin que nous puissions comprendre comment vous utilisez notre site. Cela nous aide à vous proposer du contenu en fonction des préférences que vous avez spécifiées.</p>
             </div>
             <div class="contact">
                 <div class="title-container">

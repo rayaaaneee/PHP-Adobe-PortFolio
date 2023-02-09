@@ -1,7 +1,7 @@
 <footer>
     <div class="text-container-footer">
-        <p class="title-footer">Jeu du pendu</p>
-        <p class="title-footer">- Projet scolaire réalisé dans le cadre d'une mise à niveau PHP</p>
+        <p class="title-footer">Hangman game</p>
+        <p class="title-footer">- This school project was realized as part of a PHP upgrade.</p>
     </div>
 </footer>
 </body>

@@ -2,6 +2,7 @@
 class GameDAO
 {
     private $db;
+    private $limit = 7;
 
     public function __construct()
     {
@@ -25,7 +26,7 @@ class GameDAO
 
     public function getLastGames()
     {
-        $sql = "SELECT * FROM game ORDER BY id DESC LIMIT 7";
+        $sql = "SELECT * FROM game ORDER BY id DESC LIMIT " . $this->limit;
 
         $res = $this->db->query($sql)->fetchAll();
 
@@ -34,6 +35,21 @@ class GameDAO
             return null;
         } else {
             return $res;
+        }
+    }
+
+    public function getGamesCount()
+    {
+        $sql = "SELECT COUNT(*) FROM game";
+
+        $res = $this->db->query($sql)->fetch();
+
+        // Si la requête ne retourne rien, on retourne 0
+        if ($res === false) {
+            return 0;
+        } else {
+            // On transform le résultat en entier
+            return $res['COUNT(*)'];
         }
     }
 }

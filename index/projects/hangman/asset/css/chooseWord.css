@@ -3,7 +3,6 @@
     font-weight: bold;
     text-align: center;
     margin: 0.5em 0;
-    text-decoration: underline;
 }
 
 .title-page-game-container {
@@ -69,4 +68,17 @@
     box-shadow: 0 0 70px #000000;
     backdrop-filter: blur(10px);
     padding: 4vw;
+}
+
+.choose-word-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    margin-top: 30px;
+}
+
+.choose-word-container > * {
+    box-shadow: 0 0 40px #000000;
 }

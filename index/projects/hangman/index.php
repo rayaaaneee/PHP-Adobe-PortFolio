@@ -4,70 +4,90 @@ require_once PATH_DAO . 'GameDAO.php';
 session_destroy();
 
 $dao = new GameDAO();
+$nbGames = $dao->getGamesCount();
 $games = $dao->getLastGames();
 
 ?>
+
+<head>
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>index.css">
+</head>
 <div class="main-container">
     <div class="container-index-page main-container-recent-events">
         <div class="title-recents-events">
             <img src="<?= PATH_IMG ?>clock.png" alt="logo" class="logo-recent-events" draggable="false" />
-            <h2>Dernières parties : </h2>
+            <h2>Last games : </h2>
         </div>
-        <div class="separator-bar"></div>
         <div class="all-informations-games">
-            <?php
-            $i = 0;
-            foreach ($games as $game) { ?>
+            <?php foreach ($games as $game) { ?>
                 <div class="game">
-                    <img src="<?= PATH_IMG ?>crown.png" alt="crown" class="logo-winner" draggable="false" />
+                    <div class="img-date-container">
+                        <?php $date = new DateTime($game['date']); ?>
+                        <p class="date"><?= $date->format("d M Y"); ?></p>
+                        <img src="<?= PATH_IMG ?>crown.png" alt="crown" class="logo-winner" draggable="false" />
+                        <?php $time = new DateTime($game['time']); ?>
+                        <p class="time">At <?= $time->format('H:i'); ?></p>
+                    </div>
                     <div class="text-container">
                         <div class="text-container-players">
                             <p class="surlign-text"><?= $game['player1']; ?></p>
-                            <p>a joué contre </p>
+                            <p>played without </p>
                             <p class="surlign-text"><?= $game['player2']; ?> !</p>
                         </div>
                         <div class="text-container-winner">
                             <p class="surlign-text"><?= $game['winner']; ?></p>
-                            <p>a gagné, il a retrouvé le mot "</p>
+                            <p>won, he found the word "</p>
                             <p class="surlign-text"><?= strtolower($game['word']); ?></p>
                             <?php if ($game['errors'] > 1) {
                             ?>
-                                <p>" en </p>
+                                <p>" in </p>
                                 <p class="surlign-text"><?= $game['errors']; ?></p>
                             <?php
-                                $text = "erreurs !";
+                                $text = "errors !";
                             } else if ($game['errors'] == 1) {
                             ?>
-                                <p>" en </p>
+                                <p>" in </p>
                                 <p class="surlign-text"><?= $game['errors']; ?></p>
                             <?php
-                                $text = "erreur !";
+                                $text = "error !";
                             } else {
-                                $text = '" sans erreurs !';
+                                $text = '" without errors !';
                             } ?>
                             <p><?= $text; ?></p>
                         </div>
                     </div>
                 </div>
-            <?php $i++;
+            <?php
             }
 
-            if ($i == 0) { ?>
+            if ($nbGames > 7) {
+                $i = 0;
+            ?>
+                <div class="three-little-points">
+                    <p> ● </p>
+                    <p> ● </p>
+                    <p> ● </p>
+                </div>
+            <?php
+            }
+
+            if ($nbGames == 0) { ?>
                 <div class="no-game-container">
-                    <p class="no-games">Aucune partie n'a encore été jouée,</br> faite des parties et elles s'afficheront ici !</p>
+                    <p class="no-games">No games have been played yet,</br> do some and they will show up here!</p>
                 </div>
             <?php } ?>
         </div>
     </div>
     <div class="container-index-page main-container-start-game">
         <img src="<?= PATH_IMG ?>main-img-white.png" alt="logo" class="logo-site" draggable="false" />
+        <div class="separator-bar"></div>
         <div class="set-informations">
             <form action="./chooseWord.php" class="form-main-page" method="post">
-                <label for="name">Nom du Premier Joueur</label>
+                <label for="name">First player name</label>
                 <input type="text" name="pseudo-player-one" id="name-one" placeholder="pseudo1" maxlength="15" required />
-                <label for="name">Nom du Deuxième Joueur</label>
+                <label for="name">Second player name</label>
                 <input type="text" name="pseudo-player-two" id="name-two" placeholder="pseudo2" maxlength="15" required />
-                <button type="submit">Valider</button>
+                <button type="submit">Validate</button>
             </form>
         </div>
     </div>

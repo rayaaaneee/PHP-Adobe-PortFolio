@@ -22,9 +22,6 @@ require_once PATH_CLASSES . 'game.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>style.css">
-    <link rel="stylesheet" href="<?= PATH_CSS; ?>index.css">
-    <link rel="stylesheet" href="<?= PATH_CSS; ?>gamePage.css">
-    <link rel="stylesheet" href="<?= PATH_CSS; ?>chooseWord.css">
     <!-- JS Only -->
     <script src="<?= PATH_JS; ?>script.js" defer></script>
     <link rel="icon" href="<?= PATH_IMG; ?>favicon/favicon.png">
@@ -33,7 +30,7 @@ require_once PATH_CLASSES . 'game.php';
 
 <body>
     <header>
-        <h1 class="title-page">Le Pendu</h1>
+        <h1 class="title-page">Hangman</h1>
         <div class="separator-bar"></div>
-        <h2 class="subtitle-page">Par Rayane Merlin</h2>
+        <h2 class="subtitle-page">By Rayane Merlin</h2>
     </header>

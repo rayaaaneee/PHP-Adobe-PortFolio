@@ -85,6 +85,11 @@ class Game
         }
     }
 
+    public function getWordSearcher()
+    {
+        return $this->wordSearcher;
+    }
+
     public function getWordChooser()
     {
         return $this->wordChooser;
@@ -99,25 +104,28 @@ class Game
     {
         if ($this->isFinished()) {
             return;
-        }
-        $letter = strtoupper($letter);
-        $word = $this->getWord();
-        $word = strtoupper($word);
-
-        if (in_array($letter, $this->allLetters)) {
-            echo '<p class="already-tried-letter">Vous avez déjà essayé cette lettre !';
-            return false;
-        }
-
-        if (strpos($word, $letter) !== false) {
-            $this->addTrueLetter($letter);
-            $this->setAllLetters();
-            return true;
         } else {
-            $this->Errors++;
-            $this->setAllLetters();
-            $this->addFalseLetter($letter);
-            return false;
+            $letter = strtoupper($letter);
+            $word = $this->getWord();
+            $word = strtoupper($word);
+
+            if (in_array($letter, $this->allLetters)) {
+
+                echo "okay";
+                return false;
+            } else {
+
+                if (strpos($word, $letter) !== false) {
+                    $this->addTrueLetter($letter);
+                    $this->setAllLetters();
+                    return true;
+                } else {
+                    $this->Errors++;
+                    $this->setAllLetters();
+                    $this->addFalseLetter($letter);
+                    return false;
+                }
+            }
         }
     }
 
@@ -235,9 +243,9 @@ class Game
 
         $result = true;
 
-        for ($i = 0; $i < $this->getNbChars(); $i++) {
-            if (!in_array($word[$i], $this->trueLetters) && $word[$i] != ' ') {
-                if ($this->Errors < 10) {
+        if ($this->Errors < 10) {
+            for ($i = 0; $i < $this->getNbChars(); $i++) {
+                if (!in_array($word[$i], $this->trueLetters) && $word[$i] != ' ') {
                     $result = false;
                     break;
                 }

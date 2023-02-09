@@ -32,6 +32,10 @@ if (isset($_POST['pseudo-player-one']) && isset($_POST['pseudo-player-two'])) {
     header('Location: ./');
 }
 ?>
+
+<head>
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>chooseWord.css">
+</head>
 <div class="main-container-choose-word">
     <div class="container-choose-word">
         <div class="title-page-game-container">

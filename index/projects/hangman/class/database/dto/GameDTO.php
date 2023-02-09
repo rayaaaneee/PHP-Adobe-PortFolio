@@ -13,9 +13,12 @@ class GameDTO
 
     public function insert($object)
     {
-        $req = $this->db->prepare("INSERT INTO game (id, player1, player2, word, winner, errors) VALUES (:id, :player1, :player2, :word, :winner, :errors)");
+        $req = $this->db->prepare("INSERT INTO game (id, player1, player2, word, winner, errors, date, time) VALUES (:id, :player1, :player2, :word, :winner, :errors, :date, :time)");
 
         $id = $this->gameDAO->getLastId();
+
+        $date = new DateTime();
+        $date->setTimezone(new DateTimeZone('Europe/Paris'));
 
         $req->execute(array(
             'id' => $id,
@@ -23,7 +26,9 @@ class GameDTO
             'player2' => $object->getPseudo2(),
             'word' => $object->getWord(),
             'winner' => $object->getWinnerName(),
-            'errors' => $object->getErrors()
+            'errors' => $object->getErrors(),
+            'date' => $date->format('Y-m-d'),
+            'time' => $date->format('H:i:s')
         ));
     }
 }

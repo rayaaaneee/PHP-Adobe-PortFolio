@@ -12,10 +12,19 @@ body {
     background-position: center;
     margin: 0;
     padding: 0;
+    overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 * {
     font-weight: bold;
+}
+
+header h1, header h2 {
+    text-shadow: 0 0 10px #000000;
 }
 
 footer {
@@ -34,6 +43,7 @@ footer {
     font-size: 16px;
     font-weight: 600;
     text-shadow: 0 0 10px #f0dfdf;
+    border-radius: 2vw 2vw 0 0;
 }
 
 header {
@@ -58,6 +68,7 @@ header > .separator-bar {
     height: 4px;
     background-color: #ffffff;
     border-radius: 5px;
+    box-shadow: 0 0 10px #000000;
 }
 
 .text-container-footer {

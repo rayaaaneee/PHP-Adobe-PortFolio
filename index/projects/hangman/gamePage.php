@@ -3,6 +3,7 @@ require_once PATH_DTO . 'GameDTO.php';
 
 $gameDTO = new GameDTO();
 $game = unserialize($_SESSION['game']);
+$alreadySent = false;
 
 if (isset($_POST['word'])) {
 
@@ -13,10 +14,12 @@ if (isset($_POST['word'])) {
 } else if (isset($_POST['letter'])) {
     $letter = $_POST['letter'];
     $game->setAllLetters();
-    $game->tryLetter($letter);
+    $alreadySent = $game->tryLetter($letter);
 } else {
     header('Location: ./');
 }
+
+var_dump($alreadySent);
 
 $game->saveInSession();
 
@@ -31,7 +34,14 @@ if ($game->isFinished()) {
 }
 
 ?>
+
+<head>
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>gamePage.css">
+</head>
 <div class="main-container-game-page">
+    <?php if ($alreadySent) { ?>
+        <p class="already-tried-letter">Vous avez déjà essayé cette lettre !'</p>
+    <?php } ?>
     <div class="game-container">
         <div class="word">
             <p>Mot :</p>

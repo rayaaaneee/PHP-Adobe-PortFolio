@@ -1,4 +1,5 @@
 <?php require_once 'header.php';
+require_once PATH_DAO . 'GameDAO.php';
 require_once PATH_DTO . 'GameDTO.php';
 
 $gameDTO = new GameDTO();

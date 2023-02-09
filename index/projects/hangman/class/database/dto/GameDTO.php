@@ -1,5 +1,4 @@
 <?php
-require_once PATH_DAO . '/GameDAO.php';
 class GameDTO
 {
     private $db;

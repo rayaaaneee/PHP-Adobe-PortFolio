@@ -43,7 +43,7 @@ if (isset($_POST['pseudo-player-one']) && isset($_POST['pseudo-player-two'])) {
             <p class="title-page-game"><?= $titlePageText; ?></p>
         </div>
         <form action="./gamePage.php" class="choose-word-container" method="post">
-            <input type="text" name="word" class="input-word" placeholder="Choisissez un mot" maxlength="30" required>
+            <input type="text" name="word" class="input-word" placeholder="Choisissez un mot" maxlength="20" required>
             <input type="submit" value="Valider" class="submit-word">
         </form>
     </div>

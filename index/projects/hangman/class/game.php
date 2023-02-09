@@ -46,6 +46,15 @@ class Game
         return strlen($this->word);
     }
 
+    public function getLoserName()
+    {
+        if ($this->getWinnerName() == $this->pseudo1) {
+            return $this->pseudo2;
+        } else {
+            return $this->pseudo1;
+        }
+    }
+
     public function setWord($word)
     {
         $this->word = $word;
@@ -163,6 +172,10 @@ class Game
                 $result .= '<p class="hide-word">' . $word[$i] . '</p>';
             } else if ($word[$i] == ' ') {
                 $result .= '<p class="hide-word-space"> </p>';
+            } else if ($word[$i] == '\'') {
+                $result .= '<p class="hide-word-space">\'</p>';
+            } else if ($word[$i] == '-') {
+                $result .= '<p class="hide-word-space">-</p>';
             } else {
                 $result .= '<p class="hide-word">_</p>';
             }
@@ -265,5 +278,17 @@ class Game
         }
 
         return $result;
+    }
+
+    public function verifyWord()
+    {
+        $word = strtoupper($this->word);
+        $res = true;
+        // On vérifie que le mot ne contient pas de caractères spéciaux en dehors des espaces et accents
+        if (preg_match("/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ'- ]/", $word)) {
+            $res = false;
+        }
+
+        return $res;
     }
 }

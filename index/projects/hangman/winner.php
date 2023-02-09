@@ -22,7 +22,9 @@ if (!isset($_SESSION['game'])) {
                     <div class="separator-bar"></div>
                 </div>
                 <p class="surlign-text"><?php echo $game->getWinnerName(); ?></p>
-                <p>has won the game!</p>
+                <p>has won the game against</p>
+                <p class="surlign-text"><?php echo $game->getLoserName(); ?></p>
+                <p>!</p>
             </div>
             <?php if ($game->getWordSearcher() != $game->getWinnerName()) { ?>
                 <img class="img-loser" src="<?= PATH_IMG; ?>sprites/11.png" alt="Image pendu" draggable="false">

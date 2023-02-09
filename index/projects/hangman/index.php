@@ -82,6 +82,17 @@ $games = $dao->getLastGames();
     <div class="container-index-page main-container-start-game">
         <img src="<?= PATH_IMG ?>main-img-white.png" alt="logo" class="logo-site" draggable="false" />
         <div class="separator-bar"></div>
+        <?php if (isset($_GET['error'])) {
+            $errorText = "";
+            $error = $_GET['error'];
+            if ($error == "word") {
+                $errorText = "Veuillez entrer un mot valide !";
+            }
+        ?>
+            <div class="error-text-container">
+                <p class='error'><?= $errorText ?></p>
+            </div>
+        <?php } ?>
         <div class="set-informations">
             <form action="./chooseWord.php" class="form-main-page" method="post">
                 <label for="name">First player name</label>
@@ -93,4 +104,4 @@ $games = $dao->getLastGames();
         </div>
     </div>
 </div>
-<?php require_once('footer.php'); ?>
+<?php require_once('footer.php');

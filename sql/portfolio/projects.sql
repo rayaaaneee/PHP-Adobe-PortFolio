@@ -24,20 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `contacts`
---
-
-CREATE TABLE `contacts` (
-  `name` text NOT NULL,
-  `email` text NOT NULL,
-  `message` text NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `projects`
 --
 
@@ -67,19 +53,6 @@ INSERT INTO `projects` (`title`, `download`, `icon`, `file`, `img_website`, `pro
 ('GIT Cheat Sheet', 0, 'git', 'Git-Cheat-Sheet.pdf', NULL, 'Cet aide mémoire était un projet scolaire de groupe. Dans celui-ci , vous y verrez les commandes git les plus importantes ainsi que leur explication.', NULL, NULL),
 ('HTML CV', 0, 'cv-html', 'cv-html/', NULL, 'Ce projet scolaire personnel a été fait en cours de Web au premier semestre du BUT1, basé uniquement sur le HTML et CSS. Les informations contenues dans celui-ci ne sont pas à jour.\r\nLe but principal de ce projet était de pouvoir travailler sur le positionnement css ainsi que les animations CSS.', NULL, NULL),
 ('Hangman Game', 0, 'hangman', 'hangman/', NULL, 'Ce projet scolaire était une mise à niveau en PHP. Il s\'agit d\'un jeu du pendu tout ce qu\'il y a de plus basique qui fonctionne avec les sessions et qui sauvegarde l\'ensemble des parties dans une base de données pour les afficher sur la page d\'accueil. Le jeu se joue à deux joueurs, l\'un donnera le mot et l\'autre le cherchera.', 'Démarrez une partie en donnant les pseudonymes des deux joueurs puis en validant.\r\nUn des deux joueurs choisis au hasard donnera le mot de son choix et validera ensuite.\r\nL\'autre joueur doit ensuite rentrer des lettres, si celles-ci est bonne, la lettre se découvrira dans le mot. Sinon, attention à ne pas trop faire d\'erreurs.', NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `sae`
---
-
-CREATE TABLE `sae` (
-  `UE` text NOT NULL,
-  `TITRE` text NOT NULL,
-  `DESCRIPTION` text NOT NULL,
-  `DATE` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

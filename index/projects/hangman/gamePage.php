@@ -12,6 +12,10 @@ if (isset($_POST['word'])) {
     $_SESSION['word'] = $word;
 
     $game->setWord($word);
+
+    if (!$game->verifyWord()) {
+        header('Location: ./?error=word');
+    }
 } else if (isset($_POST['letter'])) {
     $letter = $_POST['letter'];
     $game->setAllLetters();

@@ -11,6 +11,6 @@ if (!isset($_SESSION['game'])) {
 
 require_once PATH_VIEWS . 'header.php';
 
-require_once PATH_VIEWS . 'winner.php';
+require_once PATH_VIEWS . 'win.php';
 
 require_once PATH_VIEWS . 'footer.php';

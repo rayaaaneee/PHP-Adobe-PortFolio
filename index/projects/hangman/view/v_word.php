@@ -9,30 +9,29 @@
         </div>
         <div class="type-word">
             <div class="text">
-                <p>Le mot doit contenir entre</p>
+                <p>The word must contain between</p>
                 <p class="surlign-text">3</p>
-                <p>et</p>
+                <p>and</p>
                 <p class="surlign-text">20</p>
-                <p>caractères.</p>
+                <p>characters.</p>
             </div>
             <div class="text">
-                <p>Les caractères spéciaux ne sont pas autorisés hormis les accents</p>
+                <p>Special characters are not allowed except accents</p>
                 <p class="surlign-text">(é, à, ç ..)</p>
                 <p>.</p>
             </div>
             <div class="text">
-                <p>Les </p>
-                <p class="surlign-text">tirets</p>
+                <p>Dashes</p>
                 <p>,</p>
-                <p class="surlign-text">espaces</p>
-                <p>et</p>
+                <p class="surlign-text">spaces</p>
+                <p>and</p>
                 <p class="surlign-text">apostrophes</p>
-                <p>sont aussi autorisés.</p>
+                <p>are also allowed.</p>
             </div>
         </div>
         <form action="./?page=game" class="choose-word-container" method="post">
-            <input type="text" name="word" class="input-word" placeholder="Choisissez un mot" maxlength="20" minlength="3" required>
-            <input type="submit" value="Valider" class="submit-word">
+            <input type="text" name="word" class="input-word" placeholder="Choose a word" maxlength="20" minlength="3" required>
+            <input type="submit" value="Validate" class="submit-word">
         </form>
     </div>
 </div>

@@ -19,8 +19,8 @@
                 </div>
             <?php } ?>
             <form action="./?page=game" class="form-letter" method="post">
-                <input type="text" name="letter" class="input-letter" maxlength="1" placeholder="Votre lettre" required>
-                <input type="submit" class="submit-letter" value="Envoyer">
+                <input type="text" name="letter" class="input-letter" maxlength="1" placeholder="Your letter" required>
+                <input type="submit" class="submit-letter" value="Submit">
             </form>
             <?= $game->printImage(); ?>
         </div>

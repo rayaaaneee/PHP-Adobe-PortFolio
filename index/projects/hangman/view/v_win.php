@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="<?= PATH_CSS; ?>winner.css">
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>win.css">
 </head>
 <div class="main-container-winner-page">
     <div class="content-winner-page">

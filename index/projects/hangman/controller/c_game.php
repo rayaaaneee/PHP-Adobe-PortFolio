@@ -40,7 +40,7 @@ if ($game->isFinished()) {
 
     $gameDTO->insert($game);
 
-    header('Location: ./?page=winner');
+    header('Location: ./?page=win');
 }
 
 require_once PATH_VIEWS . 'header.php';

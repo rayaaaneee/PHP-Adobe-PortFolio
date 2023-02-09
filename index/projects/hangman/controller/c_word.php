@@ -14,10 +14,10 @@ if (isset($_POST['pseudo-player-one']) && isset($_POST['pseudo-player-two'])) {
 
     if ($rand == 0) {
         $wordChooser = $pseudoPlayerOne;
-        $titlePageText = 'Le joueur ' . $pseudoPlayerOne . ' choisi le mot :';
+        $titlePageText = 'Player ' . $pseudoPlayerOne . ' choose the word :';
     } else {
         $wordChooser = $pseudoPlayerTwo;
-        $titlePageText = 'Le joueur ' . $pseudoPlayerTwo . ' choisi le mot :';
+        $titlePageText = 'Player ' . $pseudoPlayerTwo . ' choose the word :';
     }
 
     $_SESSION['pseudo1'] = $pseudoPlayerOne;

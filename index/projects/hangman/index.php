@@ -26,7 +26,18 @@ $games = $dao->getLastGames();
                         <p class="date"><?= $date->format("d M Y"); ?></p>
                         <img src="<?= PATH_IMG ?>crown.png" alt="crown" class="logo-winner" draggable="false" />
                         <?php $time = new DateTime($game['time']); ?>
-                        <p class="time">At <?= $time->format('H:i'); ?></p>
+                        <p class="time">At
+                            <?php
+                            $hour = $time->format("H");
+                            $minute = $time->format("i");
+                            if ($hour >= 12) {
+                                $hour = $hour - 12;
+                                echo $hour . ":" . $minute . " pm";
+                            } else {
+                                echo $hour . ":" . $minute . " am";
+                            }
+                            ?>
+                        </p>
                     </div>
                     <div class="text-container">
                         <div class="text-container-players">
@@ -84,15 +95,28 @@ $games = $dao->getLastGames();
         <div class="separator-bar"></div>
         <?php if (isset($_GET['error'])) {
             $errorText = "";
+            $noerrors = false;
             $error = $_GET['error'];
             if ($error == "word") {
-                $errorText = "Veuillez entrer un mot valide !";
+                $errorText = "Veuillez entrer un mot valide.";
+            } else if ($error == "length") {
+                $errorText = "Veuillez entrer un mot de 20 caractères ou moins !";
+            } else if ($error == "pseudo") {
+                $errorText = "Veuillez entrer un pseudo sans caractères spéciaux (seuls les lettres, accents, tirets et espaces sont autorisés).";
+            } else if ($error == "same") {
+                $errorText = "Veuillez entrer deux pseudos différents.";
+            } else {
+                $noerrors = true;
             }
+
+            if (!$noerrors) {
         ?>
-            <div class="error-text-container">
-                <p class='error'><?= $errorText ?></p>
-            </div>
-        <?php } ?>
+                <div class="error-text-container">
+                    <p class='error'><?= $errorText ?></p>
+                </div>
+        <?php
+            }
+        } ?>
         <div class="set-informations">
             <form action="./chooseWord.php" class="form-main-page" method="post">
                 <label for="name">First player name</label>

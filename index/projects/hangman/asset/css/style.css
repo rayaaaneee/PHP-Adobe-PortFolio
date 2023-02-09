@@ -27,6 +27,19 @@ header h1, header h2 {
     text-shadow: 0 0 10px #000000;
 }
 
+.header-title-img-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.header-title-img-container > img {
+    width: 3vw;
+    height: fit-content;
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -51,6 +64,24 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 1vw;
+    width: 100%;
+    height : fit-content;
+}
+
+.header-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    row-gap: 0.4vw;
+    background: rgba(154, 181, 204, 0.3);
+    padding: 1vw 3vw;
+    border-radius: 1vw;
+    box-shadow: 0 0 40px #000000;
+    backdrop-filter: blur(10px);
 }
 
 header * {
@@ -62,9 +93,9 @@ header > .title-page {
     margin-top: 3vw;
 } 
 
-header > .separator-bar {
+header .separator-bar {
     margin: 1vw 0;
-    width: 20%;
+    width: 80%;
     height: 4px;
     background-color: #ffffff;
     border-radius: 5px;
@@ -85,6 +116,16 @@ header > .separator-bar {
 .text-container-footer p {
     margin: 0;
     padding: 0;
+}
+
+.text-container-footer .title-footer:first-child {
+    font-size: 1.5vw;
     font-weight: normal;
+    margin-left: 2vw;
+}
+
+.text-container-footer .title-footer:last-child {
+    font-size: 1.35vw;
+    font-weight: bold;
 }
 

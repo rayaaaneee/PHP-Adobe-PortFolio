@@ -112,6 +112,7 @@ class Game
     public function tryLetter($letter)
     {
         if ($this->isFinished()) {
+            echo "Le jeu est terminé";
             return;
         } else {
             $letter = strtoupper($letter);
@@ -119,7 +120,7 @@ class Game
             $word = strtoupper($word);
 
             if (in_array($letter, $this->allLetters)) {
-                return "tried";
+                return 'tried';
             } else {
                 if (strpos($word, $letter) !== false) {
                     $this->addTrueLetter($letter);
@@ -283,10 +284,47 @@ class Game
     public function verifyWord()
     {
         $word = strtoupper($this->word);
-        $res = true;
+        $res = false;
         // On vérifie que le mot ne contient pas de caractères spéciaux en dehors des espaces et accents
-        if (preg_match("/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ'- ]/", $word)) {
-            $res = false;
+        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', $word)) {
+            $res = true;
+        }
+
+        return $res;
+    }
+
+    public function verifyWordLength()
+    {
+        $word = strtoupper($this->word);
+        $res = false;
+        $error = null;
+        // On vérifie que le mot ne contient pas plus de 20 caractères
+        if (strlen($word) > 20 || strlen($word) < 3) {
+            $res = true;
+        }
+
+        return $res;
+    }
+
+    public function verifyPseudo()
+    {
+
+        $res = false;
+        // On vérifie que le pseudo ne contient pas de caractères spéciaux en dehors des espaces et accents
+
+        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\- ]/', strtoupper($this->pseudo1)) || preg_match('/[^A-Za-zÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', strtoupper($this->pseudo2))) {
+            $res = true;
+        }
+
+        return $res;
+    }
+
+    public function verifySamePseudo()
+    {
+        $res = false;
+        // On vérifie que les pseudos ne sont pas identiques
+        if (strtoupper($this->pseudo1) == strtoupper($this->pseudo2)) {
+            $res = true;
         }
 
         return $res;

@@ -32,15 +32,35 @@ if (!isset($_SESSION['game'])) {
             <div class="text-container">
                 <p class="surlign-text"><?= $game->getWordSearcher(); ?></p>
                 <?php
+                $nbErrors = $game->getErrors();
+
                 if ($game->getWordSearcher() == $game->getWinnerName()) {
                     $text = 'has found the word "';
+                ?>
+                    <p><?= $text; ?></p>
+                    <p class="surlign-text"><?= $game->getWord(); ?></p>
+                    <?php
+                    if ($nbErrors == 0) {
+                    ?>
+                        <p>"</p>
+                        <p class="surlign-text">without</p>
+                        <p>any mistake!</p>
+                    <?php
+                    } else {
+                    ?>
+                        <p>"</p>
+                        <p class="surlign-text">with</p>
+                        <p><?= $nbErrors; ?> mistake<?php if ($nbErrors > 1) echo 's'; ?>!</p>
+                    <?php
+                    }
                 } else {
                     $text = 'was looking for the word "';
+                    ?>
+                    <p><?= $text; ?></p>
+                    <p class="surlign-text"><?= $game->getWord(); ?></p>
+                <?php
                 }
                 ?>
-                <p><?= $text ?></p>
-                <p class="surlign-text"><?= $game->getWord(); ?></p>
-                <p>" </p>
             </div>
         </div>
         <form action="./chooseWord.php" method="post">

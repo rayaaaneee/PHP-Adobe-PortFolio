@@ -30,7 +30,12 @@ require_once PATH_CLASSES . 'Game.php';
 
 <body>
     <header>
-        <h1 class="title-page">Hangman</h1>
-        <div class="separator-bar"></div>
-        <h2 class="subtitle-page">By Rayane Merlin</h2>
+        <div class="header-content-container">
+            <div class="header-title-img-container">
+                <img src="<?= PATH_IMG; ?>favicon/favicon.png" alt="Logo du jeu" class="title-img">
+                <h1 class="title-page">Hangman</h1>
+            </div>
+            <div class="separator-bar"></div>
+            <h2 class="subtitle-page">By Rayane Merlin</h2>
+        </div>
     </header>

@@ -13,13 +13,20 @@ if (isset($_POST['word'])) {
 
     $game->setWord($word);
 
-    if (!$game->verifyWord()) {
+    $hasErrorChars = $game->verifyWord();
+    $hasErrorLength = $game->verifyWordLength();
+
+    if ($hasErrorChars) {
         header('Location: ./?error=word');
+    } else if ($hasErrorLength) {
+        header('Location: ./?error=length');
     }
 } else if (isset($_POST['letter'])) {
     $letter = $_POST['letter'];
     $game->setAllLetters();
     $alreadySent = $game->tryLetter($letter);
+
+    var_dump($alreadySent);
 } else {
     header('Location: ./');
 }
@@ -42,7 +49,7 @@ if ($game->isFinished()) {
     <link rel="stylesheet" href="<?= PATH_CSS; ?>gamePage.css">
 </head>
 <div class="main-container-game-page">
-    <?php if ($alreadySent == "tried") { ?>
+    <?php if ($alreadySent === 'tried') { ?>
         <p class="already-tried-letter">Vous avez déjà essayé cette lettre !</p>
     <?php } ?>
     <div class="game-container">

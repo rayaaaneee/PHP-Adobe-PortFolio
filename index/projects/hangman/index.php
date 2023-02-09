@@ -13,7 +13,7 @@ $games = $dao->getLastGames();
     <link rel="stylesheet" href="<?= PATH_CSS; ?>index.css">
 </head>
 <div class="main-container">
-    <div class="container-index-page main-container-recent-events">
+    <div class="container-index-page main-container-recent-events  <?php if ($nbGames == 0) echo "main-container-no-games"; ?>">
         <div class="title-recents-events">
             <img src="<?= PATH_IMG ?>clock.png" alt="logo" class="logo-recent-events" draggable="false" />
             <h2>Last games : </h2>
@@ -31,8 +31,9 @@ $games = $dao->getLastGames();
                     <div class="text-container">
                         <div class="text-container-players">
                             <p class="surlign-text"><?= $game['player1']; ?></p>
-                            <p>played without </p>
-                            <p class="surlign-text"><?= $game['player2']; ?> !</p>
+                            <p>played against </p>
+                            <p class="surlign-text"><?= $game['player2']; ?></p>
+                            <p>!</p>
                         </div>
                         <div class="text-container-winner">
                             <p class="surlign-text"><?= $game['winner']; ?></p>
@@ -40,13 +41,13 @@ $games = $dao->getLastGames();
                             <p class="surlign-text"><?= strtolower($game['word']); ?></p>
                             <?php if ($game['errors'] > 1) {
                             ?>
-                                <p>" in </p>
+                                <p>" with </p>
                                 <p class="surlign-text"><?= $game['errors']; ?></p>
                             <?php
                                 $text = "errors !";
                             } else if ($game['errors'] == 1) {
                             ?>
-                                <p>" in </p>
+                                <p>" with </p>
                                 <p class="surlign-text"><?= $game['errors']; ?></p>
                             <?php
                                 $text = "error !";

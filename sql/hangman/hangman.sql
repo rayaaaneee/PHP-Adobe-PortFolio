@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 08, 2023 at 07:55 PM
+-- Generation Time: Feb 09, 2023 at 10:37 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.1.0
 
@@ -32,8 +32,10 @@ CREATE TABLE `game` (
   `player1` varchar(255) NOT NULL COMMENT 'Nom du joueur 1',
   `player2` varchar(255) NOT NULL COMMENT 'Nom du joueur 2',
   `word` varchar(255) DEFAULT NULL COMMENT 'Mot à deviner',
-  `winner` int(11) DEFAULT NULL COMMENT 'Numéro du joueur vainqueur',
-  `errors` int(11) DEFAULT NULL COMMENT 'Indique le nombre de coup utilisé avant la fin de partie'
+  `winner` varchar(15) DEFAULT NULL COMMENT 'Numéro du joueur vainqueur',
+  `errors` int(11) DEFAULT NULL COMMENT 'Indique le nombre de coup utilisé avant la fin de partie',
+  `date` date NOT NULL,
+  `time` time NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

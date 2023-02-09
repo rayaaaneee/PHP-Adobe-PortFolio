@@ -19,8 +19,6 @@ if (isset($_POST['word'])) {
     header('Location: ./');
 }
 
-var_dump($alreadySent);
-
 $game->saveInSession();
 
 if ($game->isFinished()) {
@@ -39,8 +37,8 @@ if ($game->isFinished()) {
     <link rel="stylesheet" href="<?= PATH_CSS; ?>gamePage.css">
 </head>
 <div class="main-container-game-page">
-    <?php if ($alreadySent) { ?>
-        <p class="already-tried-letter">Vous avez déjà essayé cette lettre !'</p>
+    <?php if ($alreadySent == "tried") { ?>
+        <p class="already-tried-letter">Vous avez déjà essayé cette lettre !</p>
     <?php } ?>
     <div class="game-container">
         <div class="word">

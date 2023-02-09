@@ -124,6 +124,10 @@ body {
     overflow-y: auto;
 }
 
+.main-container-no-games {
+    height: 30vh;
+}
+
 .main-container-recent-events::-webkit-scrollbar {
     display: none;
 }
@@ -157,6 +161,7 @@ body {
     justify-content: center;
     align-items: center;
     row-gap: 15px;
+    padding: 1vw;
 }
 
 .game {

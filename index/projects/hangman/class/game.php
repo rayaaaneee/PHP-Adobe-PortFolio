@@ -110,11 +110,8 @@ class Game
             $word = strtoupper($word);
 
             if (in_array($letter, $this->allLetters)) {
-
-                echo "okay";
-                return false;
+                return "tried";
             } else {
-
                 if (strpos($word, $letter) !== false) {
                     $this->addTrueLetter($letter);
                     $this->setAllLetters();

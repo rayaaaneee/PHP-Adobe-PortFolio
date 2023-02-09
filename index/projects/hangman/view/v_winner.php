@@ -1,15 +1,3 @@
-<?php require_once 'header.php';
-
-$game = unserialize($_SESSION['game']);
-
-if (!isset($_SESSION['game'])) {
-    header('Location: ./');
-    exit;
-} else {
-    unset($_SESSION['game']);
-}
-?>
-
 <head>
     <link rel="stylesheet" href="<?= PATH_CSS; ?>winner.css">
 </head>
@@ -63,7 +51,7 @@ if (!isset($_SESSION['game'])) {
                 ?>
             </div>
         </div>
-        <form action="./chooseWord.php" method="post">
+        <form action="./?page=word" method="post">
             <input type="hidden" name="pseudo-player-one" value="<?= $game->getPseudo1(); ?>">
             <input type="hidden" name="pseudo-player-two" value="<?= $game->getPseudo2(); ?>">
             <button class="submit-restart-game" type="submit">New Game</button>
@@ -71,4 +59,3 @@ if (!isset($_SESSION['game'])) {
         <a href="./" class="go-to-reception-button">Go to reception</a>
     </div>
 </div>
-<?php require_once 'footer.php'; ?>

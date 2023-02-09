@@ -112,14 +112,14 @@ class Game
     public function tryLetter($letter)
     {
         if ($this->isFinished()) {
-            echo "Le jeu est terminé";
             return;
         } else {
             $letter = strtoupper($letter);
             $word = $this->getWord();
             $word = strtoupper($word);
-
-            if (in_array($letter, $this->allLetters)) {
+            if ($this->verifyLetter($letter)) {
+                return 'invalid';
+            } else if (in_array($letter, $this->allLetters)) {
                 return 'tried';
             } else {
                 if (strpos($word, $letter) !== false) {
@@ -193,7 +193,7 @@ class Game
             $result = "";
 
             $result .= '<div class="false-letters">';
-            $result .= '<p>Fausses lettres :</p>';
+            $result .= '<p>Wrong letters :</p>';
 
             $i = 0;
             foreach ($this->falseLetters as $letter) {
@@ -240,8 +240,9 @@ class Game
             return "";
         } else {
             $result = '';
-            $result .= '<p>Erreurs :</p>';
+            $result .= '<p>Errors :</p>';
             $result .= '<p class="nb-tries">' . $this->Errors . '</p>';
+            $result .= '<p>/ 11</p>';
         }
 
         return $result;
@@ -254,7 +255,7 @@ class Game
 
         $result = true;
 
-        if ($this->Errors < 10) {
+        if ($this->Errors < 11) {
             for ($i = 0; $i < $this->getNbChars(); $i++) {
                 if (!in_array($word[$i], $this->trueLetters) && $word[$i] != ' ') {
                     $result = false;
@@ -312,7 +313,7 @@ class Game
         $res = false;
         // On vérifie que le pseudo ne contient pas de caractères spéciaux en dehors des espaces et accents
 
-        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\- ]/', strtoupper($this->pseudo1)) || preg_match('/[^A-Za-zÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', strtoupper($this->pseudo2))) {
+        if (preg_match('/[^1234567890A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\- ]/', strtoupper($this->pseudo1)) || preg_match('/[^1234567890A-Za-zÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', strtoupper($this->pseudo2))) {
             $res = true;
         }
 
@@ -324,6 +325,17 @@ class Game
         $res = false;
         // On vérifie que les pseudos ne sont pas identiques
         if (strtoupper($this->pseudo1) == strtoupper($this->pseudo2)) {
+            $res = true;
+        }
+
+        return $res;
+    }
+
+    public function verifyLetter($letter)
+    {
+        $res = false;
+        // On vérifie que la lettre ne contient pas de caractères spéciaux en dehors des espaces et accents
+        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ]/', strtoupper($letter))) {
             $res = true;
         }
 

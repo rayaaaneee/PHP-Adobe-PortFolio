@@ -2,7 +2,7 @@
 
 class Connection
 {
-    public static $instance = null;
+    private static $instance = null;
     private PDO $connection;
 
     private function __construct()

@@ -1,5 +1,5 @@
 .main-container-game-page {
-    position: absolute;
+    margin-top: 5vw;
     width: 100%;
     height: fit-content;
     top: 175px;
@@ -126,10 +126,11 @@
 }
 
 .form-img-container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     column-gap: 5vw;
 }
 
@@ -147,3 +148,27 @@
     height: 100%;
 }
 
+.invalid-letter-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+    padding: 1.5vw;
+    border-radius: 5px;
+    background-color: rgba(217, 26, 26, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 70px #000000;
+}
+
+.invalid-letter-container p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-shadow: 0 0 10px #000000;
+}
+
+.surlign-text-error {
+    color: #000000;
+    font-weight: 600;
+}

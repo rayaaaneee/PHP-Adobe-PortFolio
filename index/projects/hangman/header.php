@@ -9,8 +9,8 @@ error_reporting(E_ALL);
 session_start();
 
 require_once 'config.php';
-require_once PATH_DATABASE . 'connection.php';
-require_once PATH_CLASSES . 'game.php';
+require_once PATH_DATABASE . 'Connection.php';
+require_once PATH_CLASSES . 'Game.php';
 
 ?>
 <!DOCTYPE html>

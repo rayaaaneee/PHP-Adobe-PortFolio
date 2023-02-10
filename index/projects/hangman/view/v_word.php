@@ -5,7 +5,9 @@
     <div class="container-choose-word">
         <div class="title-page-game-container">
             <img src="<?= PATH_IMG; ?>playerwhite.png" alt="Logo player" class="logo-player">
-            <p class="title-page-game"><?= $titlePageText; ?></p>
+            <p class="title-page-game">Player</p>
+            <p class="surlign-text-name title-page-game"><?= $wordChooser; ?></p>
+            <p class="title-page-game">must choose a word :</p>
         </div>
         <div class="type-word">
             <div class="text">
@@ -17,7 +19,7 @@
             </div>
             <div class="text">
                 <p>Special characters are not allowed except accents</p>
-                <p class="surlign-text">(é, à, ç ..)</p>
+                <p class="surlign-text">(é, à, ç, ù..)</p>
                 <p>.</p>
             </div>
             <div class="text">

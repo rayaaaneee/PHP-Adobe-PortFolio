@@ -3,9 +3,6 @@
 </head>
 <div class="main-container-game-page">
     <div class="game-container">
-        <?php if ($errorSendLetter === 'tried') { ?>
-            <p class="already-tried-letter">Vous already tried letter <?= strtoupper($letter); ?> !</p>
-        <?php } ?>
         <div class="word">
             <p>Word :</p>
             <?= $game->printWord(); ?>
@@ -16,6 +13,12 @@
                     <p class="invalid-letter">Character "</p>
                     <p class="surlign-text-error"><?= strtoupper($letter); ?></p>
                     <p class="invalid-letter">" isn't valid .</p>
+                </div>
+            <?php } else if ($errorSendLetter === 'tried') { ?>
+                <div class="invalid-letter-container">
+                    <p class="invalid-letter">You already tried letter "</p>
+                    <p class="surlign-text-error"><?= strtoupper($letter); ?></p>
+                    <p class="invalid-letter">" .</p>
                 </div>
             <?php } ?>
             <form action="./?page=game" class="form-letter" method="post">

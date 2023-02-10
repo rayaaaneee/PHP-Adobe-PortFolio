@@ -57,7 +57,7 @@ class Game
 
     public function setWord($word)
     {
-        $this->word = $word;
+        $this->word = strtoupper($word);
     }
 
     public function getWord()
@@ -115,14 +115,12 @@ class Game
             return;
         } else {
             $letter = strtoupper($letter);
-            $word = $this->getWord();
-            $word = strtoupper($word);
             if ($this->verifyLetter($letter)) {
                 return 'invalid';
             } else if (in_array($letter, $this->allLetters)) {
                 return 'tried';
             } else {
-                if (strpos($word, $letter) !== false) {
+                if (strpos($this->word, $letter) !== false) {
                     $this->addTrueLetter($letter);
                     $this->setAllLetters();
                     return true;
@@ -138,13 +136,11 @@ class Game
 
     private function addTrueLetter($letter)
     {
-        $letter = strtoupper($letter);
         array_push($this->trueLetters, $letter);
     }
 
     private function addFalseLetter($letter)
     {
-        $letter = strtoupper($letter);
         array_push($this->falseLetters, $letter);
     }
 
@@ -165,17 +161,16 @@ class Game
 
     public function printWord()
     {
-        $word = strtoupper($this->word);
         $result = "";
 
         for ($i = 0; $i < $this->getNbChars(); $i++) {
-            if (in_array($word[$i], $this->trueLetters)) {
-                $result .= '<p class="hide-word">' . $word[$i] . '</p>';
-            } else if ($word[$i] == ' ') {
+            if (in_array($this->word[$i], $this->trueLetters)) {
+                $result .= '<p class="hide-word">' . $this->word[$i] . '</p>';
+            } else if ($this->word[$i] == ' ') {
                 $result .= '<p class="hide-word-space"> </p>';
-            } else if ($word[$i] == '\'') {
+            } else if ($this->word[$i] == '\'') {
                 $result .= '<p class="hide-word-space">\'</p>';
-            } else if ($word[$i] == '-') {
+            } else if ($this->word[$i] == '-') {
                 $result .= '<p class="hide-word-space">-</p>';
             } else {
                 $result .= '<p class="hide-word">_</p>';
@@ -250,14 +245,11 @@ class Game
 
     public function isFinished()
     {
-        $word = $this->getWord();
-        $word = strtoupper($word);
-
         $result = true;
 
         if ($this->Errors < 11) {
             for ($i = 0; $i < $this->getNbChars(); $i++) {
-                if (!in_array($word[$i], $this->trueLetters) && $word[$i] != ' ') {
+                if (!in_array($this->word[$i], $this->trueLetters) && $this->word[$i] != ' ') {
                     $result = false;
                     break;
                 }
@@ -284,10 +276,9 @@ class Game
 
     public function verifyWord()
     {
-        $word = strtoupper($this->word);
         $res = false;
         // On vérifie que le mot ne contient pas de caractères spéciaux en dehors des espaces et accents
-        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', $word)) {
+        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', $this->word)) {
             $res = true;
         }
 
@@ -296,11 +287,10 @@ class Game
 
     public function verifyWordLength()
     {
-        $word = strtoupper($this->word);
         $res = false;
         $error = null;
         // On vérifie que le mot ne contient pas plus de 20 caractères
-        if (strlen($word) > 20 || strlen($word) < 3) {
+        if (strlen($this->word) > 20 || strlen($this->word) < 3) {
             $res = true;
         }
 
@@ -335,7 +325,7 @@ class Game
     {
         $res = false;
         // On vérifie que la lettre ne contient pas de caractères spéciaux en dehors des espaces et accents
-        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ]/', strtoupper($letter))) {
+        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ]/', $letter)) {
             $res = true;
         }
 

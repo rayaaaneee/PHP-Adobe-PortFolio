@@ -92,7 +92,7 @@
 }
 
 .surlign-text {
-    font-size: 20px;
+    font-size: 16.5px;
     color: #1e1e1e;
     font-weight: bold;
 }
@@ -102,7 +102,7 @@
 }
 
 .text-container p:not(.surlign-text) {
-    font-size: 18.5px;
+    font-size: 16.5px;
 }
 
 .img-loser {

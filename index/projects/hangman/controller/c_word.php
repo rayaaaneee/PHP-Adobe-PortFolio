@@ -14,16 +14,9 @@ if (isset($_POST['pseudo-player-one']) && isset($_POST['pseudo-player-two'])) {
 
     if ($rand == 0) {
         $wordChooser = $pseudoPlayerOne;
-        $titlePageText = 'Player ' . $pseudoPlayerOne . ' choose the word :';
     } else {
         $wordChooser = $pseudoPlayerTwo;
-        $titlePageText = 'Player ' . $pseudoPlayerTwo . ' choose the word :';
     }
-
-    $_SESSION['pseudo1'] = $pseudoPlayerOne;
-    $_SESSION['pseudo2'] = $pseudoPlayerTwo;
-    $_SESSION['wordChooser'] = $wordChooser;
-
 
     // On crée une partie
     $game = new Game($pseudoPlayerOne, $pseudoPlayerTwo, $wordChooser, null);

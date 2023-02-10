@@ -38,7 +38,7 @@
                         <div class="text-container-winner">
                             <p class="surlign-text"><?= $game['winner']; ?></p>
                             <p>won, he found the word "</p>
-                            <p class="surlign-text"><?= strtolower($game['word']); ?></p>
+                            <p class="surlign-text"><?= $game['word']; ?></p>
                             <?php if ($game['errors'] > 1) {
                             ?>
                                 <p>" with </p>
@@ -70,6 +70,10 @@
                     <p> ● </p>
                 </div>
             <?php
+            } else {
+            ?>
+                <div class="separator-bar"></div>
+            <?php
             }
 
             if ($nbGames == 0) { ?>
@@ -82,30 +86,15 @@
     <div class="container-index-page main-container-start-game">
         <img src="<?= PATH_IMG ?>main-img-white.png" alt="logo" class="logo-site" draggable="false" />
         <div class="separator-bar"></div>
-        <?php if (isset($_GET['error'])) {
-            $errorText = "";
-            $noerrors = false;
-            $error = $_GET['error'];
-            if ($error == "word") {
-                $errorText = "Veuillez entrer un mot valide.";
-            } else if ($error == "length") {
-                $errorText = "Veuillez entrer un mot de 20 caractères ou moins !";
-            } else if ($error == "pseudo") {
-                $errorText = "Veuillez entrer un pseudo sans caractères spéciaux (seuls les lettres, chiffres, accents, tirets et espaces sont autorisés).";
-            } else if ($error == "same") {
-                $errorText = "Veuillez entrer deux pseudos différents.";
-            } else {
-                $noerrors = true;
-            }
-
-            if (!$noerrors) {
-        ?>
-                <div class="error-text-container">
-                    <p class='error'><?= $errorText ?></p>
-                </div>
         <?php
-            }
-        } ?>
+        if ($hasErrors) {
+        ?>
+            <div class="error-text-container">
+                <p class='error'><?= $errorText ?></p>
+            </div>
+        <?php
+        }
+        ?>
         <div class="set-informations">
             <form action="./?page=word" class="form-main-page" method="post">
                 <label for="name">First player name</label>

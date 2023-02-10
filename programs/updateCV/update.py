@@ -33,14 +33,14 @@ def getNumberOfMonths(month):
         
 #Fonction qui permet de recuperer les informations du fichier
 def getFileInformations(filename):
-    date = time.ctime(os.path.getctime("index/files/"+filename))
+    date = time.ctime(os.path.getmtime("./index/files/"+filename))
     date = date.split(" ")
     date = date[2] + " " + date[1] + " " + date[4]
     date = date.split(" ")
     date[1] = getNumberOfMonths(date[1])
     date = date[0] + "/" + date[1] + "/" + date[2]
 
-    size = os.path.getsize("index/files/"+filename);
+    size = os.path.getsize("./index/files/"+filename);
     size = size / 1024
     size = str(size)
     size = size.split(".")
@@ -54,27 +54,21 @@ def getFileInformations(filename):
 name = None
 def write() :
     with open("index/files/data.txt", "w") as f:
-        print("File modified")
-        time.sleep(2)
         
-        name = "CV"
+        name = "CV.pdf"
 
         #Recuperer les informations du fichier
         date, size, type = getFileInformations(name);
 
         #Ecrire les informations dans le fichier
         print("Writing...")
-        time.sleep(2)
         f.write("File : "+ name+"\n")
         f.write("Last Modification : " + date+"\n")
         f.write("Size : "+ size + " Ko"+"\n");
         f.write("Type : "+ type+"\n");
-        print("Done\n")
-        
+
+        print("File modified")
+
 #Fonction main du programme
 if __name__ == "__main__":
     write()
-
-#Q : Comment executer ce programme automatiquement a chaque fois que le fichier CV est modifié ?
-#R : Il faut utiliser le module watchdog qui permet de surveiller les fichiers et de declencher des actions en cas de modification
-#R : Il faut aussi utiliser le module subprocess qui permet d'executer des commandes dans le terminal

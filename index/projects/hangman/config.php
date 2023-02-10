@@ -17,8 +17,8 @@ define('PATH_DTO', PATH_DATABASE . 'dto/');
 // Database
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'hangman');
-define('DB_PORT', '8889');
+define('DB_PORT', '3306');
 define('DB_CHARSET', 'utf8mb4');
 
 const DB_USR = 'root';
-const DB_PWD = 'root';
+const DB_PWD = 'Opqdkjqo64$';

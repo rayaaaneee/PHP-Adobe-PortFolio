@@ -36,9 +36,9 @@
                     <?php
                     } else {
                     ?>
-                        <p>"</p>
-                        <p class="surlign-text">with</p>
-                        <p><?= $nbErrors; ?> mistake<?php if ($nbErrors > 1) echo 's'; ?>!</p>
+                        <p>" with</p>
+                        <p class="surlign-text"><?= $nbErrors; ?></p>
+                        <p>mistake<?php if ($nbErrors > 1) echo 's'; ?>!</p>
                     <?php
                     }
                 } else {

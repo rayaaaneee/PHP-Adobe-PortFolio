@@ -338,7 +338,19 @@ class Game
     {
         $res = false;
         // On vérifie que la lettre ne contient pas plus de 1 caractères
-        if (strlen($letter) > 1) {
+        if (strlen($letter) > 1 && !$this->isAccent($letter)) {
+            $res = true;
+        }
+
+        return $res;
+    }
+
+    private function isAccent($letter)
+    {
+        $res = false;
+        $accent = array('À', 'Â', 'Ä', 'Ç', 'É', 'È', 'Ê', 'Ë', 'Î', 'Ï', 'Ô', 'Ö', 'Ù', 'Û', 'Ü', 'Ÿ');
+
+        if (in_array($letter, $accent)) {
             $res = true;
         }
 

@@ -1,9 +1,10 @@
 <?php
-const BD_HOST = 'localhost';
-const BD_PORT = 3306;
-const BD_DBNAME = 'e_ticket';
-const BD_USR = 'root';
-const BD_PWD = 'Opqdkjqo64$';
+const DB_HOST = 'localhost';
+const DB_PORT = 3306;
+const DB_DBNAME = 'e_ticket';
+const DB_USR = 'root';
+const DB_PWD = 'Opqdkjqo64$';
+const DB_CHARSET = 'utfmb8';
 const GOOGLE_API_TOKEN = 'AIzaSyC87bEs-lrBLIUbatB3rebtVbp2eBbgdqw';
 
 const PATH_AUTOLOAD = './config/autoload.php';

@@ -115,6 +115,7 @@ class Game
             return;
         } else {
             $letter = strtoupper($letter);
+            $letter = $this->associateToAccent($letter);
             if ($this->verifyLetterLength($letter)) {
                 return 'longer';
             } else if ($this->verifyLetter($letter)) {
@@ -352,6 +353,19 @@ class Game
 
         if (in_array($letter, $accent)) {
             $res = true;
+        }
+
+        return $res;
+    }
+
+    private function associateToAccent($letter)
+    {
+        $res = null;
+        $accent = array('À', 'Â', 'Ä', 'Ç', 'É', 'È', 'Ê', 'Ë', 'Î', 'Ï', 'Ô', 'Ö', 'Ù', 'Û', 'Ü', 'Ÿ');
+        $letterAccent = array('A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'O', 'O', 'U', 'U', 'U', 'Y');
+
+        if (in_array($letter, $accent)) {
+            $res = $letterAccent[array_search($letter, $accent)];
         }
 
         return $res;

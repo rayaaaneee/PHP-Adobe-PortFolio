@@ -1,7 +1,7 @@
 <?php
 const DB_HOST = 'localhost';
 const DB_PORT = 3306;
-const DB_DBNAME = 'e_ticket';
+const DB_NAME = 'e_ticket';
 const DB_USR = 'root';
 const DB_PWD = 'Opqdkjqo64$';
 const DB_CHARSET = 'utfmb8';

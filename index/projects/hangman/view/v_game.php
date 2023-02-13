@@ -20,6 +20,10 @@
                     <p class="surlign-text-error"><?= strtoupper($letter); ?></p>
                     <p class="invalid-letter">" .</p>
                 </div>
+            <?php } else if ($errorSendLetter === 'longer') { ?>
+                <div class="invalid-letter-container">
+                    <p class="invalid-letter">You can only send one character .</p>
+                </div>
             <?php } ?>
             <form action="./?page=game" class="form-letter" method="post">
                 <input type="text" name="letter" class="input-letter" maxlength="1" placeholder="Your letter" required>

@@ -76,11 +76,13 @@ body {
     font-size: 20px;
     border: none;
     cursor: pointer;
+    transition: 0.15s;
 }
 
 .form-main-page button[type="submit"]:hover {
     background-color: #ffffff;
     color: #000000;
+    transition: 0.15s;
 }
 
 .first-container {
@@ -274,4 +276,8 @@ body {
     text-shadow: 0 0 10px #000000;
     text-align: center;
     font-size: 0.9em;
+}
+
+.title-recents-events {
+    text-shadow : 0 0 20px #000000;
 }

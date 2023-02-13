@@ -115,7 +115,9 @@ class Game
             return;
         } else {
             $letter = strtoupper($letter);
-            if ($this->verifyLetter($letter)) {
+            if ($this->verifyLetterLength($letter)) {
+                return 'longer';
+            } else if ($this->verifyLetter($letter)) {
                 return 'invalid';
             } else if (in_array($letter, $this->allLetters)) {
                 return 'tried';
@@ -326,6 +328,17 @@ class Game
         $res = false;
         // On vérifie que la lettre ne contient pas de caractères spéciaux en dehors des espaces et accents
         if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ]/', $letter)) {
+            $res = true;
+        }
+
+        return $res;
+    }
+
+    public function verifyLetterLength($letter)
+    {
+        $res = false;
+        // On vérifie que la lettre ne contient pas plus de 1 caractères
+        if (strlen($letter) > 1) {
             $res = true;
         }
 

@@ -7,8 +7,15 @@ class Connection
 
     private function __construct()
     {
-        self::$_bdd = new PDO('mysql:host=' . BD_HOST . ';port=' . BD_PORT . ';dbname=' . BD_DBNAME, BD_USER, BD_PWD);
-        self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET . ";port=" . DB_PORT . "";
+
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
+
+        $this->connection = new PDO($dsn, DB_USR, DB_PWD, $options);
     }
 
     /**
@@ -37,5 +44,4 @@ class Connection
     {
         return self::$_bdd;
     }
-
 }

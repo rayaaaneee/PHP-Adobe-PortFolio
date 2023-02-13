@@ -88,7 +88,7 @@ class EventPresenter extends Presenter
         return $display;
     }
 
-    private function formatTicketDisplay(Event $evt) : string
+    private function formatTicketDisplay(Event $evt): string
     {
         $ticketPricingDAO = new TicketPricingDAO();
         $pricings = $ticketPricingDAO->getPricingsForEventId($evt->getIdEvent());
@@ -101,7 +101,7 @@ class EventPresenter extends Presenter
         return $displayString;
     }
 
-    private function formatPrincingChoice(Event $evt) : string
+    private function formatPrincingChoice(Event $evt): string
     {
         $ticketPricingDAO = new TicketPricingDAO();
         $pricings = $ticketPricingDAO->getPricingsForEventId($evt->getIdEvent());

@@ -33,11 +33,13 @@
     font-size: 20px;
     border: none;
     cursor: pointer;
+    transition: 0.15s;
 }
 
 .submit-restart-game:hover, .go-to-reception-button:hover {
     background-color: #ffffff;
     color: #000000;
+    transition: 0.15s;
 }
 
 .go-to-reception-button {

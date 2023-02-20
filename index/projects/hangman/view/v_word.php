@@ -18,9 +18,13 @@
                 <p>characters.</p>
             </div>
             <div class="text">
-                <p>Special characters are not allowed except accents</p>
-                <p class="surlign-text">(é, à, ç, ù..)</p>
-                <p>.</p>
+                <p class="surlign-text">Special characters</p>
+                <p>are not allowed .</p>
+            </div>
+            <div class="text">
+                <p>Accents</p>
+                <p class="surlign-text"> (é, à, ç, ù..)</p>
+                <p> are automatically replaced by the letter without .</p>
             </div>
             <div class="text">
                 <p>Dashes</p>

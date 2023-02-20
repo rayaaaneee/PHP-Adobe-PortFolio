@@ -23,7 +23,7 @@ class GameDTO
             'id' => $id,
             'player1' => $object->getPseudo1(),
             'player2' => $object->getPseudo2(),
-            'word' => $object->getWord(),
+            'word' => $object->getStringWord(),
             'winner' => $object->getWinnerName(),
             'errors' => $object->getErrors(),
             'date' => $date->format('Y-m-d'),

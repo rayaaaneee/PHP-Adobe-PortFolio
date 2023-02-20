@@ -26,7 +26,7 @@
                     $text = 'has found the word "';
                 ?>
                     <p><?= $text; ?></p>
-                    <p class="surlign-text"><?= $game->getWord(); ?></p>
+                    <p class="surlign-text"><?= $game->getStringWord(); ?></p>
                     <?php
                     if ($nbErrors == 0) {
                     ?>

@@ -4,7 +4,8 @@ class Game
 {
     private string $pseudo1;
     private string $pseudo2;
-    private string $word;
+    private array $word = [];
+    private string $stringWord;
     private string $wordChooser;
     private string $wordSearcher;
     private ?string $winnerName = null;
@@ -25,11 +26,10 @@ class Game
             $this->wordSearcher = $pseudo1;
         }
 
-        $gameDAO = new GameDAO();
-
         if ($word != null) {
-            $this->word = $word;
+            $this->setWord($word);
         }
+
         if ($falseLetters != null) {
             $this->falseLetters = $falseLetters;
         }
@@ -43,7 +43,7 @@ class Game
 
     public function getNbLetters()
     {
-        return strlen($this->word);
+        return count($this->word);
     }
 
     public function getLoserName()
@@ -57,7 +57,35 @@ class Game
 
     public function setWord($word)
     {
-        $this->word = strtoupper($word);
+        $this->splitWord($word);
+        $this->stringWord = $word;
+    }
+
+    private function splitWord($word)
+    {
+        // Les accents contiennent 2 caractères, on les remplace par un seul caractère
+        $word = str_replace('é', 'e', $word);
+        $word = str_replace('è', 'e', $word);
+        $word = str_replace('ê', 'e', $word);
+
+        $word = str_replace('à', 'a', $word);
+        $word = str_replace('â', 'a', $word);
+
+
+        $word = str_replace('ù', 'u', $word);
+        $word = str_replace('û', 'u', $word);
+
+        $word = str_replace('î', 'i', $word);
+        $word = str_replace('ï', 'i', $word);
+
+        $word = str_replace('ô', 'o', $word);
+        $word = str_replace('ö', 'o', $word);
+
+        $word = str_replace('ç', 'c', $word);
+
+        for ($i = 0; $i < strlen($word); $i++) {
+            array_push($this->word, $word[$i]);
+        }
     }
 
     public function getWord()
@@ -73,11 +101,6 @@ class Game
     public function getPseudo2()
     {
         return $this->pseudo2;
-    }
-
-    public function getWordLength()
-    {
-        return strlen($this->word);
     }
 
     public function getWinnerName()
@@ -106,7 +129,7 @@ class Game
 
     public function getNbChars()
     {
-        return strlen($this->word);
+        return count($this->word);
     }
 
     public function tryLetter($letter)
@@ -114,8 +137,7 @@ class Game
         if ($this->isFinished()) {
             return;
         } else {
-            $letter = strtoupper($letter);
-            $letter = $this->associateToAccent($letter);
+            $letter = strtolower($letter);
             if ($this->verifyLetterLength($letter)) {
                 return 'longer';
             } else if ($this->verifyLetter($letter)) {
@@ -123,7 +145,7 @@ class Game
             } else if (in_array($letter, $this->allLetters)) {
                 return 'tried';
             } else {
-                if (strpos($this->word, $letter) !== false) {
+                if (in_array($letter, $this->word) !== false) {
                     $this->addTrueLetter($letter);
                     $this->setAllLetters();
                     return true;
@@ -168,7 +190,7 @@ class Game
 
         for ($i = 0; $i < $this->getNbChars(); $i++) {
             if (in_array($this->word[$i], $this->trueLetters)) {
-                $result .= '<p class="hide-word">' . $this->word[$i] . '</p>';
+                $result .= '<p class="hide-word">' . strtoupper($this->word[$i]) . '</p>';
             } else if ($this->word[$i] == ' ') {
                 $result .= '<p class="hide-word-space"> </p>';
             } else if ($this->word[$i] == '\'') {
@@ -183,6 +205,68 @@ class Game
         return $result;
     }
 
+    public function getStringWord()
+    {
+        $tmp = $this->stringWord;
+        $tmp = strtolower($tmp);
+        if ($tmp[0] != '-' && $tmp[0] != '_' && $tmp[0] != "'") {
+            if ($this->isAccent($tmp[0] . $tmp[1])) {
+
+                $firstAccent = $tmp[0] . $tmp[1];
+                $upperChar = $this->associateUpperAccent($firstAccent);
+                $tmp = substr($tmp, 2);
+                $tmp = $upperChar . $tmp;
+            } else {
+
+                $tmp[0] = strtoupper($tmp[0]);
+            }
+        }
+        return $tmp;
+    }
+
+    private function associateUpperAccent($string)
+    {
+        switch ($string) {
+            case 'é':
+                $string = 'É';
+                break;
+            case 'è':
+                $string = 'È';
+                break;
+            case 'ê':
+                $string = 'Ê';
+                break;
+            case 'à':
+                $string = 'À';
+                break;
+            case 'â':
+                $string = 'Â';
+                break;
+            case 'ù':
+                $string = 'Ù';
+                break;
+            case 'û':
+                $string = 'Û';
+                break;
+            case 'î':
+                $string = 'Î';
+                break;
+            case 'ï':
+                $string = 'Ï';
+                break;
+            case 'ô':
+                $string = 'Ô';
+                break;
+            case 'ö':
+                $string = 'Ö';
+                break;
+            case 'ç':
+                $string = 'Ç';
+                break;
+        }
+        return $string;
+    }
+
     public function printFalseLetters()
     {
         if (empty($this->falseLetters)) {
@@ -194,12 +278,13 @@ class Game
             $result .= '<p>Wrong letters :</p>';
 
             $i = 0;
+
             foreach ($this->falseLetters as $letter) {
                 $letter = $this->falseLetters[$i];
                 if ($i != 0) {
-                    $result .= '<p class="false-letter">- ' . $letter . '</p>';
+                    $result .= '<p class="false-letter">- ' . strtoupper($letter) . '</p>';
                 } else {
-                    $result .= '<p class="false-letter">' . $letter . '</p>';
+                    $result .= '<p class="false-letter">' . strtoupper($letter) . '</p>';
                 }
                 $i++;
             }
@@ -281,9 +366,11 @@ class Game
     {
         $res = false;
         // On vérifie que le mot ne contient pas de caractères spéciaux en dehors des espaces et accents
-        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', $this->word)) {
+        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', $this->stringWord)) {
             $res = true;
         }
+
+        echo $res;
 
         return $res;
     }
@@ -293,7 +380,7 @@ class Game
         $res = false;
         $error = null;
         // On vérifie que le mot ne contient pas plus de 20 caractères
-        if (strlen($this->word) > 20 || strlen($this->word) < 3) {
+        if (count($this->word) > 20 || count($this->word) < 3) {
             $res = true;
         }
 
@@ -306,7 +393,9 @@ class Game
         $res = false;
         // On vérifie que le pseudo ne contient pas de caractères spéciaux en dehors des espaces et accents
 
-        if (preg_match('/[^1234567890A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\- ]/', strtoupper($this->pseudo1)) || preg_match('/[^1234567890A-Za-zÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ\'\- ]/', strtoupper($this->pseudo2))) {
+        $pattern = '/[^a-z0-9àâäçéèêëîïôöùûüÿ\- ]/i';
+
+        if (preg_match($pattern, strtolower($this->pseudo1)) || preg_match($pattern, strtolower($this->pseudo2))) {
             $res = true;
         }
 
@@ -317,7 +406,7 @@ class Game
     {
         $res = false;
         // On vérifie que les pseudos ne sont pas identiques
-        if (strtoupper($this->pseudo1) == strtoupper($this->pseudo2)) {
+        if (strtolower($this->pseudo1) == strtolower($this->pseudo2)) {
             $res = true;
         }
 
@@ -327,8 +416,11 @@ class Game
     public function verifyLetter($letter)
     {
         $res = false;
+
+        $pattern = '/[^a-zàâäçéèêëîïôöùûüÿ\- ]/i';
+
         // On vérifie que la lettre ne contient pas de caractères spéciaux en dehors des espaces et accents
-        if (preg_match('/[^A-ZÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸ]/', $letter)) {
+        if (preg_match($pattern, $letter)) {
             $res = true;
         }
 
@@ -346,28 +438,43 @@ class Game
         return $res;
     }
 
-    private function isAccent($letter)
+    public function isAccent($letter)
     {
         $res = false;
-        $accent = array('À', 'Â', 'Ä', 'Ç', 'É', 'È', 'Ê', 'Ë', 'Î', 'Ï', 'Ô', 'Ö', 'Ù', 'Û', 'Ü', 'Ÿ');
 
-        if (in_array($letter, $accent)) {
+        $pattern = '/[àâäçéèêëîïôöùûüÿ]/i';
+
+        if (preg_match($pattern, $letter)) {
             $res = true;
         }
 
         return $res;
     }
 
-    private function associateToAccent($letter)
+    public function replaceAccent($letter)
     {
-        $res = null;
-        $accent = array('À', 'Â', 'Ä', 'Ç', 'É', 'È', 'Ê', 'Ë', 'Î', 'Ï', 'Ô', 'Ö', 'Ù', 'Û', 'Ü', 'Ÿ');
-        $letterAccent = array('A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'O', 'O', 'U', 'U', 'U', 'Y');
+        if ($this->isAccent($letter)) {
 
-        if (in_array($letter, $accent)) {
-            $res = $letterAccent[array_search($letter, $accent)];
+            $letter = str_replace('à', 'a', $letter);
+            $letter = str_replace('â', 'a', $letter);
+            $letter = str_replace('ä', 'a', $letter);
+            $letter = str_replace('ç', 'c', $letter);
+            $letter = str_replace('é', 'e', $letter);
+            $letter = str_replace('è', 'e', $letter);
+            $letter = str_replace('ê', 'e', $letter);
+            $letter = str_replace('ë', 'e', $letter);
+            $letter = str_replace('î', 'i', $letter);
+            $letter = str_replace('ï', 'i', $letter);
+            $letter = str_replace('ô', 'o', $letter);
+            $letter = str_replace('ö', 'o', $letter);
+            $letter = str_replace('ù', 'u', $letter);
+            $letter = str_replace('û', 'u', $letter);
+            $letter = str_replace('ü', 'u', $letter);
+            $letter = str_replace('ÿ', 'y', $letter);
+
+            return $letter;
+        } else {
+            return $letter;
         }
-
-        return $res;
     }
 }

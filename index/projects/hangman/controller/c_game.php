@@ -17,14 +17,17 @@ if (isset($_POST['word'])) {
     $hasErrorChars = $game->verifyWord();
     $hasErrorLength = $game->verifyWordLength();
 
-    if ($hasErrorChars) {
+    /* if ($hasErrorChars) {
         header('Location: ./?error=word');
-    } else if ($hasErrorLength) {
+    } else  */
+    if ($hasErrorLength) {
         header('Location: ./?error=length');
     }
 } else if (isset($_POST['letter'])) {
 
-    $letter = $_POST['letter'];
+    $letter = strtolower($_POST['letter']);
+    $letter = $game->replaceAccent($letter);
+
     $game->setAllLetters();
     $errorSendLetter = $game->tryLetter($letter);
 } else {

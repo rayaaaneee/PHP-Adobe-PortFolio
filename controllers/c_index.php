@@ -18,3 +18,6 @@ function getFileSizeMo($file)
     $size = $size / 1000000;
     return round($size, 2);
 }
+
+$db = getConnection();
+$projects = getProjects($db);

@@ -90,8 +90,8 @@
 .text {
     display: flex;
     flex-direction: row;
-    column-gap: 5px;
-    justify-content: space-evenly;
+    column-gap: 10px;
+    justify-content: center;
     align-items: center;
     font-size: 17px;
     font-weight: bold;

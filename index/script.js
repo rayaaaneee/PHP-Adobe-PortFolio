@@ -347,6 +347,9 @@ const openProjectPage = (element) => {
     }
 
     projectPage.style.overflowY = "auto";
+    // On scroll en haut de la page
+    projectPage.scrollTop = 0;
+
     projectPage.querySelector(".download-or-redirect").setAttribute("href", href);
     let textMessage = null;
     switch(parseInt(element.querySelector(".project-is-download").textContent)) {

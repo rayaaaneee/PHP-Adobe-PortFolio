@@ -64,8 +64,6 @@
         <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar1"></div>
         <article class="projects">
             <?php
-            $db = getConnection();
-            $projects = getProjects($db);
             $i = 1;
             foreach ($projects as $project) {
             ?>
@@ -73,15 +71,15 @@
                     <div class="content content<?= $i; ?> <?= $theme->getClass("content") ?>" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
                         <div class="to_download">
                             <p><?= ($project['title']) ?></p>
-                            <img src="index/icons/<?= $theme->getImagePath(getImageName($project['download'])) ?>.png" draggable="false">
+                            <img src="index/icons/<?= $theme->getImagePath(getImageName($project['is_link'])) ?>.png" draggable="false">
                         </div>
                         <img src="index/project-logos/<?= $theme->getImagePath($project['icon']) ?>.png" id="img<?= $i ?>" class="workslogos" draggable="false">
                     </div>
                     <p class="project-desc hidden"><?= $project['project_desc'] ?></p>
                     <p class="project-use-desc hidden"><?= $project['use_desc'] ?></p>
                     <p class="project-is-download hidden"><?= isDownload($project['download']); ?></p>
-                    <p class="project-href hidden"><?= "/index/projects/" .  $project['file']; ?></p>
-                    <?php if (isDownload($project['download'])) { ?>
+                    <p class="project-href hidden">/index/projects/<?= $project['file']; ?></p>
+                    <?php if (isLink($project['is_link'])) { ?>
                         <p class="project-size hidden"><?= getFileSizeMo("index/projects/" . $project['file']); ?></p>
                     <?php } ?>
                 </div>

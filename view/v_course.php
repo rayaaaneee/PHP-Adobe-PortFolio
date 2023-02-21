@@ -16,7 +16,7 @@
 </head>
 
 <div id="startbackground" class="<?= $theme->getClass("startbackground"); ?>"></div>
-<iframe id="loader" src="./loader/" allowfullscreen style="z-index: 5;"></iframe>
+<iframe id="loader" src="loader/" allowfullscreen style="z-index: 5;"></iframe>
 <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div>
 <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.5" speedratio="1"></div>
 <div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.3" speedratio="1"></div>

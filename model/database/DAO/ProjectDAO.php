@@ -15,4 +15,17 @@ class ProjectDAO
         $projects = $query->fetchAll();
         return $projects;
     }
+
+    public static function getProjectById($id)
+    {
+        $sql = "SELECT * FROM projects WHERE id = :id";
+
+        self::$db = Connection::getInstance()->getPDO();
+
+        $query = self::$db->prepare($sql);
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $project = $query->fetch();
+        return $project;
+    }
 }

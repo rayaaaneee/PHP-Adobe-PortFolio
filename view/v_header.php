@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="<?= PATH_CSS; ?>footer/dark-style.css">
     <link rel="stylesheet" href="<?= PATH_CSS; ?>general/dark-scrollbar.css">
     <link rel="stylesheet" href="<?= PATH_CSS; ?>general/dark-background.css">
-
+    <!-- CSS MEDIA QUERIES -->
+    <link rel="stylesheet" href="<?= PATH_MEDIA; ?>header/style.css">
+    <link rel="stylesheet" href="<?= PATH_MEDIA; ?>footer/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

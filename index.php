@@ -17,7 +17,8 @@ if (isset($_GET['page'])) {
         $page = "404";
     }
 } else {
-    $page = "index";
+    /* $page = "index"; */
+    $page = "home";
 }
 
 require_once PATH_MODELS . "DarkMode.php";

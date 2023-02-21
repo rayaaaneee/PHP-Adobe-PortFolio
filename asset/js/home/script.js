@@ -244,7 +244,7 @@ const disappearProject = () => {
 // Quand on clique sur le bouton moins ca désaffiche les projets affichées
 const disappearOthersProjects = () => {
     seeMoreButton.style.display = "none";
-    seeMoreButton.querySelector(".workslogos").src = "index/icons/more.png"
+    seeMoreButton.querySelector(".workslogos").src = "./asset/img/home/icon/more.png"
     intervalAppearProject = setInterval(() => {
         // Lancer l'animation au bout de 200ms
         disappearProject();
@@ -268,7 +268,7 @@ var intervalAppearProject = null;
 var seeMoreButton = document.getElementById("seemore");
 const appearOthersProjects = () => {
     seeMoreButton.style.display = "none";
-    seeMoreButton.querySelector(".workslogos").src = "index/icons/less.png"
+    seeMoreButton.querySelector(".workslogos").src = "./asset/img/home/icon/less.png"
     intervalAppearProject = setInterval(() => {
         // Lancer l'animation au bout de 200ms
         appearProject();
@@ -362,7 +362,7 @@ const openProjectPage = (element) => {
 
             downloadOrVisitBtn.setAttribute("target", "_blank");
 
-            imgLinkOrDownload.src = "index/icons/white-link.png";
+            imgLinkOrDownload.src = "./asset/img/home/icon/white-link.png";
 
             let title = titleProject.textContent;
 
@@ -377,7 +377,7 @@ const openProjectPage = (element) => {
 
             projectPage.querySelector(".project-size-value").textContent = element.querySelector(".project-size").textContent;
 
-            imgLinkOrDownload.src = "index/icons/white-download.png";
+            imgLinkOrDownload.src = "./asset/img/home/icon/white-download.png";
             
             textMessage = "Télécharger (" + baseName(href) + ")";
 

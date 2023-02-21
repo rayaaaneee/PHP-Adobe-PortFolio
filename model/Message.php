@@ -2,6 +2,8 @@
 
 class Message
 {
+    private int $id;
+
     private string $name;
     private string $email;
     private string $message;
@@ -17,6 +19,11 @@ class Message
 
         $this->dateString = $date;
         $this->timeString = $time;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getName()

@@ -3,6 +3,7 @@
 require_once PATH_PRESENTERS . 'contactPresenter.php';
 
 require_once PATH_MODELS . "Message.php";
+require_once PATH_DAO . "MessageDAO.php";
 require_once PATH_DTO . "MessageDTO.php";
 
 // Variable qui définit si le formulaire a été envoyé

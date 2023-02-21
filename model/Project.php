@@ -7,6 +7,7 @@ class Project
     private ?string $title;
     private ?string $useDescription;
     private ?string $projectDescription;
+    private ?string $image;
     private ?string $icon;
 
     private ?bool $isDownload;
@@ -21,6 +22,7 @@ class Project
         $this->title = $project['title'];
         $this->useDescription = $project['use_desc'];
         $this->projectDescription = $project['project_desc'];
+        $this->image = $project['image'];
         $this->icon = $project['icon'];
         $this->isDownload = $project['is_download'];
         $this->isLink = $project['is_link'];
@@ -28,7 +30,7 @@ class Project
         $this->projectFile = $project['file'];
     }
 
-    public function getImageName()
+    public function getTypeImageName()
     {
         $result = null;
         if ($this->isLink) {
@@ -41,7 +43,7 @@ class Project
 
     public function getImagePath()
     {
-        return PATH_IMAGES . "home/icon/" . $this->getImageName();
+        return PATH_IMAGES . "home/icon/" . $this->getTypeImageName();
     }
 
     public function getId()
@@ -107,5 +109,10 @@ class Project
         } else {
             return null;
         }
+    }
+
+    public function getImage()
+    {
+        return $this->image;
     }
 }

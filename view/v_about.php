@@ -5,24 +5,8 @@
     <link rel="stylesheet" href="<?= PATH_CSS; ?>about/dark-style.css">
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>about/style.css">
-    <!-- JS -->
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
-    <?php if (!$changedMode) { ?>
-        <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
-    <?php } ?>
     <title>À propos</title>
 </head>
-
-<header>
-    <?php if (!$changedMode) { ?>
-        <div id="startbackground" class="<?= $theme->getClass("startbackground"); ?>"></div>
-    <?php } ?>
-</header>
-<!-- LOADER & backgrounds-->
-<?php if (!$changedMode) { ?>
-    <iframe id="loader" src="loader/"></iframe>
-<?php } ?>
 <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div>
 <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
 <div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>

@@ -1,29 +1,18 @@
 <?php
 
-class MessageDTO
+class MessageDAO
 {
     public static PDO $db;
 
-    public static function insertMessage($message)
+    public static function getAllMessages()
     {
         self::$db = Connection::getInstance()->getPDO();
 
         // Préparation de la requête
-        $sql = "INSERT INTO messages (name, email, message, date, time) VALUES (:name, :email, :message, :date, :time)";
+        $sql = "SELECT * FROM messages";
 
         // Préparation de la requête
-        $name = $message->getName();
-        $email = $message->getEmail();
-        $stringMessage = $message->getMessage();
-        $date = $message->getDate();
-        $time = $message->getTime();
-
         $stmt = self::$db->prepare($sql);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':message', $stringMessage);
-        $stmt->bindParam(':date', $date);
-        $stmt->bindParam(':time', $time);
 
         // Exécution de la requête
         try {
@@ -33,15 +22,17 @@ class MessageDTO
             return false;
         }
 
-        return true;
+        $messages = $stmt->fetchAll(PDO::FETCH_CLASS, 'MessageDTO');
+
+        return $messages;
     }
 
-    public static function deleteMessage($id)
+    public static function getMessageById($id)
     {
         self::$db = Connection::getInstance()->getPDO();
 
         // Préparation de la requête
-        $sql = "DELETE FROM messages WHERE id = :id";
+        $sql = "SELECT * FROM messages WHERE id = :id";
 
         // Préparation de la requête
         $stmt = self::$db->prepare($sql);
@@ -55,6 +46,8 @@ class MessageDTO
             return false;
         }
 
-        return true;
+        $message = $stmt->fetchObject('MessageDTO');
+
+        return $message;
     }
 }

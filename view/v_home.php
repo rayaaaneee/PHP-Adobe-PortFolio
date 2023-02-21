@@ -17,12 +17,16 @@
     <title>Accueil</title>
 </head>
 
-<?php if (!$changedMode) { ?>
-    <div id="startbackground" class="<?= $theme->getClass("startbackground"); ?>"></div>
-<?php } ?>
+
 <!-- LOADER & backgrounds-->
+<header>
+    <?php if (!$changedMode) { ?>
+        <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
+    <?php } ?>
+</header>
+<!-- Loader -->
 <?php if (!$changedMode) { ?>
-    <iframe id="loader" src="./loader/"></iframe>
+    <iframe id="loader" src="loader/"></iframe>
 <?php } ?>
 <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div>
 <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
@@ -50,9 +54,13 @@
                 <p class="project-use-desc hidden"><?= $project->getUseDescription() ?></p>
                 <p class="project-is-download hidden"><?= $project->isDownload(); ?></p>
                 <p class="projet-is-link hidden"><?= $project->isLink(); ?></p>
-                <p class="project-href hidden">/index/projects/<?= $project->getFile() ?></p>
+                <p class="project-img hidden"><?= $project->getImage(); ?></p>
                 <?php if ($project->isDownload()) { ?>
+                    <p class="project-file hidden">/index/projects/<?= $project->getFile() ?></p>
                     <p class="project-size hidden"><?= $project->getFileSize(); ?></p>
+                <?php }
+                if ($project->isLink()) { ?>
+                    <p class="project-link hidden"><?= $project->getLink(); ?></p>
                 <?php } ?>
             </div>
         <?php

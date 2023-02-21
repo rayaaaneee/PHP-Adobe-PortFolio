@@ -35,68 +35,68 @@
 
     /* Images du menu en dark */
     .mediamenu-dark > #receptionsite{
-        background-image: url(menu-logos/dark-theme/reception_logo.png) !important;
+        background-image: url(../../../img/header/dark-theme/reception_logo.png) !important;
     }
 
     .mediamenu-dark > #receptionsite:hover{
-        background-image: url(menu-logos/dark-theme/reception_logo_hover.png) !important;
+        background-image: url(../../../img/header/dark-theme/reception_logo_hover.png) !important;
     }
 
     .mediamenu-dark > #contactsite{
-        background-image: url(menu-logos/dark-theme/contact_logo.png) !important;
+        background-image: url(../../../img/header/dark-theme/contact_logo.png) !important;
     }
 
     .mediamenu-dark > #contactsite:hover{
-        background-image: url(menu-logos/dark-theme/contact_logo_hover.png) !important;
+        background-image: url(../../../img/header/dark-theme/contact_logo_hover.png) !important;
     }
 
     .mediamenu-dark > #personalsite {
-        background-image: url(menu-logos/dark-theme/personal_logo.png) !important;
+        background-image: url(../../../img/header/dark-theme/personal_logo.png) !important;
     }
 
     .mediamenu-dark > #personalsite:hover {
-        background-image: url(menu-logos/dark-theme/personal_logo_hover.png) !important;
+        background-image: url(../../../img/header/dark-theme/personal_logo_hover.png) !important;
     }
 
     .mediamenu-dark > #coursesite {
-        background-image: url(menu-logos/dark-theme/cv_logo.png) !important;
+        background-image: url(../../../img/header/dark-theme/cv_logo.png) !important;
     }
 
     .mediamenu-dark > #coursesite:hover {
-        background-image: url(menu-logos/dark-theme/cv_logo_hover.png) !important;
+        background-image: url(../../../img/header/dark-theme/cv_logo_hover.png) !important;
     }
 
     /* Images du menu en light */
     .mediamenu > #receptionsite{
-        background-image: url(menu-logos/reception_logo.png);
+        background-image: url(../../../img/header/reception_logo.png);
     }
 
     .mediamenu > #receptionsite:hover{
-        background-image: url(menu-logos/reception_logo_hover.png);
+        background-image: url(../../../img/header/reception_logo_hover.png);
     }
 
     .mediamenu > #contactsite{
-        background-image: url(menu-logos/contact_logo.png);
+        background-image: url(../../../img/header/contact_logo.png);
     }
 
     .mediamenu > #contactsite:hover{
-        background-image: url(menu-logos/contact_logo_hover.png);
+        background-image: url(../../../img/header/contact_logo_hover.png);
     }
 
     .mediamenu > #personalsite {
-        background-image: url(menu-logos/personal_logo.png);
+        background-image: url(../../../img/header/personal_logo.png);
     }
 
     .mediamenu > #personalsite:hover {
-        background-image: url(menu-logos/personal_logo_hover.png);
+        background-image: url(../../../img/header/personal_logo_hover.png);
     }
 
     .mediamenu > #coursesite {
-        background-image: url(menu-logos/cv_logo.png);
+        background-image: url(../../../img/header/cv_logo.png);
     }
 
     .mediamenu > #coursesite:hover {
-        background-image: url(menu-logos/cv_logo_hover.png);
+        background-image: url(../../../img/header/cv_logo_hover.png);
     }
 
     .media-theme-form {

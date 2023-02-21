@@ -2,9 +2,12 @@
 function displayMessageSent($bool)
 {
     if ($bool) {
-        return '<div id="hasSend">
-         <img src="icones/checked.png" draggable="false">
+        $img = PATH_IMAGES . "contact/checked.png";
+        return <<<HTML
+        <div id="hasSend">
+         <img src="$img" draggable="false">
          <p>Votre message a bien été envoyé !</p>
-      </div>';
+      </div> 
+HTML;
     }
 }

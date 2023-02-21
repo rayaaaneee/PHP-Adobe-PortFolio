@@ -22,7 +22,7 @@ define('PATH_DTO', PATH_DATABASE . 'dto/');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'portfolio');
 define('DB_PORT', '8889');
-define('DB_CHARSET', 'utf8mb4');
+define('DB_CHARSET', 'utf8');
 
 const DB_USR = 'root';
 const DB_PWD = 'root';

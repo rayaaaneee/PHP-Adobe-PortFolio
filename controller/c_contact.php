@@ -28,15 +28,9 @@ if ($wasSet) {
 
 
    // BD
-   $stmt = MessageDTO::getStatementContact($db, $name, $email, $message, $date, $time);
-
-   try {
-      $stmt->execute();
-      // On affiche le message de confirmation
+   $message = new Message($name, $email, $message, $date, $time);
+   if (MessageDTO::insertMessage($message)) {
       $SucceedSend = true;
-   } catch (PDOException $e) {
-      // Si erreur, on affiche le message d'erreur
-      echo $e->getMessage();
    }
 }
 

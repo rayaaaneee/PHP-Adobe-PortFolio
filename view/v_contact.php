@@ -51,7 +51,7 @@ if ($wasSet) {
         </div>
         <?= displayMessageSent($SucceedSend); ?>
         <div class="formulaire <?= $theme->getClass("formulaire") ?>">
-            <form name="myForm" action="./" method="post">
+            <form name="myForm" action="./?page=contact" method="post">
                 <table class="form-style">
                     <tr>
                         <td>

@@ -6,7 +6,7 @@ class ProjectDAO
 
     public static function getAllProjects()
     {
-        $sql = "SELECT * FROM projects ORDER BY id DESC";
+        $sql = "SELECT * FROM project ORDER BY id DESC";
 
         self::$db = Connection::getInstance()->getPDO();
 
@@ -18,7 +18,7 @@ class ProjectDAO
 
     public static function getProjectById($id)
     {
-        $sql = "SELECT * FROM projects WHERE id = :id";
+        $sql = "SELECT * FROM project WHERE id = :id";
 
         self::$db = Connection::getInstance()->getPDO();
 

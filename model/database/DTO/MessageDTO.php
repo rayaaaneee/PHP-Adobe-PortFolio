@@ -41,7 +41,7 @@ class MessageDTO
         self::$db = Connection::getInstance()->getPDO();
 
         // Préparation de la requête
-        $sql = "DELETE FROM messages WHERE id = :id";
+        $sql = "DELETE FROM message WHERE id = :id";
 
         // Préparation de la requête
         $stmt = self::$db->prepare($sql);

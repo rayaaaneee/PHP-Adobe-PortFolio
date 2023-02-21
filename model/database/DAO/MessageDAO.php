@@ -9,7 +9,7 @@ class MessageDAO
         self::$db = Connection::getInstance()->getPDO();
 
         // Préparation de la requête
-        $sql = "SELECT * FROM messages";
+        $sql = "SELECT * FROM message";
 
         // Préparation de la requête
         $stmt = self::$db->prepare($sql);
@@ -32,7 +32,7 @@ class MessageDAO
         self::$db = Connection::getInstance()->getPDO();
 
         // Préparation de la requête
-        $sql = "SELECT * FROM messages WHERE id = :id";
+        $sql = "SELECT * FROM message WHERE id = :id";
 
         // Préparation de la requête
         $stmt = self::$db->prepare($sql);

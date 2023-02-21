@@ -1,7 +1,7 @@
 /* 1) Bulle explicative lorsqu'on hover un fichier pour dire c'est quoi. Fond blanc contour noir 1px. disparait quon on 
 dé-hover la case  */ ✔
 
-2) Mode noir activable avec rajout icone parametre sur le menu en haut à droite
+/* 2) Mode noir activable avec rajout icone parametre sur le menu en haut à droite */ ✔
 
 /* 3) Loader de page basique pendant 2s pour cacher le chargement des backsgrounds (chaque page) */ ✔
 
@@ -45,8 +45,7 @@ dé-hover la case  */ ✔
 
 /* 22) Faire fonctionner le bouton "Fermer" & "Informations" sur la page CV agrandie */ ✔
 
-23) Faire une transition JavaScript en jouant avec l opacité pour faire apparaitre la page CV agrandie 
-+ de même pour la fermeture et regler si on a ouvert le CV une fois l effet ne marche plus
+23) Faire une transition JavaScript en jouant avec l opacité pour faire apparaitre la page CV agrandie
 
 /* 24) Penser à mettre la police normale sur le loader et pas en italique */ ✔
 
@@ -62,9 +61,19 @@ dé-hover la case  */ ✔
 
 /* 30) Faire apparaitre le bouton "voir plus" seulement si il y a plus de 7 projets */ ✔
 
-32) Implémenter des cookies pour le mode nuit
+/* 32) Créer le mode nuit */ ✔
 
-33) Faire le media queries de la page contact qui est bugué au niveau du formulaire
+/* 33) Faire le media queries de la page contact qui est bugué au niveau du formulaire */ ✔
 
-34) Faire le media queries de la page CV
+34) Regler la couleur de selection de texte
+
+35) Animations à l’apparition sur le site
+
+36) Implémenter les images de chaque projet
+
+37) Fix Hangman Game Page
+
+38) Create Reception PortFolio Page
+
+39) Create Time Message
 

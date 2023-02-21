@@ -13,7 +13,6 @@ var texts = [
     "Lecture des paramètres de couleurs...",
     "Création des tables de conversion des couleurs...",
     "Lecture des pinceaux...",
-    /* Injecter un saut a la ligne apres les trois petits points */
     "Démarrage des modules externes...<br> SP Substance Suite",
 ];
 

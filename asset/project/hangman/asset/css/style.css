@@ -1,0 +1,131 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: white;
+    background : url(../img/background3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    font-weight: bold;
+}
+
+header h1, header h2 {
+    text-shadow: 0 0 10px #000000;
+}
+
+.header-title-img-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.header-title-img-container > img {
+    width: 3vw;
+    height: fit-content;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    color: aliceblue;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    box-shadow: 0 0 70px #000000;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 0 0 10px #f0dfdf;
+    border-radius: 2vw 2vw 0 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vw;
+    width: 100%;
+    height : fit-content;
+}
+
+.header-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    row-gap: 0.4vw;
+    background: rgba(154, 181, 204, 0.3);
+    padding: 1vw 3vw;
+    border-radius: 1vw;
+    box-shadow: 0 0 40px #000000;
+    backdrop-filter: blur(10px);
+}
+
+header * {
+    margin: 0;
+    padding: 0;
+}
+
+header > .title-page {
+    margin-top: 3vw;
+} 
+
+header .separator-bar {
+    margin: 1vw 0;
+    width: 80%;
+    height: 4px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000000;
+}
+
+.text-container-footer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    margin-left: 4vw;
+}
+
+.text-container-footer p {
+    margin: 0;
+    padding: 0;
+}
+
+.text-container-footer .title-footer:first-child {
+    font-size: 1.5vw;
+    font-weight: normal;
+    margin-left: 2vw;
+}
+
+.text-container-footer .title-footer:last-child {
+    font-size: 1.35vw;
+    font-weight: bold;
+}
+

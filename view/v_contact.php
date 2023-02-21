@@ -23,6 +23,7 @@
 <!-- Loader -->
 <?php if (!$changedMode) { ?>
     <iframe id="loader" src="loader/"></iframe>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
 <?php } ?>
 <?php
 if ($wasSet) {

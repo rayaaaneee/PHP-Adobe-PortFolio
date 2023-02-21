@@ -10,6 +10,11 @@ include_once 'config.php';
 
 include_once PATH_DATABASE . 'Connection.php';
 
+$changedMode = false;
+if (isset($_POST['dark-mode'])) {
+    $changedMode = true;
+}
+
 $page = null;
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -17,8 +22,8 @@ if (isset($_GET['page'])) {
         $page = "404";
     }
 } else {
-    /* $page = "index"; */
     $page = "home";
+    /* $page = "index"; */
 }
 
 require_once PATH_MODELS . "DarkMode.php";

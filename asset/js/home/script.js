@@ -1,6 +1,10 @@
 // Fonction qui retourne le nom d'un fichier à partir d'un path
 const baseName = (path) => {
-    return path.split('/').reverse()[0];
+    if (path.includes('/')) {
+        return path.split('/').reverse()[0];
+    } else {
+        return path;
+    }
 }
 
 // Fonction qui colorie la barre quand on passe la souris sur le container
@@ -12,11 +16,11 @@ const colorBar = (index) =>{
 
 const DownloadOrLink = (element) => {
     let bool = false;
-    element.querySelector(".project-is-download").innerHTML == "1" ? bool = true : bool = false;
+    parseInt(element.querySelector(".project-is-link").innerHTML) == 1 ? bool = true : bool = false;
     if(bool){
-        element.setAttribute("download", "");
+        element.setAttribute("_blank", "");
     } else {
-        element.target = "_blank";
+        element.target = "download";
     }
 }
 
@@ -138,7 +142,7 @@ const animateClosingCVFrameButtons = () => {
 
 // Fonction qui imprime envoie vers la page d'impression quand on clique sur le bouton Print
 const printPDF = () =>{
-    var pdf = window.open("index/files/CV.pdf", "_blank");
+    var pdf = window.open("./asset/files/CV.pdf", "_blank");
     pdf.print();
 }
 
@@ -146,7 +150,7 @@ const printPDF = () =>{
 const getInformations = () => {
     let result = null;
 
-    let path = "index/files/data.txt";
+    let path = "./asset/files/data.txt";
 
     let fichierBrut = new XMLHttpRequest();
     fichierBrut.open("GET", path, false);
@@ -304,13 +308,15 @@ if(seeMoreButton != null) seeMoreButton.addEventListener("click", appearOthersPr
 
 // Function qui permet d'ouvrir la page
 const projectPage = document.querySelector(".project-page-container");
-const projectContainer = document.querySelector(".projects");
-const downloadOrVisitBtn = document.querySelector(".download-or-redirect");
-const titleProject = document.querySelector(".title-project");
-const img = document.querySelector(".project-page-container > img");
-const imgLinkOrDownload = document.querySelector(".link-or-download");
+const projectContainer = projectPage.querySelector(".projects");
+const downloadBtn = projectPage.querySelector(".download-btn");
+const linkBtn = projectPage.querySelector(".link-btn");
+const titleProject = projectPage.querySelector(".title-project");
+const img = projectPage.querySelector(".project-page-container > img");
+const imgLinkOrDownload = projectPage.querySelector(".link-or-download");
 const backgroundProjectPage = projectPage.querySelector(".background-project-page");
-const quitProjectButton = document.querySelector(".quit-project-button");
+const quitProjectButton = projectPage.querySelector(".quit-project-button");
+const downloadSizeContainer = projectPage.querySelector(".project-size-container");
 
 // Recuperer variable CSS 
 var animDurationProjects = getComputedStyle(document.documentElement).getPropertyValue('--anim-duration');
@@ -333,8 +339,15 @@ const openProjectPage = (element) => {
     // / Changer le type de lastElement en "a"
     lastElement = replaceTag(lastElement, "a");
 
-    let href = element.querySelector(".project-href").textContent;
-    lastElement.setAttribute("href", href);
+    if (parseInt(element.querySelector(".project-is-link").textContent) === 1) {
+        let href = element.querySelector(".project-link").textContent;
+        lastElement.setAttribute("href", href);
+        lastElement.setAttribute("target", "_blank");
+    } else {
+        let href = element.querySelector(".project-file").textContent;
+        lastElement.setAttribute("href", href);
+        lastElement.setAttribute("download", "");
+    }
     
     titleProject.textContent = lastElement.querySelector(".to_download > p").textContent;
     lastElement.querySelector(".to_download").remove();
@@ -350,48 +363,66 @@ const openProjectPage = (element) => {
     // On scroll en haut de la page
     projectPage.scrollTop = 0;
 
-    projectPage.querySelector(".download-or-redirect").setAttribute("href", href);
+    let hrefDownload = null;
+    let hrefLink = null;
+    let isLink = false;
+    let isDownload = false;
+
+    if (parseInt(element.querySelector(".project-is-link").textContent) === 1) {
+        hrefLink = element.querySelector(".project-link").textContent;
+        isLink = true;
+    }
+    if (parseInt(element.querySelector(".project-is-download").textContent) === 1) {
+        hrefDownload = element.querySelector(".project-file").textContent;
+        isDownload = true;
+    }
+
+    downloadBtn.setAttribute("href", hrefDownload);
+    linkBtn.setAttribute("href", hrefLink);
     let textMessage = null;
-    switch(parseInt(element.querySelector(".project-is-download").textContent)) {
-        case 0:
+
+    if(parseInt(element.querySelector(".project-is-link").textContent) === 1) {
             // Si c'est un lien, on change le texte du bouton, on change l'icone et on display "none" la taille du fichier
-            projectPage.querySelector(".project-size-container").style.display = "none";
-
-            // Si c'est un lien, on met un margn-bottom de 3px au lieu de 0
-            downloadOrVisitBtn.style.marginBottom = "4vw";
-
-            downloadOrVisitBtn.setAttribute("target", "_blank");
-
             imgLinkOrDownload.src = "./asset/img/home/icon/white-link.png";
 
             let title = titleProject.textContent;
 
-            if (href.includes(".pdf") || href.includes(".PDF")) title = baseName(href);
+            if (hrefLink.includes(".pdf") || hrefLink.includes(".PDF")) title = baseName(hrefDownload);
 
             textMessage = "Consulter " + title;
-            downloadOrVisitBtn.textContent = textMessage;
-            break;
+            linkBtn.textContent = textMessage;
 
-        case 1:
-            downloadOrVisitBtn.setAttribute("download", "");
-
-            projectPage.querySelector(".project-size-value").textContent = element.querySelector(".project-size").textContent;
-
-            imgLinkOrDownload.src = "./asset/img/home/icon/white-download.png";
-            
-            textMessage = "Télécharger (" + baseName(href) + ")";
-
-            downloadOrVisitBtn.textContent = textMessage;
-            break;
+            if (isDownload) {
+                    linkBtn.style.marginBottom = "1vw";
+            }
+    } else {
+            linkBtn.style.display = "none";
     }
+
+    if (parseInt(element.querySelector(".project-is-download").textContent) === 1) {
+
+            textMessage = "Télécharger (" + baseName(hrefDownload) + ")";
+
+            downloadBtn.textContent = textMessage;
+
+            // On récupère la taille du fichier
+            let size = element.querySelector(".project-size").textContent;
+            let sizeText = projectPage.querySelector(".project-size-container > .project-size-value");
+
+            // On affiche la taille du fichier
+            sizeText.textContent = size;
+
+    } else {
+            downloadSizeContainer.style.display = "none";
+            downloadBtn.style.display = "none";
+    }
+
     DownloadOrLink(lastElement);
     lastElement.classList.add("actual-project-viewing");
-    
-    
-    
+
     // On met les textes à leur place
     projectPage.querySelector(".project-desc-value").textContent = element.querySelector(".project-desc").textContent;
-    
+
     // Si le projet a une notice d'utilisation, on l'affiche, sinon on la cache
     if( element.querySelector(".project-use-desc").textContent == "" ) {
         projectPage.querySelector(".project-use-desc-value").parentElement.style.display = "none";
@@ -431,14 +462,18 @@ const closeProjectPage = () => {
             projectPage.querySelector(".project-size-container").style.removeProperty("display");
             projectPage.querySelector(".project-size-value").textContent = "";
         
-            downloadOrVisitBtn.removeAttribute("href");
-            downloadOrVisitBtn.removeAttribute("target");
-            downloadOrVisitBtn.removeAttribute("download");
-            downloadOrVisitBtn.style.removeProperty("margin-bottom");
+            downloadBtn.removeAttribute("href");
+            linkBtn.removeAttribute("href");
             
             lastElement.remove();
         
             document.body.style.removeProperty("overflow-y");
+
+            linkBtn.style.removeProperty("display");
+            linkBtn.style.removeProperty("margin-bottom");
+
+            downloadBtn.style.removeProperty("display");
+            downloadSizeContainer.style.removeProperty("display");
         
             clearInterval(intervalAnimationProjectViewing);
         }, animDurationProjects);

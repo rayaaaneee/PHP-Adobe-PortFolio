@@ -17,8 +17,6 @@
     <title>Accueil</title>
 </head>
 
-
-<!-- LOADER & backgrounds-->
 <header>
     <?php if (!$changedMode) { ?>
         <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
@@ -28,9 +26,11 @@
 <?php if (!$changedMode) { ?>
     <iframe id="loader" src="loader/"></iframe>
 <?php } ?>
+
 <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div>
 <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
 <div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
+
 <article id="main">
     <div class="title t1" id="firstmid">
         <p>Mes projets</p>
@@ -52,11 +52,11 @@
                 </div>
                 <p class="project-desc hidden"><?= $project->getDescription() ?></p>
                 <p class="project-use-desc hidden"><?= $project->getUseDescription() ?></p>
-                <p class="project-is-download hidden"><?= $project->isDownload(); ?></p>
-                <p class="projet-is-link hidden"><?= $project->isLink(); ?></p>
                 <p class="project-img hidden"><?= $project->getImage(); ?></p>
+                <p class="project-is-download hidden"><?= $project->isDownload(); ?></p>
+                <p class="project-is-link hidden"><?= $project->isLink(); ?></p>
                 <?php if ($project->isDownload()) { ?>
-                    <p class="project-file hidden">/index/projects/<?= $project->getFile() ?></p>
+                    <p class="project-file hidden"><?= $project->getFile() ?></p>
                     <p class="project-size hidden"><?= $project->getFileSize(); ?></p>
                 <?php }
                 if ($project->isLink()) { ?>
@@ -96,7 +96,8 @@
                     </div>
                     <p class="project-use-desc-value page-content"></p>
                 </div>
-                <a class="download-or-redirect title-page-project"></a>
+                <a href="" class="link-btn title-page-project" target="_blank"></a>
+                <a class="download-btn title-page-project" download></a>
                 <div class="project-size-container text-project-container">
                     <img src="<?= PATH_IMAGES; ?>home/icon/white-memory-icon.png" draggable="false">
                     <p class="page-content">Taille du fichier :</p>

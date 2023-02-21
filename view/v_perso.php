@@ -9,18 +9,17 @@
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>perso/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
-    <?php if (!$changedMode) { ?>
-        <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
-    <?php } ?>
     <title>Perso</title>
 </head>
+
 <header>
     <?php if (!$changedMode) { ?>
         <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
     <?php } ?>
 </header>
-<!-- LOADER & backgrounds -->
+<!-- Loader -->
 <?php if (!$changedMode) { ?>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
     <iframe id="loader" src="loader/"></iframe>
 <?php } ?>
 <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div>

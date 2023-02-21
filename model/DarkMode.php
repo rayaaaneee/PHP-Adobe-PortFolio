@@ -117,8 +117,3 @@ class DarkMode
         return $path . ".png";
     }
 }
-
-$changedMode = false;
-if (isset($_POST['dark-mode'])) {
-    $changedMode = true;
-}

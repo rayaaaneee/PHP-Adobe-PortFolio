@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="<?= PATH_CSS; ?>about/dark-style.css">
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>about/style.css">
+    <!-- SCRIPT JS -->
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <title>À propos</title>
 </head>
 <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div>
@@ -16,7 +19,7 @@
             <div class="title-container title-container-first-child">
                 <h1 class="title title1">• Politique de confidentialité</h1>
                 <div class="bar"></div>
-                <img src="<?= PATH_IMAGES . "about/" . $theme->getImagePath("privacy"); ?>" alt="privacy" />
+                <img src="<?= PATH_IMAGES . "about/" . $theme->getImagePath("privacy"); ?>" alt="privacy" draggable="false" />
             </div>
             <p class="text-content">Votre vie privée est importante pour moi. La politique d'Adobe PortFolio est de respecter votre vie privée et de se conformer à toutes les lois et réglementations applicables concernant les informations personnelles que nous pouvons collecter à votre sujet, y compris sur mon site Web, https://rayanemerlin.com.</br>Cette politique est en vigueur depuis le 7 février 2023 et a été mise à jour pour la dernière fois le 7 février 2023.</p>
             <h2 class="subtitle">- Me contacter</h2>
@@ -36,9 +39,9 @@
             <div class="title-container">
                 <h1 class="title title2">• À propos</h1>
                 <div class="bar"></div>
-                <img src="<?= PATH_IMAGES . "about/" . $theme->getImagePath("about"); ?>" alt="about_icon" />
+                <img src="<?= PATH_IMAGES . "about/" . $theme->getImagePath("about"); ?>" alt="about_icon" draggable="false" />
             </div>
-            <p class="text-content">Ce site a été entièrement codé par mes soins dans le but de présenter mon parcours, mes projets et mes compétences.</p>
+            <p class="text-content">Ce site a été entièrement codé par mes soins dans le but de présenter mon parcours, mes projets et mes compétences. </br> De même, tous les projets présentés ont pu être codés en partie ou entièrement par mes soins. </br> Le logo a été inspiré du logo officiel d'Adobe Photoshop, le loader a lui été inspiré du chargement officiel d'Adobe Photoshop 2022.</p>
         </div>
     </div>
 </div>

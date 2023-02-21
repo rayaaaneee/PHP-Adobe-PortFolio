@@ -139,7 +139,7 @@ html {
     padding-bottom: 1.5vw;
 }
 
-.download-or-redirect {
+.link-btn, .download-btn {
     color: white !important;
     font-size: 2.8vw;
     margin-left: 2.5vw;
@@ -153,9 +153,17 @@ html {
     text-underline-offset: 0.5vw;
 }
 
-.download-or-redirect:hover {
+.link-btn:hover, .download-btn:hover {
     color: rgb(234, 215, 215) !important;
     transition: 0.2s;
+}
+
+.link-btn {
+    margin-bottom: 3.5vw;
+}
+
+.project-size-container {
+    margin-bottom: 2vw;
 }
 
 .title-project-container  {

@@ -9,32 +9,22 @@
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>contact/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
-    <?php if (!$changedMode) { ?>
+    <?php if (!$changedMode && !$wasSet) { ?>
         <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
     <?php } ?>
     <title>Accueil</title>
 </head>
 
 <header>
-    <?php if (!$changedMode) { ?>
+    <?php if (!$changedMode && !$wasSet) { ?>
         <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
     <?php } ?>
 </header>
 <!-- Loader -->
-<?php if (!$changedMode) { ?>
+<?php if (!$changedMode && !$wasSet) { ?>
     <iframe id="loader" src="loader/"></iframe>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
 <?php } ?>
-<?php
-if ($wasSet) {
-?>
-    <script>
-        document.getElementById("loader").remove();
-        document.getElementById("startbackground").remove();
-    </script>
-<?php
-}
-?>
 <!-- backgrounds -->
 <div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div>
 <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>

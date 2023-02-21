@@ -18,6 +18,7 @@ def invert(filename):
                 nbcrochet += 1
 
             # On décommente la fonction commentée, on commente la non commentée et supprime les espaces en trop
+
             if 'function' in line:
                 if '/*' in line:
                     tmp = line.split('/*')

@@ -9,7 +9,7 @@ class MessageDTO
         self::$db = Connection::getInstance()->getPDO();
 
         // Préparation de la requête
-        $sql = "INSERT INTO messages (name, email, message, date, time) VALUES (:name, :email, :message, :date, :time)";
+        $sql = "INSERT INTO messages (name, email, content, date, time) VALUES (:name, :email, :content, :date, :time)";
 
         // Préparation de la requête
         $name = $message->getName();
@@ -21,7 +21,7 @@ class MessageDTO
         $stmt = self::$db->prepare($sql);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':message', $stringMessage);
+        $stmt->bindParam(':content', $stringMessage);
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':time', $time);
 

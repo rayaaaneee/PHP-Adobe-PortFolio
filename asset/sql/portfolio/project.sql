@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 21 fév. 2023 à 18:30
+-- Généré le : mar. 21 fév. 2023 à 18:29
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.1.0
 
@@ -20,20 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `portfolio`
 --
-
--- --------------------------------------------------------
-
---
--- Structure de la table `message`
---
-
-CREATE TABLE `message` (
-  `name` text NOT NULL,
-  `email` text NOT NULL,
-  `content` text NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -69,19 +55,6 @@ INSERT INTO `project` (`id`, `title`, `icon`, `use_desc`, `project_desc`, `is_do
 (7, 'Would You Play', 'snake', 'Séléctionner le jeu voulu. \r\nChargez le jeu puis choisissez d\'ignorer les instructions ou non. Le jeu apparait ensuite. Vous avez une page des préférences pour chacun des jeux. Pour le jeu du snake, cela vous permet de choisir entre différents points (taille du terrain, nombre de pommes...). Pour le jeu des batons, vous pouvez choisir la difficulté du robot, ainsi que le choix principal (choisir celui qui commence ou le nombre de batons).\r\nAttention : Il arrive rarement que les instructions ne s\'affichent pas après avoir appuyé sur play ce qui bloque la page. Il suffit de recharger la page pour règler cette erreur.', 'Would you play est un projet personnel que j\'ai fait basé sur le HTML et le Javascript. Ce site (monopage) vous permet de jouer à différents jeux. Actuellement, un snake avec différentes options ainsi qu\'un jeu des bâtons ont été faits.', 0, 'would-you-play/', 0, NULL, NULL),
 (8, 'E-Ticket', 'ticketing', 'Utilisation du php pour la connection à la base de données. Inscription, connection et administration de son compte possible.\r\nReception du billet en PDF par mail à la suite d\'un achat.', 'Ce site est un projet scolaire de vente de tickets (concerts, spectacles ...).', 0, '', 1, 'e-ticket/', NULL),
 (9, 'Hangman Game', 'hangman', 'Démarrez une partie en donnant les pseudonymes des deux joueurs puis en validant.\r\nUn des deux joueurs choisis au hasard donnera le mot de son choix et validera ensuite.\r\nL\'autre joueur doit ensuite rentrer des lettres, si celles-ci est bonne, la lettre se découvrira dans le mot. Sinon, attention à ne pas trop faire d\'erreurs.', 'Ce projet scolaire était une mise à niveau en PHP. Il s\'agit d\'un jeu du pendu tout ce qu\'il y a de plus basique qui fonctionne avec les sessions et qui sauvegarde l\'ensemble des parties dans une base de données pour les afficher sur la page d\'accueil. Le jeu se joue à deux joueurs, l\'un donnera le mot et l\'autre le cherchera.', 1, 'hangman/', 1, 'hangman-game.rar', NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `sae`
---
-
-CREATE TABLE `sae` (
-  `ue` text NOT NULL,
-  `title` text NOT NULL,
-  `description` text NOT NULL,
-  `date` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Index pour les tables déchargées

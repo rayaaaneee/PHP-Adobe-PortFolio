@@ -105,7 +105,7 @@ class DarkMode
         if ($this->isLightTheme == "false") {
             $filename = "white-" . $filename;
         }
-        return $filename;
+        return PATH_IMAGES . "favicon/" . $filename;
     }
 
     public function getImagePath($name)

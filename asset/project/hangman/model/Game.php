@@ -84,7 +84,7 @@ class Game
         $word = str_replace('ç', 'c', $word);
 
         for ($i = 0; $i < strlen($word); $i++) {
-            array_push($this->word, $word[$i]);
+            array_push($this->word, strtolower($word[$i]));
         }
     }
 
@@ -210,18 +210,25 @@ class Game
         $tmp = $this->stringWord;
         $tmp = strtolower($tmp);
         if ($tmp[0] != '-' && $tmp[0] != '_' && $tmp[0] != "'") {
-            if ($this->isAccent($tmp[0] . $tmp[1])) {
-
+            if ($this->isAccent($tmp[0] . $tmp[1]) && !$this->isChar($tmp[0])) {
                 $firstAccent = $tmp[0] . $tmp[1];
                 $upperChar = $this->associateUpperAccent($firstAccent);
                 $tmp = substr($tmp, 2);
                 $tmp = $upperChar . $tmp;
             } else {
-
                 $tmp[0] = strtoupper($tmp[0]);
             }
         }
         return $tmp;
+    }
+
+    public function isChar($char)
+    {
+        if (preg_match('/[a-zA-Z]/', $char)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private function associateUpperAccent($string)

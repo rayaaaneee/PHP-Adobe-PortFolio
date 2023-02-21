@@ -19,7 +19,7 @@ define('PATH_DAO', PATH_DATABASE . 'dao/');
 define('PATH_DTO', PATH_DATABASE . 'dto/');
 
 // Database
-/* function defineConnection()
+function defineConnection()
 {
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'portfolio');
@@ -28,9 +28,9 @@ define('PATH_DTO', PATH_DATABASE . 'dto/');
 
     define('DB_USR', 'root');
     define('DB_PWD', 'root');
-} */
+} 
 
-function defineConnection()
+/* function defineConnection()
 {
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'portfolio');
@@ -39,6 +39,6 @@ function defineConnection()
 
     define('DB_USR', 'root');
     define('DB_PWD', 'Opqdkjqo64$');
-} 
+} */ 
 
 defineConnection();

@@ -9,6 +9,7 @@
     <script src="<?= PATH_SCRIPTS; ?>index/script.js" defer></script>
     <!-- FONTS -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='<?= $theme->getFavicon(); ?>.png' rel='icon' type='image/x-icon' />
     <title>Adobe Portfolio</title>
 </head>
 
@@ -32,7 +33,7 @@
                 <li><a href="./?page=perso">Perso</a></li>
                 <li><a href="./?page=contact">Contact</a></li>
             </ul>
-            <a href="./?page=home" class="get-start">Get start</a>
+            <a href="./?page=home" class="get-start">Commencer</a>
         </div>
     </header>
     <main>
@@ -40,7 +41,10 @@
             <div class="title">
                 <h1>Adobe Portfolio</h1>
                 <div class="main-bar"></div>
-                <h2>Par Rayane Merlin</h2>
+                <div class="subtitle">
+                    <h2>Rayane Merlin</h2> <!-- Texte dynamique -->
+                    <div class="vertical-bar"></div>
+                </div>
             </div>
         </div>
     </main>

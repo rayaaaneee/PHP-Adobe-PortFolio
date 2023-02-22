@@ -162,7 +162,7 @@ body * {
     width: 175px;
     height: 55px;
     background-color: #edba93;
-    border-radius: 30px;
+    border-radius: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,11 +193,13 @@ body * {
     color: #ffffff;
     font-size: 1.35em;
     font-weight: 600;
+    text-shadow: 0 0 2.15rem #000;
     transition: all 0.3s ease;
 }
 
 .menu li a:hover {
     color: #7d4d4d;
+    text-shadow: 0 0 1.15rem #00000094;
 }
 
 .menu ul {
@@ -244,7 +246,9 @@ body * {
     font-size: 1.5em;
     font-weight: 600;
     color: #fff;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: #e27899;
+    text-underline-offset: 6px;
     transition: all 0.3s ease;
     text-shadow: 0 0 1.15rem #000;
 }
@@ -273,12 +277,12 @@ body * {
     font-family: 'AdobeBold';
 }
 
-.container > .title > h2 {
-    margin-top: 2.5vw;
+.container > .title > .subtitle > h2 {
     font-size: 6vw;
     font-weight: 600;
     color: #fff;
     font-family: 'Adobe';
+    text-shadow: 0 0 2.15rem #00000093;
 }
 
 .title > .main-bar {
@@ -330,3 +334,43 @@ body * {
         width: 73%;
     }
 }
+
+.subtitle {
+    margin-top: 2.5vw;
+    width: 100%;
+    height: 10vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 1vw;
+}
+
+.vertical-bar {
+    width: 0.5vw;
+    height: 6vw;
+    background-color: #000000;
+    border-radius: 10px;
+    animation: vertical-bar-apparition 1.5s ease-in-out infinite;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+@keyframes vertical-bar-apparition {
+    0% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+

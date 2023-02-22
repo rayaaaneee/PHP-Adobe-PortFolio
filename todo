@@ -65,15 +65,25 @@ dé-hover la case  */ ✔
 
 /* 33) Faire le media queries de la page contact qui est bugué au niveau du formulaire */ ✔
 
-34) Regler la couleur de selection de texte
+/* 34) Regler la couleur de selection de texte */ ✔
 
 35) Animations à l’apparition sur le site
 
 36) Implémenter les images de chaque projet
 
-37) Fix Hangman Game Page
+/* 37) Fix Hangman Game Page */ ✔
 
-38) Create Reception PortFolio Page
+/* 38) Create Reception PortFolio Page */ ✔
 
 39) Create Time Message
+
+40) Rajouter des animations au mouvement de souris ou click sur la page d accueil
+
+41) Régler le menu (dark-mode) qui est bugué sur la page a propos
+
+41) Parallax de la page d accueil (Qui suis je?)
+
+42) Dark mode sur la page d accueil
+
+43) Media queries de la page d accueil
 

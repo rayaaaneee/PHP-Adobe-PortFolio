@@ -279,7 +279,6 @@ const appearOthersProjects = () => {
     }, 200);
 }
 
-
 // Fonction qui applique l'animation
 var indexProject = 7 ;
 const appearProject = () => {
@@ -381,7 +380,7 @@ const openProjectPage = (element) => {
     linkBtn.setAttribute("href", hrefLink);
     let textMessage = null;
 
-    if(parseInt(element.querySelector(".project-is-link").textContent) === 1) {
+    if(isLink) {
             // Si c'est un lien, on change le texte du bouton, on change l'icone et on display "none" la taille du fichier
             imgLinkOrDownload.src = "./asset/img/home/icon/white-link.png";
 
@@ -396,10 +395,11 @@ const openProjectPage = (element) => {
                     linkBtn.style.marginBottom = "1vw";
             }
     } else {
+            imgLinkOrDownload.src = "./asset/img/home/icon/white-download.png"
             linkBtn.style.display = "none";
     }
 
-    if (parseInt(element.querySelector(".project-is-download").textContent) === 1) {
+    if (isDownload) {
 
             textMessage = "Télécharger (" + baseName(hrefDownload) + ")";
 

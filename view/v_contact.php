@@ -6,8 +6,8 @@
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>contact/style.css">
     <!-- SCRIPTS JS -->
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>contact/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>contact/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <?php if (!$changedMode && !$wasSet) { ?>
         <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>

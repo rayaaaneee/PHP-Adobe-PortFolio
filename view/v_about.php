@@ -6,7 +6,9 @@
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>about/style.css">
     <!-- SCRIPT JS -->
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
+    <?php if (!$theme->isLightTheme()) { ?>
+        <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
+    <?php } ?>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <title>À propos</title>
 </head>

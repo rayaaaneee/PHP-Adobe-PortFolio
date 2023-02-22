@@ -33,8 +33,16 @@
                 <li><a href="./?page=course">Parcours</a></li>
                 <li><a href="./?page=perso">Perso</a></li>
                 <li><a href="./?page=contact">Contact</a></li>
+                <li class="cv-download">
+                    <a href="<?= PATH_FILES; ?>CV.pdf" download="CV_Rayane_Merlin.pdf">
+                        <div class="container-cv-download">
+                            <p>CV</p>
+                            <img src="<?= PATH_IMAGES; ?>index/download.png" alt="download" draggable="false">
+                        </div>
+                    </a>
+                </li>
             </ul>
-            <a href="./?page=home" class="get-start">Commencer</a>
+            <a href="./?page=home" class="get-start">Découvrir</a>
         </div>
     </header>
     <main>

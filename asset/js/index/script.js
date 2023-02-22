@@ -1,4 +1,4 @@
-const textTab = ["Rayane Merlin", "Full Stack Developper", "Designer"];
+const textTab = ["Rayane Merlin", "Full Stack Developper", "Designer", "IT Student (BAC +2)"];
 var index = 1;
 
 const element = document.querySelector(".subtitle > h2");

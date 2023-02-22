@@ -195,6 +195,10 @@ body * {
     font-weight: 600;
     text-shadow: 0 0 2.15rem #000;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu li a:hover {
@@ -211,6 +215,7 @@ body * {
 
 /* Quand on hover un ul une barre apparait sous le lien avec une animation */
 .menu ul li a::after {
+    opacity: 0.6;
     border-radius: 5px;
     margin-top: 5px;
     content: "";
@@ -222,19 +227,25 @@ body * {
 }
 
 .menu ul li a:hover::after {
-    width: 100%;
+    opacity: 1;
+    width: 120%;
     transition: width 0.3s;
 }
 
 .logo {
     position: absolute;
     left: 1vw;
-    top: 0.4vw;
+    top: 1vw;
     width: 60px;
 }
 
 .logo img {
+    width: 80%;
+}
+
+footer {
     width: 100%;
+    height: fit-content;
 }
 
 .about-page {
@@ -379,5 +390,32 @@ body * {
     100% {
         opacity: 1;
     }
+}
+
+.cv-download a {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0;
+    justify-content: center;
+    align-items: start;
+}
+
+.cv-download > a > img {
+    width: 2vw;
+    height: 2vw;
+}
+
+.cv-download .container-cv-download {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.4vw;
+}
+
+.cv-download .container-cv-download img{
+    width: 1.5vw;
+    height: 1.5vw;
 }
 

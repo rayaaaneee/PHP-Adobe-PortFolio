@@ -22,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- FAVICON & FONTS -->
-    <link sizes="180x180" href="<?= PATH_IMAGES; ?>favicon/<?= $theme->getFavicon() ?>.png" rel="icon" type="image/png">
+    <link sizes="180x180" href="<?= $theme->getFavicon() ?>.png" rel="icon" type="image/png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
@@ -30,7 +30,7 @@
     <header>
         <div id="menu-container">
             <ul class="menu <?= $theme->getClass("menu") ?>">
-                <a href="./?page=home">
+                <a href="./">
                     <div class="logo <?= $theme->getClass("logo"); ?>"></div>
                 </a>
                 <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href="./?page=home">
@@ -50,7 +50,7 @@
                 </form>
             </ul>
             <ul class="mediamenu <?= $theme->getClass("mediamenu"); ?>">
-                <a href="./?page=home">
+                <a href="./">
                     <div class="logo <?= $theme->getClass("logo"); ?>"></div>
                 </a>
                 <a class="mediasites" id="receptionsite" href="./?page=home"></a>

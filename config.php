@@ -28,7 +28,7 @@ function defineConnection()
 
     define('DB_USR', 'root');
     define('DB_PWD', 'root');
-} 
+}
 
 /* function defineConnection()
 {
@@ -39,6 +39,6 @@ function defineConnection()
 
     define('DB_USR', 'root');
     define('DB_PWD', 'Opqdkjqo64$');
-} */ 
+} */
 
 defineConnection();

@@ -30,7 +30,7 @@
     <header>
         <div id="menu-container">
             <ul class="menu <?= $theme->getClass("menu") ?>">
-                <a href="./?page=home">
+                <a href="./">
                     <div class="logo <?= $theme->getClass("logo"); ?>"></div>
                 </a>
                 <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href="./?page=home">
@@ -50,7 +50,7 @@
                 </form>
             </ul>
             <ul class="mediamenu <?= $theme->getClass("mediamenu"); ?>">
-                <a href="./?page=home">
+                <a href="./">
                     <div class="logo <?= $theme->getClass("logo"); ?>"></div>
                 </a>
                 <a class="mediasites" id="receptionsite" href="./?page=home"></a>

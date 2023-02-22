@@ -1,6 +1,7 @@
 <head>
     <!-- CSS -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>index/style.css">
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>index/appearence.css">
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>index/dark-style.css">
     <!-- CSS DES MEDIA QUERIES -->

@@ -35,7 +35,7 @@
 
 /* Le bas de chaque case survolée s'agrandit de 10px mais pas le reste */
 .menu li:hover{
-    transform: translateY(2px);
+    transform: translateY(2.5px);
     border-bottom: 5px solid rgb(239, 195, 153);
     border-radius: 3px;
 }

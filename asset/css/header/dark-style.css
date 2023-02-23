@@ -1,10 +1,10 @@
 .menu-dark {
     background-color: rgba(0, 0, 0, 0.9);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .menu-dark li:hover{
-    border-bottom: 7px solid rgb(255, 255, 255) !important;
+    border-bottom: 5px solid rgb(255, 255, 255) !important;
+    transform: translateY(2.5px);
 }
 
 .menu-dark .sites > p {

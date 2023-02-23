@@ -52,3 +52,34 @@
     animation: fadeIn 0.6s 0.2s ease-in-out forwards, bar-move 6s linear infinite;
     margin-bottom: 20px;
 }
+
+/* .footer-links {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: appearence 0.45s 0.8s ease-in-out forwards;
+} */
+
+.linkedin-link , .github-link, .gitlab-link, .mail-link, .tel-link  {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.linkedin-link {
+    animation: appearence 0.45s 0.4s ease-in-out forwards;
+}
+
+.gitlab-link {
+    animation: appearence 0.45s 0.6s ease-in-out forwards;
+}
+
+.github-link {
+    animation: appearence 0.45s 0.8s ease-in-out forwards;
+}
+
+.mail-link {
+    animation: appearence 0.45s 1s ease-in-out forwards;
+}
+
+.tel-link {
+    animation: appearence 0.45s 1.2s ease-in-out forwards;
+}

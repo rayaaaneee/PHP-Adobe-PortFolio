@@ -34,10 +34,11 @@
                 <li><a href="./?page=perso">Perso</a></li>
                 <li><a href="./?page=contact">Contact</a></li>
                 <li class="cv-download">
-                    <a href="<?= PATH_FILES; ?>CV.pdf" download="CV_Rayane_Merlin.pdf">
+                    <a href="<?= PATH_FILES; ?>CV.pdf" download="CV_Rayane_Merlin.pdf" onmouseover="colorMenuImg();" onmouseleave="uncolorMenuImg();">
                         <div class="container-cv-download">
-                            <p>CV</p>
-                            <img src="<?= PATH_IMAGES; ?>index/download.png" alt="download" draggable="false">
+                            <p>C</p>
+                            <p>V</p>
+                            <div class="download-img dl-img"></div>
                         </div>
                     </a>
                 </li>
@@ -62,5 +63,27 @@
         <a href="./?page=about" class="about-page">
             <p>Crédits</p>
         </a>
+        <ul class="footer-links">
+            <li>
+                <a class="linkedin-link" href="https://www.linkedin.com/in/rayanemerlin/" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                </a>
+            </li>
+            <li>
+                <a class="gitlab-link" href="https://forge.univ-lyon1.fr/p2103994" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                </a>
+            </li>
+            <li>
+                <a class="github-link" href="https://github.com/rayaaaneee" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                </a>
+            </li>
+            <li>
+                <a class="mail-link" href="mailto:rayane.merlin8@gmail.com" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                </a>
+            </li>
+            <li>
+                <a class="tel-link" href="tel:+33768283277" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                </a>
+            </li>
+        </ul>
     </footer>
 </body>

@@ -39,3 +39,16 @@ const erase = (element, speed) => {
 setTimeout(() => {
     erase(element, 100);
 }, 4000);
+
+
+// Fonction qui s'occupe du hover sur de l'image
+const imgMenu = document.querySelector(".menu .download-img");
+const colorMenuImg = () => {
+    imgMenu.classList.remove("dl-img");
+    imgMenu.classList.add("dl-img-hover");
+}
+
+const uncolorMenuImg = () => {
+    imgMenu.classList.add("dl-img");
+    imgMenu.classList.remove("dl-img-hover");
+}

@@ -159,7 +159,7 @@ body * {
 .get-start {
     position: absolute;
     right: 1.5vw;
-    width: 175px;
+    width: 140px;
     height: 55px;
     background-color: #edba93;
     border-radius: 28px;
@@ -244,8 +244,12 @@ body * {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: fit-content;
+    z-index: 0;
 }
 
 .about-page {
@@ -287,14 +291,6 @@ footer {
     width: 60%;
     transition: width 0.3s;
 }
-
-
-
-.about-page:hover {
-    color: #e9e5e5;
-}
-
-/* TEXTE DE LA PAGE */
 
 .container {
     position: relative;
@@ -442,5 +438,98 @@ footer {
 .cv-download .container-cv-download img{
     width: 1.7vw;
     height: 1.7vw;
+}
+
+.download-img {
+    width: 1.9vw;
+    height: 1.9vw;
+    transition: background-image 0.18s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.dl-img {
+    background-image: url(../../img/index/download.png);
+}
+
+.dl-img-hover {
+    background-image: url(../../img/index/download-hover.png);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8vw;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-links > ul {
+}
+
+.footer-links li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 1s ease;
+    text-shadow: 0 0 1.15rem #000;
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.linkedin-link {
+    background-image: url(../../img/index/icon-linkedin.png);
+}
+
+.linkedin-link:hover {
+    background-image: url(../../img/index/icon-linkedin-hover.png);
+    transition: all 1s ease;
+}
+
+.github-link {
+    background-image: url(../../img/index/icon-github.png);
+}
+
+.github-link:hover {
+    background-image: url(../../img/index/icon-github-hover.png);
+    transition: all 1s ease;
+}
+
+.gitlab-link {
+    background-image: url(../../img/index/icon-gitlab.png);
+}
+
+.gitlab-link:hover {
+    background-image: url(../../img/index/icon-gitlab-hover.png);
+    transition: all 1s ease;
+}
+
+.mail-link {
+    background-image: url(../../img/index/icon-mail.png);
+}
+
+.mail-link:hover {
+    background-image: url(../../img/index/icon-mail-hover.png);
+    transition: all 1s ease;
+}
+
+.tel-link {
+    background-image: url(../../img/index/icon-tel.png);
+}
+
+.tel-link:hover {
+    background-image: url(../../img/index/icon-tel-hover.png);
 }
 

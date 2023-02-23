@@ -42,6 +42,7 @@
                         </div>
                     </a>
                 </li>
+                <div class="hide-links"></div>
             </ul>
             <div class="hamburger-container" onclick="check(this);toggleMenuClass();">
                 <input type="checkbox" id="hamburger-checkbox">
@@ -88,7 +89,7 @@
                 </a>
             </li>
             <li title="Phone">
-                <a class="tel-link" href="tel:+33768283277" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                <a class="tel-link" href="tel:+33768283277" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>
         </ul>

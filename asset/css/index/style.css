@@ -205,10 +205,6 @@ input[type="checkbox"]:checked ~ .bottom-bar {
     background-color: #e1a577;
 }
 
-.menu ul {
-    margin-top: 15px;
-}
-
 .menu li {
     list-style: none;
     display: inline-block;
@@ -232,37 +228,30 @@ input[type="checkbox"]:checked ~ .bottom-bar {
     text-shadow: 0 0 1.15rem #00000094;
 }
 
-.menu ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 50px;
-}
-
 /* Quand on hover un ul une barre apparait sous le lien avec une animation */
 .menu ul li a::after {
-    opacity: 0.6;
+    opacity: 0;
     border-radius: 5px;
     margin-top: 5px;
     content: "";
     display: block;
-    width: 0;
+    width: 20%;
     height: 5px;
     background-color: #8f5c5c;
-    transition: width 0.3s;
+    transition: width 0.3s ease, opacity 0.3s ease;
 }
 
 .menu ul li a:hover::after {
     opacity: 1;
     width: 120%;
-    transition: width 0.3s;
+    transition: width 0.3s, opacity 0.3s ease;
 }
 
 .logo {
     position: absolute;
     left: 1vw;
     top: 1vw;
-    width: 60px;
+    width: 70px;
 }
 
 .logo img {
@@ -307,16 +296,19 @@ footer {
 .about-page > p::after {
     content: "";
     display: block;
-    width: 85%;
+    width: 95%;
     height: 6px;
     background-color: #de8ea7;
-    transition: width 0.3s;
+    transition: width 0.1s ease-in, background-color 0.1s ease-in, height 0.1s ease-in, margin-bottom 0.1s ease-in;
     border-radius: 5px;
 }
 
 .about-page > p:hover::after {
-    width: 60%;
-    transition: width 0.3s;
+    width: 70%;
+    height: 5px;
+    margin-bottom: 1px;
+    background-color: #e5779a;
+    transition: width 0.1s ease-in, background-color 0.1s ease-in, height 0.1s ease-in, margin-bottom 0.1s ease-in;
 }
 
 .container {
@@ -587,18 +579,35 @@ footer {
 }
 
 .menu-links {
-    width: 100%;
-    opacity: 0;
-    transform: translateY(-10px);
-    height: fit-content;
     display: flex;
+    width: 100%;
+    height: fit-content;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    transition: all 0.15s ease;
+    column-gap: 50px;
+    margin-top: 15px;
 }
 
 .menu-links.active {
+    display: flex;
+}
+
+.menu-links li {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.menu-links.active li {
     opacity: 1;
-    transform: translateY(0px);
-    transition: all 0.1s ease;
+    transform: translateX(0px);
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.hide-links {
+    display: block;
+    width: 60%;
+    height: 70%;
+    position: absolute;
 }

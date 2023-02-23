@@ -349,7 +349,6 @@ footer {
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 0 2.15rem #000000e9;
-    animation: bar-move 6s ease-in-out infinite;
     z-index: 1;
 }
 

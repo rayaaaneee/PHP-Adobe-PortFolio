@@ -254,6 +254,7 @@ footer {
 
 .about-page {
     position: absolute;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -464,7 +465,7 @@ footer {
     column-gap: 8vw;
     margin-bottom: 20px;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
 .footer-links > ul {

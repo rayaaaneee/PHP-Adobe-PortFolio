@@ -64,23 +64,23 @@
             <p>Crédits</p>
         </a>
         <ul class="footer-links">
-            <li>
+            <li title="Linked In">
                 <a class="linkedin-link" href="https://www.linkedin.com/in/rayanemerlin/" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>
-            <li>
+            <li title="Gitlab">
                 <a class="gitlab-link" href="https://forge.univ-lyon1.fr/p2103994" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>
-            <li>
+            <li title="Github">
                 <a class="github-link" href="https://github.com/rayaaaneee" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>
-            <li>
+            <li title="Mail">
                 <a class="mail-link" href="mailto:rayane.merlin8@gmail.com" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>
-            <li>
+            <li title="Phone">
                 <a class="tel-link" href="tel:+33768283277" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>

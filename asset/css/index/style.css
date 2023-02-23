@@ -37,7 +37,7 @@ body * {
     border-left: 10vw solid transparent;
     border-right: 10vw solid transparent;
     border-bottom: 16vw solid #df9191a9;
-    animation: triangle-red-move 60s linear infinite;
+    animation: triangle-red-move 40s linear infinite;
     z-index: -1;
 }
 
@@ -47,7 +47,7 @@ body * {
     border-left: 16vw solid transparent;
     border-right: 16vw solid transparent;
     border-bottom: 23vw solid #f7daa79b;
-    animation: triangle-yellow-move 80s linear infinite;
+    animation: triangle-yellow-move 50s linear infinite;
     z-index: -2;
 }
 
@@ -57,7 +57,7 @@ body * {
     border-bottom: 27vw solid #f7b07ad1;
     bottom: 10vw;
     left: 15vw;
-    animation: triangle-orange-move 100s linear infinite;
+    animation: triangle-orange-move 70s linear infinite;
     z-index: -3;
 }
 
@@ -93,11 +93,11 @@ body * {
     }
 
     50% {
-        transform: rotate(220deg) translateX(30vw) translateY(-25vw);
+        transform: rotate(200deg) translateX(30vw) translateY(-8vw);
     }
 
     70% {
-        transform: rotate(110deg) translateX(15vw) translateY(-12.5vw);
+        transform: rotate(160deg) translateX(15vw) translateY(-10vw);
     }
 
     100% {
@@ -111,11 +111,11 @@ body * {
     }
 
     50% {
-        transform: rotate(-220deg) translateX(-30vw) translateY(25vw);
+        transform: rotate(-220deg) translateX(-10vw) translateY(25vw);
     }
 
-    70% {
-        transform: rotate(-110deg) translateX(-15vw) translateY(12.5vw);
+    80% {
+        transform: rotate(-1deg) translateX(-7vw) translateY(12.5vw);
     }
 
     100% {
@@ -129,11 +129,11 @@ body * {
     }
 
     50% {
-        transform: rotate(-220deg) translateX(30vw) translateY(25vw);
+        transform: rotate(-170deg) translateX(30vw) translateY(25vw);
     }
 
     70% {
-        transform: rotate(-110deg) translateX(15vw) translateY(12.5vw);
+        transform: rotate(-160deg) translateX(15vw) translateY(12.5vw);
     }
 
     100% {
@@ -153,11 +153,37 @@ body * {
     z-index: 1;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: end;
+    margin-right: 5vw;
+}
+
+.hamburger-container input[type="checkbox"] {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked ~ .hamburger-bar {
+    box-shadow: 0 0 3.15rem #000000e9;
+}
+
+input[type="checkbox"]:checked ~ .top-bar {
+    transform: rotate(-45deg);
+    bottom: auto;
+}
+
+input[type="checkbox"]:checked ~ .middle-bar {
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked ~ .bottom-bar {
+    transform: rotate(45deg);
+    top: auto;
 }
 
 .get-start {
     position: absolute;
+    z-index: 1;
     right: 1.5vw;
     width: 140px;
     height: 55px;
@@ -468,9 +494,6 @@ footer {
     z-index: 0;
 }
 
-.footer-links > ul {
-}
-
 .footer-links li {
     list-style: none;
     display: flex;
@@ -481,7 +504,7 @@ footer {
 .footer-links a {
     color: #fff;
     text-decoration: none;
-    transition: all 1s ease;
+    transition: all 0.4s ease;
     text-shadow: 0 0 1.15rem #000;
     width: 5vw;
     height: 5vw;
@@ -490,13 +513,16 @@ footer {
     background-repeat: no-repeat;
 }
 
+.footer-links a:hover{
+    transition: all 0.2s ease;
+}
+
 .linkedin-link {
     background-image: url(../../img/index/icon-linkedin.png);
 }
 
 .linkedin-link:hover {
     background-image: url(../../img/index/icon-linkedin-hover.png);
-    transition: all 1s ease;
 }
 
 .github-link {
@@ -505,7 +531,6 @@ footer {
 
 .github-link:hover {
     background-image: url(../../img/index/icon-github-hover.png);
-    transition: all 1s ease;
 }
 
 .gitlab-link {
@@ -514,7 +539,6 @@ footer {
 
 .gitlab-link:hover {
     background-image: url(../../img/index/icon-gitlab-hover.png);
-    transition: all 1s ease;
 }
 
 .mail-link {
@@ -523,7 +547,6 @@ footer {
 
 .mail-link:hover {
     background-image: url(../../img/index/icon-mail-hover.png);
-    transition: all 1s ease;
 }
 
 .tel-link {
@@ -534,3 +557,48 @@ footer {
     background-image: url(../../img/index/icon-tel-hover.png);
 }
 
+.hamburger-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    right: 190px;
+}
+
+.hamburger-bar {
+    position: absolute;
+    width: 50px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 2.15rem #000000e9;
+    transition: all 0.2s ease;
+}
+
+.top-bar {
+    bottom: 10px;
+}
+
+.bottom-bar {
+    top: 10px;
+}
+
+.menu-links {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-10px);
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.menu-links.active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 0.1s ease;
+}

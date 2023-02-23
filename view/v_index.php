@@ -28,7 +28,7 @@
             <div class="logo">
                 <img src="<?= PATH_IMAGES; ?>favicon/white-favicon.png" alt="logo" draggable="false">
             </div>
-            <ul>
+            <ul class="menu-links">
                 <li><a href="./?page=home">Accueil</a></li>
                 <li><a href="./?page=course">Parcours</a></li>
                 <li><a href="./?page=perso">Perso</a></li>
@@ -43,7 +43,14 @@
                     </a>
                 </li>
             </ul>
-            <a href="./?page=home" class="get-start">Découvrir</a>
+            <div class="hamburger-container" onclick="check(this);toggleMenuClass();">
+                <input type="checkbox" id="hamburger-checkbox">
+                <div class="hamburger-bar top-bar"></div>
+                <div class="hamburger-bar middle-bar"></div>
+                <div class="hamburger-bar bottom-bar"></div>
+            </div>
+        </div>
+        <a href="./?page=home" class="get-start">Découvrir</a>
         </div>
     </header>
     <main>

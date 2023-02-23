@@ -7,15 +7,15 @@ const typeWriter = (text, element, speed) => {
     let i = 0;
     index = (index + 1) % textTab.length;
     const type = () => {
-      if (i < text.length) {
-        element.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, speed);
-      } else {
-          setTimeout(() => {
-            erase(element, 100);
-          }, 5500);
-      }
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            setTimeout(() => {
+                erase(element, 100);
+            }, 5500);
+        }
     };
     type();
 };
@@ -51,4 +51,21 @@ const colorMenuImg = () => {
 const uncolorMenuImg = () => {
     imgMenu.classList.add("dl-img");
     imgMenu.classList.remove("dl-img-hover");
+}
+
+const check = (element) => {
+
+    let checkBox = element.querySelector("input[type=checkbox]");
+
+    if (checkBox.checked) {
+        checkBox.checked = false;
+    } else {
+        checkBox.checked = true;
+    }
+}
+
+const menu = document.querySelector(".menu-links");
+
+const toggleMenuClass = () => {
+    menu.classList.toggle("active");
 }

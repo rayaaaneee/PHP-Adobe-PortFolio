@@ -99,7 +99,6 @@ html{
 }
 
 /* On met le menu en absolute pour qu'il ne soit pas dans le flux de la page */
-
 header {
     position: absolute;
 }

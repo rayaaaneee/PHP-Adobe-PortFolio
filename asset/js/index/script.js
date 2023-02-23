@@ -65,6 +65,8 @@ const check = (element) => {
 }
 
 const menu = document.querySelector(".menu-links");
+const checkBox = document.querySelector(".hamburger-container input[type=checkbox]");
+checkBox.checked = false;
 
 const toggleMenuClass = () => {
     menu.classList.toggle("active");

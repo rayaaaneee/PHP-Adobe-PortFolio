@@ -35,9 +35,10 @@
         <div id="pres" class="<?= $theme->getClass("pres") ?>">
             <img draggable="false" src="<?= PATH_IMAGES; ?>contact/contact.png" id="imgcontact">
             <h3 class="present">Pour tout contact, vous pouvez aussi passer par cette page.<br>
-                Pour cela, c'est très simple : <br> Rentrez le nom / pseudonyme sous lequel vous enverrez le message<br>
-                Rentrez votre adresse mail<br>
-                Rentrez simplement votre message !
+                Pour cela, c'est très simple : <br>
+                • Rentrez le nom / pseudonyme sous lequel vous enverrez le message<br>
+                • Rentrez votre adresse mail<br>
+                • Rentrez simplement votre message !
             </h3>
         </div>
         <?= displayMessageSent($SucceedSend); ?>

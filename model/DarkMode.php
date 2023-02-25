@@ -7,11 +7,10 @@ class DarkMode
 
     public function __construct()
     {
-        $this->setMode();
-        $this->isLightTheme = !$_SESSION['dark-mode'];
+        $this->toggleTheme();
     }
 
-    public function setMode()
+    public function toggleTheme()
     {
         $tmp = null;
         if (isset($_POST['dark-mode'])) {
@@ -21,6 +20,13 @@ class DarkMode
                 $_SESSION['dark-mode'] = false;
             }
         }
+        $this->isLightTheme = !$_SESSION['dark-mode'];
+    }
+
+    public function setTheme($theme)
+    {
+        $_SESSION['dark-mode'] = $theme;
+        $this->isLightTheme = !$_SESSION['dark-mode'];
     }
 
     public function getButtonClass()

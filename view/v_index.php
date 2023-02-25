@@ -5,7 +5,7 @@
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>index/dark-style.css">
     <!-- CSS DES MEDIA QUERIES -->
-    <link rel="stylesheet" href="<?= PATH_MEDIA; ?>index/style.css">
+    <link rel="stylesheet" href="<= PATH_MEDIA; ?>index/style.css">
     <!-- SCRIPT JS -->
     <script src="<?= PATH_SCRIPTS; ?>index/script.js" defer></script>
     <!-- FONTS -->
@@ -24,7 +24,7 @@
             <div class="circle circle-one"></div>
             <div class="circle circle-two"></div>
         </div>
-        <div class="menu">
+        <div class="menu basic-menu">
             <div class="logo">
                 <img src="<?= PATH_IMAGES; ?>favicon/white-favicon.png" alt="logo" draggable="false">
             </div>
@@ -51,6 +51,32 @@
                 <div class="hamburger-bar bottom-bar"></div>
             </div>
         </div>
+        <div class="menu media-menu">
+            <div class="logo">
+                <img src="<?= PATH_IMAGES; ?>favicon/white-favicon.png" alt="logo" draggable="false">
+            </div>
+            <ul class="menu-page">
+                <!--                 <li><a href="./?page=home">Accueil</a></li>
+                <li><a href="./?page=course">Parcours</a></li>
+                <li><a href="./?page=perso">Perso</a></li>
+                <li><a href="./?page=contact">Contact</a></li>
+                <li class="cv-download">
+                    <a href="<= PATH_FILES; ?>CV.pdf" download="CV_Rayane_Merlin.pdf" onmouseover="colorMenuImg();" onmouseleave="uncolorMenuImg();">
+                        <div class="container-cv-download">
+                            <p>C</p>
+                            <p>V</p>
+                            <div class="download-img dl-img"></div>
+                        </div>
+                    </a>
+                </li> -->
+            </ul>
+            <div class="hamburger-container" onclick="check(this);toggleMenuClass();">
+                <input type="checkbox" id="hamburger-checkbox">
+                <div class="hamburger-bar top-bar"></div>
+                <div class="hamburger-bar middle-bar"></div>
+                <div class="hamburger-bar bottom-bar"></div>
+            </div>
+        </div>
         <a href="./?page=home" class="get-start">Découvrir</a>
         </div>
     </header>
@@ -67,6 +93,15 @@
         </div>
     </main>
     <footer>
+        <div class="btn-switch-mode">
+            <form action="./" method="post" class="media-dark-theme-form">
+                <button type="submit" name="set-dark-mode" class="<?= $theme->getButtonClass() ?> mode-button">
+                </button>
+            </form>
+            <form action="./" method="post" class="media-light-theme-form">
+                <button type="submit" name="set-light-mode" class="<?= $theme->getButtonClass() ?> mode-button"></button>
+            </form>
+        </div>
         <div class="triangle border-triangle footer-triangle"></div>
         <a href="./?page=about" class="about-page">
             <p>Crédits</p>

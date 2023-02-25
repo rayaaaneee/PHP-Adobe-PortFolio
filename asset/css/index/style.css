@@ -204,6 +204,10 @@ input[type="checkbox"]:checked ~ .bottom-bar {
     background-color: #edba9358;
 }
 
+.media-menu  {
+    display: none;
+}
+
 .menu li {
     list-style: none;
     display: inline-block;
@@ -339,7 +343,7 @@ footer {
 
 .title > .main-bar {
     width: 70%;
-    height: 8px;
+    height: 8;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 0 2.15rem #000000e9;
@@ -612,4 +616,45 @@ footer {
     width: 60%;
     height: 70%;
     position: absolute;
+}
+
+.btn-switch-mode {
+    position: absolute;
+    bottom: 1.7vw;
+    left: 1.7vw;
+    z-index: 3;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-switch-mode button {
+    width: 60px;
+    height: 55px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 3px solid #000000;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.btn-switch-mode > .media-dark-theme-form > button{
+    background-size: 50%;
+    border-radius: 100% 0 0 100%;
+    background-image: url(../../img/index/dark-black.png);
+}
+
+.btn-switch-mode > .media-light-theme-form{
+    transform: translateX(-3px);
+}
+
+.btn-switch-mode > .media-light-theme-form > button{
+    background-size: 60%;
+    border-radius: 0 100% 100% 0;
+    background-color: #e6d1beb9;
+    background-image: url(../../img/index/light-hover-black.png);
 }

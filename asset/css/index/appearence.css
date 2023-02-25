@@ -78,3 +78,9 @@
     transform: translateY(-10px);
     animation: appearence 0.45s 1.3s ease-in-out forwards;
 }
+
+.btn-switch-mode {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: appearence 0.2s 1.5s ease-in-out forwards;
+}

@@ -643,6 +643,7 @@ footer {
 }
 
 .btn-switch-mode > .media-dark-theme-form > button{
+    background-color: transparent;
     background-size: 50%;
     border-radius: 100% 0 0 100%;
     background-image: url(../../img/index/dark-black.png);
@@ -662,4 +663,8 @@ footer {
     border-radius: 0 100% 100% 0;
     background-color: #e6d1beb9;
     background-image: url(../../img/index/light-hover-black.png);
+}
+
+.btn-switch-mode > .media-light-theme-form > button:hover{
+    background-color: #d1af92b9;
 }

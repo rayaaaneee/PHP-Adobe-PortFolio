@@ -88,3 +88,8 @@ body.body-dark .btn-switch-mode > .media-light-theme-form > button{
     background-color: transparent;
     background-image: url(../../img/index/light.png);
 }
+
+body.body-dark .btn-switch-mode > .media-light-theme-form > button:hover{
+    background-color: transparent;
+    background-image: url(../../img/index/light-hover.png);
+}

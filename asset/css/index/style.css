@@ -648,6 +648,10 @@ footer {
     background-image: url(../../img/index/dark-black.png);
 }
 
+.btn-switch-mode > .media-dark-theme-form > button:hover{
+    background-image: url(../../img/index/dark-hover-black.png);
+}
+
 .btn-switch-mode > .media-light-theme-form{
     transform: translateX(-3px);
 }

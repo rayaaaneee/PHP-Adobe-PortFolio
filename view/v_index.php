@@ -16,7 +16,7 @@
 
 <body class="<?= $theme->getClass("body"); ?>">
     <header>
-        <div class="triangle header-triangle"></div>
+        <div class="triangle border-triangle header-triangle"></div>
         <div class="background-container">
             <div class="triangle triangle-red"></div>
             <div class="triangle triangle-orange"></div>
@@ -67,7 +67,7 @@
         </div>
     </main>
     <footer>
-        <div class="triangle footer-triangle"></div>
+        <div class="triangle border-triangle footer-triangle"></div>
         <a href="./?page=about" class="about-page">
             <p>Crédits</p>
         </a>

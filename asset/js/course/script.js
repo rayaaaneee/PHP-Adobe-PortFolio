@@ -16,13 +16,13 @@ initHeight();
 
 const isInSide = (pointMarginTop) => {
     if(barCentered) {
-        if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen*1.5)) {
+        if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen * 1.5)) {
             return true;
         } else {
             return false;
         }
-    // Si 
     } else {
+        console.log("barNotCentered");
         if(pointMarginTop <= bordersScreen) {
             return true;
         }
@@ -58,14 +58,16 @@ const getNewScale = (distanceMid) => {
 
 var bar = document.querySelector("#timeline");
 var barCentered = false;
+
 const onscroll = () => {
     // Mouvement de la barre
     if (window.scrollY < height) {
         barCentered = false;
         let translateValue = (height - (window.scrollY)*1.7);
+        console.log(translateValue);
         if(translateValue < 0) {
-            translateValue = 0;
             barCentered = true;
+            translateValue = 0;
         }
         bar.style.transform = "translateY("+translateValue+"px)";
     } else { 

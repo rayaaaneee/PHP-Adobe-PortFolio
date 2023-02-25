@@ -5,7 +5,6 @@
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>course/dark-style.css">
     <!-- SCRIPTS JS -->
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>home/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>course/script.js" defer></script>

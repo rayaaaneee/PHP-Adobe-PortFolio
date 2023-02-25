@@ -44,7 +44,7 @@ body.body-dark .triangle:not(.border-triangle) {
 }
 
 body.body-dark .triangle-orange {
-    border-bottom-color: #f0e4e4d0;
+    border-bottom-color: #ffffffd0;
 }
 
 body.body-dark .triangle-red {
@@ -52,7 +52,7 @@ body.body-dark .triangle-red {
 }
 
 body.body-dark .triangle-yellow {
-    border-bottom-color: #eae2cad0;
+    border-bottom-color: #d4bbd0d0;
 }
 
 body.body-dark .menu ul li a::after {

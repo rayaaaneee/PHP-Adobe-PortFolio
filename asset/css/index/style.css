@@ -649,6 +649,7 @@ footer {
 }
 
 .btn-switch-mode > .media-dark-theme-form > button:hover{
+    background-color: #e6d1be52;
     background-image: url(../../img/index/dark-hover-black.png);
 }
 

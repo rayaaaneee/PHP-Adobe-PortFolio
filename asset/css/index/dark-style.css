@@ -90,6 +90,6 @@ body.body-dark .btn-switch-mode > .media-light-theme-form > button{
 }
 
 body.body-dark .btn-switch-mode > .media-light-theme-form > button:hover{
-    background-color: transparent;
+    background-color: #e8dfea25;
     background-image: url(../../img/index/light-hover.png);
 }

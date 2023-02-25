@@ -81,7 +81,7 @@ body.body-dark .btn-switch-mode button {
 
 body.body-dark .btn-switch-mode > .media-dark-theme-form > button{
     background-color: #d5c6d83f;
-    background-image: url(../../img/index/dark.png);
+    background-image: url(../../img/index/dark-hover.png);
 }
 
 body.body-dark .btn-switch-mode > .media-light-theme-form > button{

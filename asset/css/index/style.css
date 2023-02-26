@@ -637,9 +637,17 @@ footer {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 3px solid #000000;
+    border: 2px solid #000000;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.btn-switch-mode > .media-light-theme-form{
+    transform: translateX(-2px);
+}
+
+.btn-switch-mode button {
+    transition: all 0.2s ease;
 }
 
 .btn-switch-mode > .media-dark-theme-form > button{
@@ -654,9 +662,6 @@ footer {
     background-image: url(../../img/index/dark-hover-black.png);
 }
 
-.btn-switch-mode > .media-light-theme-form{
-    transform: translateX(-3px);
-}
 
 .btn-switch-mode > .media-light-theme-form > button{
     background-size: 60%;
@@ -667,4 +672,5 @@ footer {
 
 .btn-switch-mode > .media-light-theme-form > button:hover{
     background-color: #d1af92b9;
+    background-image: url(../../img/index/light-black.png);
 }

@@ -5,7 +5,7 @@
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>index/dark-style.css">
     <!-- CSS DES MEDIA QUERIES -->
-    <link rel="stylesheet" href="<= PATH_MEDIA; ?>index/style.css">
+    <link rel="stylesheet" href="<?= PATH_MEDIA; ?>index/style.css">
     <!-- SCRIPT JS -->
     <script src="<?= PATH_SCRIPTS; ?>index/script.js" defer></script>
     <!-- FONTS -->
@@ -111,11 +111,11 @@
                 <a class="linkedin-link" href="https://www.linkedin.com/in/rayanemerlin/" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>
-            <li title="Gitlab">
+            <li title="School Gitlab">
                 <a class="gitlab-link" href="https://forge.univ-lyon1.fr/p2103994" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>
-            <li title="Github">
+            <li title="Personal Github">
                 <a class="github-link" href="https://github.com/rayaaaneee" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
                 </a>
             </li>

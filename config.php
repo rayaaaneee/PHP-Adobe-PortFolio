@@ -8,6 +8,7 @@ define('PATH_MEDIA', PATH_CSS . 'media/');
 define('PATH_PROJECTS', PATH_ASSETS . 'project/');
 define('PATH_FONTS', PATH_ASSETS . 'fonts/');
 define('PATH_FILES', PATH_ASSETS . 'files/');
+define('PATH_DATAS', PATH_ASSETS . 'data/');
 
 // Path
 define('PATH_VIEWS', 'view/v_');

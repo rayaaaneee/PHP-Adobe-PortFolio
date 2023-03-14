@@ -26,20 +26,37 @@
     top: 5vh;
     bottom: 5vh;
     left:10.7vw;
-    z-index: 3;
+    z-index: -1;
+}
+
+html {
+    --margin-background-position: 20%;
 }
 
 @keyframes moveLight {
     0% {
-        margin-bottom: 50vh;
-        margin-top: 0vh;
+        background-position-y: calc(0% - var(--margin-background-position));
+        opacity: 0.3;
     }
+
+    30% {
+        opacity: 0.5
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    70% {
+        opacity: 0.5;
+    }
+
     100% {
-        margin-bottom: 0vh;
-        margin-top: 50vh;
+        background-position-y: calc(100% + var(--margin-background-position));
+        opacity: 0.3;
     }
 }
-
+ 
 #timeline::before{
     content: "";
     position: absolute;
@@ -48,10 +65,12 @@
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    background: linear-gradient(50deg, rgba(255, 255, 255, 0.2) 40%, rgb(222, 162, 132, 0.8) 50%, rgba(255, 255, 255, 0.4) 60%);
+    background: linear-gradient(50deg, rgba(255, 255, 255, 0.2) 40%, rgba(218, 162, 134, 0.8) 50%, rgba(255, 255, 255, 0.4) 60%);
+    background-size: 200% 200%;
+    background-position-y: 0;
     filter: blur(5px);
     -webkit-filter: blur(5px);
-    animation: moveLight 2.5s ease-in-out infinite forwards;
+    animation: moveLight 4.5s ease-in-out infinite forwards;
     z-index: 2;
 }
 
@@ -76,6 +95,7 @@
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    row-gap: 15px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(4px);
     margin-bottom: 100px;
@@ -90,28 +110,81 @@
 }
 
 .project p {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0 7%;
+}
+
+.title-project {
+    margin: 0;
+}
+
+.title-project-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    height: 80px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px 20px 0 0;
+    position: relative;
+}
+
+.title-project-container .arrow-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.title-project-container .arrow-container .arrow {
+    background-image: url(../../img/course/arrow.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 35px;
+    height: 35px;
+    transition: 0.3s;
+}
+
+.title-project-container .arrow-container .arrow:hover {
+    transform: scale(1.2);
+}
+
+.title-project-container > img {
+    height: 40px;
+    width: 40px;
 }
 
 #points {
-    z-index: 9999;
     display: flex;
     flex-direction: column;
     row-gap: 470px;
     margin-top: 117vh;
-    z-index: 4;
+    z-index: 0;
 }
  
+html {
+    --point-width : 30px;
+}
+
 .point{
-    height: 30px;
-    width: 30px;
+    height: var(--point-width);
+    width: var(--point-width);
     border-radius: 50%;
     box-shadow: 0 0 5px 0 rgb(0, 0, 0);
     background: linear-gradient(160deg, transparent 60%, rgba(0,0,0,1) 40%);
     backdrop-filter: blur(5px);
     transition: box-shadow 0.3s, backdrop-filter 0.3s;
     cursor: pointer;
+    position: relative;
+    z-index: 0;
 }
 
 .point:hover{
@@ -119,6 +192,37 @@
     box-shadow: 0 0 10px 0 rgb(0, 0, 0);
     background: linear-gradient(160deg, transparent 60%, rgb(222, 162, 132) 40%);
     backdrop-filter: blur(10px);
+}
+
+.point-container {
+    width: var(--point-width);
+    height: var(--point-width);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.point-container::after {
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.point-container:hover::after, .point-container.focus::after {
+    content: attr(data-date);
+    position: absolute;
+    margin-bottom: 100px;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: url(../../img/course/calendar.png);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: center;
+    background-size: 20px;
+    border-radius: 5px;
+    color: white;
+    padding: 7px 40px 7px 10px;
+    opacity: 1;
+    transition: all 0.3s;
 }
 
 html{

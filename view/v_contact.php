@@ -6,22 +6,25 @@
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>contact/style.css">
     <!-- SCRIPTS JS -->
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/jquery-3.6.4.min.js" defer></script>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>contact/sendMessage.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>contact/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
-    <?php if (!$changedMode && !$wasSet) { ?>
+    <?php if (!$changedMode) { ?>
         <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
     <?php } ?>
-    <title>Accueil</title>
+    <script src="<?= PATH_SCRIPTS; ?>general/error.js" defer></script>
+    <title>Me contacter</title>
 </head>
 
 <header>
-    <?php if (!$changedMode && !$wasSet) { ?>
+    <?php if (!$changedMode) { ?>
         <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
     <?php } ?>
 </header>
 <!-- Loader -->
-<?php if (!$changedMode && !$wasSet) { ?>
+<?php if (!$changedMode) { ?>
     <iframe id="loader" src="loader/"></iframe>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
 <?php } ?>
@@ -30,10 +33,15 @@
 <div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
 <div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
 
-<article id="form-container">
+<article id="formContainer">
+    <div class="alert-container">
+    </div>
     <main>
         <div id="pres" class="<?= $theme->getClass("pres") ?>">
             <img draggable="false" src="<?= PATH_IMAGES; ?>contact/contact.png" id="imgcontact">
+            <noscript>
+                <h3>Activez d'abord javascript pour pouvoir envoyer un message</h3>
+            </noscript>
             <h3 class="present">Pour tout contact, vous pouvez aussi passer par cette page.<br>
                 Pour cela, c'est très simple : <br>
                 • Rentrez le nom / pseudonyme sous lequel vous enverrez le message<br>
@@ -41,9 +49,8 @@
                 • Rentrez simplement votre message !
             </h3>
         </div>
-        <?= displayMessageSent($SucceedSend); ?>
         <div class="formulaire <?= $theme->getClass("formulaire") ?>">
-            <form name="myForm" action="./?page=contact" method="post">
+            <form method="post" id="sendMessageForm">
                 <table class="form-style">
                     <tr>
                         <td>
@@ -90,7 +97,7 @@
                     <tr>
                         <td></td>
                         <td class="input-container <?= $theme->getClass("input-container"); ?>">
-                            <input type="submit" value="Envoyer">
+                            <input type="submit" name="send-message" value="Envoyer">
                             <input type="reset" value="Réinitialiser" onclick="initNbCharsLeft();">
                         </td>
                     </tr>

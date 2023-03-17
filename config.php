@@ -18,17 +18,20 @@ define('PATH_DATABASE', PATH_MODELS . 'database/');
 define('PATH_PRESENTERS', PATH_MODELS . 'presenter/');
 define('PATH_DAO', PATH_DATABASE . 'dao/');
 define('PATH_DTO', PATH_DATABASE . 'dto/');
+define('PATH_VIEWS_PARTS',  PATH_VIEWS . 'part/v_');
+define('PATH_CONTROLLERS_PARTS', PATH_CONTROLLERS . 'part/c_');
+define('PATH_CLASSES', PATH_MODELS . 'class/');
 
 // Database
 function defineConnection()
 {
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'portfolio');
-    define('DB_PORT', '8889');
+    define('DB_PORT', '3306');
     define('DB_CHARSET', 'utf8');
 
     define('DB_USR', 'root');
-    define('DB_PWD', 'root');
+    define('DB_PWD', '');
 }
 
 /* function defineConnection()

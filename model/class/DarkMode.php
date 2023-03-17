@@ -17,7 +17,7 @@ class DarkMode
             $_SESSION['dark-mode'] = !($_SESSION['dark-mode']);
         } else {
             if (!isset($_SESSION['dark-mode'])) {
-                $_SESSION['dark-mode'] = false;
+                $_SESSION['dark-mode'] = true;
             }
         }
         $this->isLightTheme = !$_SESSION['dark-mode'];

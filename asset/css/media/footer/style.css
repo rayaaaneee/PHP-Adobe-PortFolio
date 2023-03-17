@@ -45,3 +45,16 @@
         }
     }
 }
+
+/* Si l'écran est plus haut que large on baisse la taille du footer */
+@media screen and (max-aspect-ratio : 2/3) and (max-width : 1024px) { 
+    footer {
+        height: 12vw;
+    }
+}
+
+@media screen and (max-width : 1440px) and (min-width : 1024px) {
+    footer {
+        height: 6vw;
+    }
+}

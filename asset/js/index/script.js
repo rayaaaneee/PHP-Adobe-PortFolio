@@ -66,8 +66,18 @@ const check = (element) => {
 
 const menu = document.querySelector(".menu-links");
 const checkBox = document.querySelector(".hamburger-container input[type=checkbox]");
+const hideLinks = document.querySelector(".hide-links");
+
 checkBox.checked = false;
+let hideLinkIsBlock = true;
 
 const toggleMenuClass = () => {
     menu.classList.toggle("active");
+    
+    if (hideLinkIsBlock) {
+        hideLinks.style.display = "none";
+    } else {
+        hideLinks.style.removeProperty("display");
+    }
+    hideLinkIsBlock = !hideLinkIsBlock;
 }

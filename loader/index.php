@@ -19,7 +19,7 @@ ini_set("display_errors", 1);
     <!-- SCRIPTS JAVASCRIPT -->
     <script src="loader.js" defer></script>
     <!-- FICHIERS PHP -->
-    <?php require_once "../model/DarkMode.php";
+    <?php require_once "../model/class/DarkMode.php";
     $theme = new DarkMode(); ?>
 </head>
 

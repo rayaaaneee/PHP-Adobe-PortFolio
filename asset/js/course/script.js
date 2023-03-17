@@ -16,13 +16,13 @@ initHeight();
 
 const isInSide = (pointMarginTop) => {
     if(barCentered) {
-        if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen*1.5)) {
+        if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen * 1.5)) {
             return true;
         } else {
             return false;
         }
-    // Si 
     } else {
+        console.log("barNotCentered");
         if(pointMarginTop <= bordersScreen) {
             return true;
         }
@@ -58,14 +58,16 @@ const getNewScale = (distanceMid) => {
 
 var bar = document.querySelector("#timeline");
 var barCentered = false;
+
 const onscroll = () => {
     // Mouvement de la barre
     if (window.scrollY < height) {
         barCentered = false;
         let translateValue = (height - (window.scrollY)*1.7);
+        console.log(translateValue);
         if(translateValue < 0) {
-            translateValue = 0;
             barCentered = true;
+            translateValue = 0;
         }
         bar.style.transform = "translateY("+translateValue+"px)";
     } else { 
@@ -82,9 +84,9 @@ const onscroll = () => {
         if(index == 2) if(isInFivePercentSide(pointMarginTop)) console.log("in");
 
         if(isInSide(pointMarginTop)) {
-            point.style.opacity = 0;
+            point.parentNode.style.opacity = 0;
         } else {
-            point.style.opacity = 1;
+            point.parentNode.style.opacity = 1;
         }
 
         let distanceMid = distanceMiddle(pointMarginTop);
@@ -193,12 +195,14 @@ const colorPoint = (point) => {
     point.style.background = "linear-gradient(160deg, transparent 60%, rgb(222, 162, 132) 40%)";
     point.style.boxShadow = "0 0 10px 0 rgb(0, 0, 0)";
     point.style.backdropFilter = "blur(10px)";
+    point.parentNode.classList.add("focus");
 }
 
 const uncolorPoint = (point) => {
     point.style.removeProperty("background");
     point.style.removeProperty("box-shadow");
     point.style.removeProperty("backdrop-filter");
+    point.parentNode.classList.remove("focus");
 }
 
 const modifyScale = (element, newscale) => {
@@ -223,9 +227,10 @@ const onclickProject = (project) => {
 
         colorPoint(point);
 
-        modifyScale(point, -0.1);
-        modifyScale(project, 0.1)
-        addToScale = 0.1;
+        let onclickScale = 0.05;
+        modifyScale(point, -onclickScale);
+        modifyScale(project, onclickScale);
+        addToScale = onclickScale;
     } else {
         if (lastProjectId == project.id) {
             disclickProject(project);

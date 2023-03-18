@@ -28,6 +28,10 @@
     display: flex;
 }
 
+#music {
+    width: 100%;
+}
+
 /*Parametres du texte */
 .text{
     font-family: "Helvetica Neue",Helvetica,Arial	sans-serif;

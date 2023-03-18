@@ -21,7 +21,8 @@
 </header>
 <!-- Loader -->
 <?php if (!$changedMode) { ?>
-    <iframe id="loader" src="loader/"></iframe>
+    <?php require_once PATH_VIEWS_PARTS . 'loader.php'; ?>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
 <?php } ?>
 
 <?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>

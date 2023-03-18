@@ -3,7 +3,6 @@
 class Router
 {
     private static int $urlIndex = 2;
-    private array $routes = array();
     private array $url;
 
     /* On récupère l'url et on met chaque partie dans un tableau (en

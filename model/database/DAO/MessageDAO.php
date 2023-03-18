@@ -4,7 +4,7 @@ class MessageDAO
 {
     public static PDO $db;
 
-    public static function getAllMessages()
+    public static function getAllMessages(): array
     {
         self::$db = Connection::getInstance()->getPDO();
 
@@ -27,7 +27,7 @@ class MessageDAO
         return $messages;
     }
 
-    public static function getMessageById($id)
+    public static function getMessageById($id): array|false
     {
         self::$db = Connection::getInstance()->getPDO();
 
@@ -46,8 +46,8 @@ class MessageDAO
             return false;
         }
 
-        $message = $stmt->fetchObject('MessageDTO');
+        $result = $stmt->fetch();
 
-        return $message;
+        return $result;
     }
 }

@@ -1,0 +1,131 @@
+{
+    "project1" : {
+        "id" : 0,
+        "title" : "Graph-Analysis",
+        "icon" : "graph-analysis",
+        "use_desc" : "Il vous faut java d'installé sur votre machine. Compilez les fichiers depuis le fichier Main.java puis vous pourrez executer le programme. Avec d'interface graphique, il vous suffit de suivre les instructions.",
+        "project_desc" : "Ce projet est un projet scolaire fait en groupe consistant à lire dans un fichier CSV différentes données qui représentent des villes (noeuds d'un graphe), tout en travaillant avec ces données pour traiter le graphe de différents manières (l'afficher, recuperer les noeuds voisins d'un noeud en particulier, avoir le plus court chemin entre deux noeuds)\r\n",
+        "is_download" : 1,
+        "file" : "Graph-View.rar",
+        "is_link" : 0,
+        "link" : null,
+        "image" : null
+    },
+
+    "project2" : {
+        "id" : 1,
+        "title" : "Annuaire",
+        "icon" : "phone-book",
+        "use_desc" : "Le programme est sous forme de terminal. Il suffira simplement de suivre les instructions pour faire l'action souhaité.",
+        "project_desc" : "Ce projet de groupe du 1er semestre est un programme en C lisant un fichier CSV dont chaque ligne est un contact (décrit par un Nom, Prenom, Numéro, ...).\r\nLe but étant avec ce programme de pouvoir créer, supprimer, rechercher un contact selon une ou plusieurs informations, ainsi que de pouvoir trier les résultats selon un des attributs des contacts.",
+        "is_download" : 1,
+        "file" : "phone-book.rar",
+        "is_link" : 0,
+        "link" : null,
+        "image" : null
+    },
+
+    "project3" : {
+        "id" : 2,
+        "title" : "HTML CV",
+        "icon" : "cv-html",
+        "use_desc" : null,
+        "project_desc" : "Ce projet scolaire personnel a été fait en cours de Web au premier semestre du BUT1, basé uniquement sur le HTML et CSS. Les informations contenues dans celui-ci ne sont pas à jour.\r\nLe but principal de ce projet était de pouvoir travailler sur le positionnement css ainsi que les animations CSS.",
+        "is_download" : 1,
+        "file" : "cv-html.rar",
+        "is_link" : 1,
+        "link" : "cv-html/",
+        "image" : null
+    },
+
+    "project4" : {
+        "id" : 3,
+        "title" : "Data-Analysis",
+        "icon" : "data-analysis",
+        "use_desc" : "Lancez simplement le fichier à télécharger avec Power BI, vous pourrez alors voir la base de donnée utilisée ainsi que les graphiques crées.",
+        "project_desc" : "Ce projet était un projet scolaire fait en groupe qui consistait à créer des graphiques (avec le logiciel Power BI) permettant de visualiser différents aspects d'une base de données qui nous avait été donnée.",
+        "is_download" : 1,
+        "file" : "Data-Analysis.pbix",
+        "is_link" : 0,
+        "link" : null,
+        "image" : null
+    },
+    "project5" : {
+        "id" : 4,
+        "title" : "Poster : Hack",
+        "icon" : "poster",
+        "use_desc" : null,
+        "project_desc" : "Ce projet était un projet scolaire de groupe de communication sur un sujet de notre choix en lien avec l'informatique.\r\nJ'ai travaillée sur la réalisation du design",
+        "is_download" : 1,
+        "file" : "Poster-Hack.pdf",
+        "is_link" : 0,
+        "link" : null,
+        "image" : null
+    },
+
+    "project6" : {
+        "id" : 5,
+        "title" : "GIT Cheat Sheet",
+        "icon" : "git",
+        "use_desc" : null,
+        "project_desc" : "Cet aide mémoire était un projet scolaire de groupe. Dans celui-ci , vous y verrez les commandes git les plus importantes ainsi que leur explication.",
+        "is_download" : 1,
+        "file" : "Git-Cheat-Sheet.pdf",
+        "is_link" : 0,
+        "link" : null,
+        "image" : null
+    },
+
+    "project7" : {
+
+        "id" : 6,
+        "title" : "Tree Viewer",
+        "icon" : "tree",
+        "use_desc" : "Lancer le fichier exe de l'application et suivez les instructions !",
+        "project_desc" : "Tree Viewer est un projet visant à créer un ABR (Arbre binaire de recherche) et pouvoir le visualiser principalement, et d'autres fonctionnalités.",
+        "is_download" : 1,
+        "file" : "tree-viewer.rar",
+        "is_link" : 0,
+        "link" : null,
+        "image" : null
+    },
+
+    "project8" : {
+        "id" : 7,
+        "title" : "Would You Play",
+        "icon" : "snake",
+        "use_desc" : "Séléctionner le jeu voulu. \r\nChargez le jeu puis choisissez d'ignorer les instructions ou non. Le jeu apparait ensuite. Vous avez une page des préférences pour chacun des jeux. Pour le jeu du snake, cela vous permet de choisir entre différents points (taille du terrain, nombre de pommes...). Pour le jeu des batons, vous pouvez choisir la difficulté du robot, ainsi que le choix principal (choisir celui qui commence ou le nombre de batons).\r\nAttention : Il arrive rarement que les instructions ne s'affichent pas après avoir appuyé sur play ce qui bloque la page. Il suffit de recharger la page pour règler cette erreur.",
+        "project_desc" : "Would you play est un projet personnel que j'ai fait basé sur le HTML et le Javascript. Ce site (monopage) vous permet de jouer à différents jeux. Actuellement, un snake avec différentes options ainsi qu'un jeu des bâtons ont été faits.",
+        "is_download" : 1,
+        "file" : "would-you-play.rar",
+        "is_link" : 1,
+        "link" : "would-you-play/",
+        "image" : null
+    },
+
+    "project9" : {
+        "id" : 8,
+        "title" : "E-Ticket",
+        "icon" : "ticketing",
+        "use_desc" : "Il est nécéssaire de se créer un compte puis se connecter pour profiter de l'ensemble des fonctionnalités. \r\nAjoutez vos billets au panier puis validez votre panier (aucun réel paiement).\r\nVous pouvez télécharger vos billets en PDF dans la section \"Mes billets\".\r\nDans la page de chaque évènement, vous pouvez ajouter un commentaire à l'évènement, ce commentaire peut avoir une ou plusieurs réponses, de j'aimes et des je n'aime pas.\r\nPossibilité d'avoir un compte organisateur, permet de pouvoir ajouter des évènements.",
+        "project_desc" : "Utilisation du php pour la connection à la base de données. Inscription, connection et administration de son compte possible.",
+        "is_download" : 1,
+        "file" : "e-ticket.rar",
+        "is_link" : 1,
+        "link" : "e-ticket/",
+        "image" : null
+    },
+
+    "project10" : {
+        "id" : 9,
+        "title" : "Hangman Game",
+        "icon" : "hangman",
+        "use_desc" : "Démarrez une partie en donnant les pseudonymes des deux joueurs puis en validant.\r\nUn des deux joueurs choisis au hasard donnera le mot de son choix et validera ensuite.\r\nL'autre joueur doit ensuite rentrer des lettres, si celles-ci est bonne, la lettre se découvrira dans le mot. Sinon, attention à ne pas trop faire d'erreurs.",
+        "project_desc" : "Ce projet scolaire était une mise à niveau en PHP. Il s'agit d'un jeu du pendu tout ce qu'il y a de plus basique qui fonctionne avec les sessions et qui sauvegarde l'ensemble des parties dans une base de données pour les afficher sur la page d'accueil. Le jeu se joue à deux joueurs, l'un donnera le mot et l'autre le cherchera.",
+        "is_download" : 1,
+        "file" : "hangman-game.rar",
+        "is_link" : 1,
+        "link" : "hangman/",
+        "image" : null
+    }
+}

@@ -22,9 +22,9 @@
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
     <iframe id="loader" src="loader/"></iframe>
 <?php } ?>
-<div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.025" speedtranslate="0.4" speedratio="1"></div>
-<div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
-<div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
+
+<?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>
+
 <div class="title t1">
     <p>Perso</p>
 </div>

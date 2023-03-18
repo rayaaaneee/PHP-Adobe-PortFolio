@@ -24,9 +24,8 @@
     <iframe id="loader" src="loader/"></iframe>
 <?php } ?>
 
-<div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4"></div>
-<div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.5"></div>
-<div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.3"></div>
+<?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>
+
 <div class="explain-container">
     <div class="explain">
         <img class="medal-img" src="<?= PATH_IMAGES; ?>course/medal-white.png" alt="icon-study">

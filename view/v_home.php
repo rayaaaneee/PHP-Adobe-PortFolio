@@ -27,9 +27,7 @@
     <iframe id="loader" src="loader/"></iframe>
 <?php } ?>
 
-<div id="background1" class="<?= $theme->getClass("background1") ?>" speedparallax="0.02" speedtranslate="0.4" speedratio="1"></div>
-<div id="background2" class="<?= $theme->getClass("background2") ?>" speedparallax="-0.03" speedtranslate="0.7" speedratio="1"></div>
-<div id="background3" class="<?= $theme->getClass("background3") ?>" speedparallax="-0.05" speedtranslate="0.5" speedratio="1"></div>
+<?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>
 
 <article id="main">
     <div class="title t1" id="firstmid">
@@ -39,9 +37,7 @@
     <article class="projects">
         <?php
         $i = 1;
-        foreach ($projects as $project) {
-            $project = new Project($project);
-        ?>
+        foreach ($projects as $project) { ?>
             <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);">
                 <div class="content content<?= $i; ?> <?= $theme->getClass("content") ?>" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
                     <div class="to_download">

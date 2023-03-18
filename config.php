@@ -28,7 +28,7 @@ function defineConnection()
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'portfolio');
     define('DB_PORT', '3306');
-    define('DB_CHARSET', 'utf8');
+    define('DB_CHARSET', 'utf8mb4');
 
     define('DB_USR', 'root');
     define('DB_PWD', '');

@@ -328,7 +328,7 @@ var lastElement = null;
 const openProjectPage = (element) => {
 
     lastElement = element.cloneNode(true);
-    
+
     lastElement.removeAttribute("onclick");
     lastElement.removeAttribute("onmouseover");
     lastElement.removeAttribute("onmouseout");
@@ -360,7 +360,7 @@ const openProjectPage = (element) => {
 
     projectPage.style.overflowY = "auto";
     // On scroll en haut de la page
-    projectPage.scrollTop = 0;
+    projectPage.scrollTo(0, 0);
 
     let hrefDownload = null;
     let hrefLink = null;

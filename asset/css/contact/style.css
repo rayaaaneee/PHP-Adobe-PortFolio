@@ -159,7 +159,7 @@ main {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
-  column-gap: 100px;
+  column-gap: 50px;
 }
 
 .pres-container, .form-container {

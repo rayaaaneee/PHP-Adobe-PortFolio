@@ -20,8 +20,8 @@ if (isset($_POST['instant-request'])) {
 } else {
     // Sinon on affiche la page appelée
 
-    /*     require_once PATH_CLASSES . "Router.php";
-    $router = new Router(); */
+    require_once PATH_CLASSES . "Router.php";
+    $router = new Router();
 
     $changedMode = false;
     if (isset($_POST['dark-mode'])) {
@@ -29,8 +29,8 @@ if (isset($_POST['instant-request'])) {
     }
 
     $page = null;
-    if (isset($_GET['page'])) {
-        $page = $_GET['page'];
+    if ($router->getFirstPath() != '') {
+        $page = $router->getFirstPath();
         if (!is_file(PATH_CONTROLLERS . $page . '.php')) {
             $page = "404";
         }

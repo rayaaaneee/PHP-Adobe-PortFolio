@@ -29,10 +29,10 @@
                 <img src="<?= PATH_IMAGES; ?>favicon/white-favicon.png" alt="logo" draggable="false">
             </div>
             <ul class="menu-links">
-                <li><a href="./?page=home">Accueil</a></li>
-                <li><a href="./?page=course">Parcours</a></li>
-                <li><a href="./?page=perso">Perso</a></li>
-                <li><a href="./?page=contact">Contact</a></li>
+                <li><a href="./home">Accueil</a></li>
+                <li><a href="./course">Parcours</a></li>
+                <li><a href="./perso">Perso</a></li>
+                <li><a href="./contact">Contact</a></li>
                 <li class="cv-download">
                     <a href="<?= PATH_FILES; ?>CV.pdf" download="CV_Rayane_Merlin.pdf" onmouseover="colorMenuImg();" onmouseleave="uncolorMenuImg();">
                         <div class="container-cv-download">
@@ -55,21 +55,6 @@
             <div class="logo">
                 <img src="<?= PATH_IMAGES; ?>favicon/white-favicon.png" alt="logo" draggable="false">
             </div>
-            <ul class="menu-page">
-                <!--                 <li><a href="./?page=home">Accueil</a></li>
-                <li><a href="./?page=course">Parcours</a></li>
-                <li><a href="./?page=perso">Perso</a></li>
-                <li><a href="./?page=contact">Contact</a></li>
-                <li class="cv-download">
-                    <a href="<= PATH_FILES; ?>CV.pdf" download="CV_Rayane_Merlin.pdf" onmouseover="colorMenuImg();" onmouseleave="uncolorMenuImg();">
-                        <div class="container-cv-download">
-                            <p>C</p>
-                            <p>V</p>
-                            <div class="download-img dl-img"></div>
-                        </div>
-                    </a>
-                </li> -->
-            </ul>
             <div class="hamburger-container" onclick="check(this);toggleMenuClass();">
                 <input type="checkbox" id="hamburger-checkbox">
                 <div class="hamburger-bar top-bar"></div>
@@ -77,7 +62,7 @@
                 <div class="hamburger-bar bottom-bar"></div>
             </div>
         </div>
-        <a href="./?page=home" class="get-start">Découvrir</a>
+        <a href="./home" class="get-start">Découvrir</a>
         </div>
     </header>
     <main>

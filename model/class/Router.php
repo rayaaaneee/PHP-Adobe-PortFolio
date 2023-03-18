@@ -23,22 +23,13 @@ class Router
         $this->url = $url;
     }
 
-    public function addRoute(string $route, string $controller, string $method)
+    public function getUrl(): array
     {
-        $this->routes[$route] = array(
-            'controller' => $controller,
-            'method' => $method
-        );
+        return $this->url;
     }
 
-    public function run()
+    public function getFirstPath(): string
     {
-        foreach ($this->routes as $route => $controller) {
-            if ($route == $this->url) {
-                $controller = new $controller['controller'];
-                $method = $controller['method'];
-                $controller->$method();
-            }
-        }
+        return $this->url[0];
     }
 }

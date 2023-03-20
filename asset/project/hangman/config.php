@@ -21,4 +21,4 @@ define('DB_PORT', '3306');
 define('DB_CHARSET', 'utf8');
 
 const DB_USR = 'root';
-const DB_PWD = 'Opqdkjqo64$';
+const DB_PWD = '';

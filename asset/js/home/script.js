@@ -359,8 +359,9 @@ const openProjectPage = (element) => {
     }
 
     projectPage.style.overflowY = "auto";
-    // On scroll en haut de la page
-    projectPage.scrollTo(0, 0);
+
+    // Remonter tout en haut de la page
+    projectPage.scrollTop = 0;
 
     let hrefDownload = null;
     let hrefLink = null;

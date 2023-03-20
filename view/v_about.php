@@ -23,9 +23,9 @@
                 <div class="bar first-bar"></div>
                 <img src="<?= PATH_IMAGES . "about/" . $theme->getImagePath("privacy"); ?>" alt="privacy" draggable="false" />
             </div>
-            <p class="text-content">Votre vie privée est importante pour moi. La politique d'Adobe PortFolio est de respecter votre vie privée et de se conformer à toutes les lois et réglementations applicables concernant les informations personnelles que nous pouvons collecter à votre sujet, y compris sur mon site Web, par l'adresse <a href="./?page=contact">https://rayan</a></br>Cette politique est en vigueur depuis le 7 février 2023 et a été mise à jour pour la dernière fois le 7 février 2023.</p>
+            <p class="text-content">Votre vie privée est importante pour moi. La politique d'Adobe PortFolio est de respecter votre vie privée et de se conformer à toutes les lois et réglementations applicables concernant les informations personnelles que nous pouvons collecter à votre sujet, y compris sur mon site Web, par l'adresse <strong>https://rayanemerlin.com/</strong></br>Cette politique est en vigueur depuis le 7 février 2023 et a été mise à jour pour la dernière fois le 7 février 2023.</p>
             <h2 class="subtitle">- Me contacter</h2>
-            <p class="text-content">Pour toute question ou préoccupation concernant votre vie privée, vous pouvez nous contacter en utilisant les coordonnées suivantes :</br>https://rayanemerlin.com/contact</p>
+            <p class="text-content">Pour toute question ou préoccupation concernant votre vie privée, vous pouvez nous contacter en utilisant les coordonnées suivantes :</br><a href="./?page=contact">https://rayanemerlin.com/?page=contact</a></p>
             <h2 class="subtitle">- Informations collectées</h2>
             <p class="text-content">Les informations que nous collectons incluent à la fois les informations que vous nous fournissez sciemment et activement lorsque vous utilisez ou participez à l'un de nos services et promotions, et toute information envoyée automatiquement par vos appareils lors de l'accès à nos produits et services.
             </p>

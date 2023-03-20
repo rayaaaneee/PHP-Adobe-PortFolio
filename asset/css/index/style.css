@@ -303,7 +303,7 @@ footer {
     height: 6px;
     background-color: #de8ea7;
     transition: width 0.1s ease-in, background-color 0.1s ease-in, height 0.1s ease-in, margin-bottom 0.1s ease-in;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 
 .about-page > p:hover::after {

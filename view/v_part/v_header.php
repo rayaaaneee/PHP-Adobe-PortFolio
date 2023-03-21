@@ -28,7 +28,7 @@
 
 <body class="<?= $theme->getClass("body"); ?>">
     <header>
-        <div id="menu-container">
+        <nav id="menu-container">
             <ul class="menu <?= $theme->getClass("menu") ?>">
                 <a href="./">
                     <div class="logo <?= $theme->getClass("logo"); ?>"></div>
@@ -61,5 +61,5 @@
                     <button type="submit" name="dark-mode" class="<?= $theme->getButtonClass() ?> mode-button"></button>
                 </form>
             </ul>
-        </div>
+        </nav>
     </header>

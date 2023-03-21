@@ -38,7 +38,7 @@
         <?php
         $i = 1;
         foreach ($projects as $project) { ?>
-            <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);">
+            <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);" date-project="<?= $project->getFormatDate(); ?>">
                 <div class="content content<?= $i; ?> <?= $theme->getClass("content") ?>" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
                     <div class="to_download">
                         <p><?= $project->getTitle() ?></p>
@@ -51,6 +51,14 @@
                 <p class="project-img hidden"><?= $project->getImage(); ?></p>
                 <p class="project-is-download hidden"><?= $project->isDownload(); ?></p>
                 <p class="project-is-link hidden"><?= $project->isLink(); ?></p>
+                <div class="project-languages-container hidden">
+                    <?php foreach ($project->getLanguages() as $language) : ?>
+                        <div class="project-language hidden">
+                            <p><?= $language->getName(); ?></p>
+                            <p><?= $language->getColor(); ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
                 <?php if ($project->isDownload()) { ?>
                     <p class="project-file hidden"><?= $project->getFile() ?></p>
                     <p class="project-size hidden"><?= $project->getFileSize(); ?></p>

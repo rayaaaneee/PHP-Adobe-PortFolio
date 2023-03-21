@@ -1,5 +1,7 @@
 <?php
 
+require_once(PATH_CLASSES . 'ManageLanguages.php');
+
 class Project
 {
     private ?int $id;
@@ -16,8 +18,14 @@ class Project
     private ?string $projectLink;
     private ?string $projectFile;
 
+    private ?DateTime $endDate;
+    private array $languages = [];
+
     public function __construct($project)
     {
+
+        $manageLanguages = ManageLanguages::getInstance();
+
         $this->id = $project['id'];
         $this->title = $project['title'];
         $this->useDescription = $project['use_desc'];
@@ -28,6 +36,12 @@ class Project
         $this->isLink = $project['is_link'];
         $this->projectLink = $project['link'];
         $this->projectFile = $project['file'];
+        $this->endDate = new DateTime($project['date']);
+
+        foreach ($project['languages'] as $language) {
+            $tmp_language = strtoupper($language);
+            $this->languages[] = $manageLanguages->getLanguage($tmp_language);
+        }
     }
 
     public function getTypeImageName()
@@ -114,5 +128,20 @@ class Project
     public function getImage()
     {
         return $this->image;
+    }
+
+    public function getDate(): DateTime
+    {
+        return $this->endDate;
+    }
+
+    public function getFormatDate(): string
+    {
+        return $this->endDate->format('m/Y');
+    }
+
+    public function getLanguages(): array
+    {
+        return $this->languages;
     }
 }

@@ -2,18 +2,13 @@
 
 class Language
 {
-    private string $language;
     private string $name;
+    private string $color;
 
-    public function __construct(string $language, string $name)
+    public function __construct(array $language)
     {
-        $this->language = $language;
-        $this->name = $name;
-    }
-
-    public function getLanguage(): string
-    {
-        return $this->language;
+        $this->name = $language['name'];
+        $this->color = $language['color'];
     }
 
     public function getName(): string
@@ -21,8 +16,13 @@ class Language
         return $this->name;
     }
 
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
     public function displayLanguage(): string
     {
-        return $this->language . ' - ' . $this->name;
+        return $this->name . ' - ' . $this->color;
     }
 }

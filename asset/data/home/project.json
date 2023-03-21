@@ -10,9 +10,9 @@
         "is_link" : 0,
         "link" : null,
         "image" : null,
+        "date" : "2022-01",
         "languages" : ["C"]
     },
-
     "project2" : {
         "id" : 2,
         "title" : "HTML CV",
@@ -24,6 +24,7 @@
         "is_link" : 1,
         "link" : "cv-html/",
         "image" : null,
+        "date" : "2021-10",
         "languages" : ["HTML", "CSS"]
     },
     "project3" : {
@@ -37,7 +38,8 @@
         "is_link" : 0,
         "link" : null,
         "image" : null,
-        "languages" : ["Power BI"]
+        "date" : "2022-06",
+        "languages" : ["PowerBI"]
     },
     "project4" : {
         "id" : 4,
@@ -50,6 +52,7 @@
         "is_link" : 1,
         "link" : "Poster-Hack.pdf",
         "image" : null,
+        "date" : "2022-06",
         "languages" : ["Photoshop"]
     },
 
@@ -64,6 +67,7 @@
         "is_link" : 1,
         "link" : "Git-Cheat-Sheet.pdf",
         "image" : null,
+        "date" : "2022-12",
         "languages" : ["Figma"]
     },
     "project6" : {
@@ -77,6 +81,7 @@
         "is_link" : 1,
         "link" : "would-you-play/",
         "image" : null,
+        "date" : "2022-11",
         "languages" : ["HTML", "CSS", "Javascript"]
     },
     "project7" : {
@@ -90,6 +95,7 @@
         "is_link" : 1,
         "link" : "e-ticket/",
         "image" : null,
+        "date" : "2023-01",
         "languages" : ["PHP", "HTML", "CSS", "Javascript"]
     },
     "project8" : {
@@ -103,6 +109,7 @@
         "is_link" : 1,
         "link" : "hangman/",
         "image" : null,
+        "date" : "2023-02",
         "languages" : ["PHP", "HTML", "CSS", "Javascript"]
     }
 }

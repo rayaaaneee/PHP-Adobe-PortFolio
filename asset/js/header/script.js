@@ -27,3 +27,13 @@ function unchangeDisplay(index){
     var bloc = document.querySelector('.s'+index);
     bloc.style.display="block";
 }
+
+/* let links = document.querySelectorAll('nav ul li a');
+
+links.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        let href = this.getAttribute('href');
+        history.pushState(null, null, href);
+    }); 
+}); */

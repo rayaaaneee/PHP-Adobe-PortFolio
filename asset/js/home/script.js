@@ -316,6 +316,12 @@ const imgLinkOrDownload = projectPage.querySelector(".link-or-download");
 const backgroundProjectPage = projectPage.querySelector(".background-project-page");
 const quitProjectButton = projectPage.querySelector(".quit-project-button");
 const downloadSizeContainer = projectPage.querySelector(".project-size-container");
+const projectLanguagesContainer = projectPage.querySelector(".project-languages-skills-container");
+const projectLanguagesTitle = document.querySelector(".project-languages-skills .title-language-skill");
+var tmpTemplateLanguage = projectLanguagesContainer.querySelector(".template").cloneNode(true);
+tmpTemplateLanguage.classList.remove("template");
+tmpTemplateLanguage.classList.remove("hidden");
+const templateLanguage = tmpTemplateLanguage;
 
 // Recuperer variable CSS 
 var animDurationProjects = getComputedStyle(document.documentElement).getPropertyValue('--anim-duration');
@@ -347,7 +353,7 @@ const openProjectPage = (element) => {
         lastElement.setAttribute("href", href);
         lastElement.setAttribute("download", "");
     }
-    
+
     titleProject.textContent = lastElement.querySelector(".to_download > p").textContent;
     lastElement.querySelector(".to_download").remove();
 
@@ -431,9 +437,36 @@ const openProjectPage = (element) => {
         projectPage.querySelector(".project-use-desc-value").parentElement.style.removeProperty("display");
         projectPage.querySelector(".project-use-desc-value").textContent = element.querySelector(".project-use-desc").textContent;
     }
-    
+    // Si le projet nécéssite des compétences et langages, on met le titre de la partie à jour, sinon on met simplement "Compétences" ou "Langages"
+
+    let tmpTitleLanguagePart = "";
+    if( element.querySelector(".project-uses-skills").textContent == "1" && element.querySelector(".project-uses-languages").textContent == "1" ) {
+        tmpTemplateLanguage = "Compétences et langages";
+    } else if( element.querySelector(".project-uses-skills").textContent == "1" ) {
+        tmpTemplateLanguage = "Compétences";
+    } else if( element.querySelector(".project-uses-languages").textContent == "1" ) {
+        tmpTemplateLanguage = "Langages";
+    } else {
+        tmpTemplateLanguage = "Compétences et langages";
+    }
+    projectLanguagesTitle.textContent = tmpTemplateLanguage + " :";
+
+    // On affiche les langages utilisés
+    let languages = element.querySelector(".project-languages");
+    languages.querySelectorAll(".project-language").forEach(language => {
+        let cloneTemplateLanguage = templateLanguage.cloneNode(true);
+        let languageName = language.querySelector(".project-language-name").textContent;
+        let languageColor = language.querySelector(".project-language-color").textContent;
+
+        cloneTemplateLanguage.querySelector("p").textContent = languageName;
+        cloneTemplateLanguage.style.backgroundColor = languageColor;
+
+        projectLanguagesContainer.appendChild(cloneTemplateLanguage);
+    });
+
+
     document.body.style.overflowY = "hidden";
-    
+
     projectPage.appendChild(lastElement);
     projectPage.style.display = "block";
     // Animation d'ouverture
@@ -457,17 +490,17 @@ const closeProjectPage = () => {
         animateClosingProjectViewingContent();
         backgroundProjectPage.style.removeProperty("opacity");
         setTimeout(() => {
-            
+
             projectPage.removeAttribute("style");
             projectPage.style.removeProperty("overflow-y");
             projectPage.querySelector(".project-size-container").style.removeProperty("display");
             projectPage.querySelector(".project-size-value").textContent = "";
-        
+
             downloadBtn.removeAttribute("href");
             linkBtn.removeAttribute("href");
-            
+
             lastElement.remove();
-        
+
             document.body.style.removeProperty("overflow-y");
 
             linkBtn.style.removeProperty("display");
@@ -475,7 +508,10 @@ const closeProjectPage = () => {
 
             downloadBtn.style.removeProperty("display");
             downloadSizeContainer.style.removeProperty("display");
-        
+
+            projectLanguagesContainer.innerHTML = "";
+            projectLanguagesTitle.textContent = "";
+
             clearInterval(intervalAnimationProjectViewing);
         }, animDurationProjects);
     }, animDurationProjects/1.5);
@@ -487,7 +523,7 @@ const animateProjectViewing = () => {
     switch(growing){
         case true:
             lastElement.querySelector("img").style.transform = "scale(1)";
-            lastElement.style.transform = "translate(-50%,-50%) scale(0.9)";
+            lastElement.style.transform = "scale(0.9)";
             break;
         case false:
             lastElement.querySelector("img").style.transform = "scale(0.85)";

@@ -11,7 +11,9 @@
         "link" : null,
         "image" : null,
         "date" : "2022-01",
-        "languages" : ["C"]
+        "languages" : ["C"],
+        "uses_skills" : 0,
+        "uses_languages" : 1
     },
     "project2" : {
         "id" : 2,
@@ -25,7 +27,9 @@
         "link" : "cv-html/",
         "image" : null,
         "date" : "2021-10",
-        "languages" : ["HTML", "CSS"]
+        "languages" : ["HTML", "CSS"],
+        "uses_skills" : 0,
+        "uses_languages" : 1
     },
     "project3" : {
         "id" : 3,
@@ -39,7 +43,9 @@
         "link" : null,
         "image" : null,
         "date" : "2022-06",
-        "languages" : ["PowerBI"]
+        "languages" : ["PowerBI"],
+        "uses_skills" : 0,
+        "uses_languages" : 1
     },
     "project4" : {
         "id" : 4,
@@ -53,7 +59,9 @@
         "link" : "Poster-Hack.pdf",
         "image" : null,
         "date" : "2022-06",
-        "languages" : ["Photoshop"]
+        "languages" : ["Photoshop", "Illustrator"],
+        "uses_skills" : 1,
+        "uses_languages" : 0
     },
 
     "project5" : {
@@ -68,7 +76,9 @@
         "link" : "Git-Cheat-Sheet.pdf",
         "image" : null,
         "date" : "2022-12",
-        "languages" : ["Figma"]
+        "languages" : ["Figma"],
+        "uses_skills" : 1,
+        "uses_languages" : 0
     },
     "project6" : {
         "id" : 6,
@@ -82,7 +92,9 @@
         "link" : "would-you-play/",
         "image" : null,
         "date" : "2022-11",
-        "languages" : ["HTML", "CSS", "Javascript"]
+        "languages" : ["HTML", "CSS", "Javascript"],
+        "uses_skills" : 0,
+        "uses_languages" : 1
     },
     "project7" : {
         "id" : 7,
@@ -96,7 +108,9 @@
         "link" : "e-ticket/",
         "image" : null,
         "date" : "2023-01",
-        "languages" : ["PHP", "HTML", "CSS", "Javascript"]
+        "languages" : ["PHP", "HTML", "CSS", "Javascript"],
+        "uses_skills" : 0,
+        "uses_languages" : 1
     },
     "project8" : {
         "id" : 8,
@@ -110,6 +124,8 @@
         "link" : "hangman/",
         "image" : null,
         "date" : "2023-02",
-        "languages" : ["PHP", "HTML", "CSS", "Javascript"]
+        "languages" : ["PHP", "HTML", "CSS", "Javascript"],
+        "uses_skills" : 0,
+        "uses_languages" : 1
     }
 }

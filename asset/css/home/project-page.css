@@ -60,15 +60,18 @@ html {
     transition: 0.2s;
 }
 
+html {
+    --space-border-actual-project-viewing: 4vw;
+}
+
 .actual-project-viewing {
-    position: absolute;
+    position: fixed;
     z-index: 13;
     width: fit-content;
     height: fit-content;
     transition: all 3.5s;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    bottom: var(--space-border-actual-project-viewing);
+    right: var(--space-border-actual-project-viewing);
 }
 
 #content-project-container {
@@ -135,11 +138,11 @@ html {
 }
 
 .project-use-desc-value {
-    margin-right: 60vw;
     padding-bottom: 1.5vw;
 }
 
 .link-btn, .download-btn {
+    width: fit-content;
     color: white !important;
     font-size: 2.8vw;
     margin-left: 2.5vw;
@@ -194,6 +197,56 @@ html {
     width: 4vw;
     height: 4vw;
     margin-bottom: 0.25vw;
+}
+
+.project-languages-skills{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.9vw;
+    margin-bottom: 1.5vw;
+}
+
+.project-languages-skills > p {
+    margin: 0;
+    padding: 0;
+    font-size: 3vw;
+    font-weight: 100;
+    color: rgb(232, 190, 190);
+}
+
+.project-languages-skills > img {
+    margin-top: 0.2vw;
+    width: 2.6vw;
+    height: 2.6vw;
+    margin-bottom: 0.25vw;
+}
+
+.skill-language-container > p {
+    margin: 0;
+    padding: 0;
+    font-size: 2.3vw;
+    font-weight: 100;
+    color: rgb(255, 255, 255);
+}
+
+.skill-language-container {
+    width: fit-content;
+    padding: 7px 20px;
+    border-radius: 15px;
+    transition: 0.1s;
+}
+
+.skill-language-container:hover {
+    transform: scale(1.05);
+    transition: 0.1s;
+}
+.project-languages-skills-container {
+    margin-top: 2vw;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    column-gap: 2vw;
 }
 
 .project-size-container {

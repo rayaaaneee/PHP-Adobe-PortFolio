@@ -39,6 +39,10 @@
         "name" : "Photoshop",
         "color" : "#2d6bb1"
     },
+    "Illustrator" : {
+        "name" : "Illustrator",
+        "color" : "#ff9a00"
+    },
     "Figma" : {
         "name" : "Figma",
         "color" : "#f24e1e"

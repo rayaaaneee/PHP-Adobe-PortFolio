@@ -51,11 +51,13 @@
                 <p class="project-img hidden"><?= $project->getImage(); ?></p>
                 <p class="project-is-download hidden"><?= $project->isDownload(); ?></p>
                 <p class="project-is-link hidden"><?= $project->isLink(); ?></p>
-                <div class="project-languages-container hidden">
+                <div class="project-uses-skills hidden"><?= $project->usesSkills(); ?></div>
+                <div class="project-uses-languages hidden"><?= $project->usesLanguages(); ?></div>
+                <div class="project-languages hidden">
                     <?php foreach ($project->getLanguages() as $language) : ?>
                         <div class="project-language hidden">
-                            <p><?= $language->getName(); ?></p>
-                            <p><?= $language->getColor(); ?></p>
+                            <p class="project-language-name"><?= $language->getName(); ?></p>
+                            <p class="project-language-color"><?= $language->getColor(); ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -86,6 +88,15 @@
                     <img class="link-or-download" src="<?= PATH_IMAGES; ?>home/icon/white-link.png" draggable="false">
                     <p class="title-project"></p>
                 </div>
+                <div class="project-languages-skills">
+                    <img src="<?= PATH_IMAGES; ?>home/icon/skills.png" draggable="false">
+                    <p class="title-language-skill">Compétences :</p>
+                </div>
+                <div class="project-languages-skills-container page-content">
+                    <div class="skill-language-container template hidden">
+                        <p></p>
+                    </div>
+                </div>
                 <div class="project-desc text-project-container">
                     <div class="project-desc-text title-page-project">
                         <img src="<?= PATH_IMAGES; ?>home/icon/desc-icon-pink.png" draggable="false">
@@ -101,7 +112,7 @@
                     <p class="project-use-desc-value page-content"></p>
                 </div>
                 <a href="" class="link-btn title-page-project" target="_blank"></a>
-                <a class="download-btn title-page-project" download></a>
+                <a href="" class="download-btn title-page-project" download></a>
                 <div class="project-size-container text-project-container">
                     <img src="<?= PATH_IMAGES; ?>home/icon/white-memory-icon.png" draggable="false">
                     <p class="page-content">Taille du fichier :</p>

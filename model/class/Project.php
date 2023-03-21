@@ -4,13 +4,15 @@ require_once(PATH_CLASSES . 'ManageLanguages.php');
 
 class Project
 {
-    private ?int $id;
+    private int $id;
 
-    private ?string $title;
+    private string $title;
     private ?string $useDescription;
     private ?string $projectDescription;
     private ?string $image;
-    private ?string $icon;
+    private string $icon;
+    private ?string $usesSkills;
+    private ?string $usesLanguages;
 
     private ?bool $isDownload;
     private ?bool $isLink;
@@ -18,7 +20,7 @@ class Project
     private ?string $projectLink;
     private ?string $projectFile;
 
-    private ?DateTime $endDate;
+    private DateTime $endDate;
     private array $languages = [];
 
     public function __construct($project)
@@ -37,6 +39,8 @@ class Project
         $this->projectLink = $project['link'];
         $this->projectFile = $project['file'];
         $this->endDate = new DateTime($project['date']);
+        $this->usesSkills = $project['uses_skills'];
+        $this->usesLanguages = $project['uses_languages'];
 
         foreach ($project['languages'] as $language) {
             $tmp_language = strtoupper($language);
@@ -143,5 +147,15 @@ class Project
     public function getLanguages(): array
     {
         return $this->languages;
+    }
+
+    public function usesSkills()
+    {
+        return $this->usesSkills;
+    }
+
+    public function usesLanguages()
+    {
+        return $this->usesLanguages;
     }
 }

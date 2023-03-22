@@ -234,12 +234,13 @@ html {
     width: fit-content;
     padding: 7px 20px;
     border-radius: 15px;
-    transition: 0.1s;
+    transition: 0.3s linear;
+    cursor: default;
 }
 
 .skill-language-container:hover {
-    transform: scale(1.02);
-    transition: 0.1s;
+    filter: brightness(0.85);
+    transition: 0.3s linear;
 }
 .project-languages-skills-container {
     margin-top: 2vw;
@@ -266,6 +267,7 @@ html {
 }
 
 .project-size-container > img {
+    object-fit: cover;
     margin-top: 0.2vw;
     width: 3vw;
     height: 3vw;

@@ -24,7 +24,11 @@
 
 /* Style d'une case de base et lors de son chargement */
 .main-container{
+    position: relative;
     transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-seemore-project{
@@ -263,4 +267,58 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Afficher la date par dessus les projets */
+html {
+    --projects-data-date-border-width: 9px;
+    --projects-data-date-transition: 0.3s;
+    --projects-data-date-after-dist-top: -20%;
+    --projects-data-date-height: 40px;
+}
+.projects > *::before {
+    content:""; 
+    border-left: var(--projects-data-date-border-width) solid transparent;
+    border-right: var(--projects-data-date-border-width) solid transparent;
+    border-top: var(--projects-data-date-border-width) solid rgba(0, 0, 0, 0.884);
+    position: absolute;
+    z-index: 1;
+    top: calc(var(--projects-data-date-after-dist-top) + var(--projects-data-date-height));
+    opacity: 0;
+    transition: var(--projects-data-date-transition);
+}
+
+.projects > *::after {
+    opacity: 0;
+    content: attr(data-date);
+    position: absolute;
+    z-index: 1;
+    top: var(--projects-data-date-after-dist-top);
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.884);
+    padding-right: 25px;
+    padding-left: 45px;
+    background-image: url(../../img/home/icon/calendar.png);
+    background-repeat: no-repeat;
+    background-position: center left 15px;
+    background-size: 20px;
+    color: white;
+    width: fit-content;
+    height: var(--projects-data-date-height);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--projects-data-date-transition);
+    pointer-events: none;
+}
+
+.projects > *:hover::before {
+    opacity: 1;
+    transition: var(--projects-data-date-transition);
+}
+
+.projects > *:hover::after {
+    opacity: 1;
+    transition: var(--projects-data-date-transition);
 }

@@ -444,16 +444,16 @@ const openProjectPage = (element) => {
     projectLanguagesSkillsImg.src = "./asset/img/home/icon/skills.png";
 
     if( element.querySelector(".project-uses-skills").textContent == "1" && element.querySelector(".project-uses-languages").textContent == "1" ) {
-        tmpTemplateLanguage = "Compétences et langages";
+        tmpTitleLanguagePart = "Compétences et langages";
     } else if( element.querySelector(".project-uses-skills").textContent == "1" ) {
-        tmpTemplateLanguage = "Compétences";
+        tmpTitleLanguagePart = "Compétences";
     } else if( element.querySelector(".project-uses-languages").textContent == "1" ) {
         projectLanguagesSkillsImg.src = "./asset/img/home/icon/language2.png";
-        tmpTemplateLanguage = "Langages";
+        tmpTitleLanguagePart = "Langages";
     } else {
-        tmpTemplateLanguage = "Compétences et langages";
+        tmpTitleLanguagePart = "Compétences et langages";
     }
-    projectLanguagesTitle.textContent = tmpTemplateLanguage + " :";
+    projectLanguagesTitle.textContent = tmpTitleLanguagePart + " :";
 
     // On affiche les langages utilisés
     let languages = element.querySelector(".project-languages");

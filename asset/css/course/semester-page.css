@@ -1,0 +1,68 @@
+
+#semesterPage {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#semesterPage.visible {
+    display: flex;
+}
+
+#semesterPage .background-semester-page {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+html {
+    --cross-margin-semester-page: 20px;
+}
+
+#semesterPage .cross-semester-page-container {
+    position: fixed;
+    top: var(--cross-margin-semester-page);
+    right: var(--cross-margin-semester-page);
+    display: flex;
+    color: white;
+    width: 70px;
+    height: 70px;
+    z-index: 3;
+    border: 1px solid rgba(221, 141, 141, 0.8);
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    transform: translateX(15vw);
+    justify-content: center;
+    align-items: center;
+}
+
+#semesterPage .cross-semester-page-container:hover {
+    border: 1px solid transparent;
+    background-color: rgba(209, 95, 95,0.8);
+    transition: 0.3s;
+}
+
+#semesterPage .cross-semester-page-container p {
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    font-weight: bold;
+}

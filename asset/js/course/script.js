@@ -190,14 +190,14 @@ projects.forEach((project, index) => {
 });
 
 const colorPoint = (point) => {
-    point.style.background = "linear-gradient(160deg, transparent 60%, rgb(222, 162, 132) 40%)";
+    point.classList.add("selected");
     point.style.boxShadow = "0 0 10px 0 rgb(0, 0, 0)";
     point.style.backdropFilter = "blur(10px)";
     point.parentNode.classList.add("focus");
 }
 
 const uncolorPoint = (point) => {
-    point.style.removeProperty("background");
+    point.classList.remove("selected");
     point.style.removeProperty("box-shadow");
     point.style.removeProperty("backdrop-filter");
     point.parentNode.classList.remove("focus");
@@ -218,8 +218,8 @@ const onclickProject = (project) => {
         lastProjectId = project.id;
 
         isSelect = true;
-        
-        project.style.backgroundColor = "rgba(219, 207, 207, 0.7)";
+
+        project.classList.add("selected");
         let nbPoint = project.id.replace("proj", "");
         let point = document.querySelector("#p" + nbPoint);
         project.querySelector(".arrow-container .arrow").classList.add("active");
@@ -247,7 +247,7 @@ const onclickProject = (project) => {
 }
 
 const disclickProject = (project) => {
-    project.style.removeProperty("background-color");
+    project.classList.remove("selected");
 
     let nbPoint = project.id.replace("proj", "");
     let point = document.querySelector("#p" + nbPoint);

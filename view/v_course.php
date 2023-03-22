@@ -1,6 +1,8 @@
 <head>
     <!-- CSS DE BASE -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>course/style.css">
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>course/semester-page.css">
+    <!-- CSS MEDIA -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>media/course/style.css">
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>course/dark-style.css">
@@ -29,11 +31,14 @@
 
 <div class="explain-container">
     <div class="explain">
-        <img class="medal-img" src="<?= PATH_IMAGES; ?>course/medal-white.png" alt="icon-study">
+        <img class="medal-img" src="<?= PATH_IMAGES; ?>course/medal-white.png" alt="icon-study" draggable="false">
         <h1 class="explain-text">Qu'est-ce que cette page ?</h1>
         <p class="explain-text">Voici mon parcours scolaire post bac.</p>
         <p class="explain-text">Cliquez sur chacune des cases pour en savoir plus sur chaque semestre, leur contenu et les projets réalisés.</p>
-        <a href="#proj1">Consulter</a>
+        <a href="#proj1" class="explain-text">
+            <p>Consulter</p>
+            <img src="<?= PATH_IMAGES; ?>course/arrow-bottom-white.png" alt="arrow" draggable="false">
+        </a>
     </div>
 </div>
 <article id="parallax-projects">
@@ -50,7 +55,7 @@
             <?php for ($i = 0; $i < $nbSemesters; $i++) { ?>
                 <div class="project" id="proj<?= $i + 1; ?>" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <div class="title-project-container">
-                        <img src="<?= PATH_IMAGES; ?>course/study.png" alt="icon-study">
+                        <img src="<?= PATH_IMAGES; ?>course/study.png" alt="icon-study" draggable="false">
                         <h1 class="title-project"><?= $semesters[$i]->getTitle(); ?></h1>
                         <div class="arrow-container">
                             <div class="arrow" onclick="openSemesterPage(this, event);"></div>

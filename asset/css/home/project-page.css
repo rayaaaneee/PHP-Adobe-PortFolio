@@ -238,7 +238,7 @@ html {
 }
 
 .skill-language-container:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: 0.1s;
 }
 .project-languages-skills-container {

@@ -54,5 +54,73 @@
     "Java" : {
         "name" : "Java",
         "color" : "#b07219"
+    },
+    "SQL" : {
+        "name" : "SQL",
+        "color" : "#f29111"
+    },
+    "PHP Symfony" : {
+        "name" : "PHP Symfony",
+        "color" : "#000000"
+    },
+    "Laravel" : {
+        "name" : "PHP Laravel",
+        "color" : "#ff2d20"
+    },
+    "NodeJS" : {
+        "name" : "NodeJS",
+        "color" : "#339933"
+    },
+    "ReactJS" : {
+        "name" : "ReactJS",
+        "color" : "#61dafb"
+    },
+    "TypeScript" : {
+        "name" : "TypeScript",
+        "color" : "#2b7489"
+    },
+    "JQuery" : {
+        "name" : "JQuery",
+        "color" : "#0769ad"
+    },
+    "Angular" : {
+        "name" : "Angular",
+        "color" : "#dd0031"
+    },
+    "Electron" : {
+        "name" : "Electron",
+        "color" : "#47848f"
+    },
+    "Swift" : {
+        "name" : "Swift",
+        "color" : "#ffac45"
+    },
+    "Kotlin" : {
+        "name" : "Kotlin",
+        "color" : "#F18E33"
+    },
+    "Dart" : {
+        "name" : "Dart",
+        "color" : "#00B4AB"
+    },
+    "Flutter" : {
+        "name" : "Flutter",
+        "color" : "#02569B"
+    },
+    "Go" : {
+        "name" : "Go",
+        "color" : "#00ADD8"
+    },
+    "Rust" : {
+        "name" : "Rust",
+        "color" : "#dea584"
+    },
+    "Ruby" : {
+        "name" : "Ruby",
+        "color" : "#701516"
+    },
+    "SCSS" : {
+        "name" : "SCSS",
+        "color" : "#c6538c"
     }
 }

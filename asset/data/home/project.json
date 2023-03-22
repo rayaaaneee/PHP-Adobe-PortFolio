@@ -43,7 +43,7 @@
         "link" : null,
         "image" : null,
         "date" : "2022-06",
-        "languages" : ["PowerBI"],
+        "languages" : ["PowerBI", "SQL"],
         "uses_skills" : 0,
         "uses_languages" : 1
     },
@@ -108,7 +108,7 @@
         "link" : "e-ticket/",
         "image" : null,
         "date" : "2023-01",
-        "languages" : ["PHP", "HTML", "CSS", "Javascript"],
+        "languages" : ["PHP", "SQL", "HTML", "CSS", "Javascript"],
         "uses_skills" : 0,
         "uses_languages" : 1
     },
@@ -124,7 +124,7 @@
         "link" : "hangman/",
         "image" : null,
         "date" : "2023-02",
-        "languages" : ["PHP", "HTML", "CSS", "Javascript"],
+        "languages" : ["PHP", "SQL", "HTML", "CSS", "Javascript"],
         "uses_skills" : 0,
         "uses_languages" : 1
     }

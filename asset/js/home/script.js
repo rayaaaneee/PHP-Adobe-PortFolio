@@ -317,11 +317,12 @@ const backgroundProjectPage = projectPage.querySelector(".background-project-pag
 const quitProjectButton = projectPage.querySelector(".quit-project-button");
 const downloadSizeContainer = projectPage.querySelector(".project-size-container");
 const projectLanguagesContainer = projectPage.querySelector(".project-languages-skills-container");
-const projectLanguagesTitle = document.querySelector(".project-languages-skills .title-language-skill");
+const projectLanguagesTitle = projectPage.querySelector(".project-languages-skills .title-language-skill");
 var tmpTemplateLanguage = projectLanguagesContainer.querySelector(".template").cloneNode(true);
 tmpTemplateLanguage.classList.remove("template");
 tmpTemplateLanguage.classList.remove("hidden");
 const templateLanguage = tmpTemplateLanguage;
+const projectLanguagesSkillsImg = projectPage.querySelector(".project-languages-skills img");
 
 // Recuperer variable CSS 
 var animDurationProjects = getComputedStyle(document.documentElement).getPropertyValue('--anim-duration');
@@ -440,11 +441,14 @@ const openProjectPage = (element) => {
     // Si le projet nécéssite des compétences et langages, on met le titre de la partie à jour, sinon on met simplement "Compétences" ou "Langages"
 
     let tmpTitleLanguagePart = "";
+    projectLanguagesSkillsImg.src = "./asset/img/home/icon/skills.png";
+
     if( element.querySelector(".project-uses-skills").textContent == "1" && element.querySelector(".project-uses-languages").textContent == "1" ) {
         tmpTemplateLanguage = "Compétences et langages";
     } else if( element.querySelector(".project-uses-skills").textContent == "1" ) {
         tmpTemplateLanguage = "Compétences";
     } else if( element.querySelector(".project-uses-languages").textContent == "1" ) {
+        projectLanguagesSkillsImg.src = "./asset/img/home/icon/language2.png";
         tmpTemplateLanguage = "Langages";
     } else {
         tmpTemplateLanguage = "Compétences et langages";

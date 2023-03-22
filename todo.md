@@ -96,3 +96,5 @@ dé-hover la case _/ ✔
 47. Media Queries correct sur la page d accueil
 
 48. Ajouter date et langage sur les projets
+
+49. Rajouter une scroll bar 100% personnalisée

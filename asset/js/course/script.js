@@ -9,21 +9,20 @@ var pointRotation = new Array();
 
 const initHeight = () => {
     height = window.innerHeight;
-    bordersScreen = (height/20);
-    margin = (height/100)*10;
+    bordersScreen = (height / 20);
+    margin = (height / 100) * 10;
 }
 initHeight();
 
 const isInSide = (pointMarginTop) => {
-    if(barCentered) {
-        if(pointMarginTop <= bordersScreen || pointMarginTop >= height-(bordersScreen * 1.5)) {
+    if (barCentered) {
+        if (pointMarginTop <= bordersScreen || pointMarginTop >= height - (bordersScreen * 1.5)) {
             return true;
         } else {
             return false;
         }
     } else {
-        console.log("barNotCentered");
-        if(pointMarginTop <= bordersScreen) {
+        if (pointMarginTop <= bordersScreen) {
             return true;
         }
     }
@@ -31,8 +30,8 @@ const isInSide = (pointMarginTop) => {
 
 var coef = 1.02;
 const isInFivePercentSide = (pointMarginTop) => {
-    if(barCentered) {
-        if(pointMarginTop <= (bordersScreen + (coef*bordersScreen)) || pointMarginTop >= (height-((bordersScreen)-(bordersScreen * coef)))) {
+    if (barCentered) {
+        if (pointMarginTop <= (bordersScreen + (coef * bordersScreen)) || pointMarginTop >= (height - ((bordersScreen) - (bordersScreen * coef)))) {
             return true;
         } else {
             return false;
@@ -43,7 +42,7 @@ const isInFivePercentSide = (pointMarginTop) => {
 }
 
 const distanceMiddle = (pointMarginTop) => {
-    let distance = pointMarginTop - (height/2);
+    let distance = pointMarginTop - (height / 2);
     return Math.abs(distance);
 }
 
@@ -51,7 +50,7 @@ const getNewScale = (distanceMid) => {
     let min = 1;
     let max = 2.2;
 
-    let scale = (distanceMid/(height))*(max-min)-min;
+    let scale = (distanceMid / (height)) * (max - min) - min;
     scale = scale * 1.5;
     return scale;
 }
@@ -63,14 +62,13 @@ const onscroll = () => {
     // Mouvement de la barre
     if (window.scrollY < height) {
         barCentered = false;
-        let translateValue = (height - (window.scrollY)*1.7);
-        console.log(translateValue);
-        if(translateValue < 0) {
+        let translateValue = (height - (window.scrollY) * 1.7);
+        if (translateValue < 0) {
             barCentered = true;
             translateValue = 0;
         }
-        bar.style.transform = "translateY("+translateValue+"px)";
-    } else { 
+        bar.style.transform = "translateY(" + translateValue + "px)";
+    } else {
         bar.removeAttribute("style");
     }
 
@@ -80,10 +78,10 @@ const onscroll = () => {
 
         let scrollValue = window.scrollY;
         pointMarginTop = point.offsetTop - scrollValue + margin;
-        
-        if(index == 2) if(isInFivePercentSide(pointMarginTop)) console.log("in");
 
-        if(isInSide(pointMarginTop)) {
+        /* if (index == 2) if (isInFivePercentSide(pointMarginTop)) console.log("in"); */
+
+        if (isInSide(pointMarginTop)) {
             point.parentNode.style.opacity = 0;
         } else {
             point.parentNode.style.opacity = 1;
@@ -92,89 +90,89 @@ const onscroll = () => {
         let distanceMid = distanceMiddle(pointMarginTop);
 
         // Plus le point est proche du milieu de l'écran, plus il est grand
-        pointRotation[index] = -pointMarginTop/3;
-        point.style.transform = "rotate("+pointRotation[index]+"deg) scale("+getNewScale(distanceMid)+")";
+        pointRotation[index] = -pointMarginTop / 3;
+        point.style.transform = "rotate(" + pointRotation[index] + "deg) scale(" + getNewScale(distanceMid) + ")";
     });
-} 
+}
 
 // Fonction qui permet de faire défiler les points
 var addToScale = 0;
 const moveProjects = (time = 50) => {
-        let i = Math.floor(Math.random() * projects.length);
+    let i = Math.floor(Math.random() * projects.length);
 
-        let timeInterval = time;
+    let timeInterval = time;
 
-        let wasPassed = [];
+    let wasPassed = [];
 
-        let intervalAnimation = setInterval(() => { 
+    let intervalAnimation = setInterval(() => {
 
-            while(wasPassed.includes(i)) {
-                i = Math.floor(Math.random() * projects.length);
-            }
-            
-            wasPassed.push(i);
+        while (wasPassed.includes(i)) {
+            i = Math.floor(Math.random() * projects.length);
+        }
 
-            let project = projects[i];
+        wasPassed.push(i);
 
-            project.style.transition = "background-color 0.5s, box-shadow  0.1s, transform 3s, backdrop-filter 1s";
+        let project = projects[i];
 
-            let proba = Math.floor(Math.random() * 100);
-            let lessOrMore = Math.floor(Math.random() * 3);
+        project.style.transition = "background-color 0.5s, box-shadow  0.1s, transform 3s, backdrop-filter 1s";
 
-            let Y = null;
-            let X = null;
-            let scale = null;            
-            let rotate = null;
-            if(project.id == lastProjectId)
-                scale = addToScale;
-            else 
-                scale = 0;
+        let proba = Math.floor(Math.random() * 100);
+        let lessOrMore = Math.floor(Math.random() * 3);
 
-            let tmpScale = Math.floor(Math.random() * 2);
-            if (proba < 65) {
+        let Y = null;
+        let X = null;
+        let scale = null;
+        let rotate = null;
+        if (project.id == lastProjectId)
+            scale = addToScale;
+        else
+            scale = 0;
 
-                X = Math.floor(Math.random() * 3);
-                rotate = Math.floor(Math.random() * 5);
-                Y = (Math.floor(Math.random() * 2));
+        let tmpScale = Math.floor(Math.random() * 2);
+        if (proba < 65) {
 
-                if (lessOrMore == 0) {
-                    Y = -Y;
-                    scale += 1-(tmpScale/100);
-                    rotate = -rotate/4;
-                } else {
-                    scale += 1+(tmpScale/100);
-                    rotate = rotate/4;
-                }
+            X = Math.floor(Math.random() * 3);
+            rotate = Math.floor(Math.random() * 5);
+            Y = (Math.floor(Math.random() * 2));
 
+            if (lessOrMore == 0) {
+                Y = -Y;
+                scale += 1 - (tmpScale / 100);
+                rotate = -rotate / 4;
             } else {
-
-                X = Math.floor(Math.random() * 2);
-                rotate = Math.floor(Math.random() * 7);
-                Y = (Math.floor(Math.random() * 4));
-
-                if (lessOrMore == 0) {
-                    Y = -Y;
-                    scale += 1-(tmpScale/100);
-                    rotate = -rotate/7;
-                } else {
-                    scale += 1+(tmpScale/100);
-                    rotate = rotate/7;
-                }
+                scale += 1 + (tmpScale / 100);
+                rotate = rotate / 4;
             }
-            let newX = initialX[i]+X;
-            translate = "translateX("+(newX)+"vw) translateY("+Y+"vh) scale("+scale+") rotate("+rotate+"deg)";
-            project.style.transform = translate;
 
-            if(i == projects.length-1) {
-                clearInterval(intervalAnimation);
-                i = 0;
+        } else {
+
+            X = Math.floor(Math.random() * 2);
+            rotate = Math.floor(Math.random() * 7);
+            Y = (Math.floor(Math.random() * 4));
+
+            if (lessOrMore == 0) {
+                Y = -Y;
+                scale += 1 - (tmpScale / 100);
+                rotate = -rotate / 7;
+            } else {
+                scale += 1 + (tmpScale / 100);
+                rotate = rotate / 7;
             }
-            i++;
-    }, timeInterval);  
+        }
+        let newX = initialX[i] + X;
+        translate = "translateX(" + (newX) + "vw) translateY(" + Y + "vh) scale(" + scale + ") rotate(" + rotate + "deg)";
+        project.style.transform = translate;
+
+        if (i == projects.length - 1) {
+            clearInterval(intervalAnimation);
+            i = 0;
+        }
+        i++;
+    }, timeInterval);
 }
 
 var main = () => {
-    for (var i = 0; i < points.length; i++)  
+    for (var i = 0; i < points.length; i++)
         pointRotation.push(160);
 
     moveProjects(1);
@@ -183,10 +181,10 @@ var main = () => {
 }
 var projects = document.querySelectorAll(".project");
 projects.forEach((project, index) => {
-    let rand = Math.floor(Math.random() * 20)-10;
+    let rand = Math.floor(Math.random() * 20) - 10;
     initialX[index] = rand;
-    project.style.transform = "translateX("+rand+"vw)";
-    if(index == projects.length-1) {
+    project.style.transform = "translateX(" + rand + "vw)";
+    if (index == projects.length - 1) {
         main();
     }
 });
@@ -210,7 +208,7 @@ const modifyScale = (element, newscale) => {
     scale = tmp.split("scale(")[1].split(")")[0];
     scale = parseFloat(scale);
     scale = scale + (newscale);
-    element.style.transform = tmp.split("scale(")[0]+"scale("+scale+")";
+    element.style.transform = tmp.split("scale(")[0] + "scale(" + scale + ")";
 }
 
 var isSelect = false;
@@ -220,10 +218,11 @@ const onclickProject = (project) => {
         lastProjectId = project.id;
 
         isSelect = true;
-
-        project.style.backgroundColor ="rgba(219, 207, 207, 0.7)";
+        
+        project.style.backgroundColor = "rgba(219, 207, 207, 0.7)";
         let nbPoint = project.id.replace("proj", "");
-        let point = document.querySelector("#p"+nbPoint);
+        let point = document.querySelector("#p" + nbPoint);
+        project.querySelector(".arrow-container .arrow").classList.add("active");
 
         colorPoint(point);
 
@@ -231,24 +230,27 @@ const onclickProject = (project) => {
         modifyScale(point, -onclickScale);
         modifyScale(project, onclickScale);
         addToScale = onclickScale;
+
     } else {
+        let lastProject = document.querySelector("#" + lastProjectId);
         if (lastProjectId == project.id) {
             disclickProject(project);
             isSelect = false;
             lastProjectId = null;
         } else {
-            disclickProject(document.querySelector("#"+lastProjectId));
+            disclickProject(lastProject);
             isSelect = false;
             onclickProject(project);
         }
+        lastProject.querySelector(".arrow-container .arrow").classList.remove("active");
     }
 }
 
 const disclickProject = (project) => {
     project.style.removeProperty("background-color");
-    
+
     let nbPoint = project.id.replace("proj", "");
-    let point = document.querySelector("#p"+nbPoint);
+    let point = document.querySelector("#p" + nbPoint);
 
     uncolorPoint(point);
 
@@ -259,17 +261,19 @@ const disclickProject = (project) => {
 
 const colorButtonsAssociateToProject = (project) => {
     let nbPoint = project.id.replace("proj", "");
-    let point = document.querySelector("#p"+nbPoint);
+    let point = document.querySelector("#p" + nbPoint);
     colorPoint(point);
 }
 
 const uncolorButtonsAssociateToProject = (project) => {
-    if(!isSelect || project.id != lastProjectId){
+    if (!isSelect || project.id != lastProjectId) {
         let nbPoint = project.id.replace("proj", "");
-        let point = document.querySelector("#p"+nbPoint);
+        let point = document.querySelector("#p" + nbPoint);
         uncolorPoint(point);
     }
 }
 
 // Si la taille de la fenetre change on mettra à jour les valeurs de la hauteur de la fenetre
 window.onresize = initHeight;
+
+

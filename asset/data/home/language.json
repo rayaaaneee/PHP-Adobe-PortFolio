@@ -7,6 +7,10 @@
         "name" : "CSS",
         "color" : "#563d7c"
     },
+    "Bootstrap" : {
+        "name" : "Bootstrap",
+        "color" : "#563d7c"
+    },
     "JavaScript" : {
         "name" : "JavaScript",
         "color" : "#f1e05a"
@@ -122,5 +126,13 @@
     "SCSS" : {
         "name" : "SCSS",
         "color" : "#c6538c"
+    },
+    ".NET" : {
+        "name" : ".NET",
+        "color" : "#512BD4"
+    },
+    "JavaSpringBoot" : {
+        "name" : "JavaSpringBoot",
+        "color" : "#6DB33F"
     }
 }

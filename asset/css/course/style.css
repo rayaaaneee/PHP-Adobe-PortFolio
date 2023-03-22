@@ -145,9 +145,15 @@ html {
 
 .title-project-container .arrow-container .arrow {
     background-image: url(../../img/course/arrow.png);
-    background-size: 35px;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    width: 0;
+    height: 0;
+    transition: 0.3s;
+}
+
+.title-project-container .arrow-container .arrow.active {
     width: 35px;
     height: 35px;
     transition: 0.3s;
@@ -276,6 +282,58 @@ html {
 
 .explain-container .explain .explain-text {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#semesterPage {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#semesterPage.visible {
+    display: flex;
+}
+
+#semesterPage .background-semester-page {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+#semesterPage .cross-semester-page-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#semesterPage .cross-semester-page-container p {
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* https://codepen.io/z-/pen/BoyXKr */

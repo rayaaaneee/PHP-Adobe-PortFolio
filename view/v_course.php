@@ -8,6 +8,7 @@
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>course/script.js" defer></script>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>course/SemesterPage.js" defer></script>
     <?php if (!$changedMode) { ?>
         <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
     <?php } ?>
@@ -52,7 +53,7 @@
                         <img src="<?= PATH_IMAGES; ?>course/study.png" alt="icon-study">
                         <h1 class="title-project"><?= $semesters[$i]->getTitle(); ?></h1>
                         <div class="arrow-container">
-                            <div class="arrow"></div>
+                            <div class="arrow" onclick="openSemesterPage(this, event);"></div>
                         </div>
                     </div>
                     <p><?= $semesters[$i]->getDescription(); ?></p>
@@ -60,4 +61,10 @@
             <?php } ?>
         </div>
     </div>
+</article>
+<article id="semesterPage">
+    <div class="cross-semester-page-container" onclick="closeSemesterPage();">
+        <p>X</p>
+    </div>
+    <div class="background-semester-page"></div>
 </article>

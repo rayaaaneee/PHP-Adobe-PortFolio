@@ -18,20 +18,23 @@
     <!-- CSS MEDIA QUERIES -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>header/style.css">
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>footer/style.css">
+    <!-- SCRIPTS JS -->
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/jquery-3.6.4.min.js" defer></script>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/changeTheme.js" defer></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- FAVICON & FONTS -->
-    <link sizes="180x180" href="<?= $theme->getFavicon() ?>.png" rel="icon" type="image/png">
+    <link sizes="180x180" href="<?= $theme->getFavicon() ?>" rel="icon" type="image/png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
-<body class="<?= $theme->getClass("body"); ?>">
+<body class="<?= $theme->getBodyClass(); ?>">
     <header>
         <nav id="menu-container">
-            <ul class="menu <?= $theme->getClass("menu") ?>">
-                <a href="./">
-                    <div class="logo <?= $theme->getClass("logo"); ?>"></div>
+            <ul class="menu">
+                <a href="./" class="menu-logo-container">
+                    <div class="logo"></div>
                 </a>
                 <li onmouseover="change(1);" onmouseleave="unchange(1);"><a class="sites s1" href="./?page=home">
                         <p id="text1">ACCUEIL</p>
@@ -46,19 +49,21 @@
                         <p id="text4">CONTACT</p>
                     </a></li>
                 <form action="./?page=<?= $page; ?>" method="post" class="theme-form">
-                    <button type="submit" name="dark-mode" class="<?= $theme->getButtonClass() ?> mode-button"></button>
+                    <input type="hidden" name="instant-request" value="true">
+                    <input type="hidden" name="dark-mode" value="true">
+                    <button type="submit" class="mode-button"></button>
                 </form>
             </ul>
-            <ul class="mediamenu <?= $theme->getClass("mediamenu"); ?>">
+            <ul class="mediamenu">
                 <a href="./">
-                    <div class="logo <?= $theme->getClass("logo"); ?>"></div>
+                    <div class="logo"></div>
                 </a>
                 <a class="mediasites" id="receptionsite" href="./?page=home"></a>
                 <a class="mediasites" id="coursesite" href="./?page=course"></a>
                 <a class="mediasites" id="personalsite" href="./?page=perso"></a>
                 <a class="mediasites" id="contactsite" href="./?page=contact"></a>
                 <form action="./?page=<?= $page; ?>" method="post" class="media-theme-form">
-                    <button type="submit" name="dark-mode" class="<?= $theme->getButtonClass() ?> mode-button"></button>
+                    <button type="submit" name="dark-mode" class="mode-button"></button>
                 </form>
             </ul>
         </nav>

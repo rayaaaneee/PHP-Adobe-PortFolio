@@ -23,11 +23,11 @@ ini_set("display_errors", 1);
     $theme = new DarkMode(); ?>
 </head>
 
-<body class="<?= $theme->getClass("body"); ?>">
-    <div id="background" class="<?= $theme->getClass("background"); ?>"></div>
-    <div id="container" class="<?= $theme->getClass("container"); ?>" onmouseover="changeCursor();" onmouseout="unchangeCursor();">
+<body class="<?= $theme->getBodyClass(); ?>">
+    <div id="background"></div>
+    <div id="container" onmouseover="changeCursor();" onmouseout="unchangeCursor();">
         <div id="left">
-            <div id="title" class="<?= $theme->getClass("title"); ?>">
+            <div id="title">
                 <img draggable="false" src="../asset/img/header/<?= $theme->getLogoFilename(); ?>" alt="PortFolio">
                 <h1>Adobe Portfolio</h1>
             </div>

@@ -11,21 +11,15 @@
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>home/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
-    <?php if (!$changedMode) { ?>
-        <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
-    <?php } ?>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
     <title>Accueil</title>
 </head>
 
 <header>
-    <?php if (!$changedMode) { ?>
-        <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
-    <?php } ?>
+    <div id="startbackground"></div>
 </header>
 <!-- Loader -->
-<?php if (!$changedMode) { ?>
-    <iframe id="loader" src="loader/"></iframe>
-<?php } ?>
+<iframe id="loader" src="loader/"></iframe>
 
 <?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>
 
@@ -33,18 +27,18 @@
     <div class="title t1" id="firstmid">
         <p>Mes projets</p>
     </div>
-    <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar1"></div>
+    <div class="horizontal-bars" id="horizontal-bar1"></div>
     <article class="projects">
         <?php
         $i = 1;
         foreach ($projects as $project) { ?>
             <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);" data-date="<?= $project->getFormatDate(); ?>">
-                <div class="content content<?= $i; ?> <?= $theme->getClass("content") ?>" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
+                <div class="content" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
                     <div class="to_download">
                         <p><?= $project->getTitle() ?></p>
-                        <img src="<?= $theme->getImagePath($project->getImagePath()); ?>" draggable="false">
+                        <img src="<?= $project->getTypeImagePath($theme->getImagePath($project->getTypeImageName())); ?>" imageothertheme="<?= $project->getTypeImagePath($theme->getOtherThemeImagePath($project->getTypeImageName())); ?>" draggable="false">
                     </div>
-                    <img src="<?= PATH_IMAGES . "home/project-logos/" . $theme->getImagePath($project->getIcon()) ?>" id="img<?= $i ?>" class="workslogos" draggable="false">
+                    <img src="<?= $project->getIconPath($theme->getImagePath($project->getIcon())) ?>" imageothertheme="<?= $project->getIconPath($theme->getOtherThemeImagePath($project->getIcon())); ?>" id="img<?= $i ?>" class="workslogos" draggable="false">
                 </div>
                 <p class="project-desc hidden"><?= $project->getDescription() ?></p>
                 <p class="project-use-desc hidden"><?= $project->getUseDescription() ?></p>
@@ -75,7 +69,7 @@
         ?>
         <?php if ($i > 9) { ?>
             <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);">
-                <div class="content <?= $theme->getClass("more"); ?>" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);">
+                <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);">
                     <img src="<?= PATH_IMAGES; ?>home/icon/more.png" draggable="false" id="img<?php echo $i ?>" class="workslogos">
                 </div>
             </div>
@@ -127,13 +121,13 @@
             </div>
         </div>
 </article>
-<h2 class="explicationtext <?= $theme->getClass("explication-text") ?>">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2>
+<h2 class="explicationtext">Vous trouverez ici mes projets importants, qu'ils soient scolaire ou faits de mon côté. <br>Il vous suffit de cliquer pour les télécharger.</h2>
 <article id="cv">
     <div class="title t2" id="secondmid">
         <p>Mon CV</p>
     </div>
-    <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar2"></div>
-    <div id="container-cv" class="<?= $theme->getClass("container-cv") ?>" onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);">
+    <div class="horizontal-bars" id="horizontal-bar2"></div>
+    <div id="container-cv" onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);">
         <div id="cv-img" onclick="openPage();">
             <img src="<?= PATH_FILES; ?>CV.png" alt="cv" data-lightbox="CV_Rayane_Merlin.png" data-title="Voici mon C.V actuel, celui-ci est amené à être modifié mais restera à jour sur le site." draggable="false">
         </div>
@@ -184,19 +178,19 @@
             <div id="background"></div>
         </div>
         <div id="cv-text">
-            <div class="blackbar <?= $theme->getClass("blackbar") ?>"></div>
+            <div class="blackbar"></div>
             <div id="zoom">
                 <p>N'hésitez pas à cliquer sur l'image du C.V pour zoomer, cela vous permettra de le visionner dans sa qualité optimale sans avoir besoin de le télécharger.</p>
-                <img draggable="false" src="<?= PATH_IMAGES . "home/icon/" . $theme->getImagePath("zoom"); ?>" alt="zoom">
+                <img draggable="false" src="<?= PATH_IMAGES . "home/icon/" . $theme->getImagePath("zoom"); ?>" imageothertheme="<?= PATH_IMAGES . "home/icon/" . $theme->getOtherThemeImagePath("zoom"); ?>" alt="zoom">
             </div>
             <p class="beforebutton">Vous pouvez télécharger mon CV actuel au format pdf en cliquant sur le bouton ci-dessous.</p>
-            <a href="index/files/CV.pdf" download="CV_Rayane_Merlin.pdf"><button class="cv-button <?= $theme->getClass("cv-button") ?>">Télécharger</button></a>
-            <div class="blackbar <?= $theme->getClass("blackbar") ?>"></div>
+            <a href="index/files/CV.pdf" download="CV_Rayane_Merlin.pdf"><button class="cv-button">Télécharger</button></a>
+            <div class="blackbar"></div>
         </div>
 </article>
 <article id="realisation">
     <div class="title t3" id="firstmid">
         <p>La réalisation :</p>
     </div>
-    <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar3"></div>
+    <div class="horizontal-bars" id="horizontal-bar3"></div>
 </article>

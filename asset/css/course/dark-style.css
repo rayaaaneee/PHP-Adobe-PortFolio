@@ -1,39 +1,45 @@
-.body-dark * {
+body.body-dark * {
     color: white !important;
 }
 
-.body-dark {
+body.body-dark {
     background-color : rgb(46 45 45);
 }
 
-.startbackground-dark {
+body.body-dark .startbackground {
     background-color : rgb(0 0 0) !important;
 }
 
-.body-dark .explain-container .explain {
+body.body-dark .explain-container .explain {
     background-color : rgb(218 198 198 / 70%);
 }
 
-.body-dark .project.selected {
+body.body-dark .project.selected {
     background-color : rgba(219, 207, 207, 0.7);
 }
 
-.body-dark .project:not(.selected):hover {
+body.body-dark .project:not(.selected):hover {
     background-color:rgba(245, 239, 239, 0.7);
 }
 
-.body-dark .point:hover, .body-dark .point.selected {
+body.body-dark .point:hover, .body-dark .point.selected {
     background : linear-gradient(160deg, transparent 60%, rgb(230, 209, 209) 40%);
 }
 
-.body-dark #timeline::before {
+body.body-dark #timeline::before {
     background: linear-gradient(50deg, rgba(255, 255, 255, 0.2) 40%, rgba(218, 134, 134, 0.8) 50%, rgba(255, 255, 255, 0.4) 60%);
 }
 
-.body-dark .explain-container .explain a:hover {
+body.body-dark .explain-container .explain a:hover {
     background-color: rgb(236 205 205 / 70%);
 }
 
-.body-dark .project * {
+body.body-dark .project * {
     color: black !important;
+}
+
+body.body-dark .point-container:hover::after, .point-container.focus::after {
+    background-color: rgb(255 255 255 / 60%);
+    color: black;
+    background-image: url(../../img/course/calendar-black.png);
 }

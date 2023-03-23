@@ -47,12 +47,20 @@ body *::selection {
   background-color: var(--selection-background-color);
 }
 
-.body-dark *::-moz-selection {
+body.body-dark * {
+  color: white !important;
+}
+
+body.body-dark {
+  background-color : rgb(46 45 45);
+}
+
+body.body-dark *::-moz-selection {
   color: var(--selection-color-dark);
   background-color: var(--selection-background-color-dark);
 }
 
-.body-dark *::selection {
+body.body-dark *::selection {
   color: var(--selection-color-dark);
   background-color: var(--selection-background-color-dark);
 }

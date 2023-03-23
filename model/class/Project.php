@@ -59,9 +59,9 @@ class Project
         return $result;
     }
 
-    public function getImagePath()
+    public function getTypeImagePath($name): string
     {
-        return PATH_IMAGES . "home/icon/" . $this->getTypeImageName();
+        return PATH_IMAGES . "home/icon/" . $name;
     }
 
     public function getId()
@@ -87,6 +87,11 @@ class Project
     public function getIcon()
     {
         return $this->icon;
+    }
+
+    public function getIconPath($filename)
+    {
+        return PATH_IMAGES . "home/project-logos/" . $filename;
     }
 
     public function isDownload()

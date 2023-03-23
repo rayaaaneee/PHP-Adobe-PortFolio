@@ -11,21 +11,15 @@
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>course/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>course/SemesterPage.js" defer></script>
-    <?php if (!$changedMode) { ?>
-        <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
-    <?php } ?>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
     <title>Parcours</title>
 </head>
 
 <header>
-    <?php if (!$changedMode) { ?>
-        <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
-    <?php } ?>
+    <div id="startbackground"></div>
 </header>
 <!-- Loader -->
-<?php if (!$changedMode) { ?>
-    <iframe id="loader" src="loader/"></iframe>
-<?php } ?>
+<iframe id="loader" src="loader/"></iframe>
 
 <?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>
 

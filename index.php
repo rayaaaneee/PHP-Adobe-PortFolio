@@ -12,17 +12,21 @@ include_once PATH_DATABASE . 'Connection.php';
 
 // Si on appelle depuis la page de contact on envoie simplement le message
 if (isset($_POST['instant-request'])) {
-    if (isset($_POST['message'])) {
+    if (isset($_POST['dark-mode'])) {
+        require_once PATH_CLASSES . "DarkMode.php";
+        $theme = new DarkMode();
+    } else if ($_POST['index-form-set-theme']) {
+        if (isset($_POST['set-dark-mode'])) {
+            $_SESSION['dark-mode'] = false;
+        } else {
+            $_SESSION['dark-mode'] = true;
+        }
+    } else if (isset($_POST['message'])) {
         require_once PATH_CONTROLLERS_PARTS . "sendMessage.php";
     }
     exit;
 } else {
     // Sinon on affiche la page appelée
-
-    $changedMode = false;
-    if (isset($_POST['dark-mode'])) {
-        $changedMode = true;
-    }
 
     $page = null;
     if (isset($_GET['page'])) {

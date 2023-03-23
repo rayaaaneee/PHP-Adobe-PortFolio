@@ -95,6 +95,10 @@ dé-hover la case _/ ✔
 
 47. Media Queries correct sur la page d accueil
 
-48. Ajouter date et langage sur les projets
+/_ 48. Ajouter date et langage sur les projets _/ ✔
 
 49. Rajouter une scroll bar 100% personnalisée
+
+/_ 50. Changer le theme sans recharger la page _/ ✔
+
+51. Rajouter le routage pour de meilleures URL

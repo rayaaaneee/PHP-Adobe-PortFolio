@@ -5,16 +5,17 @@
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>index/dark-style.css">
     <!-- CSS DES MEDIA QUERIES -->
-    <link rel="stylesheet" href="<?= PATH_MEDIA; ?>index/style.css">
     <!-- SCRIPT JS -->
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/jquery-3.6.4.min.js" defer></script>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>index/setTheme.js" defer></script>
     <script src="<?= PATH_SCRIPTS; ?>index/script.js" defer></script>
     <!-- FONTS -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link href='<?= $theme->getFavicon(); ?>.png' rel='icon' type='image/x-icon' />
+    <link href='<?= $theme->getFavicon(); ?>' rel='icon' type='image/x-icon' />
     <title>Adobe Portfolio</title>
 </head>
 
-<body class="<?= $theme->getClass("body"); ?>">
+<body class="<?= $theme->getBodyClass(); ?>">
     <header>
         <div class="triangle border-triangle header-triangle"></div>
         <div class="background-container">
@@ -26,7 +27,7 @@
         </div>
         <div class="menu basic-menu">
             <div class="logo">
-                <img src="<?= PATH_IMAGES; ?>favicon/white-favicon.png" alt="logo" draggable="false">
+                <img src="<?= PATH_IMAGES; ?>favicon/favicon-dark-theme.png" alt="logo" draggable="false">
             </div>
             <ul class="menu-links">
                 <li><a href="./?page=home">Accueil</a></li>
@@ -95,11 +96,17 @@
     <footer>
         <div class="btn-switch-mode">
             <form action="./" method="post" class="media-dark-theme-form">
-                <button type="submit" name="set-dark-mode" class="<?= $theme->getButtonClass() ?> mode-button">
+                <input type="hidden" name="instant-request" value="true">
+                <input type="hidden" name="index-form-set-theme" value="true">
+                <input type="hidden" name="set-dark-mode" value="true">
+                <button type="submit" class="<?= $theme->getButtonClass() ?> mode-button">
                 </button>
             </form>
             <form action="./" method="post" class="media-light-theme-form">
-                <button type="submit" name="set-light-mode" class="<?= $theme->getButtonClass() ?> mode-button"></button>
+                <input type="hidden" name="instant-request" value="true">
+                <input type="hidden" name="index-form-set-theme" value="true">
+                <input type="hidden" name="set-light-mode" value="true">
+                <button type="submit" class="<?= $theme->getButtonClass() ?> mode-button"></button>
             </form>
         </div>
         <div class="triangle border-triangle footer-triangle"></div>
@@ -108,23 +115,23 @@
         </a>
         <ul class="footer-links">
             <li title="Linked In">
-                <a class="linkedin-link" href="https://www.linkedin.com/in/rayanemerlin/" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                <a class="linkedin-link" href="https://www.linkedin.com/in/rayanemerlin/" target="_blank">
                 </a>
             </li>
             <li title="School Gitlab">
-                <a class="gitlab-link" href="https://forge.univ-lyon1.fr/p2103994" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                <a class="gitlab-link" href="https://forge.univ-lyon1.fr/p2103994" target="_blank">
                 </a>
             </li>
             <li title="Personal Github">
-                <a class="github-link" href="https://github.com/rayaaaneee" target="_blank" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                <a class="github-link" href="https://github.com/rayaaaneee" target="_blank">
                 </a>
             </li>
             <li title="Mail">
-                <a class="mail-link" href="mailto:rayane.merlin8@gmail.com" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                <a class="mail-link" href="mailto:rayane.merlin8@gmail.com">
                 </a>
             </li>
             <li title="Phone">
-                <a class="tel-link" href="tel:+33768283277" onmouseover="changeImg(this);" onmouseleave="unchangeImg(this);">
+                <a class="tel-link" href="tel:+33768283277">
                 </a>
             </li>
         </ul>

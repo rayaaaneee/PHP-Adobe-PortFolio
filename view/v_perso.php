@@ -13,23 +13,19 @@
 </head>
 
 <header>
-    <?php if (!$changedMode) { ?>
-        <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
-    <?php } ?>
+    <div id="startbackground"></div>
 </header>
 <!-- Loader -->
-<?php if (!$changedMode) { ?>
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
-    <iframe id="loader" src="loader/"></iframe>
-<?php } ?>
+<script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
+<iframe id="loader" src="loader/"></iframe>
 
 <?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>
 
 <div class="title t1">
     <p>Perso</p>
 </div>
-<div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar1"></div>
-<div id="content" class="<?= $theme->getClass("content") ?>" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);">
+<div class="horizontal-bars" id="horizontal-bar1"></div>
+<div id="content" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);">
     <div class="text">
         <p>Je suis un étudiant de 19 ans, passionné par l'informatique et les nouvelles technologies. Actuellement en deuxième année de BUT informatique, je souhaite poursuivre mes études dans le domaine du développement et du design.</p>
     </div>
@@ -39,11 +35,11 @@
 </div>
 <div class="title t2">
     <p>Mes musiques :</p>
-    <div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar2"></div>
+    <div class="horizontal-bars" id="horizontal-bar2"></div>
     <h3>Voici quelques musiques qui m'ont marquées. Je me permets d'en parler dans ce PortFolio car la musique possède une place importante dans ma vie et dans la société en général. Ce que nous écoutons représente en quelque sorte qui nous sommes, est une source de créativité influant sur nous : les auditeurs.</h3>
 </div>
 <article id="music" onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);">
-    <div id="frames" class="<?= $theme->getClass("frames") ?>">
+    <div id="frames">
         <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="max-width:600px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/fr/album/chaos/1650554820?i=1650555477"></iframe>
         <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="max-width:600px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/fr/album/rappel/1479714057?i=1479714084"></iframe>
         <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="max-width:600px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/fr/album/vent-de-lest/1444355821?i=1444356247"></iframe>
@@ -57,7 +53,7 @@
 <div class="title t3">
     <p>Les références :</p>
 </div>
-<div class="horizontal-bars <?= $theme->getClass("horizontal-bars") ?>" id="horizontal-bar3"></div>
+<div class="horizontal-bars" id="horizontal-bar3"></div>
 <article id="references">
 
 </article>

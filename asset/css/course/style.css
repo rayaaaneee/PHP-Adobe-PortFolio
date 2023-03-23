@@ -232,6 +232,7 @@ html {
     border-radius: 5px;
     color: white;
     padding: 7px 40px 7px 10px;
+    pointer-events: none;
     opacity: 1;
     transition: all 0.3s;
 }

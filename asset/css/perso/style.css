@@ -76,7 +76,7 @@
     background-color: #fff; 
     border-radius: 10px; 
     box-shadow: 0 0 15px rgba(0,0,0,0.3); 
-    transition: all 0.3s ease; 
+    transition: box-shadow 0.3s ease; 
     /* Centrer */
     margin: 0 auto;
     align-self: center;

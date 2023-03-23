@@ -3,7 +3,7 @@
 class DarkMode
 {
 
-    private $isLightTheme;
+    private bool $isLightTheme;
 
     public function __construct()
     {
@@ -12,7 +12,6 @@ class DarkMode
 
     public function toggleTheme()
     {
-        $tmp = null;
         if (isset($_POST['dark-mode'])) {
             $_SESSION['dark-mode'] = !($_SESSION['dark-mode']);
         } else {
@@ -40,11 +39,11 @@ class DarkMode
         return $result . '-button';
     }
 
-    public function getClass($classname)
+    public function getBodyClass(): string
     {
         $result = "";
         if ($this->isLightTheme) {
-            $result =  $classname . '-dark';
+            $result =  'body-dark';
         }
         return $result;
     }
@@ -112,19 +111,28 @@ class DarkMode
 
     public function getFavicon()
     {
-        $filename = "favicon";
+        $filename = "favicon-";
         if ($this->isLightTheme == "false") {
-            $filename = "white-" . $filename;
+            $filename = $filename . "dark-theme";
+        } else {
+            $filename = $filename . "light-theme";
         }
-        return PATH_IMAGES . "favicon/" . $filename;
+        return PATH_IMAGES . "favicon/" . $filename . ".png";
     }
 
     public function getImagePath($name)
     {
-        $path = $name;
-        if ($this->isLightTheme == "false") {
-            $path .= "-white";
+        if ($this->isLightTheme) {
+            $name .= "-white";
         }
-        return $path . ".png";
+        return $name . ".png";
+    }
+
+    public function getOtherThemeImagePath($name)
+    {
+        if (!$this->isLightTheme) {
+            $name .= "-white";
+        }
+        return $name . ".png";
     }
 }

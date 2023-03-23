@@ -15,7 +15,7 @@
     height : 250px; 
     border-radius: 15px; 
     box-shadow: 0 0 30px rgba(0,0,0,0.2); 
-    transition: 0.5s; 
+    transition: box-shadow 0.5s, transform 0.5s;
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
@@ -85,7 +85,7 @@
     background-color: #fff; 
     border-radius: 10px; 
     box-shadow: 0 0 15px rgba(0,0,0,0.3); 
-    transition: all 0.3s ease; 
+    transition: box-shadow 0.3s ease; 
 } 
 
 #horizontal-bar2 {
@@ -275,17 +275,19 @@ html {
     --projects-data-date-transition: 0.3s;
     --projects-data-date-after-dist-top: -20%;
     --projects-data-date-height: 40px;
+    --projects-data-date-background-color: rgba(0, 0, 0, 0.884);
 }
 .projects > *::before {
     content:""; 
     border-left: var(--projects-data-date-border-width) solid transparent;
     border-right: var(--projects-data-date-border-width) solid transparent;
-    border-top: var(--projects-data-date-border-width) solid rgba(0, 0, 0, 0.884);
+    border-top: var(--projects-data-date-border-width) solid var(--projects-data-date-background-color);
     position: absolute;
     z-index: 1;
     top: calc(var(--projects-data-date-after-dist-top) + var(--projects-data-date-height));
     opacity: 0;
     transition: var(--projects-data-date-transition);
+    pointer-events: none;
 }
 
 .projects > *::after {
@@ -295,7 +297,7 @@ html {
     z-index: 1;
     top: var(--projects-data-date-after-dist-top);
     font-size: 20px;
-    background-color: rgba(0, 0, 0, 0.884);
+    background-color: var(--projects-data-date-background-color);
     padding-right: 25px;
     padding-left: 45px;
     background-image: url(../../img/home/icon/calendar.png);

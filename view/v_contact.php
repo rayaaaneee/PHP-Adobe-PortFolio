@@ -6,28 +6,21 @@
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>contact/style.css">
     <!-- SCRIPTS JS -->
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/jquery-3.6.4.min.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>contact/sendMessage.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>contact/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
-    <?php if (!$changedMode) { ?>
-        <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
-    <?php } ?>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
     <script src="<?= PATH_SCRIPTS; ?>general/error.js" defer></script>
     <title>Me contacter</title>
 </head>
 
 <header>
-    <?php if (!$changedMode) { ?>
-        <div id="startbackground" class="<?= $theme->getClass("startbackground") ?>"></div>
-    <?php } ?>
+    <div id="startbackground"></div>
 </header>
 <!-- Loader -->
-<?php if (!$changedMode) { ?>
-    <iframe id="loader" src="loader/"></iframe>
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
-<?php } ?>
+<iframe id="loader" src="loader/"></iframe>
+<script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
 
 <?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>
 
@@ -36,7 +29,7 @@
     </div>
     <main>
         <div class="pres-container">
-            <div id="pres" class="<?= $theme->getClass("pres") ?>">
+            <div id="pres">
                 <img draggable="false" src="<?= PATH_IMAGES; ?>contact/contact.png" id="imgcontact">
                 <noscript>
                     <h3>Activez d'abord javascript pour pouvoir envoyer un message</h3>
@@ -50,7 +43,7 @@
             </div>
         </div>
         <div class="form-container">
-            <div class="formulaire <?= $theme->getClass("formulaire") ?>">
+            <div class="formulaire">
                 <form method="post" id="sendMessageForm">
                     <input type="hidden" name="instant-request" value="true">
                     <table class="form-style">
@@ -98,7 +91,7 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td class="input-container <?= $theme->getClass("input-container"); ?>">
+                            <td class="input-container">
                                 <input type="submit" name="send-message" value="Envoyer">
                                 <input type="reset" value="Réinitialiser" onclick="initNbCharsLeft();">
                             </td>

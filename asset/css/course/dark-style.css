@@ -15,7 +15,7 @@ body.body-dark .explain-container .explain {
 }
 
 body.body-dark .project.selected {
-    background-color : rgba(219, 207, 207, 0.7);
+    background-color : rgb(219 191 191 / 70%);
 }
 
 body.body-dark .project:not(.selected):hover {
@@ -38,7 +38,7 @@ body.body-dark .project * {
     color: black !important;
 }
 
-body.body-dark .point-container:hover::after, .point-container.focus::after {
+body.body-dark .point-container::after {
     background-color: rgb(255 255 255 / 60%);
     color: black;
     background-image: url(../../img/course/calendar-black.png);

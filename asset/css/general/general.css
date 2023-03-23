@@ -48,7 +48,7 @@ body *::selection {
 }
 
 body.body-dark * {
-  color: white !important;
+  color: white;
 }
 
 body.body-dark {

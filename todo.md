@@ -102,3 +102,5 @@ dé-hover la case _/ ✔
 /_ 50. Changer le theme sans recharger la page _/ ✔
 
 51. Rajouter le routage pour de meilleures URL
+
+52. Fix le menu de la page about

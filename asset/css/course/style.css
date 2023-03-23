@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 #parallax-projects{
     height: 100vh;
     width: 100vw;
@@ -214,11 +218,6 @@ html {
 }
 
 .point-container::after {
-    opacity: 0;
-    transition: all 0.3s;
-}
-
-.point-container:hover::after, .point-container.focus::after {
     content: attr(data-date);
     position: absolute;
     margin-bottom: 100px;
@@ -231,10 +230,16 @@ html {
     background-size: 20px;
     border-radius: 5px;
     color: white;
+    font-weight: bold;
     padding: 7px 40px 7px 10px;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.point-container:hover::after, .point-container.focus::after {
     opacity: 1;
-    transition: all 0.3s;
+    transition: opacity 0.15s;
 }
 
 html{

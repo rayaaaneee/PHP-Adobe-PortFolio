@@ -56,12 +56,18 @@
                         </div>
                     </div>
                     <p><?= $semesters[$i]->getDescription(); ?></p>
+                    <div class="hidden-informations hidden" hidden>
+                        <p class="title-semester"><?= $semesters[$i]->getTitle(); ?></p>
+                    </div>
                 </div>
             <?php } ?>
         </div>
     </div>
 </article>
 <article id="semesterPage">
+    <div class="semester-page-main-container">
+        <p class="title-semester"></p>
+    </div>
     <div class="cross-semester-page-container" onclick="closeSemesterPage();">
         <p>X</p>
     </div>

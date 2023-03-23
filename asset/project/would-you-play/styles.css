@@ -345,6 +345,7 @@ body{
     background-repeat: no-repeat;
     background-size:cover;
     position: absolute;
+    z-index: 100;
     right: 40px;
     bottom: 30px;
     transition: all 0.2s;

@@ -1,5 +1,3 @@
-window.location.hash = "top";
-
 var points = document.querySelectorAll(".point");
 var height = null;
 var bordersScreen = null;
@@ -275,5 +273,10 @@ const uncolorButtonsAssociateToProject = (project) => {
 
 // Si la taille de la fenetre change on mettra à jour les valeurs de la hauteur de la fenetre
 window.onresize = initHeight;
+
+if (window.scrollY > height) {
+    bar.style.removeProperty("transform");
+    barCentered = true;
+}
 
 

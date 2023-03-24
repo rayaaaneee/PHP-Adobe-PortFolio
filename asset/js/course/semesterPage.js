@@ -3,17 +3,21 @@ const backgroundSemesterPage = semesterPage.querySelector(".background-semester-
 const crossSemesterPage = semesterPage.querySelector(".cross-semester-page-container");
 const semesterPageMainContainer = semesterPage.querySelector(".semester-page-main-container");
 const semesterPageTitle = semesterPage.querySelector(".title-semester");
+const semesterPageTitleImg = semesterPage.querySelector("#semesterPage .semester-page-title-img-container img");
 
 const timeAnimationSemesterPage = 400;
 
-const openSemesterPage = (semester, event) => {
-    semester = semester.closest(".project");
+const openSemesterPage = (arrows, event) => {
+    semester = arrows.closest(".project");
     event.stopPropagation();
 
     let semesterHiddenInformations = semester.querySelector(".hidden-informations");
     let semesterTitle = semesterHiddenInformations.querySelector(".title-semester");
+    let semesterTitleImg = semester.querySelector(".title-project-container img");
 
     semesterPageTitle.textContent = semesterTitle.textContent;
+
+    semesterPageTitleImg.src = semesterTitleImg.src;
 
     semesterPage.classList.add("visible");
 
@@ -30,6 +34,8 @@ const closeSemesterPage = () => {
     backgroundSemesterPage.style.opacity = 0;
     semesterPageMainContainer.classList.remove("visible");
     setTimeout(() => {
+        semesterPageTitleImg.src = "";
+        semesterPageTitle.textContent = "";
         document.body.style.overflowY = "auto";
         semesterPage.classList.remove("visible");
     }, timeAnimationSemesterPage);

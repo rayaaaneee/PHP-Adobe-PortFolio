@@ -134,5 +134,13 @@
     "JavaSpringBoot" : {
         "name" : "JavaSpringBoot",
         "color" : "#6DB33F"
+    },
+    "MongoDB" : {
+        "name" : "MongoDB",
+        "color" : "#47A248"
+    },
+    "Firebase" : {
+        "name" : "Firebase",
+        "color" : "#FFCA28"
     }
 }

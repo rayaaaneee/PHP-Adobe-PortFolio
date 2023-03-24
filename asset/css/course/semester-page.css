@@ -103,3 +103,18 @@ html {
     text-decoration-style: wavy;
     text-underline-offset: 0.5vw;
 }
+
+.semester-page-title-img-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+#semesterPage .semester-page-title-img-container img {
+    width: 54px;
+    height: fit-content;
+    object-fit: cover;
+    object-position: center;
+}

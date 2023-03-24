@@ -4,15 +4,32 @@ class Semester
 {
     private string $title;
     private string $description;
+    private string $icon;
+    private string $iconPath;
     private DateTime $startingDate;
     private DateTime $endingDate;
 
-    public function __construct(string $title, string $description, string $startingDate = null, string $endingDate = null)
+    public function __construct(array $semester)
     {
-        $this->title = $title;
-        $this->description = $description;
-        $this->startingDate = new DateTime($startingDate);
-        $this->endingDate = new DateTime($endingDate);
+        $this->title = $semester['title'];
+        $this->description = $semester['description'];
+        $this->startingDate = new DateTime($semester['starting_date']);
+        $this->endingDate = new DateTime($semester['ending_date']);
+        $this->icon = $semester['icon'];
+        $this->iconPath = PATH_IMAGES . 'course/' . $this->icon;
+    }
+
+    public static function processRow(array $semesters): array
+    {
+        $semesters = array_map(function ($semester) {
+            return new Semester($semester);
+        }, $semesters);
+
+        $tmp_result = [];
+        foreach ($semesters as $semester) {
+            $tmp_result[] = $semester;
+        }
+        return $tmp_result;
     }
 
     public function getTitle(): string
@@ -23,19 +40,6 @@ class Semester
     public function getDescription(): string
     {
         return $this->description;
-    }
-
-    public static function processRow(array $semesters): array
-    {
-        $semesters = array_map(function ($semester) {
-            return new Semester($semester['title'], $semester['description'], $semester['starting_date'], $semester['ending_date']);
-        }, $semesters);
-
-        $tmp_result = [];
-        foreach ($semesters as $semester) {
-            $tmp_result[] = $semester;
-        }
-        return $tmp_result;
     }
 
     public function getStartingDate(): DateTime
@@ -56,5 +60,15 @@ class Semester
     public function formatEndingDate(): string
     {
         return $this->endingDate->format('d/m/Y');
+    }
+
+    public function getIconPath(): string
+    {
+        return $this->iconPath;
+    }
+
+    public function getIcon(): string
+    {
+        return $this->icon;
     }
 }

@@ -147,6 +147,10 @@ html {
     z-index: 1;
 }
 
+.project .project-description {
+    text-align: justify;
+}
+
 .title-project-container .arrow-container .arrow {
     background-image: url(../../img/course/arrow.png);
     background-size: cover;
@@ -164,7 +168,6 @@ html {
 }
 
 .title-project-container .arrow-container .arrow:hover {
-    transform: scale(1.2);
     filter: invert(1);
 }
 

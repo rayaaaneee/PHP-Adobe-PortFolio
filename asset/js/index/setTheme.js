@@ -2,8 +2,6 @@ const setLightThemeForm = $('.media-light-theme-form')[0];
 const setDarkThemeForm = $('.media-dark-theme-form')[0];
 const favicon = $('link[rel="icon"]')[0];
 
-console.log(favicon);
-
 $(setLightThemeForm).submit(function (event) {
 
     event.preventDefault();

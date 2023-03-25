@@ -55,6 +55,7 @@ const getNewScale = (distanceMid) => {
 
 var bar = document.querySelector("#timeline");
 var barCentered = false;
+var translateBarValue = (height - (window.scrollY) * 1.7);
 
 const onscroll = () => {
     // Mouvement de la barre
@@ -274,9 +275,22 @@ const uncolorButtonsAssociateToProject = (project) => {
 // Si la taille de la fenetre change on mettra à jour les valeurs de la hauteur de la fenetre
 window.onresize = initHeight;
 
-if (window.scrollY > height) {
+// En cas de rechargement de la page on mettra à jour les valeurs de la hauteur de la fenetre meme si l'utilisateur n'a pas encore scroll dans la page
+if (translateBarValue < 0) {
     bar.style.removeProperty("transform");
     barCentered = true;
+} else {
+    bar.style.transform = "translateY(" + translateBarValue + "px)";
+    barCentered = false;
+}
+
+// Si l'utilisateur clique sur "Consulter", on retire le hash de l'url
+const clearUrl = () => {
+    setTimeout(() => {
+        history.replaceState(null, null, window.location.href.split('#')[0]);
+        // Remplacement du hash dans l'URL affichée dans la barre d'adresse
+        window.location.hash = '';
+    }, 0);
 }
 
 

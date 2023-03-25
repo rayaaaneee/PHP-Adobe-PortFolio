@@ -26,5 +26,9 @@
     "XD" : {
         "name" : "XD",
         "color" : "#FF61F6"
+    },
+    "PowerBi" : {
+        "name" : "PowerBi",
+        "color" : "#F2C811"
     }
 }

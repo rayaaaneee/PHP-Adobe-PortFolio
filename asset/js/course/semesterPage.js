@@ -13,11 +13,11 @@ const openSemesterPage = (arrows, event) => {
 
     let semesterHiddenInformations = semester.querySelector(".hidden-informations");
     let semesterTitle = semesterHiddenInformations.querySelector(".title-semester");
-    let semesterTitleImg = semester.querySelector(".title-project-container img");
+    let semesterTitleImg = semesterHiddenInformations.querySelector(".icon-white");
 
     semesterPageTitle.textContent = semesterTitle.textContent;
 
-    semesterPageTitleImg.src = semesterTitleImg.src;
+    semesterPageTitleImg.src = semesterTitleImg.textContent;
 
     semesterPage.classList.add("visible");
 

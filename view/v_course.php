@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?= PATH_CSS; ?>course/dark-style.css">
     <!-- SCRIPTS JS -->
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
-    <!--     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script> -->
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>course/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>course/SemesterPage.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
@@ -29,7 +29,7 @@
         <h1 class="explain-text">Qu'est-ce que cette page ?</h1>
         <p class="explain-text">Voici mon parcours scolaire allant de l'obtention du bac jusqu'à aujourd'hui.</p>
         <p class="explain-text">Cliquez sur chacune des cases pour en savoir plus sur chaque semestre, leur contenu et les projets réalisés.</p>
-        <a href="#proj1" class="explain-text">
+        <a href="#view" class="explain-text" onclick="clearUrl();">
             <p>Consulter</p>
             <img src="<?= PATH_IMAGES; ?>course/arrow-bottom-white.png" alt="arrow" draggable="false">
         </a>
@@ -46,6 +46,7 @@
             <?php } ?>
         </div>
         <div id="projects">
+            <div id="view"></div>
             <?php for ($i = 0; $i < $nbSemesters; $i++) { ?>
                 <div class="project" id="proj<?= $i + 1; ?>" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <div class="title-project-container">
@@ -58,6 +59,7 @@
                     <p class="project-description"><?= $semesters[$i]->getDescription(); ?></p>
                     <div class="hidden-informations hidden" hidden>
                         <p class="title-semester"><?= $semesters[$i]->getTitle(); ?></p>
+                        <p class="icon-white"><?= $semesters[$i]->getWhiteIconPath(); ?></p>
                     </div>
                 </div>
             <?php } ?>

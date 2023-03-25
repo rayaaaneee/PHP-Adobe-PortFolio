@@ -7,7 +7,8 @@
         "school_location" : "Rillieux-la-Pape",
         "starting_date" : "2018-09-01",
         "ending_date" : "2021-06-30", 
-        "icon" : "baccalaureate.png"
+        "icon" : "baccalaureate.png",
+        "white_icon" : "baccalaureate-white.png"
     },
     "S1" : {
         "title" : "BUT : Semestre 1",
@@ -16,7 +17,8 @@
         "school_location" : "Villeurbanne La Doua",
         "starting_date" : "2021-09-03",
         "ending_date" : "2022-01-01",
-        "icon" : "study.png"
+        "icon" : "study.png",
+        "white_icon" : "study-white.png"
     },
     "S2" : {
         "title" : "BUT : Semestre 2",
@@ -25,24 +27,27 @@
         "ending_date" : "2022-06-22",
         "school_name" : "IUT Lyon 1",
         "school_location" : "Villeurbanne La Doua",
-        "icon" : "study.png"
+        "icon" : "study.png",
+        "white_icon" : "study-white.png"
     },
     "S3" : {
         "title" : "BUT : Semestre 3",
-        "description" : "Le troisième semestre est le semestre de la spécialisation. Vous devez choisir une spécialisation parmi les 3 suivantes : <br> - Réseau en alternance <br> - Administration de bases de données <br> - Développement <br> En arcours développemen, j'ai pu apprendre en profondeur le langage de programmation Python ainsi que le langage JavaScript en complément du développement Web du premier semestre, ainsi que son systeme de notation : le JSON ainsi qu'enfin la mise en place du back-end avec le langage PHP.",
+        "description" : "Le troisième semestre est le semestre de la spécialisation. Vous devez choisir une spécialisation parmi les 3 suivantes : <br> - Réseau en alternance <br> - Administration de bases de données <br> - Développement <br> En parcours développement, j'ai pu apprendre en profondeur le langage de programmation Python ainsi que le langage JavaScript en complément du développement Web du premier semestre, ainsi que son systeme de notation : le JSON avec enfin la mise en place du back-end avec le langage PHP.",
         "starting_date" : "2022-09-05",
         "ending_date" : "2022-02-20",
         "school_name" : "IUT Lyon 1",
         "school_location" : "Villeurbanne La Doua",
-        "icon" : "study.png"
+        "icon" : "study.png",
+        "white_icon" : "study-white.png"
     },
     "S4" : {
         "title" : "BUT : Semestre 4",
-        "description" : "Le quatrième semestre est divisé en deux parties. La première partie est une spécialisation en développement, la deuxieme est un stage de 12 semaines démarrant le 11 avril. Durant la premiere partie du semestre, nous avons pu nous consacrer au développement mobile où nous avons pu apprendre le langage de programmation Kotlin ainsi que le framework Android. Côté back-end j'ai aussi pu apprendre à utiliser le framework Symfony et découvrir plusieurs langages de programmation JavaScript (NodeJS, TypeScript, React).",
+        "description" : "Le quatrième semestre est divisé en deux parties. La première partie est une spécialisation en développement, la deuxieme est un stage de 12 semaines démarrant le 11 avril. Durant la premiere partie du semestre, nous avons pu nous consacrer au développement mobile où nous avons pu apprendre le langage de programmation Kotlin ainsi que le framework Android. Côté back-end j'ai aussi pu apprendre à utiliser le framework Symfony et découvrir plusieurs langages de programmation JavaScript (NodeJS, TypeScript, ReactJS).",
         "starting_date" : "2022-02-20",
         "ending_date" : "2022-06-30",
         "school_name" : "IUT Lyon 1",
         "school_location" : "Villeurbanne La Doua",
-        "icon" : "study.png"
+        "icon" : "study.png",
+        "white_icon" : "study-white.png"
     }
 }

@@ -104,3 +104,7 @@ dé-hover la case _/ ✔
 51. Rajouter le routage pour de meilleures URL
 
 52. Fix le menu de la page about
+
+53. Ajouter une vérification js du nombre de messages envoyés et bloquer l'envoi si il en a deja envoyé 3 et affiche un message d'erreur (pour éviter les spams)
+
+54. Minimizer de code (parcours tout un dossier jusqua la racine et minimize tous les fichiers ayant une extension donnée dans un tablau); https://www.youtube.com/watch?v=QX4D8WjwN1I

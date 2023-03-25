@@ -92,9 +92,13 @@ html {
     row-gap: 0px;
 }
 
+html{
+    --size-project: 400px;
+}
+
 .project{
-    width: 400px;
-    height: 400px;
+    width: var(--size-project);
+    height: var(--size-project);
     background-color:rgba(255, 255, 255, 0.7);
     border-radius: 20px;
     display: flex;
@@ -237,12 +241,12 @@ html {
     padding: 7px 40px 7px 10px;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.15s;
+    transition: opacity 0.25s;
 }
 
 .point-container:hover::after, .point-container.focus::after {
     opacity: 1;
-    transition: opacity 0.15s;
+    transition: opacity 0.25s;
 }
 
 html{
@@ -336,3 +340,15 @@ html {
 }
 
 /* https://codepen.io/z-/pen/BoyXKr */
+
+html {
+    --view-height: 190px;
+}
+
+div#view {
+    width: var(--size-project);
+    height: var(--view-height);
+    position: absolute;
+    top: calc(var(--view-height) * -1);
+    opacity: 0;
+}

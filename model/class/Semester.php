@@ -6,6 +6,7 @@ class Semester
     private string $description;
     private string $icon;
     private string $iconPath;
+    private string $whiteIcon;
     private DateTime $startingDate;
     private DateTime $endingDate;
 
@@ -17,6 +18,7 @@ class Semester
         $this->endingDate = new DateTime($semester['ending_date']);
         $this->icon = $semester['icon'];
         $this->iconPath = PATH_IMAGES . 'course/' . $this->icon;
+        $this->whiteIcon = $semester['white_icon'];
     }
 
     public static function processRow(array $semesters): array
@@ -70,5 +72,15 @@ class Semester
     public function getIcon(): string
     {
         return $this->icon;
+    }
+
+    public function getWhiteIcon(): string
+    {
+        return $this->whiteIcon;
+    }
+
+    public function getWhiteIconPath(): string
+    {
+        return PATH_IMAGES . 'course/' . $this->whiteIcon;
     }
 }

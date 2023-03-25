@@ -15,7 +15,7 @@ if (isset($_POST['instant-request'])) {
     if (isset($_POST['dark-mode'])) {
         require_once PATH_CLASSES . "DarkMode.php";
         $theme = new DarkMode();
-    } else if ($_POST['index-form-set-theme']) {
+    } else if (isset($_POST['index-form-set-theme'])) {
         if (isset($_POST['set-dark-mode'])) {
             $_SESSION['dark-mode'] = false;
         } else {

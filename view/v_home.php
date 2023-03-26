@@ -192,7 +192,7 @@
 </article>
 <article id="realisation">
     <div class="title t3" id="firstmid">
-        <p>La réalisation :</p>
+        <p>Mes compétences :</p>
     </div>
     <div class="horizontal-bars animate" id="horizontal-bar3"></div>
 </article>

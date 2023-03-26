@@ -20,7 +20,7 @@
         <div class="privacy">
             <div class="title-container title-container-first-child">
                 <h1 class="title title1">• Politique de confidentialité</h1>
-                <div class="bar first-bar"></div>
+                <div class="bar first-bar animate"></div>
                 <img src="<?= PATH_IMAGES . "about/" . $theme->getImagePath("privacy"); ?>" alt="privacy" draggable="false" imageothertheme="<?= PATH_IMAGES . "about/" . $theme->getOtherThemeImagePath("privacy"); ?>" />
             </div>
             <p class="text-content">Votre vie privée est importante pour moi. La politique d'Adobe PortFolio est de respecter votre vie privée et de se conformer à toutes les lois et réglementations applicables concernant les informations personnelles que nous pouvons collecter à votre sujet, y compris sur mon site Web, par l'adresse <strong>https://rayanemerlin.com/</strong></br>Cette politique est en vigueur depuis le 7 février 2023 et a été mise à jour pour la dernière fois le 7 février 2023.</p>
@@ -40,7 +40,7 @@
         <div class="contact">
             <div class="title-container">
                 <h1 class="title title2">• À propos</h1>
-                <div class="bar second-bar"></div>
+                <div class="bar second-bar animate"></div>
                 <img src="<?= PATH_IMAGES . "about/" . $theme->getImagePath("about"); ?>" alt="about_icon" draggable="false" imageothertheme="<?= PATH_IMAGES . "about/" . $theme->getOtherThemeImagePath("about"); ?>" />
             </div>
             <p class="text-content">Ce site a été entièrement codé par mes soins dans le but de présenter mon parcours, mes projets et mes compétences. </br> De même, tous les projets présentés ont pu être codés en partie ou entièrement par mes soins. </br> Le logo a été inspiré du logo officiel d'Adobe Photoshop, le loader a lui été inspiré du chargement officiel d'Adobe Photoshop 2022.</p>

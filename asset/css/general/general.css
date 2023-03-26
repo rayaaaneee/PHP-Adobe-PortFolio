@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(230, 230, 230);
+    background: linear-gradient(to left, blanchedalmond, #f0f0f0);
     padding:0;
     margin:0;
 }
@@ -52,7 +52,7 @@ body.body-dark * {
 }
 
 body.body-dark {
-  background-color : rgb(46 45 45);
+  background : rgb(46 45 45);
 }
 
 body.body-dark *::-moz-selection {

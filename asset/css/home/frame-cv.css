@@ -15,6 +15,7 @@
 /* Définir la taille du CV  */
 #imgcv img {
     margin-top : 75px;
+    border-radius: 30px;
     width: 75%;
     z-index: 2;
 }

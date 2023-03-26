@@ -27,7 +27,7 @@
 <div class="horizontal-bars animate" id="horizontal-bar1"></div>
 <div class="content" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);">
     <div class="title-part">
-        <h1>Qui suis-je ?</h1>
+        <h1>• Qui suis-je ?</h1>
     </div>
     <div class="content-part">
         <div class="text">

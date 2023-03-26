@@ -6,8 +6,8 @@ define('PATH_SCRIPTS', PATH_ASSETS . 'js/');
 define('PATH_IMAGES', PATH_ASSETS . 'img/');
 define('PATH_MEDIA', PATH_CSS . 'media/');
 define('PATH_PROJECTS', PATH_ASSETS . 'project/');
-define('PATH_FONTS', PATH_ASSETS . 'fonts/');
-define('PATH_FILES', PATH_ASSETS . 'files/');
+define('PATH_FONTS', PATH_ASSETS . 'font/');
+define('PATH_FILES', PATH_ASSETS . 'file/');
 define('PATH_DATAS', PATH_ASSETS . 'data/');
 
 // Path

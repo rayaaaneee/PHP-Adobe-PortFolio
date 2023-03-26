@@ -25,7 +25,7 @@
             <div class="circle circle-one"></div>
             <div class="circle circle-two"></div>
         </div>
-        <div class="menu basic-menu">
+        <nav class="menu basic-menu">
             <div class="logo">
                 <img src="<?= PATH_IMAGES; ?>favicon/favicon-dark-theme.png" alt="logo" draggable="false">
             </div>
@@ -51,7 +51,7 @@
                 <div class="hamburger-bar middle-bar"></div>
                 <div class="hamburger-bar bottom-bar"></div>
             </div>
-        </div>
+        </nav>
         <div class="menu media-menu">
             <div class="logo">
                 <img src="<?= PATH_IMAGES; ?>favicon/white-favicon.png" alt="logo" draggable="false">

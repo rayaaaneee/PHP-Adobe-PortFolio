@@ -6,9 +6,14 @@ const semesterPageTitle = semesterPage.querySelector(".title-semester");
 const semesterPageTitleImg = semesterPage.querySelector("#semesterPage .semester-page-title-img-container img");
 
 const timeAnimationSemesterPage = 400;
+var lastArrowClicked = null;
 
-const openSemesterPage = (arrows, event) => {
-    semester = arrows.closest(".project");
+const openSemesterPage = (arrow, event) => {
+    lastArrowClicked = arrow;
+    lastArrowClicked.classList.remove('active');
+
+
+    semester = arrow.closest(".project");
     event.stopPropagation();
 
     let semesterHiddenInformations = semester.querySelector(".hidden-informations");
@@ -30,6 +35,7 @@ const openSemesterPage = (arrows, event) => {
 };
 
 const closeSemesterPage = () => {
+    lastArrowClicked.classList.add('active');
     crossSemesterPage.style.removeProperty("transform");
     backgroundSemesterPage.style.opacity = 0;
     semesterPageMainContainer.classList.remove("visible");

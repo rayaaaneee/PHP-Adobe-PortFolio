@@ -1,13 +1,17 @@
-const formChangeTheme = $('.theme-form')[0];
+const noMediaFormChangeTheme = $('.theme-form')[0];
+const mediaFormChangeTheme = $('.media-theme-form')[0];
+const formChangeTheme = [noMediaFormChangeTheme, mediaFormChangeTheme];
+
 const favicon = $('link[rel="icon"]')[0];
 const imagesToChange = $('[imageothertheme]');
 
-$(formChangeTheme).submit(function (event) {
+$(formChangeTheme).on('submit', (event) => {
     event.preventDefault();
-    if (formChangeTheme.checkValidity() === false) {
+    console.log(event.target);
+    if (event.target.checkValidity() === false) {
         event.stopPropagation();
     } else {
-        var formData = new FormData(formChangeTheme);
+        var formData = new FormData(event.target);
         changeTheme(formData);
     }
 });

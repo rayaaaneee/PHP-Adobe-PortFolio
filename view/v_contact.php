@@ -29,7 +29,7 @@
     </div>
     <main>
         <div class="pres-container">
-            <div id="pres">
+            <div id="pres" class="animate">
                 <img draggable="false" src="<?= PATH_IMAGES; ?>contact/contact.png" id="imgcontact">
                 <noscript>
                     <h3>Activez d'abord javascript pour pouvoir envoyer un message</h3>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="form-container">
-            <div class="formulaire">
+            <div class="formulaire animate">
                 <form method="post" id="sendMessageForm">
                     <input type="hidden" name="instant-request" value="true">
                     <table class="form-style">

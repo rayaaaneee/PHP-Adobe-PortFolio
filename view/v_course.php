@@ -24,14 +24,17 @@
 <?php require_once PATH_VIEWS_PARTS . 'background.php'; ?>
 
 <div class="explain-container">
-    <div class="explain">
+    <div class="explain animate">
         <img class="medal-img" src="<?= PATH_IMAGES; ?>course/medal-white.png" alt="icon-study" draggable="false">
         <h1 class="explain-text">Qu'est-ce que cette page ?</h1>
         <p class="explain-text">Voici mon parcours scolaire allant de l'obtention du bac jusqu'à aujourd'hui.</p>
         <p class="explain-text">Cliquez sur chacune des cases pour en savoir plus sur chaque semestre, leur contenu et les projets réalisés.</p>
         <a href="#view" class="explain-text" onclick="clearUrl();">
             <p>Consulter</p>
-            <img src="<?= PATH_IMAGES; ?>course/arrow-bottom-white.png" alt="arrow" draggable="false">
+            <div class="arrow-view-container">
+                <div class="arrow-view"></div>
+                <div class="arrow-view"></div>
+            </div>
         </a>
     </div>
 </div>
@@ -48,7 +51,7 @@
         <div id="projects">
             <div id="view"></div>
             <?php for ($i = 0; $i < $nbSemesters; $i++) { ?>
-                <div class="project" id="proj<?= $i + 1; ?>" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
+                <div class="project animate" id="proj<?= $i + 1; ?>" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <div class="title-project-container">
                         <img src="<?= $semesters[$i]->getIconPath(); ?>" alt="icon-study" draggable="false">
                         <h1 class="title-project"><?= $semesters[$i]->getTitle(); ?></h1>

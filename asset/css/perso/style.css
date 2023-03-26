@@ -11,21 +11,46 @@
 }
 
 /* Disposition du contenu */
-#content{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    align-items: center;
-    justify-content: center;
+.content{
+    display: flex;
+    flex-direction: column;
     background-color: rgba(255, 255, 255, 0.884);
     box-shadow: 0 0 30px rgba(0,0,0,0.2); 
 }
 
+.content .title-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.content .title-part h1 {
+    margin: 0;
+    margin-top: 20px;
+}
+
+.content .content-part {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.content .content-part .photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Deisgn de la photo */
 #photopres{
-    width: 300px;
+    width: 200px;
     border-radius: 50%;
-    margin: 60px;
+    margin: 20px;
     display: flex;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
 }
 
 /*Parametres du texte */
@@ -35,7 +60,11 @@
     font-weight: bold;
     color: rgba(0, 0, 0, 0.884);
     text-align: justify;
-    margin : 50px;
+    margin : 20px;
+}
+
+.text p {
+    margin-left: 15px;
 }
 
 /* Disposition et déco des iframes */
@@ -52,7 +81,6 @@
     grid-column-start: 1;
     grid-column-end: 2;
     row-gap: 30px;
-    column-gap: 30px;
     background-color: rgba(255, 255, 255, 0.8);
     padding-top: 40px;
     padding-bottom: 40px;
@@ -60,7 +88,7 @@
 
 /* Bordure sur les iframes et taille 100%*/
 #frames iframe{
-    border: 2px solid rgb(80, 80, 80);
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
     border-radius: 20px;
     width: 100%;
 }

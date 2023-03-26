@@ -1,8 +1,10 @@
 <head>
+    <!-- CSS -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>home/style.css">
     <link rel="stylesheet" href="<?= PATH_CSS; ?>home/frame-cv.css">
     <link rel="stylesheet" href="<?= PATH_CSS; ?>home/dark-style.css">
     <link rel="stylesheet" href="<?= PATH_CSS; ?>home/project-page.css">
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>home/animation.css">
     <!-- CSS DES MEDIA QUERIES -->
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>home/frame-cv.css">
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>home/project-page.css">
@@ -27,12 +29,12 @@
     <div class="title t1" id="firstmid">
         <p>Mes projets</p>
     </div>
-    <div class="horizontal-bars" id="horizontal-bar1"></div>
+    <div class="horizontal-bars animate" id="horizontal-bar1"></div>
     <article class="projects">
         <?php
         $i = 1;
         foreach ($projects as $project) { ?>
-            <div class="main-container" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);" data-date="<?= $project->getFormatDate(); ?>">
+            <div class="main-container animate" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);" data-date="<?= $project->getFormatDate(); ?>">
                 <div class="content" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
                     <div class="to_download">
                         <p><?= $project->getTitle() ?></p>
@@ -126,8 +128,8 @@
     <div class="title t2" id="secondmid">
         <p>Mon CV</p>
     </div>
-    <div class="horizontal-bars" id="horizontal-bar2"></div>
-    <div id="container-cv" onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);">
+    <div class="horizontal-bars animate" id="horizontal-bar2"></div>
+    <div id="container-cv" class="animate" onmouseover="colorBar(2);" onmouseleave="uncolorBar(2);">
         <div id="cv-img" onclick="openPage();">
             <img src="<?= PATH_FILES; ?>CV.png" alt="cv" data-lightbox="CV_Rayane_Merlin.png" data-title="Voici mon C.V actuel, celui-ci est amené à être modifié mais restera à jour sur le site." draggable="false">
         </div>
@@ -192,5 +194,5 @@
     <div class="title t3" id="firstmid">
         <p>La réalisation :</p>
     </div>
-    <div class="horizontal-bars" id="horizontal-bar3"></div>
+    <div class="horizontal-bars animate" id="horizontal-bar3"></div>
 </article>

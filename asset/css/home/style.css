@@ -199,8 +199,11 @@
 } 
  
 /* Barre noire au dessus et au dessous des textes */ 
+html {
+    --black-bar-width: 85%;
+}
 .blackbar{ 
-    width: 85%; 
+    width: var(--black-bar-width);
     height: 1px; 
     background-color: #000; 
     border-radius: 10px; 

@@ -1,0 +1,44 @@
+*.view:not(.project) {
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        scale: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#container-cv.view .blackbar {
+    -webkit-animation: growBar 0.5s;
+    animation: growBar 0.5s;
+}
+
+
+@keyframes growBar {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: var(--black-bar-width);
+    }
+}
+
+@keyframes fadeInNoScale {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.project.view {
+    opacity: 1;
+    -webkit-animation: fadeInNoScale 0.3s;
+    animation: fadeInNoScale 0.3s;
+}

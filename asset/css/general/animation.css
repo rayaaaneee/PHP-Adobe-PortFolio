@@ -1,4 +1,4 @@
-*.view:not(.project) {
+*.view:not(.blackbar) {
     -webkit-animation: fadeIn 0.5s;
     animation: fadeIn 0.5s;
 }
@@ -35,10 +35,4 @@
     100% {
         opacity: 1;
     }
-}
-
-.project.view {
-    opacity: 1;
-    -webkit-animation: fadeInNoScale 0.3s;
-    animation: fadeInNoScale 0.3s;
 }

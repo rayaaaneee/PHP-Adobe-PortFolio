@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?= PATH_MEDIA; ?>home/style.css">
     <!-- SCRIPTS JS -->
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>home/script.js" defer></script>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>home/3dEffectCard.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>
@@ -195,4 +196,28 @@
         <p>Mes compétences :</p>
     </div>
     <div class="horizontal-bars animate" id="horizontal-bar3"></div>
+    <div class="school-competence-container">
+        <?php foreach ($school_competences as $school_competence) : ?>
+            <div class="card animate">
+                <div class="card-front">
+                    <div class="linear-gradient-circle-container card-top-container">
+                        <div class="linear-gradient-circle" style="background:<?= $school_competence->getGradient(); ?>">
+                            <img src="<?= $school_competence->getImagePath(); ?>" alt="">
+                        </div>
+                    </div>
+                    <h1 class="title-card" style="color:<?= $school_competence->getTitleColor(); ?>">• <?= $school_competence->getTitle(); ?></h1>
+                    <div class="card-bottom-container">
+                        <div class="card-bottom" style="background-color:<?= $school_competence->getBlurColor(); ?>"></div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="info-icon-container card-top-container">
+                        <img src="<?= $school_competence->getInfoIconPath(); ?>" draggable="false">
+                    </div>
+                    <h2 class="card-back-title" style="color:<?= $school_competence->getTitleColor(); ?>"><?= $school_competence->getTitle(); ?> c'est :</h2>
+                    <p class="card-description" style="color:<?= $school_competence->getTitleColor(); ?>"><?= $school_competence->getDescription(); ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </article>

@@ -46,3 +46,11 @@ body.body-dark .projects > *::after {
     background-image: url(../../img/home/icon/calendar-black.png);
     color: black;
 }
+
+body.body-dark .school-competence-container .card {
+    background : rgb(0 0 0 / 80%);
+}
+
+body.body-dark .card-top-container {
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+}

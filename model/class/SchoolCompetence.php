@@ -3,12 +3,22 @@
 class SchoolCompetence
 {
     private string $title;
-    public string $description;
+    private string $description;
+    private string $image;
+    private string $gradient;
+    private string $titleColor;
+    private string $infoIcon;
+    private string $blurColor;
 
-    public function __construct($title, $description)
+    public function __construct(array $data)
     {
-        $this->title = $title;
-        $this->description = $description;
+        $this->title = $data['title'];
+        $this->description = $data['description'];
+        $this->image = $data['image'];
+        $this->gradient = $data['gradient'];
+        $this->titleColor = $data['title_color'];
+        $this->infoIcon = $data['info_icon'];
+        $this->blurColor = $data['blur_color'];
     }
 
     public function getTitle(): string
@@ -16,8 +26,43 @@ class SchoolCompetence
         return $this->title;
     }
 
-    public function setTitle(string $title): void
+    public function getDescription(): string
     {
-        $this->title = $title;
+        return $this->description;
+    }
+
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    public function getImagePath(): string
+    {
+        return PATH_IMAGES . "home/card/" . $this->image;
+    }
+
+    public function getGradient(): string
+    {
+        return $this->gradient;
+    }
+
+    public function getTitleColor(): string
+    {
+        return $this->titleColor;
+    }
+
+    public function getInfoIcon(): string
+    {
+        return $this->infoIcon;
+    }
+
+    public function getInfoIconPath(): string
+    {
+        return PATH_IMAGES . "home/card/" . $this->infoIcon;
+    }
+
+    public function getBlurColor(): string
+    {
+        return $this->blurColor;
     }
 }

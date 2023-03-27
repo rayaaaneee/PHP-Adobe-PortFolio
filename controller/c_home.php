@@ -20,7 +20,7 @@ $school_competences_array = FetchJSON::fetchLocalJSON(PATH_DATAS . "home/school_
 $school_competences = [];
 
 foreach ($school_competences_array as $school_competence_array) {
-    $school_competences[] = new SchoolCompetence($school_competence_array["title"], $school_competence_array["description"]);
+    $school_competences[] = new SchoolCompetence($school_competence_array);
 }
 
 require_once PATH_VIEWS_PARTS . "header.php";

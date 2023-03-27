@@ -1,5 +1,9 @@
-body.body-dark * {
+body.body-dark *:not(.page-title-part) {
     color: white !important;
+}
+
+body.body-dark .page-title-part {
+    color: rgb(232, 190, 190) !important;
 }
 
 body.body-dark {
@@ -20,6 +24,10 @@ body.body-dark .project.selected {
 
 body.body-dark .project:not(.selected):hover {
     background-color:rgba(245, 239, 239, 0.7);
+}
+
+body.body-dark .project .bottom-project-container .bottom-project {
+    background-color: #e1b8b8;
 }
 
 body.body-dark .point:hover, .body-dark .point.selected {

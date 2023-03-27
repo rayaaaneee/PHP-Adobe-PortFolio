@@ -50,7 +50,7 @@
         </div>
         <div id="projects">
             <div id="view"></div>
-            <?php for ($i = 0; $i < $nbSemesters; $i++) { ?>
+            <?php for ($i = 0; $i < $nbSemesters; $i++) : ?>
                 <div class="project animate" id="proj<?= $i + 1; ?>" onmouseover="colorButtonsAssociateToProject(this);" onclick="onclickProject(this)" onmouseout="uncolorButtonsAssociateToProject(this)">
                     <div class="title-project-container">
                         <img src="<?= $semesters[$i]->getIconPath(); ?>" alt="icon-study" draggable="false">
@@ -60,20 +60,49 @@
                         </div>
                     </div>
                     <p class="project-description"><?= $semesters[$i]->getDescription(); ?></p>
+                    <div class="bottom-project-container">
+                        <div class="bottom-project"></div>
+                    </div>
                     <div class="hidden-informations hidden" hidden>
                         <p class="title-semester"><?= $semesters[$i]->getTitle(); ?></p>
                         <p class="icon-white"><?= $semesters[$i]->getWhiteIconPath(); ?></p>
                     </div>
                 </div>
-            <?php } ?>
+            <?php endfor; ?>
         </div>
     </div>
 </article>
 <article id="semesterPage">
     <div class="semester-page-main-container">
         <div class="semester-page-title-img-container">
-            <img class="semester-page-img" src="" alt="icon-study" draggable="false">
+            <img class="semester-page-img" alt="icon-study" draggable="false">
             <p class="title-semester"></p>
+        </div>
+        <div class="semester-page-body">
+            <div class="semester-part">
+                <div class="semester-page-date semester-page-title-part">
+                    <img src="<?= PATH_IMAGES; ?>course/calendar-pink.png" alt="calendar" draggable="false">
+                    <div class="page-title-part"> Dates : </div>
+                </div>
+                <div class="semester-page-content">
+                </div>
+            </div>
+            <div class="semester-part">
+                <div class="semester-page-school semester-page-title-part">
+                    <img src="<?= PATH_IMAGES; ?>course/school-pink.png" alt="calendar" draggable="false">
+                    <div class="page-title-part"> Ecole : </div>
+                </div>
+                <div class="semester-page-content">
+                </div>
+            </div>
+            <div class="semester-part">
+                <div class="semester-page-tab semester-page-title-part">
+                    <img src="<?= PATH_IMAGES; ?>course/tab.png" alt="calendar" draggable="false">
+                    <div class="page-title-part"> Matières : </div>
+                </div>
+                <div class="semester-page-content">
+                </div>
+            </div>
         </div>
     </div>
     <div class="cross-semester-page-container" onclick="closeSemesterPage();">

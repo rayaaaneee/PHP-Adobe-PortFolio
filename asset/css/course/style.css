@@ -94,13 +94,14 @@ html {
 
 html{
     --size-project: 400px;
+    --border-radius-project: 20px;
 }
 
 .project{
     width: var(--size-project);
     height: var(--size-project);
     background-color:rgba(255, 255, 255, 0.7);
-    border-radius: 20px;
+    border-radius: var(--border-radius-project);
     display: flex;
     flex-direction: column;
     row-gap: 15px;
@@ -119,6 +120,32 @@ html{
 
 .project p {
     margin: 0 7%;
+}
+
+.project .bottom-project-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    border-radius: 0 0 var(--border-radius-project) var(--border-radius-project);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.project .bottom-project-container .bottom-project {
+    position: absolute;
+    bottom: -123px;
+    left: 0px;
+    width: 113%;
+    height: 207px;
+    background-color: 239, 195, 153;
+    rotate: 173deg;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    background-color: #e0c7a5;
 }
 
 .title-project {

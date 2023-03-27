@@ -2,7 +2,6 @@
 footer {
     max-height: 75px;
     position: relative;
-    bottom: 20px;
     background-color: rgb(255, 255, 255, 0.8);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     display: grid;

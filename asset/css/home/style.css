@@ -355,7 +355,6 @@ html {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 30px;
     transform-style: preserve-3d;
-    transition: transform 0.15s;
     --rotate-y: 0deg;
     perspective: 1000px;
     perspective-origin: top;
@@ -364,6 +363,12 @@ html {
     cursor: pointer;
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
     transform: rotateY(var(--rotate-y));
+    transition: scale 0.8s, transform 0.3s;
+}
+
+.card:hover {
+    scale: 1.05;
+    transition: scale 0.8s, transform 0.2s;
 }
 
 .card .title-card {
@@ -371,6 +376,7 @@ html {
     margin: 0;
     margin-top: 17px;
 }
+
 
 .school-competence-container .card.clicked {
    --rotate-y: 180deg;
@@ -436,6 +442,7 @@ html {
 .card .card-description {
     margin: 15px 25px;
     text-align: justify;
+    font-size: 20px;
 }
 
 .card .card-back .card-top-container img {
@@ -451,25 +458,24 @@ html {
     font-style: italic;
 }
 
-.card .card-front .card-bottom-container {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0 0 30px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.card .card-front .card-bottom-container .card-bottom {
-    position: absolute;
-    bottom: -95px;
-    width: 140%;
+.card .card-front .card-bottom-container { 
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 0 0 30px 30px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+} 
+ 
+.card .card-front .card-bottom-container .card-bottom { 
+    position: absolute; 
+    bottom: -95px; 
+    width: 140%; 
     height: 40%;
-    filter: blur(60px);
-    border-radius: 0 0 30px 30px;
-    opacity: 0.4;
-    rotate: 25deg;
+    border-radius: 0 0 30px 30px; 
+    opacity: 0.4; 
+    rotate: 25deg; 
 }

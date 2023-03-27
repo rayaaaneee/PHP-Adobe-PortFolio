@@ -7,7 +7,7 @@
             "gradient" : "linear-gradient(90deg, rgb(206 136 204 / 80%) 0%, rgb(71 71 71 / 80%) 50%, rgb(186 140 140 / 80%) 100%)",
             "title_color" : "#9a85b8",
             "info_icon" : "info-realize.png",
-            "blur_color" : "#190018"
+            "bottom_color" : "#a976a7"
         },
         {
             "title" : "Optimiser",
@@ -16,7 +16,7 @@
             "gradient" : "linear-gradient(90deg, rgb(128 219 211 / 80%) 0%, rgba(212, 173, 132, 0.801) 50%, rgb(175 69 69 / 80%) 100%)",
             "title_color" : "#b88d85",
             "info_icon" : "info-optimise.png",
-            "blur_color" : "#b76328"
+            "bottom_color" : "#bc8282"
         },
         {
             "title" : "Administrer",
@@ -25,7 +25,7 @@
             "gradient" : "linear-gradient(90deg, rgba(219, 128, 217, 0.801) 0%, rgba(212, 173, 132, 0.801) 50%, rgba(177, 125, 125, 0.801) 100%)",
             "title_color" : "#d2b4b4",
             "info_icon" : "info-manage.png",
-            "blur_color" : "#512020"
+            "bottom_color" : "#d2b4b4"
         },
         {
             "title" : "Gérer",
@@ -34,7 +34,7 @@
             "gradient" : "linear-gradient(90deg, rgb(67 101 157 / 80%) 0%, rgb(180 171 162 / 80%) 50%, rgb(255 180 180 / 80%) 100%)",
             "title_color" : "#859eb8",
             "info_icon" : "info-handle.png",
-            "blur_color" : "#42497e"
+            "bottom_color" : "#a1c1e1"
         },
         {
             "title" : "Conduire",
@@ -43,7 +43,7 @@
             "gradient" : "linear-gradient(90deg, rgb(209 45 102 / 80%) 0%, rgb(113 110 106 / 80%) 50%, rgba(177, 125, 125, 0.801) 100%)",
             "title_color" : "#b88594",
             "info_icon" : "info-lead.png",
-            "blur_color" : "#8d0000"
+            "bottom_color" : "#ab2456"
         },
         {
             "title" : "Collaborer",
@@ -52,7 +52,7 @@
             "gradient" : "linear-gradient(90deg, rgb(119 134 145 / 80%) 0%, rgb(192 187 181 / 80%) 50%, rgb(104 49 130 / 80%) 100%)",
             "title_color" : "#999ea4",
             "info_icon" : "info-collaborate.png",
-            "blur_color" : "#000000"
+            "bottom_color" : "#c2c2c2"
         }
     ]
 }

@@ -15,8 +15,8 @@
     height : 250px; 
     border-radius: 15px; 
     box-shadow: 0 0 30px rgba(0,0,0,0.2); 
-    transition: box-shadow 0.5s, transform 0.5s;
-    display: flex; 
+    transition: box-shadow 0.5s, transform 0.5s, background-color var(--general-transition-switch-mode);
+    display: flex;
     flex-direction: column; 
     justify-content: center; 
     cursor: pointer;
@@ -85,7 +85,7 @@
     background-color: #fff; 
     border-radius: 10px; 
     box-shadow: 0 0 15px rgba(0,0,0,0.3); 
-    transition: box-shadow 0.3s ease; 
+    transition: box-shadow 0.3s ease, background-color var(--general-transition-switch-mode);
 } 
 
 #horizontal-bar2 {
@@ -124,6 +124,7 @@
 /* Mise en place du conteneur en grid avec les deux articles */ 
 #container-cv{ 
     background-color: rgba(255, 255, 255, 0.801); 
+    transition: background-color var(--general-transition-switch-mode);
     width : 1100px; 
     height : 700px; 
     border-radius: 15px; 
@@ -363,11 +364,11 @@ html {
     cursor: pointer;
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
     transform: rotateY(var(--rotate-y));
-    transition: scale 0.8s, transform 0.3s;
+    transition: scale 0.8s, transform 0.3s,  background-color var(--general-transition-switch-mode);
 }
 
 .card:hover {
-    scale: 1.05;
+    scale: 1.02;
     transition: scale 0.8s, transform 0.2s;
 }
 

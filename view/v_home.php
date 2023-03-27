@@ -207,7 +207,7 @@
                     </div>
                     <h1 class="title-card" style="color:<?= $school_competence->getTitleColor(); ?>">• <?= $school_competence->getTitle(); ?></h1>
                     <div class="card-bottom-container">
-                        <div class="card-bottom" style="background-color:<?= $school_competence->getBlurColor(); ?>"></div>
+                        <div class="card-bottom" style="background-color:<?= $school_competence->getBottomColor(); ?>"></div>
                     </div>
                 </div>
                 <div class="card-back">

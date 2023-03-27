@@ -8,7 +8,7 @@ class SchoolCompetence
     private string $gradient;
     private string $titleColor;
     private string $infoIcon;
-    private string $blurColor;
+    private string $bottomColor;
 
     public function __construct(array $data)
     {
@@ -18,7 +18,7 @@ class SchoolCompetence
         $this->gradient = $data['gradient'];
         $this->titleColor = $data['title_color'];
         $this->infoIcon = $data['info_icon'];
-        $this->blurColor = $data['blur_color'];
+        $this->bottomColor = $data['bottom_color'];
     }
 
     public function getTitle(): string
@@ -61,8 +61,8 @@ class SchoolCompetence
         return PATH_IMAGES . "home/card/" . $this->infoIcon;
     }
 
-    public function getBlurColor(): string
+    public function getBottomColor(): string
     {
-        return $this->blurColor;
+        return $this->bottomColor;
     }
 }

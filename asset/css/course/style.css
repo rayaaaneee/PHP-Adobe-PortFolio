@@ -145,7 +145,7 @@ html{
     rotate: 173deg;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     z-index: -1;
-    background-color: #e0c7a5;
+    background-color: rgb(205 159 142 / 70%);
 }
 
 .title-project {
@@ -344,6 +344,7 @@ header {
     padding: 30px;
     border-radius: 20px;
     color: white;
+    transition: background-color var(--general-transition-switch-mode)
 }
 
 p.explain-text {

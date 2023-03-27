@@ -1,3 +1,7 @@
+html {
+  --general-transition-switch-mode: 0.2s;
+}
+
 body {
     background: linear-gradient(to left, blanchedalmond, #f0f0f0);
     padding:0;

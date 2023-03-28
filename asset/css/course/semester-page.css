@@ -93,6 +93,10 @@ html {
     transition: transform 0.3s, opacity 0.3s;
 }
 
+html {
+    --semester-page-main-color: rgb(232, 190, 190);
+}
+
 #semesterPage .title-semester {
     margin: 0;
     padding: 0;
@@ -102,7 +106,7 @@ html {
     font-weight: 300;
     color: rgb(255, 255, 255);
     text-decoration: underline;
-    text-decoration-color: rgb(232, 190, 190);
+    text-decoration-color: var(--semester-page-main-color);
     text-decoration-thickness: 0.3vw;
     text-decoration-style: wavy;
     text-underline-offset: 0.5vw;
@@ -265,7 +269,7 @@ html {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--semester-page-main-color);
     box-shadow: 0 0 10px 0 rgb(0, 0, 0, 50%);
 }
 
@@ -335,13 +339,20 @@ div.semester-page-subjects {
 
 .semester-page-subjects .image-subject-container {
     height: fit-content;
-    width: 80vw;
+    width: fit-content;
     position: relative;
 }
 .semester-page-subjects .image-subject-container img {
     width: 100%;
     height: fit-content;
     border-radius: 30px;
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+html {
+    --leave-semester-subject-border-color: rgba(101, 101, 101, 0.2);
 }
 
 .semester-page-subjects .image-subject-container .leave-semester-subject {
@@ -350,20 +361,22 @@ div.semester-page-subjects {
     right: 15px;
     width: 50px;
     height: 50px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.2);
     font-weight: bold;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border 0.3s;
+    border: 2px solid var(--leave-semester-subject-border-color);
 }
 
 .semester-page-subjects .image-subject-container .leave-semester-subject:hover {
-    background-color: rgba(101, 101, 101, 0.2);
+    background-color: var(--leave-semester-subject-border-color);
+    border: 2px solid transparent;
     color: white;
-    transition: all 0.3s;
+    transition: background-color 0.3s, border 0.3s;
 }
 
 .semester-page-subjects .image-subject-container .leave-semester-subject p {
@@ -375,3 +388,11 @@ div.semester-page-subjects {
     font-weight: bold;
 }
 
+
+#semesterPage .cross-semester-page-container.hidden {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    opacity: 0;
+    pointer-events: none;
+}

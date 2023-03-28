@@ -331,13 +331,14 @@ footer {
     flex-direction: column;
 }
 
-.container>.title>h1 {
+.container > .title > h1 {
     font-size: 12vw;
     height: 16vw;
     font-weight: 600;
     color: #fbf6e9;
     text-shadow: 0 0 2.15rem #00000093;
     font-family: 'AdobeBold';
+    transition: color var(--general-transition-switch-mode);
 }
 
 .container>.title>.subtitle>h2 {

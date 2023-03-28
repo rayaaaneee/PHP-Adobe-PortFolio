@@ -111,8 +111,10 @@ const closeSemesterPage = () => {
 
 const openImageSemester = () => {
     semesterPageSubjectsImageContainer.style.display = "flex";
+    crossSemesterPage.classList.add("hidden");
 }
 
 const closeImageSemester = () => {
     semesterPageSubjectsImageContainer.style.removeProperty("display");
+    crossSemesterPage.classList.remove("hidden");
 }

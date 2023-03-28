@@ -24,3 +24,4 @@
             <h2 class="subtitle-page">By Rayane Merlin</h2>
         </div>
     </header>
+    <div id="background"></div>

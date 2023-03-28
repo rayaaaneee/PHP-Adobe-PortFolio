@@ -5,14 +5,24 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: white;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+body #background {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    filter: blur(3px);
+    width: 120%;
+    height: 120%;
     background : url(../img/background3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    margin: 0;
-    padding: 0;
-    overflow-y: auto;
+    z-index: -1;
 }
 
 body::-webkit-scrollbar {

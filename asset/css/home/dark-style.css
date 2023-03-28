@@ -1,4 +1,4 @@
-body.body-dark *:not(.text-project-container *, .text-project-container, .title-card, .title-page-project > p) {
+body.body-dark *:not(.text-project-container *, .text-project-container, .title-card, .title-page-project > p, .card-back *) {
     color: white !important;
 }
 
@@ -14,6 +14,11 @@ body.body-dark .horizontal-bars {
 
 body.body-dark .explicationtext {
     text-shadow:  0 0 #000, 1px 1px 0 #000, 0 1px 0 #000, -1px 1px 0 #000, -1px 0 0 #000, -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000;
+}
+
+body.body-dark .link-btn:hover, body.body-dark .download-btn:hover {
+    color: rgb(234, 215, 215) !important;
+    transition: 0.2s;
 }
 
 body.body-dark .content, body.body-dark #container-cv {

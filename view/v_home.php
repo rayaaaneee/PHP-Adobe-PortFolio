@@ -85,7 +85,7 @@
                     <img class="link-or-download" src="<?= PATH_IMAGES; ?>home/icon/white-link.png" draggable="false">
                     <p class="title-project"></p>
                 </div>
-                <div class="project-languages-skills">
+                <div class="project-languages-skills title-page-project">
                     <img src="<?= PATH_IMAGES; ?>home/icon/skills.png" draggable="false">
                     <p class="title-language-skill">Compétences :</p>
                 </div>

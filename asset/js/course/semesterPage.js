@@ -14,7 +14,8 @@ const semesterPageSpecialtiesTexts = semesterPage.querySelectorAll(".semester-pa
 
 const semesterPageSpecialtiesPart = semesterPage.querySelector(".semester-specialties-part");
 const semesterPageSubjectsPart = semesterPage.querySelector(".semester-subjects-part");
-const semesterPageSchoolPart = semesterPage.querySelector(".semester-school-part");
+const semesterPageSubjectsImageContainer = semesterPage.querySelector(".semester-page-subjects");
+const semesterPageSubjectImage = semesterPage.querySelector(".semester-page-subjects-image");
 
 const timeAnimationSemesterPage = 800;
 var lastArrowClicked = null;
@@ -42,10 +43,11 @@ const openSemesterPage = (arrow, event) => {
     const hasSubjects = Boolean(semester.querySelector(".has-subjects").textContent);
 
     if (hasSubjects) {
+        let subject = semester.querySelector(".subject");
         semesterPageSubjectsPart.style.display = "block";
+        semesterPageSubjectImage.src = subject.textContent;
     } else {
         semesterPageSubjectsPart.style.display = "none";
-        semesterPageSchoolPart.style.paddingBottom = "30px";
     }
 
     console.log(hasSpecialties);
@@ -101,14 +103,19 @@ const closeSemesterPage = () => {
         semesterPageSchoolName.textContent = "";
         semesterPageSchoolLocation.textContent = "";
         semesterPageSchoolAddress.textContent = "";
+        semesterPageSubjectImage.src = "";
         semesterPageSpecialtiesPart.style.removeProperty("display");
         semesterPageSubjectsPart.style.removeProperty("display");
-        semesterPageSchoolPart.removeAttribute("style");
+        closeImageSemester();
         document.body.style.overflowY = "auto";
         semesterPage.classList.remove("visible");
     }, timeAnimationSemesterPage);
 };
 
 const openImageSemester = () => {
-    console.log("openImageSemester");
+    semesterPageSubjectsImageContainer.style.display = "flex";
+}
+
+const closeImageSemester = () => {
+    semesterPageSubjectsImageContainer.style.removeProperty("display");
 }

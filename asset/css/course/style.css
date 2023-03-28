@@ -240,7 +240,7 @@ html {
 }
 
 html {
-    --color-bottom-and-clicked-project: #e4cba7;
+    --color-bottom-and-clicked-project: #d5baaf;
 }
 
 .project.selected {
@@ -300,12 +300,13 @@ html {
     background-size: 20px;
     border-radius: 5px;
     color: white;
-    font-weight: bold;
+    font-weight: 500;
     padding: 7px 40px 7px 10px;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.25s;
 }
+
 
 .point-container:hover::after, .point-container.focus::after {
     opacity: 1;

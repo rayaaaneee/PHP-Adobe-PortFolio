@@ -123,6 +123,11 @@ class Semester
         return $this->subjects;
     }
 
+    public function getSubjectsPath(): ?string
+    {
+        return PATH_IMAGES . 'course/semester/' . $this->subjects;
+    }
+
     public function hasSubjects(): bool
     {
         return $this->subjects != null;

@@ -1,5 +1,10 @@
-body.body-dark *:not(.text-project-container *, .text-project-container) {
+body.body-dark *:not(.text-project-container *, .text-project-container, .title-card, .title-page-project > p) {
     color: white !important;
+}
+
+
+body.body-dark .page-title-part {
+    color: rgb(232, 190, 190) !important;
 }
 
 body.body-dark .horizontal-bars {

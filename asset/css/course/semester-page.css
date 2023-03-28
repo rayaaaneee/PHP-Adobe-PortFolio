@@ -314,3 +314,63 @@ html {
     font-weight: 100;
     color: aliceblue;
 }
+
+div.semester-page-subjects {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.semester-subjects-part, .semester-specialties-part {
+    padding-bottom: 30px;
+}
+
+.semester-page-subjects .image-subject-container {
+    height: fit-content;
+    width: 80vw;
+    position: relative;
+}
+.semester-page-subjects .image-subject-container img {
+    width: 100%;
+    height: fit-content;
+    border-radius: 30px;
+}
+
+.semester-page-subjects .image-subject-container .leave-semester-subject {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.semester-page-subjects .image-subject-container .leave-semester-subject:hover {
+    background-color: rgba(101, 101, 101, 0.2);
+    color: white;
+    transition: all 0.3s;
+}
+
+.semester-page-subjects .image-subject-container .leave-semester-subject p {
+    font-size: 30px;
+    color: #727272 !important;
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+}
+

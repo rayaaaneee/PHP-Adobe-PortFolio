@@ -73,11 +73,14 @@
                         <div class="specialties-container">
                             <?php if ($semesters[$i]->hasSpecialties()) : ?>
                                 <?php foreach ($semesters[$i]->getSpecialties() as $specialty) : ?>
-                                    <p class="specialty"><?= $specialty; ?></p>
+                                    <p class="specialty">- <?= $specialty; ?></p>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
                         <p class="has-subjects"><?= $semesters[$i]->hasSubjects(); ?></p>
+                        <?php if ($semesters[$i]->hasSubjects()) : ?>
+                            <p class="subject"><?= $semesters[$i]->getSubjectsPath(); ?></p>
+                        <?php endif; ?>
                         <p class="school-name"><?= $semesters[$i]->getSchoolName(); ?></p>
                         <p class="school-location"><?= $semesters[$i]->getSchoolLocation(); ?></p>
                         <p class="school-address"><?= $semesters[$i]->getSchoolAddress(); ?></p>
@@ -113,16 +116,6 @@
                     </div>
                 </div>
             </div>
-            <div class="semester-part semester-specialties-part">
-                <div class="semester-page-specialties semester-page-title-part">
-                    <img src="<?= PATH_IMAGES; ?>course/specialties-pink.png" alt="specialty-icon" draggable="false">
-                    <div class="page-title-part"> Spécialités : </div>
-                </div>
-                <div class="semester-page-content">
-                    <p class="semester-page-specialty"></p>
-                    <p class="semester-page-specialty"></p>
-                </div>
-            </div>
             <div class="semester-part semester-school-part">
                 <div class="semester-page-school semester-page-title-part">
                     <img src="<?= PATH_IMAGES; ?>course/school-pink.png" alt="school-icon" draggable="false">
@@ -137,6 +130,16 @@
                     </div>
                 </div>
             </div>
+            <div class="semester-part semester-specialties-part">
+                <div class="semester-page-specialties semester-page-title-part">
+                    <img src="<?= PATH_IMAGES; ?>course/specialties-pink.png" alt="specialty-icon" draggable="false">
+                    <div class="page-title-part"> Spécialités : </div>
+                </div>
+                <div class="semester-page-content">
+                    <p class="semester-page-specialty"></p>
+                    <p class="semester-page-specialty"></p>
+                </div>
+            </div>
             <div class="semester-part semester-subjects-part">
                 <div class="semester-page-tab semester-page-title-part">
                     <img src="<?= PATH_IMAGES; ?>course/tab.png" alt="tab-icon" draggable="false">
@@ -145,6 +148,14 @@
                 <div class="semester-page-content">
                     <p class="semester-page-subject">Ici sont les matières étudiées et les coefficients de ces mêmes matières .</p>
                     <button onclick="openImageSemester();">Voir les matières</button>
+                </div>
+            </div>
+        </div>
+        <div class="semester-page-subjects">
+            <div class="image-subject-container">
+                <img src="" class="semester-page-subjects-image" alt="subjects" draggable="false">
+                <div class="leave-semester-subject" onclick="closeImageSemester();">
+                    <p>X</p>
                 </div>
             </div>
         </div>

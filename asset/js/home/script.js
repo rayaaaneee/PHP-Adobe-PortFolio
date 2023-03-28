@@ -150,7 +150,7 @@ const printPDF = () =>{
 const getInformations = () => {
     let result = null;
 
-    let path = "./asset/files/data.txt";
+    let path = "./asset/file/data.txt";
 
     let fichierBrut = new XMLHttpRequest();
     fichierBrut.open("GET", path, false);

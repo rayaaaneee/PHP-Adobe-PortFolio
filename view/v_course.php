@@ -64,8 +64,23 @@
                         <div class="bottom-project"></div>
                     </div>
                     <div class="hidden-informations hidden" hidden>
+                        <p class="starting-date"><?= $semesters[$i]->formatStartingDate(); ?></p>
+                        <p class="ending-date"><?= $semesters[$i]->formatEndingDate(); ?></p>
                         <p class="title-semester"><?= $semesters[$i]->getTitle(); ?></p>
                         <p class="icon-white"><?= $semesters[$i]->getWhiteIconPath(); ?></p>
+                        <p class="school-icon"><?= $semesters[$i]->getSchoolIconPath(); ?></p>
+                        <p class="has-specialties"><?= $semesters[$i]->hasSpecialties(); ?></p>
+                        <div class="specialties-container">
+                            <?php if ($semesters[$i]->hasSpecialties()) : ?>
+                                <?php foreach ($semesters[$i]->getSpecialties() as $specialty) : ?>
+                                    <p class="specialty"><?= $specialty; ?></p>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                        <p class="has-subjects"><?= $semesters[$i]->hasSubjects(); ?></p>
+                        <p class="school-name"><?= $semesters[$i]->getSchoolName(); ?></p>
+                        <p class="school-location"><?= $semesters[$i]->getSchoolLocation(); ?></p>
+                        <p class="school-address"><?= $semesters[$i]->getSchoolAddress(); ?></p>
                     </div>
                 </div>
             <?php endfor; ?>
@@ -79,28 +94,57 @@
             <p class="title-semester"></p>
         </div>
         <div class="semester-page-body">
-            <div class="semester-part">
+            <div class="semester-part semester-date-part">
                 <div class="semester-page-date semester-page-title-part">
                     <img src="<?= PATH_IMAGES; ?>course/calendar-pink.png" alt="calendar" draggable="false">
                     <div class="page-title-part"> Dates : </div>
                 </div>
-                <div class="semester-page-content">
+                <div class="semester-page-content semester-page-content-date">
+                    <div class="timeline-semester-date-container">
+                        <div class="timeline"></div>
+                        <div class="semester-point-container">
+                            <div class="semester-point"></div>
+                            <div class="semester-point"></div>
+                        </div>
+                    </div>
+                    <div class="text-semester-date-container">
+                        <p class="semester-page-starting-date">Date de début ou quoi</p>
+                        <p class="semester-page-ending-date">Date de fin ou quoi</p>
+                    </div>
                 </div>
             </div>
-            <div class="semester-part">
+            <div class="semester-part semester-specialties-part">
+                <div class="semester-page-specialties semester-page-title-part">
+                    <img src="<?= PATH_IMAGES; ?>course/specialties-pink.png" alt="specialty-icon" draggable="false">
+                    <div class="page-title-part"> Spécialités : </div>
+                </div>
+                <div class="semester-page-content">
+                    <p class="semester-page-specialty"></p>
+                    <p class="semester-page-specialty"></p>
+                </div>
+            </div>
+            <div class="semester-part semester-school-part">
                 <div class="semester-page-school semester-page-title-part">
-                    <img src="<?= PATH_IMAGES; ?>course/school-pink.png" alt="calendar" draggable="false">
+                    <img src="<?= PATH_IMAGES; ?>course/school-pink.png" alt="school-icon" draggable="false">
                     <div class="page-title-part"> Ecole : </div>
                 </div>
                 <div class="semester-page-content">
+                    <img class="semester-school-img" alt="school-icon" draggable="false" src="">
+                    <div class="semester-school-text">
+                        <h3 class="semester-school-name"></h3>
+                        <p class="semester-school-location"></p>
+                        <p class="semester-school-address"></p>
+                    </div>
                 </div>
             </div>
-            <div class="semester-part">
+            <div class="semester-part semester-subjects-part">
                 <div class="semester-page-tab semester-page-title-part">
-                    <img src="<?= PATH_IMAGES; ?>course/tab.png" alt="calendar" draggable="false">
+                    <img src="<?= PATH_IMAGES; ?>course/tab.png" alt="tab-icon" draggable="false">
                     <div class="page-title-part"> Matières : </div>
                 </div>
                 <div class="semester-page-content">
+                    <p class="semester-page-subject">Ici sont les matières étudiées et les coefficients de ces mêmes matières .</p>
+                    <button onclick="openImageSemester();">Voir les matières</button>
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@
         opacity: 0;
         scale: 0.9;
     }
+
     100% {
         opacity: 1;
     }
@@ -23,6 +24,7 @@
     0% {
         width: 0;
     }
+
     100% {
         width: var(--black-bar-width);
     }
@@ -30,8 +32,10 @@
 
 @keyframes fadeInNoScale {
     0% {
-        opacity: 0;
+        opacity: 0.15;
+        scale: 0.9;
     }
+
     100% {
         opacity: 1;
     }

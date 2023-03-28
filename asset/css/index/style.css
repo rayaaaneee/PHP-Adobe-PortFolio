@@ -8,6 +8,10 @@
     src: url('../../font/AdobeFont/AdobeBold.ttf') format('truetype');
 }
 
+html {
+    --general-transition-switch-mode: 0.2s;
+}
+
 body * {
     margin: 0;
     padding: 0;
@@ -21,6 +25,7 @@ body * {
     width: 100vw;
     height: 100%;
     background-color: rgb(255, 255, 255);
+    transition: background-color var(--general-transition-switch-mode);
 }
 
 /* Triangles équilateraux */
@@ -29,6 +34,7 @@ body * {
     width: 0;
     height: 0;
     filter: drop-shadow(0 0 5rem #000);
+    transition: border-bottom var(--general-transition-switch-mode);
 }
 
 .triangle-red {
@@ -66,6 +72,7 @@ body * {
     border-radius: 50%;
     filter: drop-shadow(0 0 3.15rem #000);
     z-index: -4;
+    transition: background-color var(--general-transition-switch-mode);
 }
 
 .circle-one {
@@ -162,20 +169,20 @@ body * {
     opacity: 0;
 }
 
-input[type="checkbox"]:checked ~ .hamburger-bar {
+input[type="checkbox"]:checked~.hamburger-bar {
     box-shadow: 0 0 3.15rem #000000e9;
 }
 
-input[type="checkbox"]:checked ~ .top-bar {
+input[type="checkbox"]:checked~.top-bar {
     transform: rotate(-45deg);
     bottom: auto;
 }
 
-input[type="checkbox"]:checked ~ .middle-bar {
+input[type="checkbox"]:checked~.middle-bar {
     opacity: 0;
 }
 
-input[type="checkbox"]:checked ~ .bottom-bar {
+input[type="checkbox"]:checked~.bottom-bar {
     transform: rotate(45deg);
     top: auto;
 }
@@ -204,7 +211,7 @@ input[type="checkbox"]:checked ~ .bottom-bar {
     background-color: #edba9358;
 }
 
-.media-menu  {
+.media-menu {
     display: none;
 }
 
@@ -289,14 +296,14 @@ footer {
     text-shadow: 0 0 1.15rem #000;
 }
 
-.about-page > p {
+.about-page>p {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.about-page > p::after {
+.about-page>p::after {
     content: "";
     display: block;
     width: 95%;
@@ -306,7 +313,7 @@ footer {
     border-radius: 50px;
 }
 
-.about-page > p:hover::after {
+.about-page>p:hover::after {
     width: 70%;
     height: 5px;
     margin-bottom: 1px;
@@ -324,7 +331,7 @@ footer {
     flex-direction: column;
 }
 
-.container > .title > h1 {
+.container>.title>h1 {
     font-size: 12vw;
     height: 16vw;
     font-weight: 600;
@@ -333,7 +340,7 @@ footer {
     font-family: 'AdobeBold';
 }
 
-.container > .title > .subtitle > h2 {
+.container>.title>.subtitle>h2 {
     font-size: 6vw;
     font-weight: 600;
     color: #fff;
@@ -341,7 +348,7 @@ footer {
     text-shadow: 0 0 2.15rem #00000093;
 }
 
-.title > .main-bar {
+.title>.main-bar {
     width: 70%;
     height: 8;
     border-radius: 10px;
@@ -446,7 +453,7 @@ footer {
     align-items: start;
 }
 
-.cv-download > a > img {
+.cv-download>a>img {
     width: 2vw;
     height: 2vw;
 }
@@ -460,7 +467,7 @@ footer {
     column-gap: 0.4vw;
 }
 
-.cv-download .container-cv-download img{
+.cv-download .container-cv-download img {
     width: 1.7vw;
     height: 1.7vw;
 }
@@ -511,7 +518,7 @@ footer {
     background-repeat: no-repeat;
 }
 
-.footer-links a:hover{
+.footer-links a:hover {
     transition: all 0.2s ease;
 }
 
@@ -642,7 +649,7 @@ footer {
     background-repeat: no-repeat;
 }
 
-.btn-switch-mode > .media-light-theme-form{
+.btn-switch-mode>.media-light-theme-form {
     transform: translateX(-2px);
 }
 
@@ -650,7 +657,7 @@ footer {
     transition: all 0.2s ease;
 }
 
-.btn-switch-mode > .media-dark-theme-form > button{
+.btn-switch-mode>.media-dark-theme-form>button {
     transition: all 0.2s ease;
     background-color: transparent;
     background-size: 50%;
@@ -658,13 +665,13 @@ footer {
     background-image: url(../../img/index/dark-black.png);
 }
 
-.btn-switch-mode > .media-dark-theme-form > button:hover{
+.btn-switch-mode>.media-dark-theme-form>button:hover {
     background-color: #e6d1be52;
     background-image: url(../../img/index/dark-hover-black.png);
 }
 
 
-.btn-switch-mode > .media-light-theme-form > button{
+.btn-switch-mode>.media-light-theme-form>button {
     transition: all 0.2s ease;
     background-size: 60%;
     border-radius: 0 100% 100% 0;
@@ -672,7 +679,7 @@ footer {
     background-image: url(../../img/index/light-hover-black.png);
 }
 
-.btn-switch-mode > .media-light-theme-form > button:hover{
+.btn-switch-mode>.media-light-theme-form>button:hover {
     background-color: #d1af92b9;
     background-image: url(../../img/index/light-black.png);
 }

@@ -18,8 +18,12 @@ body.body-dark .explain-container .explain {
     background-color : rgb(218 198 198 / 70%);
 }
 
+html {
+    --color-bottom-and-clicked-project-dark-theme : #dfcace;
+}
+
 body.body-dark .project.selected {
-    background-color : rgb(219 191 191 / 70%);
+    background-color : var(--color-bottom-and-clicked-project-dark-theme);
 }
 
 body.body-dark .project:not(.selected):hover {
@@ -27,7 +31,7 @@ body.body-dark .project:not(.selected):hover {
 }
 
 body.body-dark .project .bottom-project-container .bottom-project {
-    background-color: #e1b8b8;
+    background-color: var(--color-bottom-and-clicked-project-dark-theme);
 }
 
 body.body-dark .point:hover, .body-dark .point.selected {

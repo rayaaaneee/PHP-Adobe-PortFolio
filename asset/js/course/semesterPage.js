@@ -4,8 +4,19 @@ const crossSemesterPage = semesterPage.querySelector(".cross-semester-page-conta
 const semesterPageMainContainer = semesterPage.querySelector(".semester-page-main-container");
 const semesterPageTitle = semesterPage.querySelector(".title-semester");
 const semesterPageTitleImg = semesterPage.querySelector("#semesterPage .semester-page-title-img-container img");
+const semesterPageStartingDate = semesterPage.querySelector(".semester-page-starting-date");
+const semesterPageEndingDate = semesterPage.querySelector(".semester-page-ending-date");
+const semesterPageSchoolImage = semesterPage.querySelector(".semester-school-img");
+const semesterPageSchoolName = semesterPage.querySelector(".semester-school-name");
+const semesterPageSchoolLocation = semesterPage.querySelector(".semester-school-location");
+const semesterPageSchoolAddress = semesterPage.querySelector(".semester-school-address");
+const semesterPageSpecialtiesTexts = semesterPage.querySelectorAll(".semester-page-specialty");
 
-const timeAnimationSemesterPage = 400;
+const semesterPageSpecialtiesPart = semesterPage.querySelector(".semester-specialties-part");
+const semesterPageSubjectsPart = semesterPage.querySelector(".semester-subjects-part");
+const semesterPageSchoolPart = semesterPage.querySelector(".semester-school-part");
+
+const timeAnimationSemesterPage = 800;
 var lastArrowClicked = null;
 
 const openSemesterPage = (arrow, event) => {
@@ -16,13 +27,55 @@ const openSemesterPage = (arrow, event) => {
     semester = arrow.closest(".project");
     event.stopPropagation();
 
+    const hasSpecialties = Boolean(semester.querySelector(".has-specialties").textContent);
+
+    if (hasSpecialties) {
+        semesterPageSpecialtiesPart.style.display = "block";
+        let semesterSpecialties = semester.querySelectorAll(".specialty");
+        for (let i = 0; i < semesterSpecialties.length; i++) {
+            semesterPageSpecialtiesTexts[i].textContent = semesterSpecialties[i].textContent;
+        }
+    } else {
+        semesterPageSpecialtiesPart.style.display = "none";
+    }
+
+    const hasSubjects = Boolean(semester.querySelector(".has-subjects").textContent);
+
+    if (hasSubjects) {
+        semesterPageSubjectsPart.style.display = "block";
+    } else {
+        semesterPageSubjectsPart.style.display = "none";
+        semesterPageSchoolPart.style.paddingBottom = "30px";
+    }
+
+    console.log(hasSpecialties);
+    console.log(hasSubjects);
+
     let semesterHiddenInformations = semester.querySelector(".hidden-informations");
     let semesterTitle = semesterHiddenInformations.querySelector(".title-semester");
     let semesterTitleImg = semesterHiddenInformations.querySelector(".icon-white");
+    let semesterStartingDate = semesterHiddenInformations.querySelector(".starting-date");
+    let semesterEndDate = semesterHiddenInformations.querySelector(".ending-date");
+    let semesterSchoolIcon = semesterHiddenInformations.querySelector(".school-icon");
+    let semesterSchoolName = semesterHiddenInformations.querySelector(".school-name");
+    let semesterSchoolLocation = semesterHiddenInformations.querySelector(".school-location");
+    let semesterSchoolAddress = semesterHiddenInformations.querySelector(".school-address");
 
     semesterPageTitle.textContent = semesterTitle.textContent;
 
     semesterPageTitleImg.src = semesterTitleImg.textContent;
+
+    semesterPageStartingDate.textContent = semesterStartingDate.textContent;
+
+    semesterPageEndingDate.textContent = semesterEndDate.textContent;
+
+    semesterPageSchoolImage.src = semesterSchoolIcon.textContent;
+
+    semesterPageSchoolName.textContent = semesterSchoolName.textContent;
+
+    semesterPageSchoolLocation.textContent = semesterSchoolLocation.textContent;
+
+    semesterPageSchoolAddress.textContent = semesterSchoolAddress.textContent;
 
     semesterPage.classList.add("visible");
 
@@ -42,7 +95,20 @@ const closeSemesterPage = () => {
     setTimeout(() => {
         semesterPageTitleImg.src = "";
         semesterPageTitle.textContent = "";
+        semesterPageStartingDate.textContent = "";
+        semesterPageEndingDate.textContent = "";
+        semesterPageSchoolImage.src = "";
+        semesterPageSchoolName.textContent = "";
+        semesterPageSchoolLocation.textContent = "";
+        semesterPageSchoolAddress.textContent = "";
+        semesterPageSpecialtiesPart.style.removeProperty("display");
+        semesterPageSubjectsPart.style.removeProperty("display");
+        semesterPageSchoolPart.removeAttribute("style");
         document.body.style.overflowY = "auto";
         semesterPage.classList.remove("visible");
     }, timeAnimationSemesterPage);
 };
+
+const openImageSemester = () => {
+    console.log("openImageSemester");
+}

@@ -7,6 +7,13 @@ class Semester
     private string $icon;
     private string $iconPath;
     private string $whiteIcon;
+    private string $schoolName;
+    private string $schoolIcon;
+    private string $schoolIconPath;
+    private string $schoolLocation;
+    private string $schoolAddress;
+    private ?string $subjects;
+    private array $specialties;
     private DateTime $startingDate;
     private DateTime $endingDate;
 
@@ -19,6 +26,13 @@ class Semester
         $this->icon = $semester['icon'];
         $this->iconPath = PATH_IMAGES . 'course/' . $this->icon;
         $this->whiteIcon = $semester['white_icon'];
+        $this->schoolIcon = $semester['school_icon'];
+        $this->schoolIconPath = PATH_IMAGES . 'course/semester/' . $this->schoolIcon;
+        $this->specialties = $semester['specialties'];
+        $this->subjects = $semester['subjects'];
+        $this->schoolName = $semester['school_name'];
+        $this->schoolLocation = $semester['school_location'];
+        $this->schoolAddress = $semester['school_address'];
     }
 
     public static function processRow(array $semesters): array
@@ -82,5 +96,50 @@ class Semester
     public function getWhiteIconPath(): string
     {
         return PATH_IMAGES . 'course/' . $this->whiteIcon;
+    }
+
+    public function getSchoolIcon(): string
+    {
+        return $this->schoolIcon;
+    }
+
+    public function getSchoolIconPath(): string
+    {
+        return $this->schoolIconPath;
+    }
+
+    public function getSpecialties(): ?array
+    {
+        return $this->specialties;
+    }
+
+    public function hasSpecialties(): bool
+    {
+        return count($this->specialties) > 0;
+    }
+
+    public function getSubjects(): ?string
+    {
+        return $this->subjects;
+    }
+
+    public function hasSubjects(): bool
+    {
+        return $this->subjects != null;
+    }
+
+    public function getSchoolName(): string
+    {
+        return $this->schoolName;
+    }
+
+    public function getSchoolLocation(): string
+    {
+        return $this->schoolLocation;
+    }
+
+    public function getSchoolAddress(): string
+    {
+        return $this->schoolAddress;
     }
 }

@@ -143,9 +143,8 @@ html{
     height: 207px;
     background-color: 239, 195, 153;
     rotate: 173deg;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     z-index: -1;
-    background-color: rgb(205 159 142 / 70%);
+    background-color: var(--color-bottom-and-clicked-project);
 }
 
 .title-project {
@@ -240,8 +239,12 @@ html {
     width: 40px;
 }
 
+html {
+    --color-bottom-and-clicked-project: #e4cba7;
+}
+
 .project.selected {
-    background-color: rgb(225 157 131 / 40%);
+    background-color: var(--color-bottom-and-clicked-project);
 }
 
 #points {
@@ -272,7 +275,7 @@ html {
 .point:hover, .point.selected{
     transition: 0.3s;
     box-shadow: 0 0 10px 0 rgb(0, 0, 0);
-    background: linear-gradient(160deg, transparent 60%, rgb(222, 162, 132) 40%);
+    background: linear-gradient(160deg, transparent 60%, var(--color-bottom-and-clicked-project) 40%);
     backdrop-filter: blur(10px);
 }
 

@@ -50,9 +50,6 @@ const openSemesterPage = (arrow, event) => {
         semesterPageSubjectsPart.style.display = "none";
     }
 
-    console.log(hasSpecialties);
-    console.log(hasSubjects);
-
     let semesterHiddenInformations = semester.querySelector(".hidden-informations");
     let semesterTitle = semesterHiddenInformations.querySelector(".title-semester");
     let semesterTitleImg = semesterHiddenInformations.querySelector(".icon-white");

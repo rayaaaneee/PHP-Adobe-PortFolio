@@ -52,7 +52,7 @@
         "title" : "Poster : Hack",
         "icon" : "poster",
         "use_desc" : null,
-        "project_desc" : "Ce projet était un projet scolaire de groupe de communication sur un sujet de notre choix en lien avec l'informatique.\r\nJ'ai travaillée sur la réalisation du design",
+        "project_desc" : "Ce projet était un projet scolaire de groupe de communication sur un sujet de notre choix en lien avec l'informatique.\r\nJ'ai travaillée sur la réalisation du design. J'ai trouvé intéressant d'afficher ce projet car il a demandé des compétences en Photoshop et Illustrator que je n'avais pas encore eu l'occasion de travailler ainsi qu'une bonne compréhension de la communication visuelle.",
         "is_download" : 1,
         "file" : "Poster-Hack.pdf",
         "is_link" : 1,
@@ -63,7 +63,6 @@
         "uses_skills" : 1,
         "uses_languages" : 0
     },
-
     "project5" : {
         "id" : 5,
         "title" : "GIT Cheat Sheet",

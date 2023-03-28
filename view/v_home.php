@@ -170,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            <div id="container-cv-text-bar">
+            <div id="container-cv-text-bar" class="animate">
                 <div class="framecv-bar"></div>
                 <div id="framecv-text">
                     <p>À savoir : <br><br> Voici mon CV, celui-ci est amené à être modifié avec le temps, dans quelques mois il sera différent. <br>
@@ -187,7 +187,7 @@
                 <img draggable="false" src="<?= PATH_IMAGES . "home/icon/" . $theme->getImagePath("zoom"); ?>" imageothertheme="<?= PATH_IMAGES . "home/icon/" . $theme->getOtherThemeImagePath("zoom"); ?>" alt="zoom">
             </div>
             <p class="beforebutton">Vous pouvez télécharger mon CV actuel au format pdf en cliquant sur le bouton ci-dessous.</p>
-            <a href="index/files/CV.pdf" download="CV_Rayane_Merlin.pdf"><button class="cv-button">Télécharger</button></a>
+            <a href="<?= PATH_FILES; ?>CV.pdf" download="CV_Rayane_Merlin.pdf"><button class="cv-button">Télécharger</button></a>
             <div class="blackbar"></div>
         </div>
 </article>

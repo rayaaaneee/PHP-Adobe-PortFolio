@@ -142,7 +142,7 @@ const animateClosingCVFrameButtons = () => {
 
 // Fonction qui imprime envoie vers la page d'impression quand on clique sur le bouton Print
 const printPDF = () =>{
-    var pdf = window.open("./asset/files/CV.pdf", "_blank");
+    var pdf = window.open("./asset/file/CV.pdf", "_blank");
     pdf.print();
 }
 

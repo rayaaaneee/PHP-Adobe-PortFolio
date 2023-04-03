@@ -63,12 +63,14 @@ const startGame = (index) => {
     //Modifie la couleur du background selon le jeu choisi
     switch(index){
         case 0:
-            document.getElementById("loader-mainv2").style.border = "10px solid rgb(167, 155, 224)";
-            document.getElementById("loader-inner").style.backgroundColor = "rgb(167, 155, 224)";
+            let colorSticks = "rgb(59 42 137)";
+            document.getElementById("loader-mainv2").style.border = "10px solid "+colorSticks;
+            document.getElementById("loader-inner").style.backgroundColor = colorSticks;
             break;
         case 1:
-            document.getElementById("loader-mainv2").style.border = "10px solid rgb(120, 170, 127)";
-            document.getElementById("loader-inner").style.backgroundColor = "rgb(120, 170, 127)";
+            let colorSnake = "rgb(120, 170, 127)";
+            document.getElementById("loader-mainv2").style.border = "10px solid "+colorSnake;
+            document.getElementById("loader-inner").style.backgroundColor = colorSnake;
             break;
         default:
             break;

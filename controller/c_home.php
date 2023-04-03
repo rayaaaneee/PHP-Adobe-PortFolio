@@ -7,7 +7,7 @@ require_once PATH_CLASSES . "SchoolCompetence.php";
 
 require_once PATH_PRESENTERS . "indexPresenter.php";
 
-$projects_array = FetchJSON::fetchLocalJSON(PATH_DATAS . "home/project.json");
+$projects_array = FetchJSON::fetchLocalJSON(PATH_DATAS . "home/project.json")["projects"];
 $projects = [];
 
 foreach ($projects_array as $project_array) {

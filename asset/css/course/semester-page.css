@@ -37,18 +37,27 @@
 }
 
 html {
-    --cross-margin-semester-page: 20px;
+    --cross-container-margin-semester-page: 20px;
+}
+
+#semesterPage .all-cross-container {
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    top: var(--cross-container-margin-semester-page);
+    right: var(--cross-container-margin-semester-page);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #semesterPage .cross-semester-page-container {
-    position: fixed;
-    top: var(--cross-margin-semester-page);
-    right: var(--cross-margin-semester-page);
     display: flex;
+    width: 100%;
+    height: 100%;
     color: white;
-    width: 70px;
-    height: 70px;
-    z-index: 3;
     border: 1px solid rgba(221, 141, 141, 0.8);
     border-radius: 50%;
     font-size: 20px;

@@ -7,7 +7,6 @@ const imagesToChange = $('[imageothertheme]');
 
 $(formChangeTheme).on('submit', (event) => {
     event.preventDefault();
-    console.log(event.target);
     if (event.target.checkValidity() === false) {
         event.stopPropagation();
     } else {
@@ -45,8 +44,6 @@ const changeImages = () => {
     imagesToChange.each(function (index, element) {
         var currentImage = $(element).attr('src');
         var imageOtherTheme = $(element).attr('imageothertheme');
-        console.log(currentImage);
-        console.log(imageOtherTheme);
         $(element).attr('src', imageOtherTheme);
         $(element).attr('imageothertheme', currentImage);
     });

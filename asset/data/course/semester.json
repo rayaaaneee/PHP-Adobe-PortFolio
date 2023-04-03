@@ -20,7 +20,7 @@
         "school_name" : "IUT Lyon 1",
         "school_location" : "Villeurbanne La Doua, 69100",
         "school_address" : "80 Bd Niels Bohr",
-        "school_icon" : "lyon-1.png",
+        "school_icon" : "lyon1.png",
         "starting_date" : "2021-09-03",
         "ending_date" : "2022-01-01",
         "icon" : "study.png",
@@ -36,7 +36,7 @@
         "school_name" : "IUT Lyon 1",
         "school_location" : "Villeurbanne La Doua, 69100",
         "school_address" : "80 Bd Niels Bohr",
-        "school_icon" : "lyon-1.png",
+        "school_icon" : "lyon1.png",
         "icon" : "study.png",
         "white_icon" : "study-white.png",
         "subjects" : "s2.png"
@@ -50,7 +50,7 @@
         "school_name" : "IUT Lyon 1",
         "school_location" : "Villeurbanne La Doua, 69100",
         "school_address" : "80 Bd Niels Bohr",
-        "school_icon" : "lyon-1.png",
+        "school_icon" : "lyon1.png",
         "icon" : "study.png",
         "white_icon" : "study-white.png",
         "subjects" : "s3.png"
@@ -64,7 +64,7 @@
         "school_name" : "IUT Lyon 1",
         "school_location" : "Villeurbanne La Doua, 69100",
         "school_address" : "80 Bd Niels Bohr",
-        "school_icon" : "lyon-1.png",
+        "school_icon" : "lyon1.png",
         "icon" : "study.png",
         "white_icon" : "study-white.png",
         "subjects" : "s4.png"

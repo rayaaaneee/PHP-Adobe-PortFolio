@@ -160,8 +160,10 @@
             </div>
         </div>
     </div>
-    <div class="cross-semester-page-container" onclick="closeSemesterPage();">
-        <p>X</p>
+    <div class="all-cross-container">
+        <div class="cross-semester-page-container" onclick="closeSemesterPage();">
+            <p>X</p>
+        </div>
     </div>
     <div class="background-semester-page"></div>
 </article>

@@ -91,10 +91,17 @@ html {
     transform: none;
 }
 
+
+html {
+    --padding-left-project-page-content : 2.5vw;
+}
+
 .project-page-content {
     position: absolute;
-    left: 2.5vw;
+    left: 0;
     top: 2vw;
+    width: calc(100% - var(--padding-left-project-page-content));
+    padding-left: var(--padding-left-project-page-content);
     z-index: 11;
 }
 

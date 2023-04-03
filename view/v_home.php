@@ -71,7 +71,7 @@
         }
         ?>
         <?php if ($i > 9) { ?>
-            <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);">
+            <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" class="animate">
                 <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);">
                     <img src="<?= PATH_IMAGES; ?>home/icon/more.png" draggable="false" id="img<?php echo $i ?>" class="workslogos">
                 </div>

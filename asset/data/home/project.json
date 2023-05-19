@@ -16,7 +16,9 @@
             "uses_skills" : false,
             "uses_languages" : true,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         },
         {
             "id" : 2,
@@ -34,7 +36,9 @@
             "uses_skills" : false,
             "uses_languages" : true,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         },
         {
             "id" : 3,
@@ -52,7 +56,9 @@
             "uses_skills" : false,
             "uses_languages" : true,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         },
         {
             "id" : 4,
@@ -70,7 +76,9 @@
             "uses_skills" : true,
             "uses_languages" : false,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         },
         {
             "id" : 5,
@@ -88,7 +96,9 @@
             "uses_skills" : true,
             "uses_languages" : false,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         },
         {
             "id" : 6,
@@ -106,7 +116,9 @@
             "uses_skills" : false,
             "uses_languages" : true,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         }, 
         {
             "id" : 7,
@@ -124,7 +136,9 @@
             "uses_skills" : false,
             "uses_languages" : true,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         },
         {
             "id" : 8,
@@ -142,7 +156,9 @@
             "uses_skills" : false,
             "uses_languages" : true,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         },
         {
             "id" : 9,
@@ -160,16 +176,18 @@
             "uses_skills" : false,
             "uses_languages" : true,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         },
         {
             "id" : 10,
             "title" : "Market Manager",
             "icon" : "market-manager",
-            "project_desc" : "...",
-            "use_desc" : "...",
+            "project_desc" : "Ce projet était un projet scolaire de PHP Symfony. Le but de cette application web est de pouvoir créer, gérer et collaborer sur ses listes de courses. Avec MarketManager, vous pourrez créer des listes et personnaliser les articles à 100% pour ensuite les insérer dans des listes. Vous pourrez ensuite partager vos listes avec vos amis et collaborer sur celles-ci. Vous pourrez aussi créer des listes de courses pour des évènements (anniversaire, mariage, etc...). Vous avez la possibilité de rajouter une date de fin pour vos listes afin de pouvoir les archiver une fois que la date est dépassée.Une des dernières fonctionnalité importante est la possibilité de voir des statistiques sous forme de graphiques sur l'ensemble de vos listes de courses, ainsi que des statistiques plus précises sur chaque liste que vous avez crée.",
+            "use_desc" : "Pour pouvoir utiliser MarketManager, il vous faudra vous créer un compte. Une fois connecté, vous pourrez créer des listes de courses avec des \"templates d'articles\" que vous pourrez personnalisez (changer le prix, le nom, ajouter une marque, augmenter la quantité). Vous pourrez aussi partager vos listes avec vos amis et collaborer sur celles-ci simplement en y ajoutant des collaborateurs avec l'interface de collaboration dans l'onglet d'affichage de listes, il vous suffit d'envoyer une demande de collaboration à un utilisateur existant, une fois cette demande acceptée, l'utilisateur collaborera avec vous sur la liste en question, pourra y rajouter des articles, la voir, mais vous serez le seul à pouvoir modifier les attributs de cette liste (date de fin, nom, description).",
             "is_download" : true,
-            "file" : "",
+            "file" : "MarketManager.rar",
             "is_link" : false,
             "link" : "",
             "image" : null,
@@ -178,7 +196,9 @@
             "uses_skills" : false,
             "uses_languages" : true,
             "has_documentation": false,
-            "documentation": null
+            "documentation": null,
+            "has_github": false,
+            "github": null
         }
     ]
 }

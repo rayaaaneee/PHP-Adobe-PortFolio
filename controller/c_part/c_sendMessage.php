@@ -7,7 +7,6 @@ require_once 'config.php';
 require_once PATH_PRESENTERS . 'contactPresenter.php';
 
 require_once PATH_CLASSES . "Message.php";
-require_once PATH_DAO . "MessageDAO.php";
 require_once PATH_DTO . "MessageDTO.php";
 
 

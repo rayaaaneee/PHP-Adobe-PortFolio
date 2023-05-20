@@ -1,22 +1,15 @@
 /* Parametres du titre */
-.t1 p{
-  margin-top: 60px;
-}
-/* Parametres du titre */
-.title p{
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.884);
+.t1 p {
+    margin-top: 60px;
 }
 
 /* Disposition du contenu */
-.content{
+.content {
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.884);
     transition: background-color var(--general-transition-switch-mode);
-    box-shadow: 0 0 30px rgba(0,0,0,0.2); 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
 .content .title-part {
@@ -47,7 +40,7 @@
 }
 
 /* Deisgn de la photo */
-#photopres{
+#photopres {
     width: 200px;
     border-radius: 50%;
     margin: 20px;
@@ -55,13 +48,13 @@
 }
 
 /*Parametres du texte */
-.text{
-    font-family: "Helvetica Neue",Helvetica,Arial	sans-serif;
+.text {
+    font-family: "Helvetica Neue", Helvetica, Arial sans-serif;
     font-size: 25px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.884);
     text-align: justify;
-    margin : 20px;
+    margin: 20px;
 }
 
 .text p {
@@ -69,15 +62,15 @@
 }
 
 /* Disposition et déco des iframes */
-#frames{
+#frames {
     width: 100%;
     display: grid;
-    box-shadow: 0 0 30px rgba(0,0,0,0.2); 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     /* Centrer les iframes */
     justify-items: center;
 
     grid-template-columns: 1fr 1fr;
-    
+
     /* Ne pas utiliser la premiere et la derniere grille */
     grid-column-start: 1;
     grid-column-end: 2;
@@ -89,29 +82,29 @@
 }
 
 /* Bordure sur les iframes et taille 100%*/
-#frames iframe{
-    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+#frames iframe {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     width: 100%;
 }
 
-.t2 h3{
+.t2 h3 {
     padding-bottom: 20px;
 }
 
 /* Barre horizontale blanche */
-.horizontal-bars{ 
-    width: 30%; 
-    height: 12px; 
-    background-color: #fff; 
-    border-radius: 10px; 
-    box-shadow: 0 0 15px rgba(0,0,0,0.3); 
+.horizontal-bars {
+    width: 30%;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.3s ease, background-color var(--general-transition-switch-mode);
     /* Centrer */
     margin: 0 auto;
     align-self: center;
-} 
+}
 
-#horizontal-bar1{
+#horizontal-bar1 {
     margin-bottom: 3vw;
 }

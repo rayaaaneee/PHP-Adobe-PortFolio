@@ -161,26 +161,6 @@
             "github": null
         },
         {
-            "id" : 9,
-            "title" : "Kwiz",
-            "icon" : "kwiz",
-            "project_desc" : "...",
-            "use_desc" : "...",
-            "is_download" : true,
-            "file" : "",
-            "is_link" : false,
-            "link" : "",
-            "image" : null,
-            "date" : "2023-04",
-            "languages" : ["ReactJS", "Typescript", "HTML", "CSS", "NodeJS"],
-            "uses_skills" : false,
-            "uses_languages" : true,
-            "has_documentation": false,
-            "documentation": null,
-            "has_github": false,
-            "github": null
-        },
-        {
             "id" : 10,
             "title" : "Market Manager",
             "icon" : "market-manager",

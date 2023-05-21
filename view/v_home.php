@@ -1,6 +1,6 @@
 <head>
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= PATH_CSS; ?>home/style.css">
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>home/style.scss">
     <link rel="stylesheet" href="<?= PATH_CSS; ?>home/frame-cv.css">
     <link rel="stylesheet" href="<?= PATH_CSS; ?>home/dark-style.css">
     <link rel="stylesheet" href="<?= PATH_CSS; ?>home/project-page.css">
@@ -31,53 +31,54 @@
         <p>Mes projets</p>
     </div>
     <div class="horizontal-bars animate" id="horizontal-bar1"></div>
-    <article class="projects">
-        <?php
-        $i = 1;
-        foreach ($projects as $project) { ?>
-            <div class="main-container animate" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);" data-date="<?= $project->getFormatDate(); ?>">
-                <div class="content" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
-                    <div class="to_download">
-                        <p><?= $project->getTitle() ?></p>
-                        <img src="<?= $project->getTypeImagePath($theme->getImagePath($project->getTypeImageName())); ?>" imageothertheme="<?= $project->getTypeImagePath($theme->getOtherThemeImagePath($project->getTypeImageName())); ?>" draggable="false">
-                    </div>
-                    <img src="<?= $project->getIconPath($theme->getImagePath($project->getIcon())) ?>" imageothertheme="<?= $project->getIconPath($theme->getOtherThemeImagePath($project->getIcon())); ?>" id="img<?= $i ?>" class="workslogos" draggable="false">
-                </div>
-                <p class="project-desc hidden"><?= $project->getDescription() ?></p>
-                <p class="project-use-desc hidden"><?= $project->getUseDescription() ?></p>
-                <p class="project-img hidden"><?= $project->getImage(); ?></p>
-                <p class="project-is-download hidden"><?= $project->isDownload(); ?></p>
-                <p class="project-is-link hidden"><?= $project->isLink(); ?></p>
-                <div class="project-uses-skills hidden"><?= $project->usesSkills(); ?></div>
-                <div class="project-uses-languages hidden"><?= $project->usesLanguages(); ?></div>
-                <div class="project-languages hidden">
-                    <?php foreach ($project->getLanguages() as $language) : ?>
-                        <div class="project-language hidden">
-                            <p class="project-language-name"><?= $language->getName(); ?></p>
-                            <p class="project-language-color"><?= $language->getColor(); ?></p>
+    <div class="projects-chevrons-container">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="chevron left">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+        <article class="projects">
+            <?php
+            $i = 1;
+            foreach ($projects as $project) { ?>
+                <div class="main-container animate" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" onclick="openProjectPage(this);" data-date="<?= $project->getFormatDate(); ?>">
+                    <div class="content" onmouseover="growImg(<?= $i ?>);" onmouseleave="shrinkImg(<?= $i ?>);">
+                        <div class="to_download">
+                            <p><?= $project->getTitle() ?></p>
+                            <img src="<?= $project->getTypeImagePath($theme->getImagePath($project->getTypeImageName())); ?>" imageothertheme="<?= $project->getTypeImagePath($theme->getOtherThemeImagePath($project->getTypeImageName())); ?>" draggable="false">
                         </div>
-                    <?php endforeach; ?>
+                        <img src="<?= $project->getIconPath($theme->getImagePath($project->getIcon())) ?>" imageothertheme="<?= $project->getIconPath($theme->getOtherThemeImagePath($project->getIcon())); ?>" id="img<?= $i ?>" class="workslogos" draggable="false">
+                    </div>
+                    <p class="project-desc hidden"><?= $project->getDescription() ?></p>
+                    <p class="project-use-desc hidden"><?= $project->getUseDescription() ?></p>
+                    <p class="project-img hidden"><?= $project->getImage(); ?></p>
+                    <p class="project-is-download hidden"><?= $project->isDownload(); ?></p>
+                    <p class="project-is-link hidden"><?= $project->isLink(); ?></p>
+                    <div class="project-uses-skills hidden"><?= $project->usesSkills(); ?></div>
+                    <div class="project-uses-languages hidden"><?= $project->usesLanguages(); ?></div>
+                    <div class="project-languages hidden">
+                        <?php foreach ($project->getLanguages() as $language) : ?>
+                            <div class="project-language hidden">
+                                <p class="project-language-name"><?= $language->getName(); ?></p>
+                                <p class="project-language-color"><?= $language->getColor(); ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php if ($project->isDownload()) { ?>
+                        <p class="project-file hidden"><?= $project->getFile() ?></p>
+                        <p class="project-size hidden"><?= $project->getFileSize(); ?></p>
+                    <?php }
+                    if ($project->isLink()) { ?>
+                        <p class="project-link hidden"><?= $project->getLink(); ?></p>
+                    <?php } ?>
                 </div>
-                <?php if ($project->isDownload()) { ?>
-                    <p class="project-file hidden"><?= $project->getFile() ?></p>
-                    <p class="project-size hidden"><?= $project->getFileSize(); ?></p>
-                <?php }
-                if ($project->isLink()) { ?>
-                    <p class="project-link hidden"><?= $project->getLink(); ?></p>
-                <?php } ?>
-            </div>
-        <?php
-            $i++;
-        }
-        ?>
-        <?php if ($i > 9) { ?>
-            <div id="seemore" onmouseover="colorBar(1);" onmouseleave="uncolorBar(1);" class="animate">
-                <div class="content" id="More" onmouseover="growImg(<?php echo $i ?>);" onmouseleave="shrinkImg(<?php echo $i ?>);">
-                    <img src="<?= PATH_IMAGES; ?>home/icon/more.png" draggable="false" id="img<?php echo $i ?>" class="workslogos">
-                </div>
-            </div>
-        <?php } ?>
-    </article>
+            <?php
+                $i++;
+            }
+            ?>
+        </article>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="chevron right">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+    </div>
     <div class="project-page-container">
         <div class="project-page">
             <div class="project-page-content">

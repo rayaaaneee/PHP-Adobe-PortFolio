@@ -72,8 +72,9 @@ body {
     background-position: center;
 }
 
-.t1{
-    margin-top: 100px;
+/* Mettre le titre assez bas pour qu'on puisse le voir */
+.t1 {
+    padding-top: 70px;
 }
 
 .mediamenu{

@@ -31,10 +31,24 @@ class scrollProjects {
 
     #scrollLeft = () => {
         this.#projectsContainer.scrollLeft -= this.gap;
+        if (this.#projectsContainer.scrollLeft === 0) {
+            console.log('alert');
+            this.#chevrons.left.classList.add('alert');
+            setTimeout(() => {
+                this.#chevrons.left.classList.remove('alert');
+            }, 400);
+        }
     }
 
     #scrollRight = () => {
         this.#projectsContainer.scrollLeft += this.gap;
+        if (this.#projectsContainer.scrollLeft === this.#projectsContainer.scrollWidth - this.#projectsContainer.offsetWidth) {
+            console.log('alert');
+            this.#chevrons.right.classList.add('alert');
+            setTimeout(() => {
+                this.#chevrons.right.classList.remove('alert');
+            }, 400);
+        }
     }
 }
 

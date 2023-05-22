@@ -118,7 +118,8 @@ body {
 
 .main-container-recent-events {
     width: fit-content;
-    height: 60vh;
+    min-height: fit-content;
+    max-height: 60vh;
     overflow-y: auto;
 }
 

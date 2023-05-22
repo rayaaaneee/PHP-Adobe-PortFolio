@@ -142,7 +142,7 @@ const animateClosingCVFrameButtons = () => {
 
 // Fonction qui imprime envoie vers la page d'impression quand on clique sur le bouton Print
 const printPDF = () =>{
-    var pdf = window.open("./asset/files/CV.pdf", "_blank");
+    var pdf = window.open("./asset/file/CV.pdf", "_blank");
     pdf.print();
 }
 
@@ -150,7 +150,7 @@ const printPDF = () =>{
 const getInformations = () => {
     let result = null;
 
-    let path = "./asset/files/data.txt";
+    let path = "./asset/file/data.txt";
 
     let fichierBrut = new XMLHttpRequest();
     fichierBrut.open("GET", path, false);
@@ -222,90 +222,6 @@ const hideInformations = () => {
     displaying = false;
 }
 
-const disappearProject = () => {
-    if(indexProject === 8){
-        clearInterval(intervalAppearProject);
-        // Le bouton sert désormais à afficher les projets
-        setTimeout(() => {
-            seeMoreButton.removeAttribute("style");
-        }, 700);
-        seeMoreButton.removeEventListener("click", disappearOthersProjects);
-        seeMoreButton.addEventListener("click", appearOthersProjects);
-    }
-    let project = projects[indexProject-1];
-    setTimeout(() => {
-        project.classList.add("container-seemore-project");
-        setTimeout(function(){
-            project.classList.remove("container-seemore-project");
-            setTimeout(() => {
-                project.style.display = "none";
-            }, 70);
-        }, 300);
-        indexProject--;
-    }, 75);
-}
-
-// Quand on clique sur le bouton moins ca désaffiche les projets affichées
-const disappearOthersProjects = () => {
-    seeMoreButton.style.display = "none";
-    seeMoreButton.querySelector(".workslogos").src = "./asset/img/home/icon/more.png"
-    intervalAppearProject = setInterval(() => {
-        // Lancer l'animation au bout de 200ms
-        disappearProject();
-    }, 150);
-}
-
-// Fonction qui display none les projets ayant un index <=8 quand on clique sur le bouton "Voir plus"
-var projects = null;
-const disappearMoreThat7Projects = () => {
-    projects = document.querySelectorAll(".main-container");
-    projects.forEach((element, index)=>{
-        if(index > 6 && index != projects.length && projects.length > 8){
-            element.style.display = "none";
-        }
-    });
-}
-disappearMoreThat7Projects();
-
-// Quand on clique sur le bouton "Voir plus", on affiche les autres projets avec une animation
-var intervalAppearProject = null;
-var seeMoreButton = document.getElementById("seemore");
-const appearOthersProjects = () => {
-    seeMoreButton.style.display = "none";
-    seeMoreButton.querySelector(".workslogos").src = "./asset/img/home/icon/less.png"
-    intervalAppearProject = setInterval(() => {
-        // Lancer l'animation au bout de 200ms
-        appearProject();
-    }, 200);
-}
-
-
-// Fonction qui applique l'animation
-var indexProject = 7 ;
-const appearProject = () => {
-    if(indexProject === projects.length-1){
-        clearInterval(intervalAppearProject);
-        // Le bouton sert désormais à désafficher les projets
-        setTimeout(() => {
-            seeMoreButton.removeAttribute("style");
-        }, 250);
-        seeMoreButton.removeEventListener("click", appearOthersProjects);
-        seeMoreButton.addEventListener("click", disappearOthersProjects);
-    }
-    let project = projects[indexProject];
-    project.removeAttribute("style");
-    setTimeout(() => {
-        setTimeout(function(){
-            project.classList.remove("container-seemore-project");
-        }, 300);
-        project.classList.add("container-seemore-project");
-        indexProject++;
-    }, 75);
-}
-
-// On initialise la fonction
-if(seeMoreButton != null) seeMoreButton.addEventListener("click", appearOthersProjects);
-
 // Function qui permet d'ouvrir la page
 const projectPage = document.querySelector(".project-page-container");
 const projectContainer = projectPage.querySelector(".projects");
@@ -317,6 +233,13 @@ const imgLinkOrDownload = projectPage.querySelector(".link-or-download");
 const backgroundProjectPage = projectPage.querySelector(".background-project-page");
 const quitProjectButton = projectPage.querySelector(".quit-project-button");
 const downloadSizeContainer = projectPage.querySelector(".project-size-container");
+const projectLanguagesContainer = projectPage.querySelector(".project-languages-skills-container");
+const projectLanguagesTitle = projectPage.querySelector(".project-languages-skills .title-language-skill");
+var tmpTemplateLanguage = projectLanguagesContainer.querySelector(".template").cloneNode(true);
+tmpTemplateLanguage.classList.remove("template");
+tmpTemplateLanguage.classList.remove("hidden");
+const templateLanguage = tmpTemplateLanguage;
+const projectLanguagesSkillsImg = projectPage.querySelector(".project-languages-skills img");
 
 // Recuperer variable CSS 
 var animDurationProjects = getComputedStyle(document.documentElement).getPropertyValue('--anim-duration');
@@ -329,7 +252,7 @@ var lastElement = null;
 const openProjectPage = (element) => {
 
     lastElement = element.cloneNode(true);
-    
+
     lastElement.removeAttribute("onclick");
     lastElement.removeAttribute("onmouseover");
     lastElement.removeAttribute("onmouseout");
@@ -348,7 +271,7 @@ const openProjectPage = (element) => {
         lastElement.setAttribute("href", href);
         lastElement.setAttribute("download", "");
     }
-    
+
     titleProject.textContent = lastElement.querySelector(".to_download > p").textContent;
     lastElement.querySelector(".to_download").remove();
 
@@ -360,7 +283,8 @@ const openProjectPage = (element) => {
     }
 
     projectPage.style.overflowY = "auto";
-    // On scroll en haut de la page
+
+    // Remonter tout en haut de la page
     projectPage.scrollTop = 0;
 
     let hrefDownload = null;
@@ -381,7 +305,7 @@ const openProjectPage = (element) => {
     linkBtn.setAttribute("href", hrefLink);
     let textMessage = null;
 
-    if(parseInt(element.querySelector(".project-is-link").textContent) === 1) {
+    if(isLink) {
             // Si c'est un lien, on change le texte du bouton, on change l'icone et on display "none" la taille du fichier
             imgLinkOrDownload.src = "./asset/img/home/icon/white-link.png";
 
@@ -396,10 +320,11 @@ const openProjectPage = (element) => {
                     linkBtn.style.marginBottom = "1vw";
             }
     } else {
+            imgLinkOrDownload.src = "./asset/img/home/icon/white-download.png"
             linkBtn.style.display = "none";
     }
 
-    if (parseInt(element.querySelector(".project-is-download").textContent) === 1) {
+    if (isDownload) {
 
             textMessage = "Télécharger (" + baseName(hrefDownload) + ")";
 
@@ -430,9 +355,39 @@ const openProjectPage = (element) => {
         projectPage.querySelector(".project-use-desc-value").parentElement.style.removeProperty("display");
         projectPage.querySelector(".project-use-desc-value").textContent = element.querySelector(".project-use-desc").textContent;
     }
-    
+    // Si le projet nécéssite des compétences et langages, on met le titre de la partie à jour, sinon on met simplement "Compétences" ou "Langages"
+
+    let tmpTitleLanguagePart = "";
+    projectLanguagesSkillsImg.src = "./asset/img/home/icon/skills.png";
+
+    if( element.querySelector(".project-uses-skills").textContent == "1" && element.querySelector(".project-uses-languages").textContent == "1" ) {
+        tmpTitleLanguagePart = "Compétences et langages";
+    } else if( element.querySelector(".project-uses-skills").textContent == "1" ) {
+        tmpTitleLanguagePart = "Compétences";
+    } else if( element.querySelector(".project-uses-languages").textContent == "1" ) {
+        projectLanguagesSkillsImg.src = "./asset/img/home/icon/language2.png";
+        tmpTitleLanguagePart = "Langages";
+    } else {
+        tmpTitleLanguagePart = "Compétences et langages";
+    }
+    projectLanguagesTitle.textContent = tmpTitleLanguagePart + " :";
+
+    // On affiche les langages utilisés
+    let languages = element.querySelector(".project-languages");
+    languages.querySelectorAll(".project-language").forEach(language => {
+        let cloneTemplateLanguage = templateLanguage.cloneNode(true);
+        let languageName = language.querySelector(".project-language-name").textContent;
+        let languageColor = language.querySelector(".project-language-color").textContent;
+
+        cloneTemplateLanguage.querySelector("p").textContent = languageName;
+        cloneTemplateLanguage.style.backgroundColor = languageColor;
+
+        projectLanguagesContainer.appendChild(cloneTemplateLanguage);
+    });
+
+
     document.body.style.overflowY = "hidden";
-    
+
     projectPage.appendChild(lastElement);
     projectPage.style.display = "block";
     // Animation d'ouverture
@@ -456,17 +411,17 @@ const closeProjectPage = () => {
         animateClosingProjectViewingContent();
         backgroundProjectPage.style.removeProperty("opacity");
         setTimeout(() => {
-            
+
             projectPage.removeAttribute("style");
             projectPage.style.removeProperty("overflow-y");
             projectPage.querySelector(".project-size-container").style.removeProperty("display");
             projectPage.querySelector(".project-size-value").textContent = "";
-        
+
             downloadBtn.removeAttribute("href");
             linkBtn.removeAttribute("href");
-            
+
             lastElement.remove();
-        
+
             document.body.style.removeProperty("overflow-y");
 
             linkBtn.style.removeProperty("display");
@@ -474,7 +429,10 @@ const closeProjectPage = () => {
 
             downloadBtn.style.removeProperty("display");
             downloadSizeContainer.style.removeProperty("display");
-        
+
+            projectLanguagesContainer.innerHTML = "";
+            projectLanguagesTitle.textContent = "";
+
             clearInterval(intervalAnimationProjectViewing);
         }, animDurationProjects);
     }, animDurationProjects/1.5);
@@ -486,7 +444,7 @@ const animateProjectViewing = () => {
     switch(growing){
         case true:
             lastElement.querySelector("img").style.transform = "scale(1)";
-            lastElement.style.transform = "translate(-50%,-50%) scale(0.9)";
+            lastElement.style.transform = "scale(0.9)";
             break;
         case false:
             lastElement.querySelector("img").style.transform = "scale(0.85)";

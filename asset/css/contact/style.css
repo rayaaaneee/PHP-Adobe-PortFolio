@@ -92,10 +92,12 @@
 
 /* On définit les couleurs de la case */
 #pres {
+  width: 500px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1.2fr;
   align-items: center;
   background-color: rgb(226, 197, 197, 0.8);
+  transition: background-color var(--general-transition-switch-mode);
   box-shadow: 0 0 30px rgba(0,0,0,0.1); 
   border-radius: 20px;
 }
@@ -118,7 +120,7 @@
   color : white;
   font-size: 20px;
   text-align: justify;
-  padding-right: 50px;
+  padding: 0 25px;
 }
 
 /* On définit les paramètres de la photo*/
@@ -126,7 +128,6 @@
   width: 150px;
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 /* Lorsque l'utilisateur vient de répondre au formulaire, on lui affiche un message, voici le style de ce message*/
@@ -153,12 +154,29 @@
 }
 /* Flex des principaux elements de la page */
 main {
+  width: 100%;
   margin-top : 100px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
-  row-gap: 5vh;
+  column-gap: 50px;
+}
+
+.pres-container, .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.pres-container {
+  align-items: end;
+}
+
+.form-container {
+  align-items: start;
 }
 
 .input-container > input {
@@ -244,11 +262,21 @@ footer {
 .formulaire{
   display: flex;
   align-items: center;
-  margin: 0 auto;
   padding: 40px;
   width: fit-content;
   background-color: rgba(255,255,255,0.8);
+  transition: background-color var(--general-transition-switch-mode);
   backdrop-filter: blur(3px);
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0,0,0,0.2); 
+}
+
+/* On met le container principal en de l'erreur en fixed */
+.alert-container {
+  position: fixed;
+  top: 10px;
+  right: 0;
+  z-index: 10000;
+  width: fit-content;
+  height: fit-content;
 }

@@ -6,8 +6,9 @@ define('PATH_SCRIPTS', PATH_ASSETS . 'js/');
 define('PATH_IMAGES', PATH_ASSETS . 'img/');
 define('PATH_MEDIA', PATH_CSS . 'media/');
 define('PATH_PROJECTS', PATH_ASSETS . 'project/');
-define('PATH_FONTS', PATH_ASSETS . 'fonts/');
-define('PATH_FILES', PATH_ASSETS . 'files/');
+define('PATH_FONTS', PATH_ASSETS . 'font/');
+define('PATH_FILES', PATH_ASSETS . 'file/');
+define('PATH_DATAS', PATH_ASSETS . 'data/');
 
 // Path
 define('PATH_VIEWS', 'view/v_');
@@ -15,19 +16,22 @@ define('PATH_MODELS', 'model/');
 define('PATH_CONTROLLERS', 'controller/c_');
 define('PATH_DATABASE', PATH_MODELS . 'database/');
 define('PATH_PRESENTERS', PATH_MODELS . 'presenter/');
-define('PATH_DAO', PATH_DATABASE . 'dao/');
-define('PATH_DTO', PATH_DATABASE . 'dto/');
+define('PATH_DAO', PATH_DATABASE . 'DAO/');
+define('PATH_DTO', PATH_DATABASE . 'DTO/');
+define('PATH_VIEWS_PARTS',  PATH_VIEWS . 'part/v_');
+define('PATH_CONTROLLERS_PARTS', PATH_CONTROLLERS . 'part/c_');
+define('PATH_CLASSES', PATH_MODELS . 'class/');
 
 // Database
 function defineConnection()
 {
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'portfolio');
-    define('DB_PORT', '8889');
-    define('DB_CHARSET', 'utf8');
+    define('DB_PORT', '3306');
+    define('DB_CHARSET', 'utf8mb4');
 
     define('DB_USR', 'root');
-    define('DB_PWD', 'root');
+    define('DB_PWD', '');
 }
 
 /* function defineConnection()

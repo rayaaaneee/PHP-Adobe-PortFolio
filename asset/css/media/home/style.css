@@ -159,6 +159,15 @@
             width: 37%;
         }
 
+        .chevron {
+            width: 70px;
+        }
+
+        .card.view {
+            width: 250px;
+            height: 375px;
+        }
+
         @media screen and (max-width:427px) {
             .content{
                 width: 140px;
@@ -169,7 +178,6 @@
                 font-size: clamp(0.8rem, 1vw, 1rem);
             }
 
-            
             .to_link, .to_download {
                 column-gap: 4px;
             }
@@ -183,6 +191,15 @@
             .horizontal-bars {
                 width: 60%;
                 height: 10px;
+            }
+
+            .projects-chevrons-container .chevron {
+                width: 50px;
+            }
+
+            .card.view {
+                width: 215px;
+                height: 320px;
             }
         }
     }

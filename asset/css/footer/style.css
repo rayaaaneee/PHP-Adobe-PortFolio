@@ -1,8 +1,9 @@
 /* Parametres du footer et design du footer */
 footer {
+    max-height: 75px;
     position: relative;
-    bottom: 20px;
     background-color: rgb(255, 255, 255, 0.8);
+    transition: background-color var(--general-transition-switch-mode);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     display: grid;
     width: 100vw;
@@ -91,20 +92,4 @@ footer {
 
 .footer-phone-img {
     background-image: url(../../img/footer/phone.png);
-}
-
-.footer-github-img-dark {
-    background-image: url(../../img/footer/github-white.png);
-}
-
-.footer-linkedin-img-dark {
-    background-image: url(../../img/footer/linkedin-white.png);
-}
-
-.footer-mail-img-dark {
-    background-image: url(../../img/footer/mail-white.png);
-}
-
-.footer-phone-img-dark {
-    background-image: url(../../img/footer/phone-white.png);
 }

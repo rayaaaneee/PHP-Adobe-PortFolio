@@ -15,6 +15,7 @@
 /* Définir la taille du CV  */
 #imgcv img {
     margin-top : 75px;
+    border-radius: 30px;
     width: 75%;
     z-index: 2;
 }
@@ -144,10 +145,13 @@
 }
 
 /* Créer la barre blanche de séparation entre CV et le text*/
+html {
+    --cv-bar-width: 75%;
+}
 .framecv-bar{
     display: flex;
     justify-self: center;
-    width: 75%;
+    width: var(--cv-bar-width);
     height: 5px;
     background-color: white;
     border-radius: 5px;
@@ -205,6 +209,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     column-gap: 5px;
     color: rgb(255, 255, 255);
     text-shadow: 1px 0 0 black, 1px 1px 0 black, 0 1px 0 black, -1px 1px 0 black, -1px 0 0 black, -1px -1px 0 black, 0 -1px 0 black, 1px -1px 0 black;

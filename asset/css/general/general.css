@@ -1,7 +1,22 @@
+html {
+  --general-transition-switch-mode: 0.2s;
+}
+
 body {
-    background-color: rgb(230, 230, 230);
+    background: linear-gradient(to left, blanchedalmond, #f0f0f0);
     padding:0;
     margin:0;
+}
+
+/* Personnalisation du titre de page*/
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 auto;
 }
 
 * {
@@ -22,6 +37,10 @@ li {
 
 label{
     margin-bottom: 10px;
+}
+
+.title p {
+  color: rgb(86 86 86 / 88%);
 }
 
 a:link { color: initial }          /* Liens non visités */
@@ -47,14 +66,26 @@ body *::selection {
   background-color: var(--selection-background-color);
 }
 
-.body-dark *::-moz-selection {
+body.body-dark * {
+  color: white;
+}
+
+body.body-dark {
+  background : rgb(46 45 45);
+}
+
+body.body-dark *::-moz-selection {
   color: var(--selection-color-dark);
   background-color: var(--selection-background-color-dark);
 }
 
-.body-dark *::selection {
+body.body-dark *::selection {
   color: var(--selection-color-dark);
   background-color: var(--selection-background-color-dark);
+}
+
+body.body-dark .title p {
+  color : rgb(228 209 209 / 88%) !important;
 }
 
 

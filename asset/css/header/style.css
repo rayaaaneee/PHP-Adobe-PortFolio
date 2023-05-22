@@ -5,12 +5,13 @@
     margin-top : 0;
     font-weight : bold;    
     background-color: rgba(255, 255, 255, 0.9); 
+    transition: background-color var(--general-transition-switch-mode);
     backdrop-filter: blur(5px);
     justify-content : flex-end;
     height: 67px;
     align-items: center;
-    border-bottom: 2px solid rgb(0, 0, 0, 0.4);
     letter-spacing: 0.4px;
+    box-shadow: 0 0 40px rgb(0 0 0 / 20%);
 }
 
 /* Disposition et personnification des items */
@@ -29,10 +30,15 @@
     padding-inline: 20px;
 }
 
+.menu .sites p {
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Le bas de chaque case survolée s'agrandit de 10px mais pas le reste */
 .menu li:hover{
-    translate: 0px 4px;
-    border-bottom: 7px solid rgb(239, 195, 153);
+    transform: translateY(2.5px);
+    border-bottom: 5px solid rgb(239, 195, 153);
+    border-radius: 3px;
 }
 
 /* Colorier en jaune aussi le texte du menu */
@@ -57,22 +63,18 @@ body {
 .logo {
     position: absolute;
     max-width: 60px;
-    top: 0.5%;
     left: 1%;
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     background-image: url(../../img/header/portfolio_logo.png);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.logo-dark {
-    background-image: url(../../img/header/dark-theme/dark_portfolio_logo.png);
-}
-
-.t1{
-    margin-top: 100px;
+/* Mettre le titre assez bas pour qu'on puisse le voir */
+.t1 {
+    padding-top: 70px;
 }
 
 .mediamenu{
@@ -99,32 +101,22 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     transition: 0.3s;
-}
-
-.dark-mode-button {
     background-image: url(../../img/header/dark-mode.png);
     width: 40px;
     height: 40px;
 }
 
-.dark-mode-button:hover {
-    background-image: url(../../img/header/yellow-dark-mode.png);
-}
-
-.light-mode-button {
-    background-image: url(../../img/header/light-mode-white.png);
-    width: 45px;
-    height: 45px;
-}
-
-.light-mode-button:hover {
-    background-image: url(../../img/header/light-mode-yellow.png);
-}
-
-.mode-button:hover{
-    background-color: none;
+.mode-button:hover {
+    background-image: url(../../img/header/dark-mode-hover.png);
 }
 
 .menu .sites > p {
     color: black;
+}
+
+.menu-logo-container {
+    width: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }

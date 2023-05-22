@@ -1,6 +1,6 @@
 <head>
     <!-- CSS DE BASE-->
-    <link rel="stylesheet" href="<?= PATH_CSS; ?>perso/style.css">
+    <link rel="stylesheet" href="<?= PATH_CSS; ?>perso/style.scss">
     <!-- CSS DARK MODE -->
     <link rel="stylesheet" href="<?= PATH_CSS; ?>perso/dark-style.css">
     <!-- CSS DES MEDIA QUERIES -->

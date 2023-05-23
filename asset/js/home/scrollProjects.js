@@ -37,6 +37,8 @@ class scrollProjects {
             setTimeout(() => {
                 this.#chevrons.left.classList.remove('alert');
             }, 400);
+        } else {
+            this.#animateChevrons(this.#chevrons.left);
         }
     }
 
@@ -48,7 +50,16 @@ class scrollProjects {
             setTimeout(() => {
                 this.#chevrons.right.classList.remove('alert');
             }, 400);
+        } else {
+            this.#animateChevrons(this.#chevrons.right);
         }
+    }
+
+    #animateChevrons = (chevron) => {
+        chevron.classList.add('scale');
+        setTimeout(() => {
+            chevron.classList.remove('scale');
+        }, 300);
     }
 }
 

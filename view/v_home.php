@@ -12,7 +12,7 @@
     <!-- SCRIPTS JS -->
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>home/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>home/3dEffectCard.js" defer></script>
-    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>home/buttonsScroll.js" defer></script>
+    <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>home/scrollProjects.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>header/script.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/moveBackground.js" defer></script>
     <script type="text/javascript" src="<?= PATH_SCRIPTS; ?>general/removeLoader.js" defer></script>

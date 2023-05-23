@@ -35,14 +35,21 @@
     width: 100px;
     color: rgb(86 86 86 / 88%);
     transition: all 0.3s ease;
-    &:hover {
-      cursor: pointer;
-      scale: 1.1;
-      color: #302e2d;
-    }
+    background: #dcb2b200;
+    border-radius: 50%;
 
     &.alert {
-      animation: scaleInOut 0.4s ease;
+      animation: scaleInOut 0.3s ease;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: rgb(40, 40, 40);
+      scale: 1.1;
+    }
+
+    &.scale {
+      scale: 1;
     }
   }
 }
@@ -55,14 +62,11 @@
   50% {
     scale: 1.3;
     color: rgb(232, 175, 175);
+    background: #dcb2b25c;
   }
   100% {
     scale: 1.1;
   }
-}
-
-.projects::-webkit-scrollbar {
-  display: none;
 }
 
 /* Design d'une case */

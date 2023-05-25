@@ -25,14 +25,13 @@ class scrollProjects {
         let gap = this.#projectsContainer.querySelector('.main-container').offsetWidth;
         let rowGap = window.getComputedStyle(this.#projectsContainer).getPropertyValue('row-gap');
         // On divise par 2 car la marge est appliquée à la fois à gauche et à droite
-        rowGap = parseInt(rowGap) / 2;
+        rowGap = parseInt(rowGap);
         return gap + rowGap;
     }
 
     #scrollLeft = () => {
         this.#projectsContainer.scrollLeft -= this.gap;
         if (this.#projectsContainer.scrollLeft === 0) {
-            console.log('alert');
             this.#chevrons.left.classList.add('alert');
             setTimeout(() => {
                 this.#chevrons.left.classList.remove('alert');
@@ -45,7 +44,6 @@ class scrollProjects {
     #scrollRight = () => {
         this.#projectsContainer.scrollLeft += this.gap;
         if (this.#projectsContainer.scrollLeft === this.#projectsContainer.scrollWidth - this.#projectsContainer.offsetWidth) {
-            console.log('alert');
             this.#chevrons.right.classList.add('alert');
             setTimeout(() => {
                 this.#chevrons.right.classList.remove('alert');

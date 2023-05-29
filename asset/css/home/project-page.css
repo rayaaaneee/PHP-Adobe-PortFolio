@@ -250,8 +250,10 @@ html {
     margin-top: 2vw;
     width: fit-content;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     column-gap: 2vw;
+    row-gap: 2vw;
 }
 
 .project-size-container {
@@ -281,5 +283,4 @@ html {
 .title-language-skill {
     margin: 0;
     padding: 0;
-    margin-bottom: 13px;
 }
